@@ -101,13 +101,17 @@
               <div class="kutup-form-grid-5">
                 <div class="kutup-field-3 kutup-select">
                   <select
+                  (change)="onIdDomaineChange()"
                     id="Category-2"
                     name="Category-2"
                     required=""
                     data-name="Category 2"
                     class="kutup-select-field-3 w-select"
+                    [(ngModel)]="idDomaine"
+                    
                   >
-                    <option *ngFor="let domaine of domaines" value="{{domaine.nomDomaine}}">{{domaine.nomDomaine}}</option>
+                    <option value="" disabled selected>Choisi Domaine</option>
+                    <option *ngFor="let domaine of domaines" value="{{domaine.idDomaine}}">{{domaine.nomDomaine}}</option>
                   </select>
                 </div>
                 <div class="kutup-field-3 kutup-select">
@@ -118,10 +122,9 @@
                     data-name="Category 2"
                     class="kutup-select-field-3 w-select"
                   >
-                    <option value="">Catégorie</option>
-                    <option value="First">Option 1</option>
-                    <option value="Second">Option 2</option>
-                    <option value="Third">Option 3</option>
+                  <option value="" disabled selected>Choisi Categorie</option>
+                  <option *ngFor="let categorie of categories" value="{{categorie.idCategorie}}">{{categorie.nomCategorie}}</option>
+
                   </select>
                 </div>
               </div>
