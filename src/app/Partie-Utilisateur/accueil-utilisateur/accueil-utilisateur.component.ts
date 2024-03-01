@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DomaineService } from '../Services/domaine.service';
-import { domaineBeans } from '../Beans/DomaineBean';
+import { DomaineService } from '../Services/DomaineCategorie.service';
+import { domaineBean } from '../Beans/domaineBean';
+import { categorieBean } from '../Beans/categorieBean';
 
 @Component({
   selector: 'app-accueil-utilisateur',
@@ -9,15 +10,26 @@ import { domaineBeans } from '../Beans/DomaineBean';
 })
 export class AccueilUtilisateurComponent implements OnInit{
   
-  constructor(private _serviceDomaine:DomaineService){}
+  constructor(private _service:DomaineService){}
 
-  domaines:domaineBeans[]=[]
+  domaines:domaineBean[]=[]
+  idDomaine:string=''
+
+  categories:categorieBean[]=[];
 
 
   ngOnInit(): void {
-    this._serviceDomaine.getAllDomaine().subscribe(
+    this._service.getAllDomaine().subscribe(
       resp=>{
         this.domaines=resp;
+      }
+    )
+  }
+
+  onIdDomaineChange(){
+    this._service.getCategorieByIddomaine(this.idDomaine).subscribe(
+      resp=>{
+        this.categories=resp;
       }
     )
   }
