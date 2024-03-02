@@ -6,6 +6,7 @@ import { DomaineUtilisateurComponent } from './Partie-Utilisateur/domaine-utilis
 import { RechercheUtilisateurComponent } from './Partie-Utilisateur/recherche-utilisateur/recherche-utilisateur.component';
 import { AproposUtilisateurComponent } from './Partie-Utilisateur/apropos-utilisateur/apropos-utilisateur.component';
 import { ContactUtilisateurComponent } from './Partie-Utilisateur/contact-utilisateur/contact-utilisateur.component';
+import { ConditionComponent } from './Partie-Utilisateur/condition/condition.component';
 
 
 //routes partie utilisateur
@@ -17,12 +18,14 @@ const utilisateurRoutes:Routes=[
   {path:'recherche-utilisateur' , component:RechercheUtilisateurComponent},
   {path:'apropos-utilisateur' , component:AproposUtilisateurComponent},
   {path:'contact-utilisateur' , component:ContactUtilisateurComponent},
+ 
 
 ]
 
 const routes: Routes = [
   {path:'' , redirectTo: '/utilisateur/accueil-utilisateur', pathMatch: 'full'},
-  {path:'utilisateur' , children:utilisateurRoutes}
+  {path:'utilisateur' , children:utilisateurRoutes},
+  {path:'termes-conditions' , component:ConditionComponent},
 ];
 
 @NgModule({

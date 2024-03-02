@@ -6,7 +6,6 @@ import { categorieBean } from '../Beans/categorieBean';
 @Component({
   selector: 'app-accueil-utilisateur',
   templateUrl: './accueil-utilisateur.component.html',
-  styleUrls: ['./accueil-utilisateur.component.css']
 })
 export class AccueilUtilisateurComponent implements OnInit{
   
