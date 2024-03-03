@@ -1,0 +1,154 @@
+<body>
+    <app-menu-utilisateur></app-menu-utilisateur>
+    <div class="kutup-section">
+        <div class="kutup-large-container">
+            <div class="kutup-max-w-width-640px">
+                <div class="kutup-small-top-text">Bienvenue !</div>
+                <h2 class="kutup-display-3">Veuillez Saisir Vos Coordonnées</h2>
+            </div>
+            <div class="kutup-divider-40px"></div>
+            <div>
+                <div class="kutup-request-form w-form">
+
+                    <div class="kutup-form-grid-2">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.nom" maxlength="256" placeholder="Nom" type="text" required="">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.prenom" maxlength="256" placeholder="Prénom" type="text" required="">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.pays" maxlength="256" placeholder="Pays" type="text" required="">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.ville" maxlength="256" placeholder="Ville" type="text" required="">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.email" maxlength="256" placeholder="Email" type="email" required="">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.motDePasse" maxlength="256" placeholder="Mot de passe" type="password" required="">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.numeroTelephone" maxlength="256" placeholder="Numéro de téléphone" type="number" required="">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.cin" maxlength="256" placeholder="CIN" type="text" required="">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.adresse" maxlength="256" placeholder="Adresse" type="text" required="">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.rib" maxlength="256" placeholder="RIB" type="number" required="">
+                        <div class="kutup-field kutup-select">
+                          <select [(ngModel)]="formData.banque" required="" class="kutup-select-field w-select">
+                            <option value="">Banque</option>
+                            <option value="Al Akhdar Bank">Al Akhdar Bank</option>
+                            <option value="Attijari Wafa Bank">Attijari Wafa Bank</option>
+                            <option value="Banque Populaire">Banque Populaire</option>
+                            <option value="CIH banque">CIH banque</option>
+                            <option value="Umnia Bank">Umnia Bank</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+
+                    <label for="" class="field-label">Langues</label>
+
+                <label class="w-checkbox checkbox-field">
+                <input type="checkbox" [(ngModel)]="formData.francais" class="w-checkbox-input">
+                <span class="w-form-label" for="Checkbox-fr">Français</span>
+                </label>
+                <br>
+
+                <label class="w-checkbox checkbox-field-2">
+                <input type="checkbox" [(ngModel)]="formData.anglais" class="w-checkbox-input">
+                <span class="w-form-label" for="Checkbox-eng">Anglais</span>
+                </label>
+                <br>
+
+                <label class="w-checkbox checkbox-field-3">
+                <input type="checkbox" [(ngModel)]="formData.arabe" class="w-checkbox-input">
+                <span class="w-form-label" for="Checkbox-ar">Arabe</span>
+                </label>
+                <br>
+
+                <label class="w-checkbox checkbox-field-4">
+                <input type="checkbox" [(ngModel)]="formData.espagnol" class="w-checkbox-input">
+                <span class="w-form-label" for="Checkbox-esp">Espagnol</span>
+                </label>
+
+                    <br>
+
+                    <div class="kutup-divider-20px-2"></div>
+
+                    <!-- Formations -->
+                    <div>
+                        <h3>Formations</h3>
+                        <div *ngFor="let formation of formData.formations; let i = index; trackBy: trackByFn">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.formations[i]" placeholder="Formation {{ i + 1 }}" />
+                        <button type="button" (click)="supprimerFormation(i)" class="kutup-button kutup-button-danger">Supprimer</button>
+                        </div>
+                        <button type="button" (click)="ajouterFormation()" class="kutup-button">Ajouter une formation</button>
+                    </div>
+                    
+                    <!-- Éducations -->
+                    <div>
+                        <h3>Éducations</h3>
+                        <div *ngFor="let education of formData.educations; let i = index; trackBy: trackByFn">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.educations[i]" placeholder="Éducation {{ i + 1 }}" />
+                        <button type="button" (click)="supprimerEducation(i)" class="kutup-button kutup-button-danger">Supprimer</button>
+                        </div>
+                        <button type="button" (click)="ajouterEducation()" class="kutup-button">Ajouter une éducation</button>
+                    </div>
+                    
+                    <!-- Expériences professionnelles -->
+                    <div>
+                        <h3>Expériences professionnelles</h3>
+                        <div *ngFor="let experiencePro of formData.experiencesPro; let i = index; trackBy: trackByFn">
+                        <input class="kutup-field w-input" [(ngModel)]="formData.experiencesPro[i]" placeholder="Expérience Pro {{ i + 1 }}" />
+                        <button type="button" (click)="supprimerExperiencePro(i)" class="kutup-button kutup-button-danger">Supprimer</button>
+                        </div>
+                        <button type="button" (click)="ajouterExperiencePro()" class="kutup-button">Ajouter une expérience pro</button>
+                    </div>
+
+
+                    <br><br>
+                    <div>
+                        <h3>Description du profil</h3>
+                        <textarea required="" placeholder="Description du profil" maxlength="5000" class="textarea w-input"  [(ngModel)]="formData.descriptionProfile"></textarea>
+                    </div>
+
+                    <div class="kutup-divider-15px"></div>
+
+
+                    <div class="kutup-form-grid-5">
+                        <div class="kutup-field-3 kutup-select">
+                            <select
+                            (change)="onIdDomaineChange()"
+                            id="Category-2"
+                            name="Category-2"
+                            required=""
+                            data-name="Category 2"
+                            class="kutup-select-field-3 w-select"
+                            [(ngModel)]="idDomaine"
+                            
+                            >
+                            <option value="" disabled selected>Choisi Domaine</option>
+                            <option *ngFor="let domaine of domaines" value="{{domaine.idDomaine}}">{{domaine.nomDomaine}}</option>
+                            </select>
+                        </div>
+
+                        <label class="w-checkbox checkbox-field-2" *ngFor="let categorie of categories">
+                            <input type="checkbox" (change)="ajouterSpecialisation(categorie.nomCategorie)" class="w-checkbox-input">
+                            <span class="w-form-label" for="Checkbox-eng">{{categorie.nomCategorie}}</span>
+                        </label>
+                          
+
+                    </div>
+
+                    <br><br>
+                    <div class="kutup-form-grid-2">
+                        <!-- ... autres champs du formulaire ... -->
+                        <input type="file" (change)="onFileChange($event)" accept="image/*" />
+                      </div>
+                    <br><br>
+                    <label class="w-checkbox kutup-checkbox-field">
+
+                        <input type="checkbox" class="w-checkbox-input w-checkbox-input--inputType-custom kutup-checkbox w--redirected-checked"
+                            [(ngModel)]="conditionsAccepted">
+                        <span class="kutup-checkbox-label w-form-label" for="Checkbox-terme">I agree to the
+                        <a (click)="ouvrirNouvelOnglet()" style="cursor: pointer;"><span> </span>
+                            <span class="text-span-10">termes &amp; condition générales</span></a>
+                        <div class="kutup-divider-20px-2"></div>
+                        <input type="submit" class="kutup-button-green-2 w-button" value="S&#x27;inscrire" (click)="sinscrire()">
+                        </span>
+
+                    </label>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

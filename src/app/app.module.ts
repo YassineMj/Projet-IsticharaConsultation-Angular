@@ -13,6 +13,7 @@ import { ContactUtilisateurComponent } from './Partie-Utilisateur/contact-utilis
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ConditionComponent } from './Partie-Utilisateur/condition/condition.component';
+import { SinscrireComponent } from './Partie-Consultant/sinscrire/sinscrire.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ConditionComponent } from './Partie-Utilisateur/condition/condition.com
     RechercheUtilisateurComponent,
     AproposUtilisateurComponent,
     ContactUtilisateurComponent,
-    ConditionComponent
+    ConditionComponent,
+    SinscrireComponent
   ],
   imports: [
     BrowserModule,
