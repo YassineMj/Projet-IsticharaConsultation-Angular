@@ -20,6 +20,6 @@ export interface consultantBean{
     adresse: string;
     rib: string;
     banque: string;
-    photoProfile:any
+    photoProfile:string
 
 }

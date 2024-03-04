@@ -5,6 +5,7 @@ import { domaineBean } from 'src/app/Partie-Utilisateur/Beans/domaineBean';
 import { DomaineService } from 'src/app/Partie-Utilisateur/Services/DomaineCategorie.service';
 import { categorieBean } from 'src/app/Partie-Utilisateur/Beans/categorieBean';
 import { saveAs } from 'file-saver';
+import { ConsultantService } from '../Services/consultant.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { saveAs } from 'file-saver';
 })
 export class SinscrireComponent {
 
-  constructor(private router: Router , private _service:DomaineService) {}
+  constructor(private router: Router , private _service:DomaineService ,private _consultantService:ConsultantService) {}
 
   ngOnInit(): void {
     this._service.getAllDomaine().subscribe(
@@ -45,7 +46,7 @@ export class SinscrireComponent {
     adresse: '',
     rib: '',
     banque: '',
-    photoProfile:null
+    photoProfile:''
   };
 
   ajouterFormation(): void {
@@ -111,44 +112,13 @@ export class SinscrireComponent {
 
   onFileChange(event: any): void {
     const file = event.target.files[0];
-    this.encodeImageBase64(file);
-  }
-
-  encodeImageBase64(file: File): void {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      this.formData.photoProfile = reader.result as string;
-
-      // Enregistrer la chaîne base64 dans un fichier local avec un nom unique (horodatage)
-      const blob = this.base64ToBlob(this.formData.photoProfile);
-      const timestamp = new Date().getTime(); // Horodatage actuel
-      const fileName = `photo_profile_${timestamp}.png`; // Nom du fichier avec un horodatage
-
-      // Spécifier le chemin pour enregistrer le fichier (dans le dossier "assets/images/")
-      const filePath = `${fileName}`;
-
-      // Utiliser FileSaver.js pour enregistrer le fichier dans le dossier choisi
-      saveAs(blob, filePath);
-
-      // Stocker le nom du fichier dans formData
-      this.formData.photoProfile = filePath;
-    };
-    reader.readAsDataURL(file);
-  }
-
-
-  base64ToBlob(base64Data: string): Blob {
-    const parts = base64Data.split(';base64,');
-    const contentType = parts[0].split(':')[1];
-    const raw = window.atob(parts[1]);
-    const rawLength = raw.length;
-    const uint8Array = new Uint8Array(rawLength);
-
-    for (let i = 0; i < rawLength; ++i) {
-      uint8Array[i] = raw.charCodeAt(i);
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.formData.photoProfile = reader.result as string;
+      };
+      reader.readAsDataURL(file);
     }
-
-    return new Blob([uint8Array], { type: contentType });
   }
 
 
@@ -156,11 +126,18 @@ export class SinscrireComponent {
   sinscrire(): void {
     if (this.conditionsAccepted) {
       // Appeler votre fonction sinscrire() ici
-      console.log('Inscription en cours...');
-      console.log(this.formData);
-      
+      this._consultantService.addConsultant(this.formData).subscribe(
+        resp => {
+          console.log('Consultant uploadé avec succès. ID du consultant :', resp);
+          // Ajoutez ici la logique pour traiter l'ID du consultant si nécessaire
+        },
+        (error) => {
+          console.error('Erreur lors de l\'upload du consultant', error);
+          // Gérez les erreurs d'upload ici
+        }
+      );      
     } else {
-      console.log('Veuillez accepter les conditions générales avant de vous inscrire.');
+      
     }
   }
 }
