@@ -8,6 +8,8 @@
       </div>
       <div class="kutup-divider-40px"></div>
       <div>
+
+
         <div class="kutup-request-form w-form">
           <div class="kutup-form-grid-2">
             <input
@@ -107,147 +109,153 @@
           </div>
 
           <label for="" class="field-label">Langues</label>
+          <div id="checkgrid">
+            <label class="w-checkbox checkbox-field">
+              <input
+                type="checkbox"
+                [(ngModel)]="formData.francais"
+                class="w-checkbox-input"
+              />
+              <span class="w-form-label" for="Checkbox-fr">Français</span>
+            </label>
+            <br />
 
-          <label class="w-checkbox checkbox-field">
-            <input
-              type="checkbox"
-              [(ngModel)]="formData.francais"
-              class="w-checkbox-input"
-            />
-            <span class="w-form-label" for="Checkbox-fr">Français</span>
-          </label>
-          <br />
+            <label class="w-checkbox checkbox-field-2">
+              <input
+                type="checkbox"
+                [(ngModel)]="formData.anglais"
+                class="w-checkbox-input"
+              />
+              <span class="w-form-label" for="Checkbox-eng">Anglais</span>
+            </label>
+            <br />
 
-          <label class="w-checkbox checkbox-field-2">
-            <input
-              type="checkbox"
-              [(ngModel)]="formData.anglais"
-              class="w-checkbox-input"
-            />
-            <span class="w-form-label" for="Checkbox-eng">Anglais</span>
-          </label>
-          <br />
+            <label class="w-checkbox checkbox-field-3">
+              <input
+                type="checkbox"
+                [(ngModel)]="formData.arabe"
+                class="w-checkbox-input"
+              />
+              <span class="w-form-label" for="Checkbox-ar">Arabe</span>
+            </label>
+            <br />
 
-          <label class="w-checkbox checkbox-field-3">
-            <input
-              type="checkbox"
-              [(ngModel)]="formData.arabe"
-              class="w-checkbox-input"
-            />
-            <span class="w-form-label" for="Checkbox-ar">Arabe</span>
-          </label>
-          <br />
-
-          <label class="w-checkbox checkbox-field-4">
-            <input
-              type="checkbox"
-              [(ngModel)]="formData.espagnol"
-              class="w-checkbox-input"
-            />
-            <span class="w-form-label" for="Checkbox-esp">Espagnol</span>
-          </label>
+            <label class="w-checkbox checkbox-field-4">
+              <input
+                type="checkbox"
+                [(ngModel)]="formData.espagnol"
+                class="w-checkbox-input"
+              />
+              <span class="w-form-label" for="Checkbox-esp">Espagnol</span>
+            </label>
+          </div>
 
           <br />
 
           <div class="kutup-divider-20px-2"></div>
 
           <!-- Formations -->
-          <div>
-            <h3>Formations</h3>
-            <div
-              *ngFor="
-                let formation of formData.formations;
-                let i = index;
-                trackBy: trackByFn
-              "
-            >
-              <input
-                class="kutup-field w-input"
-                [(ngModel)]="formData.formations[i]"
-                placeholder="Formation {{ i + 1 }}"
-              />
+          <hr />
+          <div id="formations">
+            <div>
+              <h3>Formations</h3>
+              <div
+                *ngFor="
+                  let formation of formData.formations;
+                  let i = index;
+                  trackBy: trackByFn
+                "
+              >
+                <input
+                  class="kutup-field w-input"
+                  [(ngModel)]="formData.formations[i]"
+                  placeholder="Formation {{ i + 1 }}"
+                />
+                <button
+                  type="button"
+                  (click)="supprimerFormation(i)"
+                  class="kutup-button kutup-button-danger"
+                >
+                  Supprimer
+                </button>
+              </div>
               <button
                 type="button"
-                (click)="supprimerFormation(i)"
-                class="kutup-button kutup-button-danger"
+                (click)="ajouterFormation()"
+                class="kutup-button"
               >
-                Supprimer
+                Ajouter une formation
               </button>
             </div>
-            <button
-              type="button"
-              (click)="ajouterFormation()"
-              class="kutup-button"
-            >
-              Ajouter une formation
-            </button>
-          </div>
 
-          <!-- Éducations -->
-          <div>
-            <h3>Éducations</h3>
-            <div
-              *ngFor="
-                let education of formData.educations;
-                let i = index;
-                trackBy: trackByFn
-              "
-            >
-              <input
-                class="kutup-field w-input"
-                [(ngModel)]="formData.educations[i]"
-                placeholder="Éducation {{ i + 1 }}"
-              />
+            <!-- Éducations -->
+            <div>
+              <h3>Éducations</h3>
+              <div
+                *ngFor="
+                  let education of formData.educations;
+                  let i = index;
+                  trackBy: trackByFn
+                "
+              >
+                <input
+                  class="kutup-field w-input"
+                  [(ngModel)]="formData.educations[i]"
+                  placeholder="Éducation {{ i + 1 }}"
+                />
+                <button
+                  type="button"
+                  (click)="supprimerEducation(i)"
+                  class="kutup-button kutup-button-danger"
+                >
+                  Supprimer
+                </button>
+              </div>
               <button
                 type="button"
-                (click)="supprimerEducation(i)"
-                class="kutup-button kutup-button-danger"
+                (click)="ajouterEducation()"
+                class="kutup-button"
               >
-                Supprimer
+                Ajouter une éducation
               </button>
             </div>
-            <button
-              type="button"
-              (click)="ajouterEducation()"
-              class="kutup-button"
-            >
-              Ajouter une éducation
-            </button>
-          </div>
 
-          <!-- Expériences professionnelles -->
-          <div>
-            <h3>Expériences professionnelles</h3>
-            <div
-              *ngFor="
-                let experiencePro of formData.experiencesPro;
-                let i = index;
-                trackBy: trackByFn
-              "
-            >
-              <input
-                class="kutup-field w-input"
-                [(ngModel)]="formData.experiencesPro[i]"
-                placeholder="Expérience Pro {{ i + 1 }}"
-              />
+            <!-- Expériences professionnelles -->
+            <div>
+              <h3>Expériences professionnelles</h3>
+              <div
+                *ngFor="
+                  let experiencePro of formData.experiencesPro;
+                  let i = index;
+                  trackBy: trackByFn
+                "
+              >
+                <input
+                  class="kutup-field w-input"
+                  [(ngModel)]="formData.experiencesPro[i]"
+                  placeholder="Expérience Pro {{ i + 1 }}"
+                />
+                <button
+                  type="button"
+                  (click)="supprimerExperiencePro(i)"
+                  class="kutup-button kutup-button-danger"
+                >
+                  Supprimer
+                </button>
+              </div>
               <button
                 type="button"
-                (click)="supprimerExperiencePro(i)"
-                class="kutup-button kutup-button-danger"
+                (click)="ajouterExperiencePro()"
+                class="kutup-button"
               >
-                Supprimer
+                Ajouter une expérience pro
               </button>
             </div>
-            <button
-              type="button"
-              (click)="ajouterExperiencePro()"
-              class="kutup-button"
-            >
-              Ajouter une expérience pro
-            </button>
           </div>
+          <br />
 
-          <br /><br />
+          <hr />
+          <br />
           <div>
             <h3>Description du profil</h3>
             <textarea
@@ -260,6 +268,7 @@
           </div>
 
           <div class="kutup-divider-15px"></div>
+             <h3>Domaine</h3>
 
           <div class="kutup-form-grid-5">
             <div class="kutup-field-3 kutup-select">
@@ -299,13 +308,14 @@
 
           <br /><br />
           <div class="kutup-form-grid-2">
-            <!-- ... autres champs du formulaire ... -->
             <input
               type="file"
+              id="choisirfichier"
               (change)="onFileChange($event)"
               accept="image/*"
             />
           </div>
+
           <br /><br />
           <label class="w-checkbox kutup-checkbox-field">
             <input

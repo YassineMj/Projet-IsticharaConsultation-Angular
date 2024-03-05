@@ -5,11 +5,25 @@
     color: white; /* Texte blanc */
     padding: 10px 15px; /* Espacement interne */
     border: none; /* Pas de bordure */
-    border-radius: 4px; /* Coins arrondis */
     cursor: pointer; /* Curseur pointer */
+    border-radius: 20px;
   }
-  
+
   .kutup-button-danger {
-    background-color: #d9534f; /* Couleur de fond rouge pour le bouton de suppression */
+    background-color: #d9534f;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 20px; /* Couleur de fond rouge pour le bouton de suppression */
   }
-   
+   #formations{
+    display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding-left: 10px;
+   }
+     #experience{
+      display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+     }
+
