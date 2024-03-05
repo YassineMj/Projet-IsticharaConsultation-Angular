@@ -12,6 +12,8 @@ import { AproposUtilisateurComponent } from './Partie-Utilisateur/apropos-utilis
 import { ContactUtilisateurComponent } from './Partie-Utilisateur/contact-utilisateur/contact-utilisateur.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ConditionComponent } from './Partie-Utilisateur/condition/condition.component';
+import { SinscrireComponent } from './Partie-Consultant/sinscrire/sinscrire.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     DomaineUtilisateurComponent,
     RechercheUtilisateurComponent,
     AproposUtilisateurComponent,
-    ContactUtilisateurComponent
+    ContactUtilisateurComponent,
+    ConditionComponent,
+    SinscrireComponent
   ],
   imports: [
     BrowserModule,

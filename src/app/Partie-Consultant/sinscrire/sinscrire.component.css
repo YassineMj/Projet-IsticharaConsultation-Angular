@@ -1,0 +1,15 @@
+/* Ajoutez ces styles à votre fichier de styles CSS */
+
+.kutup-button {
+    background-color: #4CAF50; /* Couleur de fond verte */
+    color: white; /* Texte blanc */
+    padding: 10px 15px; /* Espacement interne */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointer */
+  }
+  
+  .kutup-button-danger {
+    background-color: #d9534f; /* Couleur de fond rouge pour le bouton de suppression */
+  }
+   
