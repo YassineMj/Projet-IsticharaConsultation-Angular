@@ -3,6 +3,7 @@ export interface consultantBean{
     formations: string[];
     educations: string[];
     experiencesPro: string[];
+    idDomaine:string;
     specialisation: string[];
     descriptionProfile: string;
     francais: boolean;

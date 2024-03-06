@@ -12,7 +12,6 @@ export class AccueilUtilisateurComponent implements OnInit{
   constructor(private _service:DomaineService){}
 
   domaines:domaineBean[]=[]
-  idDomaine:string=''
 
   categories:categorieBean[]=[];
 
@@ -25,7 +24,9 @@ export class AccueilUtilisateurComponent implements OnInit{
     )
   }
 
-  onIdDomaineChange(){
+  idDomaine:string=''
+
+  onIdDomaineChange(){    
     this._service.getCategorieByIddomaine(this.idDomaine).subscribe(
       resp=>{
         this.categories=resp;

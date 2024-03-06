@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomaineService } from '../Services/DomaineCategorie.service';
 import { domaineBean } from '../Beans/domaineBean';
 import { categorieBean } from '../Beans/categorieBean';
+import { cosultantDomaineBean } from '../Beans/consultantDomainBean';
 
 @Component({
   selector: 'app-domaine-utilisateur',
@@ -18,6 +19,7 @@ export class DomaineUtilisateurComponent implements OnInit {
       (resp)=>{
         this.domaineList=resp;
         this.getCategories(this.domaineList[0].idDomaine);
+        this.getConsultants(this.domaineList[0].idDomaine);
       },
       (error)=>{
         console.error(error);
@@ -40,5 +42,20 @@ export class DomaineUtilisateurComponent implements OnInit {
 
   toggleAnswer(c: any) {
     c.open = !c.open;
+  }
+
+
+  consultantList:cosultantDomaineBean[]=[]
+  getConsultants(idDomaine:string){
+    this._service.getConsultantsByIddomaine(idDomaine).subscribe(
+      (resp)=>{
+        this.consultantList=resp
+      },
+      (error)=>{
+        console.error('Erreur lors de la récupération des consultants:', error);
+        
+      }
+    )
+    
   }
 }
