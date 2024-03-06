@@ -29,6 +29,7 @@ export class SinscrireComponent {
     formations: [],
     educations: [],
     experiencesPro: [],
+    idDomaine:'',
     specialisation:[],
     descriptionProfile: '',
     francais: false,
@@ -85,13 +86,12 @@ export class SinscrireComponent {
   }
 
   domaines:domaineBean[]=[]
-  idDomaine:string=''
 
   categories:categorieBean[]=[];
 
-  onIdDomaineChange(){
+  onIdDomaineChange(){   
     this.formData.specialisation=[];
-    this._service.getCategorieByIddomaine(this.idDomaine).subscribe(
+    this._service.getCategorieByIddomaine(this.formData.idDomaine).subscribe(
       resp=>{
         this.categories=resp;
       }
@@ -127,7 +127,9 @@ export class SinscrireComponent {
     if (this.conditionsAccepted) {
       // Appeler votre fonction sinscrire() ici
       this._consultantService.addConsultant(this.formData).subscribe(
-        resp => {
+        (resp) => {
+          console.log(resp);
+          
           console.log('Consultant uploadé avec succès. ID du consultant :', resp);
           // Ajoutez ici la logique pour traiter l'ID du consultant si nécessaire
         },

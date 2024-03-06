@@ -97,9 +97,10 @@
               <div class="kutup-form-grid-5">
                 <div class="kutup-field-3 kutup-select">
                   <select
-                  (change)="onIdDomaineChange()"
-                    class="kutup-select-field-3 w-select"
-                    [(ngModel)]="idDomaine" >
+                  [(ngModel)]="idDomaine"(change)="onIdDomaineChange()"
+                  name="Category-2"
+                  required=""
+                  class="kutup-select-field-3 w-select">
                     <option  disabled selected>Choisi Domaine</option>
                     <option *ngFor="let domaine of domaines" value="{{domaine.idDomaine}}">{{domaine.nomDomaine}}</option>
                   </select>

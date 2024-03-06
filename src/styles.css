@@ -2230,6 +2230,45 @@
     --dark-grey-2: #999;
   }
 
+  .aon-med-team {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd; /* Ajoutez une bordure pour délimiter chaque élément */
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .aon-med-team-pic {
+    width: 80px; /* Ajustez la largeur de l'image selon vos besoins */
+    height: 80px; /* Ajustez la hauteur de l'image selon vos besoins */
+    overflow: hidden;
+    border-radius: 50%; /* Forme de cercle */
+    margin-right: 15px;
+  }
+  
+  .aon-med-team-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Pour ajuster l'image dans le cercle sans déformation */
+  }
+  
+  .aon-med-team-info {
+    flex: 1;
+  }
+  
+  .aon-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .aon-med-team-position {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 3px;
+    color: #666;
+  }
+  
+
   .w-layout-grid {
     grid-row-gap: 16px;
     grid-column-gap: 16px;
@@ -2237,6 +2276,7 @@
     grid-template-columns: 1fr 1fr;
     grid-auto-columns: 1fr;
     display: grid;
+    margin-bottom: 6rem;
   }
 
   .w-checkbox {
@@ -5374,7 +5414,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
     display: flex;
   }
 
@@ -5387,7 +5427,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    margin-top: 6rem;
+    margin-top: 2rem;
     display: flex;
   }
 
