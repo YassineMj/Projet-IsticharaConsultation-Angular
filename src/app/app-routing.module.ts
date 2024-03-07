@@ -8,6 +8,7 @@ import { AproposUtilisateurComponent } from './Partie-Utilisateur/apropos-utilis
 import { ContactUtilisateurComponent } from './Partie-Utilisateur/contact-utilisateur/contact-utilisateur.component';
 import { ConditionComponent } from './Partie-Utilisateur/condition/condition.component';
 import { SinscrireComponent } from './Partie-Consultant/sinscrire/sinscrire.component';
+import { ProfilConsultantUtilisateurComponent } from './Partie-Utilisateur/profil-consultant-utilisateur/profil-consultant-utilisateur.component';
 
 
 //routes partie utilisateur
@@ -18,12 +19,14 @@ const utilisateurRoutes:Routes=[
   {path:'domaine-utilisateur' , component:DomaineUtilisateurComponent},
   {path:'recherche-utilisateur' , component:RechercheUtilisateurComponent},
   {path:'apropos-utilisateur' , component:AproposUtilisateurComponent},
-  {path:'contact-utilisateur' , component:ContactUtilisateurComponent},
+  { path: 'contact-utilisateur', component: ContactUtilisateurComponent },
+  { path: 'profilConsultant-utilisateur', component: ProfilConsultantUtilisateurComponent },
+
 ]
 
 //routes partie consultant
 const consultantRoutes:Routes=[
-  
+
   {path:'sinscrire-consultant' , component:SinscrireComponent},
 
 ]

@@ -86,15 +86,15 @@
       </div>
     </section>
     <div class="kutup-section-3">
-      <div class="kutup-large-container-3">
-        <div class="div-block-3">
+      <div  class="kutup-large-container-3">
+        <div  class="div-block-3">
           <div class="kutup-request-form-3 w-form">
-            <form
+            <form id="partieCherche"
               method="get"
               data-wf-page-id="65d76dd1b3e43ec2b273e1cc"
               data-wf-element-id="0f9a38fd-8a96-d13e-3cb9-a25405efee15"
             >
-              <div class="kutup-form-grid-5">
+              <div    class="kutup-form-grid-5">
                 <div class="kutup-field-3 kutup-select">
                   <select
                   [(ngModel)]="idDomaine"(change)="onIdDomaineChange()"
@@ -298,7 +298,7 @@
               data-infinite="false"
             >
               <div class="uui-blogsection10_mask w-slider-mask">
-    
+
                 <div *ngFor="let domaine of domaines" class="uui-blogsection10_slide w-slide">
                   <div class="uui-blogsection10_item">
                     <a
@@ -328,7 +328,7 @@
                 </div>
 
               </div>
-      
+
               <div
                 class="uui-blogsection10_slide-nav w-slider-nav w-round"
               ></div>
