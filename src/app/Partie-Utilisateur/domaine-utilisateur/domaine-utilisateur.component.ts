@@ -3,6 +3,7 @@ import { DomaineService } from '../Services/DomaineCategorie.service';
 import { domaineBean } from '../Beans/domaineBean';
 import { categorieBean } from '../Beans/categorieBean';
 import { cosultantDomaineBean } from '../Beans/consultantDomainBean';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-domaine-utilisateur',
@@ -10,7 +11,7 @@ import { cosultantDomaineBean } from '../Beans/consultantDomainBean';
 })
 export class DomaineUtilisateurComponent implements OnInit {
 
-  constructor(private _service :DomaineService){}
+  constructor(private _service :DomaineService , private router:Router){}
   
   domaineList:domaineBean[]=[];
   
@@ -57,5 +58,9 @@ export class DomaineUtilisateurComponent implements OnInit {
       }
     )
     
+  }
+
+  goToProfil(idConsultant:string){
+    this.router.navigate(['/utilisateur/profilConsultant-utilisateur',idConsultant ]);
   }
 }

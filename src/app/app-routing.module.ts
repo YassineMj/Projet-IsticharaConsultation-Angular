@@ -20,7 +20,7 @@ const utilisateurRoutes:Routes=[
   {path:'recherche-utilisateur' , component:RechercheUtilisateurComponent},
   {path:'apropos-utilisateur' , component:AproposUtilisateurComponent},
   { path: 'contact-utilisateur', component: ContactUtilisateurComponent },
-  { path: 'profilConsultant-utilisateur', component: ProfilConsultantUtilisateurComponent },
+  { path: 'profilConsultant-utilisateur/:idConsultant', component: ProfilConsultantUtilisateurComponent },
 
 ]
 
