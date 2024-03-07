@@ -22,6 +22,6 @@ export class DomaineService {
   }
 
   getConsultantsByIddomaine(idDomaine:string): Observable<any[]> {
-    return this.http.get<cosultantDomaineBean[]>('http://localhost:8080/IsticharaConsultation/api/consultant/'+idDomaine);
+    return this.http.get<cosultantDomaineBean[]>('http://localhost:8080/IsticharaConsultation/api/consultant/domaine/'+idDomaine);
   }
 }

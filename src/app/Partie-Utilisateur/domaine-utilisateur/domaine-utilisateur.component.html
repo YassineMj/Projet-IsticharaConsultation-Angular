@@ -58,7 +58,7 @@
             <div class="uui-blog02_list-wrapper">
               <div class="w-layout-grid uui-blog02_list">
 
-                <div *ngFor="let consultant of consultantList" class="aon-med-team bg-light-gray" bis_skin_checked="1">
+                <div *ngFor="let consultant of consultantList" class="aon-med-team bg-light-gray" bis_skin_checked="1" (click)="goToProfil(consultant.idConsultant)">
                   <div class="aon-med-team-pic" bis_skin_checked="1">
                     <img [src]="'../../../assets/images-consultants/'+consultant.photoProfile" alt="image du profil">
                   </div>
