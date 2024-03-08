@@ -2182,7 +2182,10 @@
   .wf-layout-layout {
     display: grid;
   }
-
+#sidentifer{
+  width:30%;
+  margin-left: 30%;
+}
 
   :root {
     --medium-sea-green: #5ab963;
@@ -3681,7 +3684,6 @@
     background-color: var(--moutard);
     color: #fff;
     border-radius: 35px;
-    margin-left: 60px;
     padding: 14px 0;
     font-size: 16px;
     font-weight: 700;
@@ -3692,7 +3694,6 @@
   .kutup-button-green:hover {
     width: 504px;
     background-color: var(--untitled-ui--primary600);
-    margin-left: 60px;
   }
 
   .kutup-divider-20px {
@@ -3885,6 +3886,7 @@
 
   .text-block-4 {
     font-size: 15px;
+    margin-left: 17%;
   }
 
   .udesly-code-snippet {

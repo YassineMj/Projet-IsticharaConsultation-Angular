@@ -9,6 +9,13 @@ import { ContactUtilisateurComponent } from './Partie-Utilisateur/contact-utilis
 import { ConditionComponent } from './Partie-Utilisateur/condition/condition.component';
 import { SinscrireComponent } from './Partie-Consultant/sinscrire/sinscrire.component';
 import { ProfilConsultantUtilisateurComponent } from './Partie-Utilisateur/profil-consultant-utilisateur/profil-consultant-utilisateur.component';
+import { SidentifierComponent } from './Partie-Consultant/sidentifier/sidentifier.component';
+import { RendezvousConsultantDashboardComponent } from './Partie-Consultant/rendezvous-consultant-dashboard/rendezvous-consultant-dashboard.component';
+import { ProfilConsultantDashboardComponent } from './Partie-Consultant/profil-consultant-dashboard/profil-consultant-dashboard.component';
+import { MenuConsultantDashboardComponent } from './Partie-Consultant/menu-consultant-dashboard/menu-consultant-dashboard.component';
+import { HelpConsultantDashboardComponent } from './Partie-Consultant/help-consultant-dashboard/help-consultant-dashboard.component';
+import { ContactConsultantDashboardComponent } from './Partie-Consultant/contact-consultant-dashboard/contact-consultant-dashboard.component';
+import { ConsultationsConsultantDashboardComponent } from './Partie-Consultant/consultations-consultant-dashboard/consultations-consultant-dashboard.component';
 
 
 //routes partie utilisateur
@@ -28,6 +35,19 @@ const utilisateurRoutes:Routes=[
 const consultantRoutes:Routes=[
 
   {path:'sinscrire-consultant' , component:SinscrireComponent},
+  { path: 'sidentifier-consultant', component: SidentifierComponent },
+  { path: 'rendezvous-consultant-dashboard', component: RendezvousConsultantDashboardComponent },
+  { path: 'profil-consultant-dashoard', component: ProfilConsultantDashboardComponent },
+  { path: 'menu-consultant-dashboard', component: MenuConsultantDashboardComponent },
+  { path: 'help-consultant-dashboard', component: HelpConsultantDashboardComponent },
+  { path: 'contact-consultant-dashboard', component: ContactConsultantDashboardComponent },
+  { path: 'consultations-consultant-dashboard', component: ConsultationsConsultantDashboardComponent },
+
+
+
+
+
+
 
 ]
 
