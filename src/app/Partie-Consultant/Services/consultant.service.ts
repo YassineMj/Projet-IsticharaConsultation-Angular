@@ -8,6 +8,8 @@ import { consultantBean } from '../Beans/consultantBean';
 })
 export class ConsultantService {
 
+  consultantAuthObjet:any=null
+
   constructor(private http: HttpClient) {}
 
   addConsultant(consultantInfo:any) {
@@ -16,6 +18,10 @@ export class ConsultantService {
 
   getConsultantProfil(idConsultant:string): Observable<consultantBean> {
     return this.http.get<consultantBean>('http://localhost:8080/IsticharaConsultation/api/consultant/profil-consultant/'+idConsultant);
+  }
+
+  authConsultant(consultant:any): Observable<consultantBean>{
+    return this.http.post<consultantBean>('http://localhost:8080/IsticharaConsultation/api/consultant/auth',consultant);
   }
 
 }
