@@ -15,6 +15,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConditionComponent } from './Partie-Utilisateur/condition/condition.component';
 import { SinscrireComponent } from './Partie-Consultant/sinscrire/sinscrire.component';
 import { ProfilConsultantUtilisateurComponent } from './Partie-Utilisateur/profil-consultant-utilisateur/profil-consultant-utilisateur.component';
+import { SidentifierComponent } from './Partie-Consultant/sidentifier/sidentifier.component';
+import { ProfilConsultantDashboardComponent } from './Partie-Consultant/profil-consultant-dashboard/profil-consultant-dashboard.component';
+import { RendezvousConsultantDashboardComponent } from './Partie-Consultant/rendezvous-consultant-dashboard/rendezvous-consultant-dashboard.component';
+import { HelpConsultantDashboardComponent } from './Partie-Consultant/help-consultant-dashboard/help-consultant-dashboard.component';
+import { MenuConsultantDashboardComponent } from './Partie-Consultant/menu-consultant-dashboard/menu-consultant-dashboard.component';
+import { ContactConsultantDashboardComponent } from './Partie-Consultant/contact-consultant-dashboard/contact-consultant-dashboard.component';
+import { ConsultationsConsultantDashboardComponent } from './Partie-Consultant/consultations-consultant-dashboard/consultations-consultant-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +35,14 @@ import { ProfilConsultantUtilisateurComponent } from './Partie-Utilisateur/profi
     ContactUtilisateurComponent,
     ConditionComponent,
     SinscrireComponent,
-    ProfilConsultantUtilisateurComponent
+    ProfilConsultantUtilisateurComponent,
+    SidentifierComponent,
+    ProfilConsultantDashboardComponent,
+    RendezvousConsultantDashboardComponent,
+    HelpConsultantDashboardComponent,
+    MenuConsultantDashboardComponent,
+    ContactConsultantDashboardComponent,
+    ConsultationsConsultantDashboardComponent
   ],
   imports: [
     BrowserModule,
