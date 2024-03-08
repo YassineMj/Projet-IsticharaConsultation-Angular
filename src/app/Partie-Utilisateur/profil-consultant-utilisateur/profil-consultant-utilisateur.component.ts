@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { consultantBean } from 'src/app/Partie-Consultant/Beans/consultantBean';
 import { ConsultantService } from 'src/app/Partie-Consultant/Services/consultant.service';
 
 
@@ -17,6 +16,9 @@ export class ProfilConsultantUtilisateurComponent implements OnInit{
   idConsultant:any
   consultantProfil!:any;
 
+  morceauxDescription!:any;
+  langues:string[]=[]
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params=>{
       this.idConsultant=params.get('idConsultant');
@@ -25,6 +27,23 @@ export class ProfilConsultantUtilisateurComponent implements OnInit{
     this._service.getConsultantProfil(this.idConsultant).subscribe(
       (resp)=>{
         this.consultantProfil=resp;
+        this.morceauxDescription = this.diviserChaineEnMorceaux(this.consultantProfil.descriptionProfile, 120);
+        if(this.consultantProfil.francais==true){
+          this.langues.push('Francais');
+        }
+
+        if(this.consultantProfil.anglais==true){
+          this.langues.push('Anglais');
+        }
+
+        if(this.consultantProfil.espagnol==true){
+          this.langues.push('Espagnol');
+        }
+
+        if(this.consultantProfil.arabe==true){
+          this.langues.push('Arabe');
+        }
+        
       },
       (error)=>{
         console.error(error);
@@ -32,6 +51,14 @@ export class ProfilConsultantUtilisateurComponent implements OnInit{
       }
     )
     
+  } 
+
+  diviserChaineEnMorceaux(description: string, tailleMorceau: number): string[] {
+    const morceaux: string[] = [];
+    for (let i = 0; i < description.length; i += tailleMorceau) {
+      morceaux.push(description.substr(i, tailleMorceau));
+    }
+    return morceaux;
   }
 
   selectedTab: string = 'specialisation';
