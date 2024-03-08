@@ -42,13 +42,6 @@ const consultantRoutes:Routes=[
   { path: 'help-consultant-dashboard', component: HelpConsultantDashboardComponent },
   { path: 'contact-consultant-dashboard', component: ContactConsultantDashboardComponent },
   { path: 'consultations-consultant-dashboard', component: ConsultationsConsultantDashboardComponent },
-
-
-
-
-
-
-
 ]
 
 const routes: Routes = [
