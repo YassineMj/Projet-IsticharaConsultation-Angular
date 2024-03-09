@@ -4147,10 +4147,10 @@
   }
 
   .kutup-small-top-text-2 {
-    color: var(--moutard);
-    margin-bottom: 15px;
+    color: black;
     font-size: 17px;
     font-weight: 700;
+    margin-left: 30%;
   }
 
   .kutup-max-w-width-640px-2 {
