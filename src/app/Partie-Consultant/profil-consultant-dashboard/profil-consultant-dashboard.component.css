@@ -1,12 +1,24 @@
 body {
-  background: #f9f9fb;
+background-image: linear-gradient(to right, #ffd891, #c2fff3);
+}
+
+
+.input-group{
+  display: flex;
+    align-items: center;
+}
+#plus{
+  margin-left: 1%;
 }
 
 .view-account {
-  background: #FFFFFF;
+  background: #ffffff;
   margin-top: 20px;
+    border-radius: 5px;
 }
-
+/* #sidebarecolor{
+  background-color: #c5daf0;
+} */
 .view-account .pro-label {
   font-size: 13px;
   padding: 4px 5px;
@@ -129,7 +141,7 @@ body {
 .view-account .content-panel .fieldset-title {
   padding-bottom: 15px;
   border-bottom: 1px solid #eaeaf1;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   color: #616670;
   font-size: 16px
 }
@@ -611,4 +623,15 @@ body {
     width: 40px;
     display: inline-block
   }
+}
+#language-group{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#language-group label{
+flex: 1;
+}
+.checkbox{
+margin-right: 10px;
 }

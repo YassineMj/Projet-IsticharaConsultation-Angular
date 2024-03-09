@@ -4,6 +4,9 @@ import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 @Component({
   selector: 'app-contact-utilisateur',
   templateUrl: './contact-utilisateur.component.html',
+    styleUrls: ['./contact-utilisateur.component.css']
+
+
 })
 
 export class ContactUtilisateurComponent {
