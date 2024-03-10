@@ -18,7 +18,7 @@ export class ContactUtilisateurComponent {
     message:'',
   }
 
-  send(){
+  send(){    
     emailjs.init('MZrSjOhYn3BJR5ee5')
     emailjs.send("service_6ws5cmm","template_ztdbdyg",{
         from_name: this.Infomessage.nom,
