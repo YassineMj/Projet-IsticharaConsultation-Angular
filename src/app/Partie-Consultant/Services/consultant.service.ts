@@ -24,4 +24,8 @@ export class ConsultantService {
     return this.http.post<consultantBean>('http://localhost:8080/IsticharaConsultation/api/consultant/auth',consultant);
   }
 
+  updateConsultant(consultant:any): Observable<consultantBean>{
+    return this.http.put<consultantBean>('http://localhost:8080/IsticharaConsultation/api/consultant/update-consultant',consultant);
+  }
+
 }
