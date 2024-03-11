@@ -16,6 +16,7 @@ import { MenuConsultantDashboardComponent } from './Partie-Consultant/menu-consu
 import { HelpConsultantDashboardComponent } from './Partie-Consultant/help-consultant-dashboard/help-consultant-dashboard.component';
 import { ContactConsultantDashboardComponent } from './Partie-Consultant/contact-consultant-dashboard/contact-consultant-dashboard.component';
 import { ConsultationsConsultantDashboardComponent } from './Partie-Consultant/consultations-consultant-dashboard/consultations-consultant-dashboard.component';
+import { PlanConsultationConsultantDashboardComponent } from './Partie-Consultant/plan-consultation-consultant-dashboard/plan-consultation-consultant-dashboard.component';
 
 
 //routes partie utilisateur
@@ -42,6 +43,8 @@ const consultantRoutes:Routes=[
   { path: 'help-consultant-dashboard', component: HelpConsultantDashboardComponent },
   { path: 'contact-consultant-dashboard', component: ContactConsultantDashboardComponent },
   { path: 'consultations-consultant-dashboard', component: ConsultationsConsultantDashboardComponent },
+  { path: 'plan-consultations-consultant-dashboard/:idConsultation', component: PlanConsultationConsultantDashboardComponent },
+
 ]
 
 const routes: Routes = [
