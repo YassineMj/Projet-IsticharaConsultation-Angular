@@ -22,6 +22,14 @@ import { HelpConsultantDashboardComponent } from './Partie-Consultant/help-consu
 import { MenuConsultantDashboardComponent } from './Partie-Consultant/menu-consultant-dashboard/menu-consultant-dashboard.component';
 import { ContactConsultantDashboardComponent } from './Partie-Consultant/contact-consultant-dashboard/contact-consultant-dashboard.component';
 import { ConsultationsConsultantDashboardComponent } from './Partie-Consultant/consultations-consultant-dashboard/consultations-consultant-dashboard.component';
+import { PlanConsultationConsultantDashboardComponent } from './Partie-Consultant/plan-consultation-consultant-dashboard/plan-consultation-consultant-dashboard.component';
+
+
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -42,13 +50,21 @@ import { ConsultationsConsultantDashboardComponent } from './Partie-Consultant/c
     HelpConsultantDashboardComponent,
     MenuConsultantDashboardComponent,
     ContactConsultantDashboardComponent,
-    ConsultationsConsultantDashboardComponent
+    ConsultationsConsultantDashboardComponent,
+    PlanConsultationConsultantDashboardComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+
+    NgbModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

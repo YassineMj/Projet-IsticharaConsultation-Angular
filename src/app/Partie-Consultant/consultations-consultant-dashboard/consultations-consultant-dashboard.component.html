@@ -1,4 +1,53 @@
 <app-menu-consultant-dashboard></app-menu-consultant-dashboard>
 
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
 
-<p>consultations-consultant-dashboard works!</p>
+<!-- AjouterConsultationComponent HTML -->
+<div class="container mt-4">
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input type="text" class="form-control" [(ngModel)]="consultation.description" />
+    </div>
+    <div class="form-group">
+      <label for="prix">Prix:</label>
+      <input type="number" class="form-control" [(ngModel)]="consultation.prix" />
+    </div>
+    <div class="form-group">
+      <label for="duree">Durée (en minutes):</label>
+      <input type="number" class="form-control" [(ngModel)]="consultation.duree" />
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" (click)="ajouterConsultation()">Ajouter</button>
+    </div>
+  </div>
+  
+  <hr />
+  
+  <!-- ListerConsultationsComponent HTML -->
+  <div class="container mt-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Prix</th>
+          <th>Durée</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ getConsultations.description }}</td>
+          <td>{{ getConsultations.prix }}</td>
+          <td>{{ getConsultations.duree }}</td>
+          <td>
+            <button class="btn btn-secondary" (click)="goToPlan(getConsultations.idConsultation)">Afficher Plan</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
