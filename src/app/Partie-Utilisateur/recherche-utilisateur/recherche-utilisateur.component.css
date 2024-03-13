@@ -1,0 +1,36 @@
+.firstDiv{
+
+    background: linear-gradient(to left, #f5fbd6, #aed5cd  , #abdac4);
+   background-size:cover;
+   background-position: center;
+
+}
+.row{
+
+       padding: 25px;
+
+}
+.dropdown-margin-left {
+
+    margin-left: 10%; /* Adjust margin-left as needed */
+
+  }
+  .btn{
+
+    margin-top: 5px; 
+    height: 45px;
+    width: 55%;
+    border-radius: 10px;
+    background-color: #d48b15;
+    color: rgb(255, 255, 255);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+  }
+
+  .btn:hover {
+    /* Your styles for the button when hovered over */
+    background-color: rgb(255, 255, 255); /* Example: Change background color to green */
+    color: rgb(0, 0, 0); /* Example: Change text color to white */
+    outline: 3px solid #56a28f;
+    
+  }

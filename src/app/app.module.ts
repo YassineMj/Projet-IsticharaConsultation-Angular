@@ -29,6 +29,7 @@ import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PlanConsultationUtilisateurComponent } from './Partie-Utilisateur/plan-consultation-utilisateur/plan-consultation-utilisateur.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MenuConsultantDashboardComponent,
     ContactConsultantDashboardComponent,
     ConsultationsConsultantDashboardComponent,
-    PlanConsultationConsultantDashboardComponent
+    PlanConsultationConsultantDashboardComponent,
+    PlanConsultationUtilisateurComponent
     
   ],
   imports: [
