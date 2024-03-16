@@ -1,11 +1,10 @@
-/* Ajoutez ces styles à votre fichier de styles CSS */
-
+/*
 .kutup-button {
-    background-color: #e09132; /* Couleur de fond verte */
-    color: white; /* Texte blanc */
-    padding: 10px 15px; /* Espacement interne */
-    border: none; /* Pas de bordure */
-    cursor: pointer; /* Curseur pointer */
+    background-color: #e09132;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
     border-radius: 20px;
   }
 
@@ -13,7 +12,7 @@
     background-color: #94bdb5;
     margin-top: 5px;
     margin-bottom: 5px;
-    border-radius: 20px; /* Couleur de fond rouge pour le bouton de suppression */
+    border-radius: 20px;
   }
 #formations{
     display: grid;
@@ -26,4 +25,39 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
      }
+
+ */
+ .mat-stepper-horizontal {
+  margin-top: 8px;
+  margin-left: 10%;
+  margin-right: 7%;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+  margin-left: 1%;
+  width: 48%;
+}
+
+mat-card {
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 7%;
+}
+.example-section {
+  margin: 12px 0;
+}
+
+.example-margin {
+  margin: 0 12px;
+}
+#langue{
+  font-weight: bold;
+  margin-left: 1%;
+}
+.inp{
+  width: 92%;
+}
+
+
 

@@ -1,7 +1,6 @@
-
 <body>
-    <app-menu-utilisateur></app-menu-utilisateur>
-    <div class="kutup-section">
+  <app-menu-utilisateur></app-menu-utilisateur>
+  <!-- <div class="kutup-section">
       <div class="kutup-large-container">
         <div class="kutup-max-w-width-640px">
           <div class="kutup-small-top-text">Bienvenue !</div>
@@ -155,7 +154,6 @@
 
             <div class="kutup-divider-20px-2"></div>
 
-            <!-- Formations -->
             <hr />
             <div id="formations">
               <div>
@@ -189,7 +187,6 @@
                 </button>
               </div>
 
-              <!-- Éducations -->
               <div>
                 <h3>Éducations</h3>
                 <div
@@ -221,7 +218,6 @@
                 </button>
               </div>
 
-              <!-- Expériences professionnelles -->
               <div>
                 <h3>Expériences professionnelles</h3>
                 <div
@@ -344,6 +340,476 @@
           </div>
         </div>
       </div>
-    </div>
-  </body>
-  
+    </div> -->
+
+  <mat-card>
+    <mat-card-content>
+      <mat-stepper #stepper>
+        <mat-step
+          [stepControl]="firstFormGroup"
+          errorMessage="Infos are required."
+        >
+          <div [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Infos personnelles</ng-template>
+            <mat-form-field>
+              <mat-label>Nom</mat-label>
+              <input
+                [(ngModel)]="formData.nom"
+                matInput
+                placeholder="Nom"
+                formControlName="firstCtrl"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Prénom</mat-label>
+              <input
+                [(ngModel)]="formData.prenom"
+                matInput
+                placeholder="Prénom"
+                formControlName="firstCtrl"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Numéro de Télephone</mat-label>
+              <input
+                [(ngModel)]="formData.numeroTelephone"
+                matInput
+                placeholder="Numéro de Téléphone"
+                formControlName="firstCtrl"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>CIN</mat-label>
+              <input
+                [(ngModel)]="formData.cin"
+                matInput
+                placeholder="CIN"
+                formControlName="firstCtrl"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input
+                [(ngModel)]="formData.email"
+                matInput
+                placeholder="Email"
+                formControlName="firstCtrl"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Mot de passe</mat-label>
+              <input
+                [(ngModel)]="formData.motDePasse"
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                formControlName="firstCtrl"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </mat-form-field>
+
+            <div>
+              <button mat-button matStepperNext>Suivant</button>
+            </div>
+          </div>
+        </mat-step>
+        <mat-step
+          [stepControl]="secondFormGroup"
+          label="Paiement"
+          errorMessage="Paiement is required."
+        >
+          <div [formGroup]="secondFormGroup">
+            <mat-form-field>
+              <mat-label>Pays</mat-label>
+              <input
+                [(ngModel)]="formData.pays"
+                matInput
+                formControlName="secondCtrl"
+                placeholder="Pays"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Ville</mat-label>
+              <input
+                [(ngModel)]="formData.ville"
+                matInput
+                formControlName="secondCtrl"
+                placeholder="Ville"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Adresse</mat-label>
+              <input
+                [(ngModel)]="formData.adresse"
+                matInput
+                formControlName="secondCtrl"
+                placeholder="Adresse"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>RIB</mat-label>
+              <input
+                [(ngModel)]="formData.rib"
+                matInput
+                formControlName="secondCtrl"
+                placeholder="RIB"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Banque</mat-label>
+              <mat-select
+                [(ngModel)]="formData.banque"
+                formControlName="secondCtrl"
+                required
+              >
+                <mat-option value="Al Akhdar Bank"> Al Akhdar Bank </mat-option>
+                <mat-option value="Attijari Wafa Bank">
+                  Attijari Wafa Bank
+                </mat-option>
+                <mat-option value="Banque Populaire">
+                  Banque Populaire
+                </mat-option>
+                <mat-option value="CIH banque"> CIH banque </mat-option>
+                <mat-option value="Umnia Bank"> Umnia Bank </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div>
+              <button mat-button matStepperPrevious>Précédent</button>
+              <button mat-button matStepperNext>Suivant</button>
+            </div>
+          </div>
+        </mat-step>
+        <mat-step
+          [stepControl]="thirdFormGroup"
+          label="Détails"
+          errorMessage="Détails are required."
+        >
+          <mat-form-field class="inp">
+            <mat-label>Description du Profil</mat-label>
+            <textarea
+              [(ngModel)]="formData.descriptionProfile"
+              matInput
+              required=""
+            ></textarea>
+          </mat-form-field>
+          <section class="example-section">
+            <mat-label id="langue" required>Langue</mat-label>
+
+            <mat-checkbox [(ngModel)]="formData.francais" class="example-margin"
+              >Francais</mat-checkbox
+            >
+            <mat-checkbox [(ngModel)]="formData.anglais" class="example-margin"
+              >Anglais</mat-checkbox
+            >
+
+            <mat-checkbox [(ngModel)]="formData.arabe" class="example-margin"
+              >Arabe</mat-checkbox
+            >
+
+            <mat-checkbox [(ngModel)]="formData.espagnol" class="example-margin"
+              >Espagnol</mat-checkbox
+            >
+          </section>
+          <!-- <section class="example-section">
+  <mat-label id="langue" required>Langue</mat-label>
+
+  <mat-checkbox  class="example-margin">Francais</mat-checkbox>
+  <mat-checkbox  class="example-margin">Anglais</mat-checkbox>
+  <mat-checkbox  class="example-margin">Arabe</mat-checkbox>
+  <mat-checkbox  class="example-margin">Espagnol</mat-checkbox>
+</section> -->
+
+          <!-- <mat-form-field class="inp">
+  <mat-label >Langue</mat-label>
+  <mat-select  multiple>
+
+      <mat-option  >Francais</mat-option>
+          <mat-option  >Anglais</mat-option>
+      <mat-option >Arabe</mat-option>
+            <mat-option >Espagnol</mat-option>
+
+
+  </mat-select>
+</mat-form-field> -->
+
+          <div>
+            <input
+              type="file"
+              required
+              (change)="onFileChange($event)"
+              accept="image/*"
+            />
+          </div>
+          <br />
+          <div>
+            <button mat-button matStepperPrevious>Précédent</button>
+            <button mat-button matStepperNext>Suivant</button>
+          </div>
+        </mat-step>
+        <mat-step
+          [stepControl]="fourthFormGroup"
+          label="Carrière"
+          errorMessage="Carrière is required."
+        >
+          <div>
+            <!--  <mat-form-field class="inp">
+              <mat-label>Expériences</mat-label>
+
+
+              <input
+
+                matInput
+                formControlName="fourthCtrl"
+                placeholder="Expériences"
+                required
+              />
+            </mat-form-field>
+            <button mat-icon-button color="primary">
+              <mat-icon>add</mat-icon>
+            </button> -->
+
+            <fieldset class="fieldset">
+              <h3 class="fieldset-title">Expériences Professionnelle</h3>
+              <div class="form-group">
+                <div class="col-md-12 col-sm-9 col-xs-12">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="experience"
+                    />
+                    <button
+                      id="plus"
+                      type="button"
+                      (click)="addExperience()"
+                      class="btn btn-success-outline"
+                    >
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Expériences</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="
+                            let exp of formData.experiencesPro;
+                            let i = index
+                          "
+                        >
+                          <td>{{ exp }}</td>
+                          <td></td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="td-actions text-right">
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-just-icon btn-sm"
+                              (click)="supprimerExperiencePro(i)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset">
+              <h3 class="fieldset-title">Educations</h3>
+              <div class="form-group">
+                <div class="col-md-12 col-sm-9 col-xs-12">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="education"
+                    />
+                    <button
+                      id="plus"
+                      type="button"
+                      (click)="addEducation()"
+                      class="btn btn-success-outline"
+                    >
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Educations</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="let ed of formData.educations; let i = index"
+                        >
+                          <td>{{ ed }}</td>
+                          <td></td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="td-actions text-right">
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-just-icon btn-sm"
+                              (click)="supprimerEducation(i)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="fieldset">
+              <h3 class="fieldset-title">Formations</h3>
+              <div class="form-group">
+                <div class="col-md-12 col-sm-9 col-xs-12">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="formation"
+                    />
+                    <button
+                      id="plus"
+                      type="button"
+                      (click)="addFormation()"
+                      class="btn btn-success-outline"
+                    >
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Formations</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th class="text-right">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="let for of formData.formations; let i = index"
+                        >
+                          <td>{{ for }}</td>
+                          <td></td>
+                          <td></td>
+                          <td class="text-right"></td>
+                          <td class="td-actions text-right">
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-just-icon btn-sm"
+                              (click)="supprimerFormation(i)"
+                            >
+                              <i class="fa fa-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- <mat-form-field class="inp">
+              <mat-label>Domaine</mat-label>
+              <mat-select required>
+                <mat-option value="Domaine" required> Domaine </mat-option>
+              </mat-select>
+            </mat-form-field> -->
+            <select
+              (change)="onIdDomaineChange()"
+              id="Category-2"
+              name="Category-2"
+              required=""
+              data-name="Category 2"
+              [(ngModel)]="formData.idDomaine"
+            >
+              <option value="" disabled selected>Choisi Domaine</option>
+              <option
+                *ngFor="let domaine of domaines"
+                value="{{ domaine.idDomaine }}"
+              >
+                {{ domaine.nomDomaine }}
+              </option>
+            </select>
+            <label *ngFor="let categorie of categories">
+              <input
+                type="checkbox"
+                (change)="ajouterSpecialisation(categorie.nomCategorie)"
+              />
+              <span>{{ categorie.nomCategorie }}</span>
+            </label>
+
+            <div>
+              <button mat-button matStepperPrevious>Précédent</button>
+              <button mat-button matStepperNext>Suivant</button>
+            </div>
+          </div>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Fin</ng-template>
+
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="conditionsAccepted"
+            (click)="ouvrirNouvelOnglet()"
+            >I agree to the termes et condition générales
+          </mat-checkbox>
+
+          <div>
+            <button mat-raised-button color="primary" (click)="sinscrire()">
+              Submit
+            </button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+    </mat-card-content>
+  </mat-card>
+
+  <app-bas-de-page></app-bas-de-page>
+</body>

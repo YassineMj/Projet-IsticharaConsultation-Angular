@@ -30,6 +30,20 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlanConsultationUtilisateurComponent } from './Partie-Utilisateur/plan-consultation-utilisateur/plan-consultation-utilisateur.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -53,8 +67,7 @@ import { PlanConsultationUtilisateurComponent } from './Partie-Utilisateur/plan-
     ContactConsultantDashboardComponent,
     ConsultationsConsultantDashboardComponent,
     PlanConsultationConsultantDashboardComponent,
-    PlanConsultationUtilisateurComponent
-    
+    PlanConsultationUtilisateurComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,10 +78,23 @@ import { PlanConsultationUtilisateurComponent } from './Partie-Utilisateur/plan-
     NgbModule,
     NgbModalModule,
     FlatpickrModule.forRoot(),
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
-
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatStepperModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatSelectModule,
+    MatIconModule,
+    MatCheckboxModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
