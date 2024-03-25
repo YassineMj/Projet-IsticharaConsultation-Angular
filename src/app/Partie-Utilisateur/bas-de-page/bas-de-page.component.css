@@ -1,0 +1,23 @@
+
+#back{
+  background-color: rgba(138, 127, 188, 0.174);
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #6dbdad;
+    text-decoration: none; /* Optional: Remove underline on hover */
+  }
+  .s{
+  color: rgb(138, 127, 188);
+  }
+
+
+  footer{
+    margin-right: -6.6%;
+    margin-bottom: -10%;
+    margin-left: -6.5%;
+  }

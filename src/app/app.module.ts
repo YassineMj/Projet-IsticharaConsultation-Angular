@@ -44,6 +44,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -93,6 +94,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSelectModule,
     MatIconModule,
     MatCheckboxModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

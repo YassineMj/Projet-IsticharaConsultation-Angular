@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-bas-de-page',
   templateUrl: './bas-de-page.component.html',
+  styleUrls: ['./bas-de-page.component.css'],
 })
 export class BasDePageComponent {
-
   constructor(private router: Router) {}
 
   ouvrirNouvelOnglet() {
@@ -15,5 +15,4 @@ export class BasDePageComponent {
     );
     window.open(url, '_blank');
   }
-
 }

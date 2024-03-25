@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!--  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-    integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+
 
 
 </head>
-
-<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+ -->
+<!-- <body>
 
   <div class="container" id="body">
     <div class="row justify-content-center">
@@ -53,7 +51,7 @@
               <div class="panel-body" id="display" >
                 <ul id="myTab" class="nav nav-pills">
                   <li [class.active]="selectedTab === 'specialisation'">
-                    <a data-toggle="tab" (click)="navigateProfil('specialisation')">Spécialisations</a>
+                    <a data-toggle="tab" (click)="navigateProfil('specialisation')" >Spécialisations</a>
                   </li>
                   <li [class.active]="selectedTab === 'experience'">
                     <a data-toggle="tab" (click)="navigateProfil('experience')">Experience</a>
@@ -89,9 +87,193 @@
               </div>
             </div>
           </div>
+          <mat-tab-group>
+  <mat-tab label="Specialisations">
+    <p *ngFor="let specialization of consultantProfil.specialisation">{{specialization}}</p>
+  </mat-tab>
+  <mat-tab label="Formations">   <p *ngFor="let formation of consultantProfil.formations">{{ formation }}</p></mat-tab>
+  <mat-tab label="Educations"> <p *ngFor="let education of consultantProfil.educations">{{ education }}</p></mat-tab>
+    <mat-tab label="Experiences">                     <p *ngFor="let experience of consultantProfil.experiencesPro">{{ experience }}</p>
+</mat-tab>
+
+</mat-tab-group>
+
 
         </div>
       </div>
     </div>
   </div>
-</body>
+</body> -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+  integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA="
+  crossorigin="anonymous"
+/>
+<!-- <body>
+<div class="bg-white">
+
+<div class="container" id="infos">
+<div class="text-center py-5">
+<img [src]="'../../../assets/images-consultants/'+consultantProfil.photoProfile" alt="..."  id="photoprofil">
+<div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
+<h2 class="font-weight-bold my-4">{{consultantProfil.nom}} {{consultantProfil.prenom}}</h2>
+<h4><i class="fa fa-globe display-25 me-3 text-secondary"></i>{{consultantProfil.pays}}</h4>
+<h4><i class="fa fa-city display-25 me-3 text-secondary"></i>{{consultantProfil.ville}}</h4>
+              <h4 class="mb-3"><i
+                    class="far fa-envelope display-25 me-3 text-secondary"></i>{{consultantProfil.email}}</h4>
+              <h4 class="mb-3"><i class="fas fa-mobile-alt display-25 me-3 text-secondary"></i>+212 {{consultantProfil.numeroTelephone}}</h4>
+              <h4><i class="fas fa-map-marker-alt display-25 me-3 text-secondary"></i>{{consultantProfil.adresse}}</h4>
+                          <p>Langue: <span class="text-primary" *ngFor="let l of langues">{{l}} , </span></p>
+
+<div class="text-muted mb-4">
+            <p *ngFor="let m of morceauxDescription">{{m}}</p>
+</div>
+</div>
+<div class="text-center">
+<a href="#" class="btn icon-btn borderless btn-outline-twitter btn-lg btn-round">
+<span class="ion ion-logo-twitter"></span>
+</a>
+<a href="#" class="btn icon-btn borderless btn-outline-facebook btn-lg btn-round">
+<span class="ion ion-logo-facebook"></span>
+</a>
+<a href="#" class="btn icon-btn borderless btn-outline-instagram btn-lg btn-round">
+<span class="ion ion-logo-instagram"></span>
+</a>
+</div>
+</div>
+</div>
+<hr class="m-0">
+ <mat-tab-group>
+  <mat-tab label="Specialisations">
+    <p *ngFor="let specialization of consultantProfil.specialisation"><i class="fa fa-check"></i>{{specialization}}</p>
+  </mat-tab>
+  <mat-tab label="Formations">   <p *ngFor="let formation of consultantProfil.formations">{{ formation }}</p></mat-tab>
+  <mat-tab label="Educations"> <p *ngFor="let education of consultantProfil.educations">{{ education }}</p></mat-tab>
+    <mat-tab label="Experiences">                     <p *ngFor="let experience of consultantProfil.experiencesPro">{{ experience }}</p>
+</mat-tab>
+
+</mat-tab-group>
+</div>
+
+
+
+</body> -->
+<div class="container-fluid overcover">
+  <div class="container profile-box">
+    <div class="top-cover">
+      <div class="covwe-inn">
+        <div class="row no-margin">
+          <div class="col-md-3 img-c">
+            <img
+              [src]="
+                '../../../assets/images-consultants/' +
+                consultantProfil.photoProfile
+              "
+              alt="..."
+            />
+          </div>
+          <div class="col-md-9 tit-det">
+            <h2>{{ consultantProfil.nom }} {{ consultantProfil.prenom }}</h2>
+            <br>
+            <div id="grid2">
+            <div id="grid">
+              <h4 class="mb-3">
+                <i class="far fa-envelope display-25 me-3 text-white"></i
+                >{{ consultantProfil.email }}
+              </h4>
+              <h4 class="mb-3">
+                <i class="fas fa-mobile-alt display-25 me-3 text-white"></i
+                >+212 {{ consultantProfil.numeroTelephone }}
+              </h4>
+              <h4>
+                <i class="fa fa-globe display-25 me-3 text-white"></i
+                >{{ consultantProfil.pays }}
+              </h4>
+              <h4>
+                <i class="fa fa-city display-25 me-3 text-white"></i
+                >{{ consultantProfil.ville }}
+              </h4>
+
+              <h4>
+                <i
+                  class="fas fa-map-marker-alt display-25 me-3 text-white "
+                ></i
+                >{{ consultantProfil.adresse }}
+              </h4>
+
+              <p id="lg"> <i
+                  class="fa fa-language me-3 text-white  "
+                ></i
+                >
+                <span class="text-primary" *ngFor="let l of langues">
+                  <span class="mr-3" *ngIf="l == 'Arabe'"
+                    ><img
+                      src="../../../assets/images/arabe.png"
+                      style="width: 7%; margin-left: 1%;"
+                      alt=""
+                    />
+                  </span>
+                  <span class="mr-3" *ngIf="l == 'Francais'"
+                    ><img
+                      src="../../../assets/images/francais.png"
+                      style="width: 7% ;margin-left: 1%"
+                      alt=""
+                    />
+                  </span>
+                  <span class="mr-3" *ngIf="l == 'Espagnol'"
+                    ><img
+                      src="../../../assets/images/espagnol.png"
+                      style="width: 7%; margin-left: 1%;"
+                      alt=""
+                    />
+                  </span>
+                  <span class="mr-3" *ngIf="l == 'Anglais'"
+                    ><img
+                      src="../../../assets/images/anglais.png"
+                      style="width: 7%; margin-left: 1%;"
+                      alt=""
+                    />
+                  </span>
+                </span>
+              </p>
+            </div>
+            <p class="ms-5"*ngFor="let m of morceauxDescription">{{ m }}</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="m-0" />
+    <mat-tab-group>
+      <mat-tab label="Specialisations">
+        <br>
+        <p  class="py-2 " *ngFor="let specialization of consultantProfil.specialisation">
+          <i class="fa fa-check text-success"></i>{{ specialization }}
+        </p>
+      </mat-tab>
+      <mat-tab label="Formations">
+                <br>
+
+        <p  class="py-2 " *ngFor="let formation of consultantProfil.formations">
+          {{ formation }}
+        </p></mat-tab
+      >
+      <mat-tab label="Educations">
+                <br>
+
+        <p  class="py-2 " *ngFor="let education of consultantProfil.educations">
+          {{ education }}
+        </p></mat-tab
+      >
+      <mat-tab label="Experiences">
+                <br>
+
+        <p  class="py-2 " *ngFor="let experience of consultantProfil.experiencesPro">
+          {{ experience }}
+        </p>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

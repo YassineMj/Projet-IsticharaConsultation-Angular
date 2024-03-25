@@ -1,33 +1,4 @@
-/*
-.kutup-button {
-    background-color: #e09132;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-  }
-
-  .kutup-button-danger {
-    background-color: #94bdb5;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 20px;
-  }
-#formations{
-    display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      padding-left: 10px;
-   }
-     #experience{
-      display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-     }
-
- */
- .mat-stepper-horizontal {
+.mat-stepper-horizontal {
   margin-top: 8px;
   margin-left: 10%;
   margin-right: 7%;
@@ -43,6 +14,7 @@ mat-card {
   margin-left: 7%;
   margin-right: 7%;
   margin-top: 7%;
+  margin-bottom: 2%;
 }
 .example-section {
   margin: 12px 0;
@@ -51,13 +23,24 @@ mat-card {
 .example-margin {
   margin: 0 12px;
 }
-#langue{
+#langue {
   font-weight: bold;
   margin-left: 1%;
 }
-.inp{
+.inp {
   width: 92%;
 }
 
+body {
+  background-image: url("../../../assets/images/backgroundlogin.jpg");
+  background-size: cover;
+  padding-bottom: 5%;
+  margin-bottom: -3.8%;
+}
 
-
+mat-card {
+  background-image: url("../../../assets/images/login-new-bootstrap.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}

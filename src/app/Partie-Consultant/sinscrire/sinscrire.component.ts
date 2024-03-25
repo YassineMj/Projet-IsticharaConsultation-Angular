@@ -152,7 +152,7 @@ export class SinscrireComponent {
     if (this.conditionsAccepted) {
       console.log(this.formData)
       // Appeler votre fonction sinscrire() ici
-     /*  this._consultantService.addConsultant(this.formData).subscribe(
+      this._consultantService.addConsultant(this.formData).subscribe(
         (resp) => {
           console.log(resp);
 
@@ -166,7 +166,7 @@ export class SinscrireComponent {
           console.error("Erreur lors de l'upload du consultant", error);
           // Gérez les erreurs d'upload ici
         }
-      ); */
+      );
     } else {
       console.log("error")
     }
