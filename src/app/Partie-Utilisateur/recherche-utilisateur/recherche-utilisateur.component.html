@@ -148,10 +148,11 @@
               [(ngModel)]="nomCategorie"
               class="form-select"
               id="dropdown2"
+              name="Category-2"
               style="height: 55px"
             >
-              <option disabled selected>Choisi Categorie</option>
-              <option
+            <option value="">Choisissez une catégorie</option> <!-- Option vide -->
+            <option
                 *ngFor="let categorie of categories"
                 value="{{ categorie.nomCategorie }}"
               >
