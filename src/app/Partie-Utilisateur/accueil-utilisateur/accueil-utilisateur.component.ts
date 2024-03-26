@@ -9,6 +9,8 @@ import { categorieBean } from '../Beans/categorieBean';
   styleUrls: ['./accueil-utilisateur.component.css'],
 })
 export class AccueilUtilisateurComponent implements OnInit {
+  
+
   constructor(private _service: DomaineService) {}
 
   domaines: domaineBean[] = [];

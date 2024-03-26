@@ -71,6 +71,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     PlanConsultationUtilisateurComponent,
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -94,7 +95,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSelectModule,
     MatIconModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

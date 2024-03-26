@@ -778,3 +778,35 @@ label {
   .more-services .card:hover .card-text {
 	color: #fff;
   }
+
+  /*swiper ####################"""*/
+/*FAQ*/
+/*--------------------------------------------------------------
+  #QUESTION PART
+  --------------------------------------------------------------*/
+  .faq .faq-item {
+	margin: 17px 0;
+	padding: 10px 0;
+	border-bottom: 1px solid #2519ae35;
+  }
+
+  .faq .faq-item i {
+	color: #8bc4ea;
+	font-size: 24px;
+	float: left;
+	line-height: 0;
+	padding: 6px 0 0 0;
+	margin: 0;
+  }
+
+  .faq .faq-item h4 {
+	font-size: 18px;
+	line-height: 36px;
+	font-weight: 500;
+	margin: 0 0 10px 12px;
+	font-family: "Poppins", sans-serif;
+  }
+
+  .faq .faq-item p {
+	font-size: 17px;
+  }
