@@ -1,7 +1,6 @@
-#bg
+/* #bg
 {
-/*   background-image: linear-gradient(to right, #d9fbf3, #8ad0c3);
- */
+
  background-image: url('../../../assets/images/image-contact-consultant.jpg');
  margin-bottom: -30px;
     margin-top: -10%;
@@ -162,4 +161,130 @@ padding-bottom: 2%;
   100% {
     opacity: 1;
   }
+}
+ */
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to left, #5b53ef, #6754a9  , #5bb4e4);
+    margin-top: -6%;
+    margin-bottom: -3.8%;
+}
+
+.first_col {
+    background-color: white;
+    height: 685px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+    width: 550px;
+    left: 140px;
+    top: 171px;
+    border-radius: 50px;
+}
+
+.img-fluid {
+    border-radius: 400%;
+
+}
+
+.row-last {
+    width: 64% ;
+    position: relative ;
+    left: 390px;
+    top: 70px;
+    height: 150px;
+    padding-bottom: 100px ;
+    background: linear-gradient(to left, #cae7f7,#c4c6f7  , #cae7f7);
+    border-radius: 20px;
+    margin-bottom: 3%;
+
+}
+
+.btn-primary {
+    background-color: rgba(64, 26, 176, 0.867) ;
+    border: #44419d;
+    height: 45px;
+    width: 55%;
+    border-radius: 10px;
+    background-color: #303274;
+    margin-left: 23%;
+
+}
+
+.btn-primary:hover {
+    background-color: rgba(71, 54, 122, 0.867) ;
+}
+
+.form-control {
+    height: 52px;
+    background: #fff;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .first_col {
+       margin: auto;
+    }
+
+    .sec_col {
+        display: none;
+    }
+
+    .row-last {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .first_col {
+        position: initial;
+        left: 0 !important;
+         margin: auto;
+    }
+
+    .sec_col {
+        display: none;
+    }
+
+    .row-last {
+        display: none;
+    }
+}
+
+h4{
+   color: #1a0c42;
+   font-size: 18px;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h4:hover{
+color: #44419d;
+
+}
+.phone{
+    margin-top: 8px;
+    font-size: 18px;
+    color: #140039;
+    font-weight: bold;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #707070;
+    border-radius: 13px;
+    transition: all 0.3s ease;
+}
+.phone:hover {
+    background-color: #ffffff;
+    color: #4d31b5;
+
+  }
+  .fixed-size-area {
+    /* Set the width to a fixed value */
+    height: 100px; /* Set the height to a fixed value */
+
+}
+textarea{
+    resize: none;
 }

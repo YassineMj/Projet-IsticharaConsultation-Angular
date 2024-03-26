@@ -1,4 +1,4 @@
-.firstDiv{
+/* .firstDiv{
 
     background: linear-gradient(to left, #f5fbd6, #aed5cd  , #abdac4);
    background-size:cover;
@@ -12,25 +12,153 @@
 }
 .dropdown-margin-left {
 
-    margin-left: 10%; /* Adjust margin-left as needed */
+    margin-left: 10%;
 
   }
   .btn{
 
-    margin-top: 5px; 
+    margin-top: 5px;
     height: 45px;
     width: 55%;
     border-radius: 10px;
     background-color: #d48b15;
     color: rgb(255, 255, 255);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
- 
+
   }
 
+  .btn:hover {
+
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    outline: 3px solid #56a28f;
+
+  }
+ */
+
+.firstDiv{
+
+   background: linear-gradient(to left, #5b53ef, #6754a9  , #5bb4e4);
+   background-size:cover;
+   background-position: center;
+margin-bottom: 4%;
+}
+.row{
+       padding: 25px;
+}
+.col2{
+    margin-left: 3px;
+}
+.dropdown-margin-left {
+
+    margin-left: 10%; /* Adjust margin-left as needed */
+
+  }
+  .btn{
+
+    margin-top: 5px;
+    height: 45px;
+    width: 55%;
+    border-radius: 10px;
+    background-color: #162245;
+    color: rgb(255, 255, 255);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  }
+  .price {
+
+    display: inline-block;
+    padding: 1px 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+  }
   .btn:hover {
     /* Your styles for the button when hovered over */
     background-color: rgb(255, 255, 255); /* Example: Change background color to green */
     color: rgb(0, 0, 0); /* Example: Change text color to white */
-    outline: 3px solid #56a28f;
-    
+    outline: 3px solid #3a1e72;
+
   }
+#bd{
+margin: auto;}
+.border1{
+    border: 1px solid rgb(67, 76, 255);
+    border-radius: 10px; /* Border radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.page-link{
+    background-color: #f7f6f6;
+    color: rgb(0, 0, 0);
+}
+.page-link:hover{
+    background-color: #82acff;
+    color: rgb(0, 0, 0);
+}
+.card{
+  border: 1px solid rgb(196, 199, 246);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+
+}
+.card-header{
+    background: linear-gradient(to left, #7d77fa, #cbbdff  , #cae7f7);
+    border-radius: 50px;
+    font-weight: 500;
+    width: 66%;
+    margin-left: 16%;
+
+
+}
+p {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000000;
+}
+.duration {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 5px;
+    font-weight: bold;
+
+}
+
+.duration-label {
+  font-weight: bold;
+}
+
+.duration-value {
+  font-style: italic;
+  color: #777;
+}
+
+.leftcardimage{
+
+   margin-left:-5%;
+   border-right: 1px solid rgb(217, 205, 229);
+   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+   border-radius: 10px;
+   height: 355px;
+
+}
+.consultation-description {
+
+  border-left: 3px solid rgb(240, 240, 240); /* Add a border only on the left side */
+  padding-left: 22px; /* Add padding to separate the text from the border */
+  margin-right: -10px;
+  text-align: justify;
+}
+.profile-description {
+
+  border-left: 3px solid rgb(172, 138, 211); /* Add a border only on the left side */
+  padding-left: 22px; /* Add padding to separate the text from the border */
+  margin-right: -10px;
+  text-align: justify;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+
+}
+.desc{
+  margin-left: 5%;
+  margin-top: 5%;
+}

@@ -1,4 +1,4 @@
-
+<!--
   <body class="body">
     <section id="newbg" class="section">
       <div class="a-header-section-2">
@@ -409,3 +409,500 @@
     </section>
   </body>
   <app-bas-de-page></app-bas-de-page>
+ -->
+<head>
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <section id="hero">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div
+          class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center"
+        >
+          <div id="text-hero" data-aos="zoom-out">
+            <h1>Prenez rendez-vous pour une consultation vidéo en ligne !</h1>
+            <h2>
+              Rejoignez notre Communauté d'experts et élargissez votre Audience
+              en proposant des Consultations en ligne
+            </h2>
+            <div class="text-center text-lg-start">
+              <a
+                routerLink="/consultant/sidentifier-consultant"
+                class="btn-get-started scrollto"
+                >Vous êtes Consultant ?</a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-4 order-1 order-lg-2 hero-img"
+          data-aos="zoom-out"
+          data-aos-delay="300"
+        >
+          <img
+            src="../../../assets/images/image-body-top.jpeg"
+            class="img-fluid animated"
+            style="border-radius: 50%; width: 90%"
+            alt="online"
+          />
+        </div>
+      </div>
+    </div>
+    <svg
+      class="hero-waves"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <path
+          id="wave-path"
+          d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"
+        />
+      </defs>
+      <g class="wave1">
+        <use
+          xlink:href="#wave-path"
+          x="50"
+          y="3"
+          fill="rgba(255,255,255, .1)"
+        />
+      </g>
+      <g class="wave2">
+        <use
+          xlink:href="#wave-path"
+          x="50"
+          y="0"
+          fill="rgba(255,255,255, .2)"
+        />
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff" />
+      </g>
+    </svg>
+  </section>
+  <!-- End Hero -->
+
+  <div class="container topof">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href=""
+            ><span class="fa fa-play"></span> Comment réserver une consultation
+            ?</a
+          >
+        </h5>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="dropdown1"
+                ><i class="fa fa-globe"></i
+              ></label>
+              <select
+                [(ngModel)]="idDomaine"
+                (change)="onIdDomaineChange()"
+                class="form-select"
+                id="dropdown1"
+                name="Category-2"
+                style="height: 55px"
+              >
+                <option disabled selected>Choisir Domaine</option>
+                <option
+                  *ngFor="let domaine of domaines"
+                  value="{{ domaine.idDomaine }}"
+                >
+                  {{ domaine.nomDomaine }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="dropdown2"
+                ><i class="fa fa-list-ul"></i
+              ></label>
+              <select
+                class="form-select"
+                id="dropdown2"
+                name="Category-2"
+                style="height: 55px"
+              >
+                <option disabled selected>Choisi Categorie</option>
+                <option
+                  *ngFor="let categorie of categories"
+                  value="{{ categorie.idCategorie }}"
+                >
+                  {{ categorie.nomCategorie }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button id="search-btn" class="btn btn-primary">Recherche</button>
+      </div>
+    </div>
+  </div>
+  <main id="main">
+    <!-- ======= apropos about Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2 style="font-size: 28px">A propos</h2>
+          <h5>Bienvenue A <span style="font-weight: bold">ISTICHARA</span></h5>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              la plateforme de consultation en ligne qui simplifie la mise en
+              relation entre consultants et clients, quels que soient leurs
+              domaines d'expertise.
+            </p>
+            <ul>
+              <li>
+                <i class="ri-check-double-line"></i> Ullamco laboris nisi ut
+                aliquip ex ea commodo consequat
+              </li>
+              <li>
+                <i class="ri-check-double-line"></i> Duis aute irure dolor in
+                reprehenderit in voluptate velit
+              </li>
+              <li>
+                <i class="ri-check-double-line"></i> Ullamco laboris nisi ut
+                aliquip ex ea commodo consequat
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              Notre site propose une expérience exceptionnelle, offrant aux
+              clients la possibilité de découvrir et de réserver des
+              consultations virtuelles avec des professionnels qualifiés issus
+              de divers secteurs.
+            </p>
+            <a
+              routerLink="/utilisateur/apropos-utilisateur"
+              class="btn-learn-more"
+              >Learn More</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section
+      id="services"
+      class="services"
+      style="
+        background-image: url('../../../assets/images/image-service.jpeg');
+        background-size: cover;
+      "
+    >
+      <div class="container">
+        <div class="section-title" data-aos="zoom-out">
+          <h2 style="font-size: 28px">
+            Naviguez Facilement <br />
+            vers des Consultations Optimal
+          </h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box" data-aos="zoom-in-left">
+              <h5 class="title">
+                <a>
+                  <span style="color: rgb(110, 4, 239)">#1 </span>Exploration
+                  des Domaines</a
+                >
+              </h5>
+              <p class="description">
+                Découvrez les différentes catégories et expertises disponibles
+                pour répondre à vos besoins spécifiques
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+            <div
+              class="icon-box"
+              data-aos="zoom-in-left"
+              data-aos-delay="100"
+              style="background-color: rgba(255, 255, 255, 0.707)"
+            >
+              <h5 class="title">
+                <a>
+                  <span style="color: rgb(110, 4, 239)">#2 </span>Sélection du
+                  Consultant</a
+                >
+              </h5>
+              <p class="description">
+                Choisissez le consultant qui correspond le mieux à vos besoins
+                et à votre style.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
+              <h5 class="title">
+                <a>
+                  <span style="color: rgb(110, 4, 239)">#3 </span>Planification
+                  de la Consultation</a
+                >
+              </h5>
+              <p class="description">
+                Sélectionnez une date et une plage horaire qui vous conviennent
+                dans le calendrier du consultant.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-5">
+            <div
+              class="icon-box"
+              data-aos="zoom-in-left"
+              data-aos-delay="300"
+              style="background-color: rgba(255, 255, 255, 0.707)"
+            >
+              <h5 class="title">
+                <a>
+                  <span style="color: rgb(110, 4, 239)">#4 </span>Paiement
+                  Sécurisé</a
+                >
+              </h5>
+              <p class="description">
+                Une fois que vous avez sélectionné la date et l'heure de la
+                consultation, procédez au paiement sécurisé directement à partir
+                de la plateforme.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-5">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">
+              <h5 class="title">
+                <a>
+                  <span style="color: rgb(110, 4, 239)">#5 </span>Participation
+                  à la Consultation en Ligne</a
+                >
+              </h5>
+              <p class="description">
+                Profitez d'une expérience vidéoconférence fluide avec votre
+                consultant, et obtenez des conseils personnalisés
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-5">
+            <div
+              class="icon-box"
+              data-aos="zoom-in-left"
+              data-aos-delay="500"
+              style="background-color: rgba(255, 255, 255, 0.707)"
+            >
+              <h5 class="title">
+                <a>
+                  <span style="color: rgb(110, 4, 239)">#6 </span>Donnez Votre
+                  Avis</a
+                >
+              </h5>
+              <p class="description">
+                Après la consultation, partagez votre expérience en donnant
+                votre avis sur la prestation du consultant
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Services Section -->
+    <br />
+    <br />
+    <br />
+    <!-- ======= Details Section ======= -->
+    <section id="details" class="details">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Découvrez les Avantages Exceptionnels de Notre Plateforme</h2>
+        </div>
+        <div class="card" style="background-color: rgb(255, 255, 255);">
+          <div class="row content">
+            <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
+              <img
+                src="../../../assets/images/securite.jpeg"
+                class="img-fluid"
+                alt=""
+                style="
+                  width: 80%;
+                  height: 300px;
+                  margin-left: 30%;
+                  border-radius: 6%;
+                "
+              />
+            </div>
+            <div
+              class="col-md-7 order-2 order-md-1"
+              style="padding-top: 5%; padding-left: 3%; background-color: rgba(252, 240, 146, 0.539);border-radius: 12px; margin-left: 1%;"
+            >
+              <h3>Confidentialité et Sécurité</h3>
+              <h5>
+                Votre vie privée est notre priorité. Bénéficiez de consultations
+                confidentielles, où chaque interaction est sécurisée et
+                protégée. Notre engagement envers la confidentialité garantit
+                que vos échanges restent privés et sécurisés.
+              </h5>
+            </div>
+          </div>
+        </div><br>
+
+        <!--2-->
+                <div class="card" style="background-color: rgb(255, 255, 255);">
+
+        <div class="row content">
+          <div class="col-md-4" data-aos="fade-right">
+            <img
+              src="../../../assets/images/securite.jpeg"
+              class="img-fluid"
+              alt=""
+              style="
+                  width: 80%;
+                  height: 300px;
+
+                  border-radius: 6%;
+                "
+            />
+          </div>
+          <div class="col-md-7" data-aos="fade-up"               style="padding-top: 5%; margin-left: 7.3%; background-color: rgba(57, 15, 164, 0.331);border-radius: 12px; "
+>
+            <h3>Consultation à Portée de Main</h3>
+            <h5>
+              Découvrez la commodité d'avoir des conseils experts à portée de
+              main. Que vous soyez chez vous, au bureau, ou en déplacement, nos
+              consultations en ligne vous offrent une accessibilité maximale
+              pour répondre à vos besoins, quand vous en avez besoin.
+            </h5>
+          </div>
+        </div>
+                </div>
+                <br>
+        <!--3-->
+        <div class="card" style="background-color: rgb(255, 255, 255);">
+          <div class="row content">
+            <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
+              <img
+                src="../../../assets/images/securite.jpeg"
+                class="img-fluid"
+                alt=""
+                style="
+                  width: 80%;
+                  height: 300px;
+                  margin-left: 30%;
+                  border-radius: 6%;
+                "
+              />
+            </div>
+            <div
+              class="col-md-7 order-2 order-md-1"
+              style="padding-top: 5%; padding-left: 3%; background-color: rgba(100, 136, 245, 0.412);;border-radius: 12px; margin-left: 1%;"
+            >
+              <h3>Confidentialité et Sécurité</h3>
+              <h5>
+                Votre vie privée est notre priorité. Bénéficiez de consultations
+                confidentielles, où chaque interaction est sécurisée et
+                protégée. Notre engagement envers la confidentialité garantit
+                que vos échanges restent privés et sécurisés.
+              </h5>
+            </div>
+          </div>
+        </div><br>
+      </div>
+    </section>
+    <section>
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Domaine</h2>
+          <p style="color: rgb(255, 183, 0)">
+            Explorez Nos Divers Domaines d'Expertise
+          </p>
+        </div>
+        <div class="row content">
+          <div id="more-services" class="more-services">
+            <div class="container">
+              <div class="row">
+                <div
+                  class="col-md-4 d-flex align-items-stretch"
+                  *ngFor="let domaine of domaines"
+                >
+                  <div
+                    class="card"
+                    style="
+                      background-image: url('../../../assets/images-consultants/{{
+                      domaine.pathImage
+                    }}');
+                    "
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                  >
+                    <div class="card-body">
+                      <h5 class="card-title" style="margin-left: 6%">
+                        {{ domaine.nomDomaine }}
+                      </h5>
+                      <p class="card-text">
+                        {{ domaine.descriptionDomaine }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ======= QUESTION PAGE======= -->
+    <section
+      id="faq"
+      class="faq"
+      style="
+        background-image: url('../../../assets/images/bg-question.jpeg');
+        background-size: cover;
+      "
+    >
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Les Questions Plus Fréquentés</h2>
+        </div>
+
+        <div
+          class="row faq-item d-flex align-items-stretch"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          *ngFor="let faq of faqList"
+        >
+          <div class="col-lg-5">
+            <h4>
+              <img
+                src="../../../assets/images/question.jpeg"
+                style="width: 30px"
+                alt=""
+              />
+              {{ faq.question }}
+            </h4>
+          </div>
+          <div class="col-lg-7">
+            <p>
+              <span style="font-weight: bold; font-size: medium"
+                >{{ faq.answer }}
+              </span>
+            </p>
+          </div>
+        </div>
+        <!-- End F.A.Q Item-->
+      </div>
+    </section>
+    <!-- End F.A.Q Section -->
+  </main>
+</body>

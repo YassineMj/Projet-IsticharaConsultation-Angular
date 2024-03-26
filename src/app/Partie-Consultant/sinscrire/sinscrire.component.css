@@ -1,29 +1,46 @@
-/* Ajoutez ces styles à votre fichier de styles CSS */
+.mat-stepper-horizontal {
+  margin-top: 8px;
+  margin-left: 10%;
+  margin-right: 7%;
+}
 
-.kutup-button {
-    background-color: #e09132; /* Couleur de fond verte */
-    color: white; /* Texte blanc */
-    padding: 10px 15px; /* Espacement interne */
-    border: none; /* Pas de bordure */
-    cursor: pointer; /* Curseur pointer */
-    border-radius: 20px;
-  }
+.mat-mdc-form-field {
+  margin-top: 16px;
+  margin-left: 1%;
+  width: 48%;
+}
 
-  .kutup-button-danger {
-    background-color: #94bdb5;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 20px; /* Couleur de fond rouge pour le bouton de suppression */
-  }
-#formations{
-    display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      padding-left: 10px;
-   }
-     #experience{
-      display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-     }
+mat-card {
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-top: 7%;
+  margin-bottom: 2%;
+}
+.example-section {
+  margin: 12px 0;
+}
 
+.example-margin {
+  margin: 0 12px;
+}
+#langue {
+  font-weight: bold;
+  margin-left: 1%;
+}
+.inp {
+  width: 92%;
+}
+
+body {
+  background-image: url("../../../assets/images/backgroundlogin.jpg");
+  background-size: cover;
+  padding-bottom: 5%;
+  margin-bottom: -3.8%;
+}
+
+mat-card {
+  background-image: url("../../../assets/images/login-new-bootstrap.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
