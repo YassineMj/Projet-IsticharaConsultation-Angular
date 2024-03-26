@@ -41,10 +41,9 @@ export class RechercheUtilisateurComponent {
   dataConsultations:any;
   getConsultations(){    
     this._serviceConsultation.getConsultationByIdDomaineEtNomCategorie(this.idDomaine,this.nomCategorie).subscribe(
-      (resp)=>{
+      (resp)=>{        
         this.dataConsultations=resp;    
-        console.log(this.dataConsultations);
-        
+        console.log(resp);        
       },
       (error)=>{
         console.error(error);
