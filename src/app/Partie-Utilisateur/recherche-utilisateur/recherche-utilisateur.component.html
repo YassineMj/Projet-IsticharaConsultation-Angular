@@ -178,7 +178,7 @@
     "
   />
   <h3 style="margin-left: 33px">
-    <i class=" fa fa-check-circle" style="color: #6b9e05 ; font-size: 120%;"></i>Réservez une
+    <i class=" fa fa-check-circle" style="color: #6b9e05 ; font-size: 120%;"></i> Réservez une
     consultation vidéo en ligne et à distance à votre convenance avec le
     consultant de votre choix et dans le domaine qui vous intéresse sur
     ISTICHARA.
@@ -191,7 +191,8 @@
       border: 1px solid rgb(67, 76, 255);
     "
   />
-
+  
+           
   <div class="div2" *ngFor="let c of dataConsultations" style="width: 98%">
     <div class="text-center">
       <div class="row">
@@ -214,9 +215,8 @@
                       margin-top: 17%;
                     "
                   />
-                  <h3 class="card-title mb-1">
-                    <a style="color: blueviolet; text-decoration: none"
-                      >Voir le profil</a
+                  <h3 class="card-title mb-1"   >
+                    <a style="color: blueviolet; text-decoration: none ; cursor: pointer;" (click)="goToProfil(c.consultant.idConsultant)" > Voir le profil</a
                     >
                   </h3>
                   <h5 class="card-text">
@@ -259,7 +259,7 @@
                   {{ c.consultant.nom }} {{ c.consultant.prenom }}
                 </h4>
                 <div class="consultation-description">
-                  <p class="mb-1">{{ c.description }} .</p>
+                   <p class="mb-1">{{ c.consultant.descriptionProfile }}.</p>
                 </div>
                 <hr
                   style="
@@ -271,8 +271,8 @@
                 />
                 <br />
               </div>
-              <div class="profile-description mt-2">
-                <p class="mb-1">{{ c.consultant.descriptionProfile }}.</p>
+              <div class="profile-description  mt-2">
+                 <p class="mb-1">{{ c.description }} .</p>
               </div>
             </div>
           </div>

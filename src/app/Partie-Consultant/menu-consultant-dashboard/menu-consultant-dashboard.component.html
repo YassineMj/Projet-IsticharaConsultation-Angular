@@ -1,4 +1,4 @@
-<div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease-out" data-easing2="ease-out" role="banner" class="navigation w-nav">
+<!--<div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease-out" data-easing2="ease-out" role="banner" class="navigation w-nav">
   <div class="navigation-container">
     <a  routerLinkActive="w--current" class="link-3" [routerLinkActiveOptions]="{ exact: true }">I<span class="text-span-3">S</span>TICHARA</a>
     <nav role="navigation" class="nav-menu w-nav-menu">
@@ -14,4 +14,51 @@
       <div class="icon-2 w-icon-nav-menu"></div>
     </div>
   </div>
-</div>
+</div>-->
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <nav class="navbar navbar-expand-lg bg-transparent "><!--fixed-top-->
+        <div class="container" >
+          <a routerLink="/"  class="navbar-brand fs-4 logo purple" >I<span class="istichara">S</span>TICHARA</a>
+          <button class="navbar-toggler shadow-none border-0" type="button" data-bs-theme="white" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" >
+            <span class="  navbar-toggler-icon "></span>
+          </button>
+          <!--sidebar-->
+
+          <div class="sidebar offcanvas offcanvas-start text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+           <!--Header-->
+
+            <div class="offcanvas-header text-dark ">
+              <h5 class="offcanvas-title " id="offcanvasNavbarLabel">Menu</h5>
+              <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+            <!--body -->
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item mx-2">
+                  <a class="nav-link  " aria-current="page"  routerLink="/consultant/profil-consultant-dashoard" > Profil </a>
+                </li>
+                <li class="nav-item mx-2 ">
+                    <a class="nav-link  " aria-current="page" routerLink="/consultant/consultations-consultant-dashboard" >Consultaion</a>
+                  </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link " routerLink="/consultant/rendezvous-consultant-dashboard" >Rendez Vous</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link " routerLink="/consultant/help-consultant-dashboard" >Help</a>
+                </li>
+            </ul>
+              <!-- contacter nous et User Icon button -->
+                <div>
+                  <button type="button" class="btn  rounded-5  btnchat"  routerLink="/consultant/contact-consultant-dashboard" style="margin-right: 4px;">  <i class="fa fa-comment " style="color: white;"></i> </button>
+                  <button type="button" class="btn rounded-5 btnuser " routerLink="/utilisateur"> <i class="fa fa-arrow-right" style="color: white;"></i> </button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+

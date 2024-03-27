@@ -3,6 +3,8 @@ import { DomaineService } from '../Services/DomaineCategorie.service';
 import { domaineBean } from '../Beans/domaineBean';
 import { categorieBean } from '../Beans/categorieBean';
 import { ConsultationService } from 'src/app/Partie-Consultant/Services/consultation.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-recherche-utilisateur',
@@ -11,7 +13,7 @@ import { ConsultationService } from 'src/app/Partie-Consultant/Services/consulta
 })
 export class RechercheUtilisateurComponent {
 
-  constructor(private _serviceDomaineCategorie:DomaineService , private _serviceConsultation:ConsultationService){}
+  constructor(private _serviceDomaineCategorie:DomaineService , private _serviceConsultation:ConsultationService, private router:Router ){}
 
   domaines:domaineBean[]=[]
 
@@ -49,5 +51,12 @@ export class RechercheUtilisateurComponent {
         console.error(error);
       }
     )
+  }
+  
+   goToProfil(idConsultant: string) {
+    this.router.navigate([
+      '/utilisateur/profilConsultant-utilisateur',
+      idConsultant,
+    ]);
   }
 }
