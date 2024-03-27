@@ -1,11 +1,12 @@
 body {
-background-image: linear-gradient(to right, #ffd891, #c2fff3);
+background-image: linear-gradient(to right, #7d45ff, #4690ff);
+margin: 0;
 }
 
 
 .input-group{
   display: flex;
-    align-items: center;
+  align-items: center;
 }
 #plus{
   margin-left: 1%;
@@ -14,7 +15,7 @@ background-image: linear-gradient(to right, #ffd891, #c2fff3);
 .view-account {
   background: #ffffff;
   margin-top: 20px;
-    border-radius: 5px;
+  border-radius: 5px;
 }
 /* #sidebarecolor{
   background-color: #c5daf0;
@@ -101,8 +102,8 @@ background-image: linear-gradient(to right, #ffd891, #c2fff3);
 }
 
 .view-account .side-bar .side-menu .nav>li.active a {
-  color: #40babd;
-  border-bottom: 2px solid #40babd;
+  color: #4d40bd;
+  border-bottom: 2px solid #4d40bd;
   background: none;
   border-right: none
 }
@@ -113,8 +114,8 @@ background-image: linear-gradient(to right, #ffd891, #c2fff3);
 }
 
 .theme-3 .view-account .side-bar .side-menu .nav>li.active a {
-  color: #497cb1;
-  border-bottom-color: #497cb1
+  color: #4d40bd;
+  border-bottom-color: #4d40bd;
 }
 
 .theme-4 .view-account .side-bar .side-menu .nav>li.active a {
@@ -279,7 +280,7 @@ background-image: linear-gradient(to right, #ffd891, #c2fff3);
 }
 
 .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-2 {
-  background: #58bbee
+  background: #4d40bd;
 }
 
 .view-account .content-panel .mails-wrapper .mail-item .mail-subject .label-color-3 {
@@ -354,7 +355,7 @@ background-image: linear-gradient(to right, #ffd891, #c2fff3);
 }
 
 .drive-wrapper .drive-item-title a:hover {
-  color: #40babd
+  color: #4d40bd;
 }
 
 .theme-2 .drive-wrapper .drive-item-title a:hover {
@@ -431,7 +432,7 @@ background-image: linear-gradient(to right, #ffd891, #c2fff3);
 }
 
 .drive-list-view a:hover {
-  color: #40babd
+  color: #4d40bd;
 }
 
 .theme-2 .drive-list-view a:hover {
@@ -600,7 +601,7 @@ background-image: linear-gradient(to right, #ffd891, #c2fff3);
 
   .view-account .side-bar .side-menu .nav>li.active a {
     background: #f9f9fb;
-    border-right: 4px solid #40babd;
+    border-right: 4px solid #4d40bd;
     border-bottom: none
   }
 
@@ -634,4 +635,14 @@ flex: 1;
 }
 .checkbox{
 margin-right: 10px;
+}
+a{
+  cursor: pointer;
+}
+.btn{
+  background-color: #5646ff;
+  border: none;
+}
+.btn:hover{
+background-color: #4a2df0;
 }

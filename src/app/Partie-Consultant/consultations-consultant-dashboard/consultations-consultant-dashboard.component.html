@@ -1,4 +1,4 @@
-<app-menu-consultant-dashboard></app-menu-consultant-dashboard>
+
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -6,19 +6,21 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 
-<!-- AjouterConsultationComponent HTML -->
-<div class="container mt-4">
+<body>
+  <app-menu-consultant-dashboard></app-menu-consultant-dashboard>
+  <!-- AjouterConsultationComponent HTML -->
+<div class="container1 mt-4">
     <div class="form-group">
       <label for="description">Description:</label>
-      <input type="text" class="form-control" [(ngModel)]="consultation.description" />
+     <textarea class="form-control" [(ngModel)]="consultation.description" placeholder="Description"></textarea>
     </div>
     <div class="form-group">
       <label for="prix">Prix:</label>
-      <input type="number" class="form-control" [(ngModel)]="consultation.prix" />
+      <input type="number" class="form-control" [(ngModel)]="consultation.prix" placeholder="prix" />
     </div>
     <div class="form-group">
       <label for="duree">Durée (en minutes):</label>
-      <input type="number" class="form-control" [(ngModel)]="consultation.duree" />
+      <input type="number" class="form-control"  placeholder="duree"  [(ngModel)]="consultation.duree" />
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary" (click)="ajouterConsultation()">Ajouter</button>
@@ -28,8 +30,8 @@
   <hr />
   
   <!-- ListerConsultationsComponent HTML -->
-  <div class="container mt-4">
-    <table class="table">
+  <div class="container mt-4" >
+    <table class="table" >
       <thead>
         <tr>
           <th>Description</th>
@@ -51,3 +53,4 @@
     </table>
   </div>
   
+</body>

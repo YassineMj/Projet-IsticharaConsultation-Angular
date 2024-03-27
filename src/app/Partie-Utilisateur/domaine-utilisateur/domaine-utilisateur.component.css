@@ -33,7 +33,7 @@
   height: 200px;
   width: 200px;
   border-radius: 100px;
-  background: linear-gradient(to right, #7087fb, #534280);
+  background: linear-gradient(to right, #7087fbcd, #330f9676);
   transition: all 500ms ease-in;
   transition-delay: 1s;
   margin: auto;
