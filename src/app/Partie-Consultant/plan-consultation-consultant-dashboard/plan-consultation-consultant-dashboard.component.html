@@ -1,16 +1,37 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<body>
+  
+
 <app-menu-consultant-dashboard></app-menu-consultant-dashboard>
+
 <div class="container mt-4">
   <div class="card">
-    <div class="card-header">
-      <h2>Détails de la consultation</h2>
+    <div
+      class="card-header backgroundcolor text-white"
+      style="background-color: #4561dc"
+    >
+      <h2 class="mb-0">Détails de la consultation</h2>
     </div>
     <div class="card-body">
       <div class="row">
         <div class="col">
-          <p><strong>ID:</strong> {{ infoConsultation.idConsultation }}</p>
-          <p><strong>Description:</strong> {{ infoConsultation.description }}</p>
-          <p><strong>Prix:</strong> {{ infoConsultation.prix }}</p>
-          <p><strong>Durée:</strong> {{ infoConsultation.duree }}</p>
+          <p class="mb-0">
+            <strong>ID:</strong>
+            <span> {{ infoConsultation.idConsultation }}</span>
+          </p>
+          <p class="mb-0">
+            <strong>Description:</strong>
+            <span> {{ infoConsultation.description }}</span>
+          </p>
+          <p class="mb-0">
+            <strong>Prix:</strong> <span> {{ infoConsultation.prix }}</span>
+          </p>
+          <p class="mb-0">
+            <strong>Durée:</strong> <span> {{ infoConsultation.duree }}</span>
+          </p>
         </div>
       </div>
     </div>
@@ -20,95 +41,95 @@
 <hr />
 <hr />
 
-
 <div class="row text-center">
-    <div class="col-md-4">
-      <div class="btn-group">
-        <div
-          class="btn btn-primary"
-          mwlCalendarPreviousView
-          [view]="view"
-          [(viewDate)]="viewDate"
-          (viewDateChange)="closeOpenMonthViewDay()"
-        >
-          Previous
-        </div>
-        <div
-          class="btn btn-outline-secondary"
-          mwlCalendarToday
-          [(viewDate)]="viewDate"
-        >
-          Today
-        </div>
-        <div
-          class="btn btn-primary"
-          mwlCalendarNextView
-          [view]="view"
-          [(viewDate)]="viewDate"
-          (viewDateChange)="closeOpenMonthViewDay()"
-        >
-          Next
-        </div>
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div
+        class="btn text-white"
+        style="background-color: #6682ff"
+        mwlCalendarPreviousView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+        Previous
       </div>
-    </div>
-    <div class="col-md-4">
-      <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
-    </div>
-    <div class="col-md-4">
-      <div class="btn-group">
+      <div
+        class="btn btn-outline-secondary"
+        mwlCalendarToday
+        [(viewDate)]="viewDate"
+      >
+        Today
+      </div>
+      <div
+        class="btn text-white"
+        style="background-color: #6682ff"
+        mwlCalendarNextView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+        Next
       </div>
     </div>
   </div>
-  <br />
-  
-  <div *ngIf="view === CalendarView.Week">
-    <mwl-calendar-week-view
-      [viewDate]="viewDate"
-      [events]="events"
-      [refresh]="refresh"
-      (eventClicked)="handleEvent('Clicked', $event.event)"
-      (eventTimesChanged)="eventTimesChanged($event)"
-    >
-    </mwl-calendar-week-view>
+  <div class="col-md-4">
+    <h3>{{ viewDate | calendarDate : view + "ViewTitle" : "en" }}</h3>
   </div>
-  
-  <!-- Tout le reste du code ci-dessous pour la démo... -->
-  
-  <br /><br /><br />
-  
-  <h3>
-    Edit events
-    <button class="btn btn-primary float-end" (click)="addEvent()">
-      Add new
-    </button>
-    <div class="clearfix"></div>
-  </h3>
-  
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Starts at</th>
-          <th>Ends at</th>
-          <th>Remove</th>
-        </tr>
-      </thead>
-  
-      <tbody>
-        <tr *ngFor="let event of events">
-          <td>
-            <input
-              type="text"
-              class="form-control"
-              [(ngModel)]="event.title"
-              (keyup)="refresh.next()"
-            />
-          </td>
-          
-          
-          <td>
-            <input
+  <div class="col-md-4">
+    <div class="btn-group"></div>
+  </div>
+</div>
+<br />
+
+<div *ngIf="view === CalendarView.Week" style="margin: 3%">
+  <mwl-calendar-week-view
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)"
+  >
+  </mwl-calendar-week-view>
+</div>
+
+<!-- Tout le reste du code ci-dessous pour la démo... -->
+
+<br /><br />
+
+<h3 class="mb-4" style="margin: 3%">
+  <span class="text-primary">
+    <i class="fa fa-pencil"></i> Modifier les événements</span
+  >
+  <button class="btn success float-end" (click)="addEvent()">
+    Ajouter un nouvel événement
+  </button>
+  <div class="clearfix"></div>
+</h3>
+
+<div class="table-responsive" style="margin: 3%">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Commence à</th>
+        <th>Fini à</th>
+        <th>Supprimer</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="event.title"
+            (keyup)="refresh.next()"
+          />
+        </td>
+        <td>
+          <input
             class="form-control"
             type="text"
             mwlFlatpickr
@@ -121,10 +142,9 @@
             altFormat="F j, Y H:i"
             placeholder="Not set"
           />
-
-          </td>
-          <td>
-            <input
+        </td>
+        <td>
+          <input
             class="form-control"
             type="text"
             mwlFlatpickr
@@ -137,41 +157,42 @@
             altFormat="F j, Y H:i"
             placeholder="Not set"
           />
-          </td>
-          <td>
-            <button class="btn btn-danger" (click)="deleteEvent(event,event.id)">
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-  <ng-template #modalContent let-close="close">
-    <div class="modal-header">
-      <h5 class="modal-title">Event action occurred</h5>
-      <button type="button" class="close" (click)="close()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div>
-        Action:
-        <pre>{{ modalData?.action }}</pre>
-      </div>
-      <div>
-        Event:
-        <pre>{{ modalData?.event | json }}</pre>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-secondary" (click)="close()">
-        OK
-      </button>
-    </div>
-  </ng-template>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteEvent(event, event.id)">
+            Supprimer
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-  <button class="btn btn-primary float-end" (click)="valide()">
-    Valide les heures
-  </button>
+<ng-template #modalContent let-close="close">
+  <div class="modal-header">
+    <h5 class="modal-title">Event action occurred</h5>
+    <button type="button" class="close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>
+      Action:
+      <pre>{{ modalData?.action }}</pre>
+    </div>
+    <div>
+      Event:
+      <pre>{{ modalData?.event | json }}</pre>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="close()">
+      OK
+    </button>
+  </div>
+</ng-template>
+
+<button class="btn float-end valider" (click)="valide()">
+  Valide les heures
+</button>
+</body>

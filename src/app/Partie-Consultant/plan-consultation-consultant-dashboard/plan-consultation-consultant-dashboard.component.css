@@ -1,0 +1,28 @@
+body{
+    background-color: #1818ff12;
+}
+.valider:hover{
+    background-color: #3d07ff;
+        border: 2px solid #3d07ff;
+       color: white;
+}
+.valider{
+       background-color: #bfb7ff60;
+        border: 2px solid #3d07ff;
+        color: #3d07ff;
+        margin-right: 34%;
+        margin-top: -2%;
+        width: 30%;
+        margin-bottom: 1%;
+}
+.success{
+        background-color: #aff6d94b;
+        border: 2px solid #21682ce2;
+        color: #21682ce2;
+       
+}
+.success:hover{
+    background-color: #21682ce2;
+        border: 2px solid #21682ce2;
+        color: white;
+}
