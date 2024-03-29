@@ -56,6 +56,7 @@ const colors: Record<string, EventColor> = {
     `,
   ],
   templateUrl: './plan-consultation-consultant-dashboard.component.html',
+  styleUrls: ['./plan-consultation-consultant-dashboard.component.css']
 })
 export class PlanConsultationConsultantDashboardComponent implements OnInit{
 
