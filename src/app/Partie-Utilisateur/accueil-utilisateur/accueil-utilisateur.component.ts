@@ -15,9 +15,15 @@ export class AccueilUtilisateurComponent implements OnInit {
 
   domaines: domaineBean[] = [];
 
+  domainesParPage: domaineBean[] = [];
+  currentPage: number = 0;
+  totalPagesArray: number[] = [];
+  pageSize: number = 3; 
+
   categories: categorieBean[] = [];
 
   ngOnInit(): void {
+    this.DomainesParPage()
     this._service.getAllDomaine().subscribe((resp) => {
       this.domaines = resp;
     });
@@ -29,6 +35,24 @@ export class AccueilUtilisateurComponent implements OnInit {
     this._service.getCategorieByIddomaine(this.idDomaine).subscribe((resp) => {
       this.categories = resp;
     });
+
+  }
+
+  DomainesParPage() {
+    this._service.getDomaineParPage(this.currentPage, this.pageSize).subscribe(
+      (response: any) => {
+        this.domainesParPage = response.content;
+        this.totalPagesArray = Array.from({ length: response.totalPages }, (_, i) => i);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  goToPage(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.DomainesParPage();
   }
 
   faqList = [

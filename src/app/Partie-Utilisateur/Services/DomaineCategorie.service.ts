@@ -17,6 +17,11 @@ export class DomaineService {
     return this.http.get<domaineBean[]>('http://localhost:8080/IsticharaConsultation/api/domaines');
   }
 
+  getDomaineParPage(page: number, size: number): Observable<any> {
+    const url = `http://localhost:8080/IsticharaConsultation/api/domaines/page?page=${page}&size=${size}`;
+    return this.http.get<any>(url);
+  }
+
   getCategorieByIddomaine(idDomaine:string) : Observable<categorieBean[]> {
     return this.http.get<categorieBean[]>('http://localhost:8080/IsticharaConsultation/api/categories/'+idDomaine);
   }
