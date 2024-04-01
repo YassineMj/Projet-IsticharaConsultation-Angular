@@ -107,14 +107,14 @@
   <div class="clearfix"></div>
 </h3>
 
-<div class="table-responsive" style="margin: 3%">
-  <table class="table table-bordered">
+<div class="table-responsive " style="margin: 3%">
+  <table class="table table-bordered ">
     <thead>
-      <tr>
-        <th>Titre</th>
-        <th>Commence à</th>
-        <th>Fini à</th>
-        <th>Supprimer</th>
+      <tr >
+        <th class="th">Titre</th>
+        <th class="th">Commence à</th>
+        <th class="th">Fini à</th>
+        <th class="th">Supprimer</th>
       </tr>
     </thead>
 
@@ -159,8 +159,8 @@
           />
         </td>
         <td>
-          <button class="btn btn-danger" (click)="deleteEvent(event, event.id)">
-            Supprimer
+          <button class="btn btn-danger" (click)="deleteEvent(event, event.id)" style="margin-left: 50px;">
+                  <i class="fa fa-trash" style="color: white "></i>
           </button>
         </td>
       </tr>

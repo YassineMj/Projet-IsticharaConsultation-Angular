@@ -1,62 +1,100 @@
-
-
-
-
-
 <body>
-    <div class="bg-background"></div>
-    <div class="container py-5">
-        <div class="row py-5 g-3">
-
-            <div class="col-md-6 first_col ">
-                <h1 class="text-center mt-5">Contacter nous !</h1>
-                <div class="p-4 mt-3 ">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Nom</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom"  [(ngModel)]="Infomessage.nom">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label" >Email</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Email " [(ngModel)]="Infomessage.email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label" >Numéro de Téléphone</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Numéro de Téléphone" [(ngModel)]="Infomessage.numero">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                        <textarea  type="text" class="form-control  fixed-size-area" id="exampleFormControlTextarea1" rows="3" placeholder="Message ..." [(ngModel)]="Infomessage.message"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <button class="btn btn-primary" (click)="send()">Envoyer</button>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-6 sec_col">
-                <img src="../../../assets/images/contacter-nous-photo.jpg"
-                    class="img-fluid">
-            </div>
+  <div class="bg-background"></div>
+  <div class="container py-5">
+    <div class="row py-5 g-3">
+      <div class="col-md-6 first_col">
+        <h1 class="text-center mt-5">Contacter nous !</h1>
+        <div class="p-4 mt-3">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Nom"
+              [(ngModel)]="Infomessage.nom"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Email</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Email "
+              [(ngModel)]="Infomessage.email"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Numéro de Téléphone</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Numéro de Téléphone"
+              [(ngModel)]="Infomessage.numero"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"
+              >Message</label
+            >
+            <textarea
+              type="text"
+              class="form-control fixed-size-area"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              placeholder="Message ..."
+              [(ngModel)]="Infomessage.message"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <button class="btn btn-primary" (click)="send()">Envoyer</button>
+          </div>
         </div>
-        <div class="row-last">
-            <div class="row row-cols-1 row-cols-md-3  p-4 text-white">
-                <div class="col">
-                    <h4>APPELEZ-NOUS</h4>
-                    <p class="phone">+212 632673262   </p>
-                </div>
-                <div class="col">
-                  <h4>Email</h4>
-                  <p class="phone">istichara66.com</p>
-              </div>
-                <div class="col">
-                    <h4>Réseaux sociaux </h4>
-                      <img src="../../../assets/images/linkedin-logo.png" alt="" style="width: 40px;">
-                      <img src="../../../assets/images/instagram-logo.png" alt="" style="width: 35px;">
-                      <img src="../../../assets/images/facebook-logo.png" alt="" style="width: 52px;">
-                      <img src="../../../assets/images/git-logo.png" alt="" style="width: 36px;">
-                      <hr style="color: purple; width:160px;">
-                </div>
-
-            </div>
-        </div>
+      </div>
+      <div class="col-md-6 sec_col">
+        <img
+          src="../../../assets/images/contacter-nous-photo.jpg"
+          class="img-fluid"
+        />
+      </div>
     </div>
+    <div class="row-last">
+      <div class="row row-cols-1 row-cols-md-3 p-4 text-white">
+        <div class="col">
+          <h4>APPELEZ-NOUS</h4>
+          <p class="phone">+212 632673262</p>
+        </div>
+        <div class="col">
+          <h4>Email</h4>
+          <p class="phone">istichara66@gmail.com</p>
+        </div>
+        <div class="col">
+          <h4 style="margin-left: 20px">Réseaux sociaux</h4>
+
+          <img
+            src="../../../assets/images/instagram-logo.png"
+            alt=""
+            style="width: 38px; margin-left: 43px"
+          />
+          <img
+            src="../../../assets/images/git-logo.png"
+            alt=""
+            style="width: 36px; margin-left: 6px"
+          />
+          <img
+            src="../../../assets/images/linkedin-logo.png"
+            alt=""
+            style="width: 50px"
+          />
+          <hr style="color: purple; width: 140px ; margin-left: 40px;" />
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
