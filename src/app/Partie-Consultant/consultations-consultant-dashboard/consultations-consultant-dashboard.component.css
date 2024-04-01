@@ -1,16 +1,18 @@
 
 body{
-background-image: url("../../../assets/images/background10.jpg");
+    background-image: url("../../../assets/images/image-background-consultant.png");
+    background-color: #1818ff37;
     background-size: cover;
 }
 
 .container1 {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #f9f9f97e;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
     
 }
 
@@ -52,12 +54,12 @@ label {
 }
 
 .btn-primary:hover {
-    background-color: #3d07ff;
+    background-color: #2b10fbd3;
     color: white;
     
 }
 .container {
-    max-width: 900px;
+    max-width: 925px;
     margin: 0 auto;
     
     
@@ -81,7 +83,7 @@ label {
 }
 
 .table th {
-    background-color: #4129f5eb;
+    background-color: #2b10fbd3;
     color: #fff;
     
 }
@@ -104,7 +106,7 @@ label {
 }
 
 .btn-secondary:hover {
-background-color: #3d07ff;
+background-color: #2b10fbd3;
 color: white;
 
 }
@@ -126,7 +128,7 @@ textarea.form-control:focus {
  /*NAVBAR*/
 
  .container12 {
-     background-color: rgba(240, 240, 240, 0.394);
+     background-color: rgba(240, 240, 240, 0.71);
      border-radius: 20px;
      padding: 5px;
      width: 95%;
@@ -234,14 +236,14 @@ textarea.form-control:focus {
  }
 
  .btnchat {
-     background-color: #53b622bc;
+        background: linear-gradient( #3751ffbc ,#10efffbc , #3a52efbc);
      color: white;
      margin-top: 10%;
      font-size: 130%;
  }
 
  .btnchat:hover {
-     background-color: rgba(12, 146, 12, 0.724);
+        background: linear-gradient(to right, #3751ffbc, #10efffbc, #3a52efbc);
  }
 
  .btnuser {

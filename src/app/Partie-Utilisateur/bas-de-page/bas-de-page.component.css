@@ -5,11 +5,12 @@
 a{
     cursor: pointer;
     text-decoration: none;
+    color: black;
 }
 
 a:hover {
-    color: #6dbdad;
-    text-decoration: none; /* Optional: Remove underline on hover */
+  
+     color: blueviolet;
   }
   
   .s{

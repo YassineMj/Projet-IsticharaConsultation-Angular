@@ -107,13 +107,15 @@
 
 
   }
- .btnchat{
-    background-color: #53b622bc;
-        color: white;
-  }
-  .btnchat:hover{
-    background-color: rgba(12, 146, 12, 0.724);
-  }
+         .btnchat {
+             background: linear-gradient(#3751ffbc, #10efffbc, #3a52efbc);
+             color: white;
+ 
+         }
+    
+         .btnchat:hover {
+             background: linear-gradient(to right, #3751ffbc, #10efffbc, #3a52efbc);
+         }
   .btnuser {
        background-color: #6d4cff;
        color: white;

@@ -1,21 +1,10 @@
 body {
-    background-image: url("../../../assets/images/background10.jpg");
-  background-size: cover;
+      background-image: url("../../../assets/images/image-background-consultant.png");
+    background-color: #1818ff37;
+    background-size: cover;
 
-margin: 0;
+   margin: 0;
 }
-
-.input-group{
- 
-}
-.input-group{
- 
-
-}
-#plus{
- 
-}
-
 .view-account {
   background: #ffffff;
   margin-top: 20px;
@@ -614,7 +603,7 @@ margin: 0;
   }
 
   .theme-3 .view-account .side-bar .side-menu .nav>li.active a {
-    border-right-color: #497cb1
+    border-right-color: #6649b1
   }
 
   .theme-4 .view-account .side-bar .side-menu .nav>li.active a {
@@ -650,11 +639,15 @@ a{
 .btn:hover{
 background-color: #4a2df0;
 }
+.btn:active {
+     background-color: #3d2cff;
+     outline: none;
+}
 
     /*NAVBAR*/
  
           .container12 {
-              background-color: rgba(240, 240, 240, 0.394);
+              background-color: rgba(240, 240, 240, 0.701);
               border-radius: 20px;
               padding: 5px;
               width: 95%;
@@ -760,17 +753,16 @@ background-color: #4a2df0;
       
             }
 
-            .btnchat {
-              background-color: #53b622bc;
-              color: white;
-              margin-top: 10%;
-              font-size: 130%;
-            }
-      
-            .btnchat:hover {
-              background-color: rgba(12, 146, 12, 0.724);
-            }
-      
+          .btnchat {
+             background: linear-gradient(#3751ffbc, #10efffbc, #3a52efbc);
+             color: white;
+             margin-top: 10%;
+             font-size: 130%;
+      }
+          
+   .btnchat:hover {
+             background: linear-gradient(to right, #3751ffbc, #10efffbc, #3a52efbc);
+    }
             .btnuser {
               background-color: #6d4cff;
               color: white;
@@ -789,3 +781,4 @@ background-color: #4a2df0;
             .purple {
               color: rgb(19, 19, 19);
             }
+                       
