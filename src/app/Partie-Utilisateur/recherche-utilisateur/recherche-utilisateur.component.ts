@@ -41,17 +41,30 @@ export class RechercheUtilisateurComponent {
   }
 
   dataConsultations:any;
-  getConsultations(){    
-    this._serviceConsultation.getConsultationByIdDomaineEtNomCategorie(this.idDomaine,this.nomCategorie).subscribe(
-      (resp)=>{        
-        this.dataConsultations=resp;    
-        console.log(resp);        
-      },
-      (error)=>{
-        console.error(error);
-      }
-    )
-  }
+  page: number = 0;
+  size: number = 3;
+  totalPages!: number;
+  pageNumbers: number[] = [];
+
+getConsultations() {
+  this._serviceConsultation.getConsultationByIdDomaineEtNomCategorie(this.idDomaine, this.nomCategorie, this.page, this.size)
+    .subscribe((resp: any) => {
+      this.dataConsultations = resp.content;
+      this.totalPages = resp.totalPages;
+      this.generatePageNumbers();
+    }, (error) => {
+      console.error(error);
+    });
+}
+
+generatePageNumbers() {
+  this.pageNumbers = Array.from({ length: this.totalPages }, (_, index) => index);
+}
+
+goToPage(pageNumber: number) {
+  this.page = pageNumber;
+  this.getConsultations();
+}
   
    goToProfil(idConsultant: string) {
     this.router.navigate([
