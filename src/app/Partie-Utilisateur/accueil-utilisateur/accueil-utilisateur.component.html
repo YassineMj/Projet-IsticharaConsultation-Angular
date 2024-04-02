@@ -856,7 +856,6 @@
           <div id="more-services" class="more-services">
             <div class="container">
               <div class="row">
-
                 <div
                   class="col-md-4 d-flex align-items-stretch"
                   *ngFor="let domaine of domainesParPage"
@@ -864,7 +863,7 @@
                   <div
                     class="card"
                     style="
-                      background-image: url('../../../assets/images-consultants/{{
+                      background-image: url('../../../assets/images/{{
                       domaine.pathImage
                     }}');
                     "
@@ -881,19 +880,24 @@
                     </div>
                   </div>
                 </div>
-
-
               </div>
 
               <nav class="py-4">
                 <ul class="pagination justify-content-center">
-                  <li class="page-item" [class.active]="pageNumber === currentPage" *ngFor="let pageNumber of totalPagesArray">
-                    <a class="page-link" (click)="goToPage(pageNumber)">{{ pageNumber + 1 }}</a>
+                  <li
+                    class="page-item"
+                    [class.active]="pageNumber === currentPage"
+                    *ngFor="let pageNumber of totalPagesArray"
+                  >
+                    <a
+                      class="page-link"
+                      (click)="goToPage(pageNumber)"
+                      style="cursor: pointer"
+                      >{{ pageNumber + 1 }}</a
+                    >
                   </li>
                 </ul>
               </nav>
-              
-
             </div>
           </div>
         </div>

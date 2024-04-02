@@ -5,68 +5,80 @@ import { categorieBean } from '../Beans/categorieBean';
 import { ConsultationService } from 'src/app/Partie-Consultant/Services/consultation.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-recherche-utilisateur',
   templateUrl: './recherche-utilisateur.component.html',
-  styleUrls: ['./recherche-utilisateur.component.css']
+  styleUrls: ['./recherche-utilisateur.component.css'],
 })
 export class RechercheUtilisateurComponent {
+  constructor(
+    private _serviceDomaineCategorie: DomaineService,
+    private _serviceConsultation: ConsultationService,
+    private router: Router
+  ) {}
 
-  constructor(private _serviceDomaineCategorie:DomaineService , private _serviceConsultation:ConsultationService, private router:Router ){}
+  domaines: domaineBean[] = [];
 
-  domaines:domaineBean[]=[]
+  categories: categorieBean[] = [];
 
-  categories:categorieBean[]=[];
-
-  nomCategorie:any;
-
+  nomCategorie: any;
 
   ngOnInit(): void {
-    this._serviceDomaineCategorie.getAllDomaine().subscribe(
-      resp=>{
-        this.domaines=resp;
-      }
-    )
+    this._serviceDomaineCategorie.getAllDomaine().subscribe((resp) => {
+      this.domaines = resp;
+    });
   }
 
-  idDomaine:string=''
+  idDomaine: string = '';
 
-  onIdDomaineChange(){    
-    this._serviceDomaineCategorie.getCategorieByIddomaine(this.idDomaine).subscribe(
-      resp=>{
-        this.categories=resp;
-      }
-    )
+  onIdDomaineChange() {
+    this._serviceDomaineCategorie
+      .getCategorieByIddomaine(this.idDomaine)
+      .subscribe((resp) => {
+        this.categories = resp;
+      });
   }
 
-  dataConsultations:any;
+  dataConsultations: any;
   page: number = 0;
   size: number = 3;
   totalPages!: number;
   pageNumbers: number[] = [];
 
-getConsultations() {
-  this._serviceConsultation.getConsultationByIdDomaineEtNomCategorie(this.idDomaine, this.nomCategorie, this.page, this.size)
-    .subscribe((resp: any) => {
-      this.dataConsultations = resp.content;
-      this.totalPages = resp.totalPages;
-      this.generatePageNumbers();
-    }, (error) => {
-      console.error(error);
-    });
-}
+  getConsultations() {
+    this._serviceConsultation
+      .getConsultationByIdDomaineEtNomCategorie(
+        this.idDomaine,
+        this.nomCategorie,
+        this.page,
+        this.size
+      )
+      .subscribe(
+        (resp: any) => {
+          this.dataConsultations = resp.content;
+          this.totalPages = resp.totalPages;
+          this.generatePageNumbers();
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    this.page = 0;
+  }
 
-generatePageNumbers() {
-  this.pageNumbers = Array.from({ length: this.totalPages }, (_, index) => index);
-}
+  generatePageNumbers() {
+    this.pageNumbers = Array.from(
+      { length: this.totalPages },
+      (_, index) => index
+    );
+  }
 
-goToPage(pageNumber: number) {
-  this.page = pageNumber;
-  this.getConsultations();
-}
-  
-   goToProfil(idConsultant: string) {
+  goToPage(pageNumber: number) {
+    this.page = pageNumber;
+    this.getConsultations();
+  }
+
+  goToProfil(idConsultant: string) {
     this.router.navigate([
       '/utilisateur/profilConsultant-utilisateur',
       idConsultant,

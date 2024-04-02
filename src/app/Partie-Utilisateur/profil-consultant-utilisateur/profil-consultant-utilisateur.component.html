@@ -174,73 +174,78 @@
             />
           </div>
           <div class="col-md-9 tit-det">
-            <h2>{{ consultantProfil.nom }} {{ consultantProfil.prenom }}</h2>
-            <br>
+            <h2 class="text-uppercase bold">
+              {{ consultantProfil.nom }} {{ consultantProfil.prenom }}
+            </h2>
+            <br />
             <div id="grid2">
-            <div id="grid">
-              <h4 class="mb-3">
-                <i class="far fa-envelope display-25 me-3 text-white"></i
-                >{{ consultantProfil.email }}
-              </h4>
-              <h4 class="mb-3">
-                <i class="fas fa-mobile-alt display-25 me-3 text-white"></i
-                >+212 {{ consultantProfil.numeroTelephone }}
-              </h4>
-              <h4>
-                <i class="fa fa-globe display-25 me-3 text-white"></i
-                >{{ consultantProfil.pays }}
-              </h4>
-              <h4>
-                <i class="fa fa-city display-25 me-3 text-white"></i
-                >{{ consultantProfil.ville }}
-              </h4>
+              <div id="grid">
+                <h4 class="mb-3">
+                  <i class="far fa-envelope display-25 me-3 text-white"></i
+                  >{{ consultantProfil.email }}
+                </h4>
+                <h4 class="mb-3">
+                  <i class="fas fa-mobile-alt display-25 me-3 text-white"></i
+                  >+212 {{ consultantProfil.numeroTelephone }}
+                </h4>
+                <h4 class="text-uppercase">
+                  <i class="fa fa-globe display-25 me-3 text-white"></i
+                  >{{ consultantProfil.pays }}
+                </h4>
+                <h4 class="text-uppercase">
+                  <i class="fa fa-city display-25 me-3 text-white"></i
+                  >{{ consultantProfil.ville }}
+                </h4>
 
-              <h4>
-                <i
-                  class="fas fa-map-marker-alt display-25 me-3 text-white "
-                ></i
-                >{{ consultantProfil.adresse }}
-              </h4>
+                <h4>
+                  <i
+                    class="fas fa-map-marker-alt display-25 me-3 text-white"
+                  ></i
+                  >{{ consultantProfil.adresse }}
+                </h4>
+                <h4>
+                  <i class="fa fa-language display-25 me-3 text-white"></i>
 
-              <p id="lg"> <i
-                  class="fa fa-language me-3 text-white  "
-                ></i
-                >
-                <span class="text-primary" *ngFor="let l of langues">
-                  <span class="mr-3" *ngIf="l == 'Arabe'"
-                    ><img
-                      src="../../../assets/images/arabe.png"
-                      style="width: 7%; margin-left: 1%;"
-                      alt=""
-                    />
+                  <span class="text-primary" *ngFor="let l of langues">
+                    <span class="mr-3" *ngIf="l == 'Arabe'"
+                      ><img
+                        src="../../../assets/images/arabe.png"
+                        style="width: 7%; margin-left: 1%"
+                        alt=""
+                      />
+                    </span>
+                    <span class="mr-3" *ngIf="l == 'Francais'"
+                      ><img
+                        src="../../../assets/images/francais.png"
+                        style="width: 7%; margin-left: 1%"
+                        alt=""
+                      />
+                    </span>
+                    <span class="mr-3" *ngIf="l == 'Espagnol'"
+                      ><img
+                        src="../../../assets/images/espagnol.png"
+                        style="width: 7%; margin-left: 1%"
+                        alt=""
+                      />
+                    </span>
+                    <span class="mr-3" *ngIf="l == 'Anglais'"
+                      ><img
+                        src="../../../assets/images/anglais.png"
+                        style="width: 7%; margin-left: 1%"
+                        alt=""
+                      />
+                    </span>
                   </span>
-                  <span class="mr-3" *ngIf="l == 'Francais'"
-                    ><img
-                      src="../../../assets/images/francais.png"
-                      style="width: 7% ;margin-left: 1%"
-                      alt=""
-                    />
-                  </span>
-                  <span class="mr-3" *ngIf="l == 'Espagnol'"
-                    ><img
-                      src="../../../assets/images/espagnol.png"
-                      style="width: 7%; margin-left: 1%;"
-                      alt=""
-                    />
-                  </span>
-                  <span class="mr-3" *ngIf="l == 'Anglais'"
-                    ><img
-                      src="../../../assets/images/anglais.png"
-                      style="width: 7%; margin-left: 1%;"
-                      alt=""
-                    />
-                  </span>
-                </span>
-              </p>
+                </h4>
+                <br />
+              </div>
+              <hr />
+              <br />
+              <div style="margin-left: -2%">
+                <p *ngFor="let m of morceauxDescription">{{ m }}</p>
+              </div>
             </div>
-            <p class="ms-5"*ngFor="let m of morceauxDescription">{{ m }}</p>
           </div>
-        </div>
         </div>
       </div>
     </div>
@@ -248,29 +253,35 @@
     <hr class="m-0" />
     <mat-tab-group>
       <mat-tab label="Specialisations">
-        <br>
-        <p  class="py-2 " *ngFor="let specialization of consultantProfil.specialisation">
-          <i class="fa fa-check text-success"></i>{{ specialization }}
+        <br />
+        <p
+          class="py-2 "
+          *ngFor="let specialization of consultantProfil.specialisation"
+        >
+          <i class="fa fa-check text-success"></i> {{ specialization }}
         </p>
       </mat-tab>
       <mat-tab label="Formations">
-                <br>
+        <br />
 
-        <p  class="py-2 " *ngFor="let formation of consultantProfil.formations">
+        <p class="py-2" *ngFor="let formation of consultantProfil.formations">
           {{ formation }}
         </p></mat-tab
       >
       <mat-tab label="Educations">
-                <br>
+        <br />
 
-        <p  class="py-2 " *ngFor="let education of consultantProfil.educations">
+        <p class="py-2" *ngFor="let education of consultantProfil.educations">
           {{ education }}
         </p></mat-tab
       >
       <mat-tab label="Experiences">
-                <br>
+        <br />
 
-        <p  class="py-2 " *ngFor="let experience of consultantProfil.experiencesPro">
+        <p
+          class="py-2"
+          *ngFor="let experience of consultantProfil.experiencesPro"
+        >
           {{ experience }}
         </p>
       </mat-tab>

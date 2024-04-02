@@ -191,8 +191,8 @@
       border: 1px solid rgb(67, 76, 255);
     "
   />
-  
-           
+
+
   <div class="div2" *ngFor="let c of dataConsultations" style="width: 98%">
     <div class="text-center">
       <div class="row">
@@ -297,10 +297,10 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
         <li class="page-item" *ngFor="let pageNumber of pageNumbers">
-          <a class="page-link"(click)="goToPage(pageNumber)">{{ pageNumber + 1 }}</a>
+          <a class="page-link"(click)="goToPage(pageNumber)" style="cursor: pointer;">{{ pageNumber + 1 }}</a>
         </li>
       </ul>
     </nav>
-    
+
   </div>
 </body>
