@@ -45,6 +45,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ConditionPaiementComponent } from './Partie-Utilisateur/condition-paiement/condition-paiement.component';
+import { InfosUtilisateurComponent } from './Partie-Utilisateur/infos-utilisateur/infos-utilisateur.component';
+import { PaiementUtilisateurComponent } from './Partie-Utilisateur/paiement-utilisateur/paiement-utilisateur.component';
 
 
 @NgModule({
@@ -69,6 +72,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     ConsultationsConsultantDashboardComponent,
     PlanConsultationConsultantDashboardComponent,
     PlanConsultationUtilisateurComponent,
+    ConditionPaiementComponent,
+    InfosUtilisateurComponent,
+    PaiementUtilisateurComponent,
   ],
   imports: [
 

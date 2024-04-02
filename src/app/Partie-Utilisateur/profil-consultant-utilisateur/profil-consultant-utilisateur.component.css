@@ -203,17 +203,11 @@ Description: This Template is created for web template
 
 /* ===================================== Basic CSS ================================== */
 #grid {
-  display: block;
-  border-right: 1px solid white;
-}
-#grid2 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3,1fr);
 }
-#lg {
-  margin-left: -9%;
-  
-}
+
+
 
 mat-tab-group {
   margin-left: 10%;
@@ -376,14 +370,12 @@ body {
 .overcover .covwe-inn .img-c img {
   border-radius: 50%;
   background-color: #fff;
-  padding: 5px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  margin: auto;
+  width: 150%;
 }
 .overcover .covwe-inn .tit-det {
   padding: 20px;
-  padding-left: 10px;
-  margin: auto;
+  padding-left: 15px;
 }
 .overcover .covwe-inn .tit-det h2 {
   color: #fff;
