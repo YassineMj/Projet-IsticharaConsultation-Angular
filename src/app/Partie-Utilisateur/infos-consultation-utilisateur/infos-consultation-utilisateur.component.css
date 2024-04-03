@@ -1,0 +1,94 @@
+body {
+    margin: 4%;
+}
+
+.header-card1 {
+    background-color: rgba(37, 53, 224, 0.87);
+    color: #fff;
+    padding: 2px 30px ;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.header-card2 {
+    background-color: rgba(37, 53, 224, 0.87);
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+.hover-text {
+    visibility: hidden;
+    width: 500px;
+    /* Adjust according to your text size */
+    background-color: #333;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    /* Position the text above the icon */
+    right: 50%;
+    margin-left: -60px;
+    /* Half the width of the text */
+    opacity: 0;
+    /* Start with 0 opacity, fades in on hover */
+    transition: opacity 0.3s;
+    /* Smooth transition effect */
+}
+
+.icon-container:hover .hover-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.validerbtn:hover {
+    background-color: rgba(33, 17, 216, 0.795);
+    color: white;
+}
+
+.validerbtn {
+    background-color: rgba(189, 183, 250, 0.557);
+    border: 2px solid rgba(33, 17, 216, 0.795);
+    color: rgba(33, 17, 216, 0.795);
+    font-weight: bold;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.label-1 {
+    margin-right: 7px;
+
+}
+
+.label-2 {
+    margin-right: 65px;
+}
+
+.label-3 {
+    margin-right: 76px;
+}
+
+.label-4 {
+    margin-right: 55px;
+
+}
+
+.label-debut {
+    margin-right: 16px;
+}
+
+.label-fin {
+    margin-right: 38px;
+}
