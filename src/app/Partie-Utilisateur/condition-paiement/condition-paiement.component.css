@@ -1,36 +1,12 @@
-.container{
- padding-bottom: 5%;
- padding-top: 5%;
+body {
+  margin: 16px;
+  
 }
-.p-titre{
-  font-weight: bold;
-  color: rgba(77, 155, 106, 0.856);
-}
-.titre{
-  font-weight: bold;
-  color: rgb(67, 43, 226);
-  text-align: center;
-  font-size: large;
-}
-.paragraph{
-  margin-left: 3%;
-  font-weight: 600;
+h1{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:35px;
+
 }
 .card{
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(38, 2, 100, 0.382);
-  background-color: #fbfbfb9e;
-
+  background-color: rgba(241, 255, 251, 0.358);
 }
-body{
-/*       background: linear-gradient(to left, #5b53ef, #6754a9  , #5bb4e4);
-    background-color: rgba(245, 245, 245, 0.717);*/
-    background-image: url('../../../assets/images/condition-paiement.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-.top-image {
-
-  }
-

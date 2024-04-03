@@ -1,0 +1,49 @@
+.a {
+    text-decoration: none;
+    color: rgb(60, 22, 198);
+}
+
+.valider:hover {
+    background-color: #3d07ff;
+
+    color: white;
+}
+
+.valider {
+    background-color: #bfb7ff60;
+    border: 2px solid #3d07ff;
+    color: #3d07ff;
+
+    width: 60%;
+    margin-left: 20%;
+
+}
+
+@media (max-width: 768px) {
+    .input-group-inline .form-control {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .custom-bg {
+        display: none;
+    }
+}
+
+.custom-bg {
+    height: 300px;
+}
+
+.input-group-inline {
+    display: flex;
+}
+
+.input-group-inline .form-control {
+    flex: 1;
+    margin-right: 10px;
+    /* Adjust as needed */
+}
+
+.input-group-inline .form-control:last-child {
+    margin-right: 0;
+}

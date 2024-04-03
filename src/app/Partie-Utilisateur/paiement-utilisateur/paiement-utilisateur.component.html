@@ -1,1 +1,193 @@
-<p>paiement-utilisateur works!</p>
+<body>
+  <div class="container">
+    <h2 class="title" >
+      DEMANDE DE PAIEMENT
+      <a routerLink="/" class="navbar-brand fs-4 logo purple"
+        >I<span class="istichara">S</span>TICHARA</a
+      >
+    </h2>
+
+    <hr class="hr-red" />
+
+    <div class="row">
+      <div class="col-md-7">
+        <div class="card shadow">
+          <div class="header-paiement">
+            <h4>DÉTAIL DE PAIEMENT</h4>
+          </div>
+          <div class="card-body">
+            <div class="d-flex align-items-center" style="margin: 14px">
+              <img
+                src="../../../assets/images/image-paiement-fleche.png"
+                style="width: 16%; margin-left: 20px; margin-right: 10px"
+                alt="Credit Card Icon"
+              />
+              <img
+                src="../../../assets/images/image-paiement-card-visa.png"
+                style="width: 15%; margin-right: 5px"
+                alt="Credit Card Icon"
+              />
+              <img
+                src="../../../assets/images/image-paiement-card-discover.png"
+                style="width: 15%; margin-right: 5px"
+                alt="Credit Card Icon"
+              />
+
+              <img
+                src="../../../assets/images/image-paiement-card-amex.png"
+                style="width: 14%; margin-right: 5px"
+                alt="Credit Card Icon"
+              />
+              <img
+                src="../../../assets/images/image-paiement-card-mastercard.png"
+                style="width: 14%; margin-right: 5px"
+                alt="Credit Card Icon"
+              />
+              <img
+                src="../../../assets/images/image-paiement-card-jcb.png"
+                style="width: 14%; margin-right: 5px"
+                alt="Credit Card Icon"
+              />
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div id="form">
+              <div class="form-group">
+                <label for="">Numéro de carte de paiement</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Numéro de carte de paiement"
+                />
+              </div>
+
+              <br />
+              <div>
+                <label for="">Date d'expiration</label>
+                <div class="input-group-inline">
+                  <div class="form-group" style="width: 50%">
+                    <select class="form-select">
+                      <option selected>01</option>
+                      <option value="1">02</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group" style="width: 50%; margin-left: 10px">
+                    <select class="form-select">
+                      <option selected>2024</option>
+                      <option>2025</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <br />
+
+              <div class="form-group cvc">
+                <label for="">CVC</label>
+                <input type="text" class="form-control" placeholder="CVC " />
+              </div>
+
+              <div
+                class="form-check form-check-inline"
+                style="margin-top: 10px"
+              >
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  (click)="ouvrirNouvelOnglet()"
+                />
+                <label class="form-check-label"
+                  >Confirmer l'acceptation des
+                  <span class="a"
+                    >conditions générales d’utilisation du service</span
+                  ></label
+                >
+              </div>
+              <br />
+            </div>
+            <!--dyl form-->
+          </div>
+          <div class="header-bottom">
+            <p>
+              Les informations sur le paiement vous concernant resteront
+              confidentielles.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!--partie 2 -->
+      <div class="col-md-5">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card" style="margin-top: 10px" id="part2">
+              <div class="header-client">
+                <h3>INFORMATIONS DU CLIENT</h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group first-form-group">
+                  <label
+                    >Nom complet<span class="label-1">&nbsp;</span> :</label
+                  >
+                  <span style="margin-left: 10px">Oumaima hajji</span>
+                </div>
+                <div class="form-group first-form-group">
+                  <label>Email <span class="label-2">&nbsp;</span> :</label>
+                  <span style="margin-left: 10px">ouma.hajj123@gmail.com</span>
+                </div>
+                <div class="form-group first-form-group">
+                  <label>Telephone <span class="label-3">&nbsp;</span> :</label>
+                  <span style="margin-left: 10px">07652426728</span>
+                </div>
+                <div class="form-group first-form-group">
+                  <label>Pays <span class="label-4">&nbsp;</span> :</label>
+                  <span style="margin-left: 10px">Maroc</span>
+                </div>
+                <div class="form-group first-form-group">
+                  <label>Ville <span class="label-5">&nbsp;</span>:</label>
+                  <span style="margin-left: 10px">Berkane</span>
+                </div>
+                <div class="form-group first-form-group">
+                  <label>Addresse <span class="label-6">&nbsp;</span> :</label>
+                  <span style="margin-left: 10px">Oumaima</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="header-client">
+                <h3>DÉTAIL DU PAIEMENT</h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group first-form-group">
+                  <label>
+                    Identifiant
+                    <span class="label-1card2">&nbsp;</span> :</label
+                  >
+                  <span style="margin-left: 10px">836GHHGHSUD</span>
+                </div>
+                <div class="form-group first-form-group">
+                  <label>
+                    Montant<span class="label-2card2">&nbsp;</span> :</label
+                  >
+                  <span style="margin-left: 10px">306 MAD </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12 col-sm-12">
+            <button type="button" class="btn validerbtn">Valider</button>
+            <button type="button" class="btn annulerbtn">Annuler</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

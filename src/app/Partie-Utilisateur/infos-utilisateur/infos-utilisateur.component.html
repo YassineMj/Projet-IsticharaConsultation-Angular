@@ -1,1 +1,141 @@
-<p>infos-utilisateur works!</p>
+<body>
+  <div class="custom-bg">
+    <img
+      src="../../../assets/images/image-infos-header.jpg"
+      style="width: 57%; margin-left: 24%; margin-top: -4%"
+      alt=""
+    />
+  </div>
+
+  <div class="container pt-4" style="margin-bottom: 60px">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-body">
+            <div>
+              <img
+                src="../../../assets/images/image-infos-card1-infos.jpg"
+                style="width: 50%; margin-left: 25%"
+                alt=""
+              />
+            </div>
+            <div id="form">
+              <div class="input-group-inline">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fullName"
+                  placeholder="Nom complet"
+                />
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Email "
+                />
+              </div>
+
+              <br />
+
+              <div class="input-group-inline">
+                <div class="form-group" style="width: 50%">
+                  <select class="form-select">
+                    <option disabled selected>Pays</option>
+                    <option value="1">maroc</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="width: 50%; margin-left: 10px">
+                  <select class="form-select">
+                    <option disabled selected>Ville</option>
+                    <option value="1">berkane</option>
+                  </select>
+                </div>
+              </div>
+
+              <br />
+
+              <div class="input-group-inline">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Code postale "
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=" Province "
+                />
+              </div>
+              <br />
+              <div class="form-group">
+                <input
+                  type="tel"
+                  class="form-control"
+                  placeholder="Telephone "
+                />
+              </div>
+              <br />
+              <div class="form-group">
+                <textarea
+                  placeholder="Addresse"
+                  class="form-control"
+                  rows="3"
+                ></textarea>
+              </div>
+              <br />
+
+              <div class="form-check form-check-inline">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  (click)="ouvrirNouvelOnglet()"
+                />
+                <label class="form-check-label"
+                  >J'ai lu et accepté
+                  <span class="a"> Termes & Conditions </span> notamment la
+                  mention relative à la protection des données à caractère
+                  personnel.</label
+                >
+              </div>
+
+              <br /><br />
+              <button
+                type="submit"
+                routerLink="/utilisateur/infos-consultation-utilisateur"
+                class="btn valider"
+              >
+                Valider
+              </button>
+            </div>
+            <!-- -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div
+          class="card shadow"
+          style="background-color: rgba(240, 248, 255, 0.779)"
+        >
+          <div class="card-body">
+            <img
+              src="../../../assets/images/image-infos-card2.jpg"
+              style="width: 20%; border-radius: 50%"
+              alt=""
+            />
+            <hr />
+            <p class="card-text">
+              Dès la validation de votre paiement le montant affiché est bloqué
+              sur votre compte sons être débité, il n’est débité qu'une fois le
+              PROFIL consulté accepte la requête . Dans le cas échéant vous
+              serez remboursé . Dès que le profil accepte votre requête vous
+              recevez par un email ; le lien de votre consultation, merci de
+              vous présenter en boîte 10 minutes, on avance et attendez que le
+              profil rejoindre la conversation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
