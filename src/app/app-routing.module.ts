@@ -17,6 +17,10 @@ import { HelpConsultantDashboardComponent } from './Partie-Consultant/help-consu
 import { ContactConsultantDashboardComponent } from './Partie-Consultant/contact-consultant-dashboard/contact-consultant-dashboard.component';
 import { ConsultationsConsultantDashboardComponent } from './Partie-Consultant/consultations-consultant-dashboard/consultations-consultant-dashboard.component';
 import { PlanConsultationConsultantDashboardComponent } from './Partie-Consultant/plan-consultation-consultant-dashboard/plan-consultation-consultant-dashboard.component';
+import { InfosUtilisateurComponent } from './Partie-Utilisateur/infos-utilisateur/infos-utilisateur.component';
+import { PaiementUtilisateurComponent } from './Partie-Utilisateur/paiement-utilisateur/paiement-utilisateur.component';
+import { ConditionPaiementComponent } from './Partie-Utilisateur/condition-paiement/condition-paiement.component';
+import { InfosConsultationUtilisateurComponent } from './Partie-Utilisateur/infos-consultation-utilisateur/infos-consultation-utilisateur.component';
 
 
 //routes partie utilisateur
@@ -29,7 +33,9 @@ const utilisateurRoutes:Routes=[
   {path:'apropos-utilisateur' , component:AproposUtilisateurComponent},
   { path: 'contact-utilisateur', component: ContactUtilisateurComponent },
   { path: 'profilConsultant-utilisateur/:idConsultant', component: ProfilConsultantUtilisateurComponent },
-
+  {path:'infos-utilisateur',component:InfosUtilisateurComponent},
+  { path: 'paiement-utilisateur', component: PaiementUtilisateurComponent },
+  {path: 'infos-consultation-utilisateur', component:InfosConsultationUtilisateurComponent}
 ]
 
 //routes partie consultant
@@ -52,7 +58,7 @@ const routes: Routes = [
 
   {path:'utilisateur' , children:utilisateurRoutes},
   {path:'consultant' , children:consultantRoutes},
-
+  {path:'paiement-conditions',component:ConditionPaiementComponent},
   {path:'termes-conditions' , component:ConditionComponent},
 ];
 

@@ -48,6 +48,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ConditionPaiementComponent } from './Partie-Utilisateur/condition-paiement/condition-paiement.component';
 import { InfosUtilisateurComponent } from './Partie-Utilisateur/infos-utilisateur/infos-utilisateur.component';
 import { PaiementUtilisateurComponent } from './Partie-Utilisateur/paiement-utilisateur/paiement-utilisateur.component';
+import { InfosConsultationUtilisateurComponent } from './Partie-Utilisateur/infos-consultation-utilisateur/infos-consultation-utilisateur.component';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { PaiementUtilisateurComponent } from './Partie-Utilisateur/paiement-util
     ConditionPaiementComponent,
     InfosUtilisateurComponent,
     PaiementUtilisateurComponent,
+    InfosConsultationUtilisateurComponent,
   ],
   imports: [
 
