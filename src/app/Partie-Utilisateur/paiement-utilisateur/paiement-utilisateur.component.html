@@ -1,6 +1,6 @@
 <body>
   <div class="container">
-    <h2 class="title" >
+    <h2 class="title">
       DEMANDE DE PAIEMENT
       <a routerLink="/" class="navbar-brand fs-4 logo purple"
         >I<span class="istichara">S</span>TICHARA</a
@@ -59,7 +59,9 @@
                   type="text"
                   class="form-control"
                   placeholder="Numéro de carte de paiement"
-                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.numCard"
+                  [(ngModel)]="
+                    _serviceClientPaiement.infoClientPaiement.numCard
+                  "
                 />
               </div>
 
@@ -87,8 +89,12 @@
 
               <div class="form-group cvc">
                 <label for="">CVC</label>
-                <input type="text" class="form-control" placeholder="CVC "
-                [(ngModel)]="_serviceClientPaiement.infoClientPaiement.cvc" />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="CVC "
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.cvc"
+                />
               </div>
 
               <div
@@ -102,8 +108,8 @@
                 />
                 <label class="form-check-label"
                   >Confirmer l'acceptation des
-                  <span class="a"
-                    >conditions générales d’utilisation du service</span
+                  <a class="a"  (click)="ouvrirNouvelOnglet()"
+                    >conditions générales d’utilisation du service</a
                   ></label
                 >
               </div>
@@ -133,27 +139,39 @@
                   <label
                     >Nom complet<span class="label-1">&nbsp;</span> :</label
                   >
-                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.nomClient}}</span>
+                  <span style="margin-left: 10px">{{
+                    _serviceClientPaiement.infoClientPaiement.nomClient
+                  }}</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>Email <span class="label-2">&nbsp;</span> :</label>
-                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.emailClient}}</span>
+                  <span style="margin-left: 10px">{{
+                    _serviceClientPaiement.infoClientPaiement.emailClient
+                  }}</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>Telephone <span class="label-3">&nbsp;</span> :</label>
-                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.telephoneClient}}</span>
+                  <span style="margin-left: 10px">{{
+                    _serviceClientPaiement.infoClientPaiement.telephoneClient
+                  }}</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>Pays <span class="label-4">&nbsp;</span> :</label>
-                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.paysClient}}</span>
+                  <span style="margin-left: 10px">{{
+                    _serviceClientPaiement.infoClientPaiement.paysClient
+                  }}</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>Ville <span class="label-5">&nbsp;</span>:</label>
-                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.villeClient}}</span>
+                  <span style="margin-left: 10px">{{
+                    _serviceClientPaiement.infoClientPaiement.villeClient
+                  }}</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>Adresse <span class="label-6">&nbsp;</span> :</label>
-                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.adresseClient}}</span>
+                  <span style="margin-left: 10px">{{
+                    _serviceClientPaiement.infoClientPaiement.adresseClient
+                  }}</span>
                 </div>
               </div>
             </div>
@@ -177,7 +195,9 @@
                   <label>
                     Montant<span class="label-2card2">&nbsp;</span> :</label
                   >
-                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.total}} MAD </span>
+                  <span style="margin-left: 10px"
+                    >{{ _serviceClientPaiement.infoClientPaiement.total }} MAD
+                  </span>
                 </div>
               </div>
             </div>
@@ -185,8 +205,16 @@
         </div>
         <div class="row mt-3">
           <div class="col-md-12 col-sm-12">
-            <button type="button" class="btn validerbtn" (click)="paiement()">Valider</button>
-            <button type="button" class="btn annulerbtn" routerLink="/utilisateur/recherche-utilisateur">Annuler</button>
+            <button type="button" class="btn validerbtn" (click)="paiement()">
+              Valider
+            </button>
+            <button
+              type="button"
+              class="btn annulerbtn"
+              routerLink="/utilisateur/recherche-utilisateur"
+            >
+              Annuler
+            </button>
           </div>
         </div>
       </div>

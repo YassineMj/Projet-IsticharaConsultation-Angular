@@ -25,27 +25,42 @@
             >
               <div class="form-group">
                 <label>Consultant <span class="label-1">&nbsp;</span> :</label>
-                <span style="font-size: large"> {{_serviceClientPaiement.infoClientPaiement.nomConsultant}} {{ this._serviceClientPaiement.infoClientPaiement.prenomConsultant}}</span>
+                <span style="font-size: large">
+                  {{ _serviceClientPaiement.infoClientPaiement.nomConsultant }}
+                  {{
+                    this._serviceClientPaiement.infoClientPaiement
+                      .prenomConsultant
+                  }}</span
+                >
               </div>
               <div class="form-group">
                 <label for="">Date <span class="label-3">&nbsp;</span> :</label>
-                <span style="font-size: large"> {{_serviceClientPaiement.infoClientPaiement.jourDebut}} {{_serviceClientPaiement.infoClientPaiement.dateJourDebut}} </span>
+                <span style="font-size: large">
+                  {{ _serviceClientPaiement.infoClientPaiement.jourDebut }}
+                  {{ _serviceClientPaiement.infoClientPaiement.dateJourDebut }}
+                </span>
               </div>
               <div class="form-group">
                 <label for=""
                   >Heure debut <span class="label-debut">&nbsp;</span> :</label
                 >
-                <span style="font-size: large"> {{_serviceClientPaiement.infoClientPaiement.heureDebut}} </span>
+                <span style="font-size: large">
+                  {{ _serviceClientPaiement.infoClientPaiement.heureDebut }}
+                </span>
               </div>
               <div class="form-group">
                 <label for=""
                   >Heure Fin <span class="label-fin">&nbsp;</span> :</label
                 >
-                <span style="font-size: large"> {{_serviceClientPaiement.infoClientPaiement.heureFin}} </span>
+                <span style="font-size: large">
+                  {{ _serviceClientPaiement.infoClientPaiement.heureFin }}
+                </span>
               </div>
               <div class="form-group">
                 <label>Durée <span class="label-2">&nbsp;</span> :</label>
-                <span style="font-size: large"> {{_serviceClientPaiement.infoClientPaiement.duree}}min</span>
+                <span style="font-size: large">
+                  {{ _serviceClientPaiement.infoClientPaiement.duree }}min</span
+                >
               </div>
 
               <div class="form-group">
@@ -56,25 +71,40 @@
                   >
                 </label>
                 <span class="text-primary">
-                  <img *ngIf="_serviceClientPaiement.infoClientPaiement.anglais=='true'"
+                  <img
+                    *ngIf="
+                      _serviceClientPaiement.infoClientPaiement.anglais ==
+                      'true'
+                    "
                     src="../../../assets/images/anglais.png"
                     style="width: 27px"
                     alt=""
                     class="mr-3"
                   />
-                  <img *ngIf="_serviceClientPaiement.infoClientPaiement.arabe=='true'"
+                  <img
+                    *ngIf="
+                      _serviceClientPaiement.infoClientPaiement.arabe == 'true'
+                    "
                     src="../../../assets/images/arabe.png"
                     style="width: 29px"
                     alt=""
                     class="mr-3"
                   />
-                  <img *ngIf="_serviceClientPaiement.infoClientPaiement.francais=='true'"
+                  <img
+                    *ngIf="
+                      _serviceClientPaiement.infoClientPaiement.francais ==
+                      'true'
+                    "
                     src="../../../assets/images/francais.png"
                     style="width: 29px"
                     alt=""
                     class="mr-3"
                   />
-                  <img *ngIf="_serviceClientPaiement.infoClientPaiement.espagnol=='true'"
+                  <img
+                    *ngIf="
+                      _serviceClientPaiement.infoClientPaiement.espagnol ==
+                      'true'
+                    "
                     src="../../../assets/images/espagnol.png"
                     style="width: 27px"
                     alt=""
@@ -111,7 +141,10 @@
                             background-color: rgba(253, 253, 21, 0.358);
                             color: rgb(48, 87, 246);
                           "
-                          >{{_serviceClientPaiement.infoClientPaiement.prixConsultation}}Dh</span
+                          >{{
+                            _serviceClientPaiement.infoClientPaiement
+                              .prixConsultation
+                          }}Dh</span
                         >
                       </div>
                       <div>
@@ -136,7 +169,10 @@
                             background-color: rgba(253, 253, 21, 0.358);
                             color: rgb(48, 87, 246);
                           "
-                          >{{_serviceClientPaiement.infoClientPaiement.fraisService}}Dh</span
+                          >{{
+                            _serviceClientPaiement.infoClientPaiement
+                              .fraisService
+                          }}Dh</span
                         >
                       </div>
                     </div>
@@ -149,7 +185,9 @@
                     >
                       Montant à payer:
                       <span style="background-color: rgba(253, 253, 21, 0.358)"
-                        >{{_serviceClientPaiement.infoClientPaiement.total}}Dh</span
+                        >{{
+                          _serviceClientPaiement.infoClientPaiement.total
+                        }}Dh</span
                       >
                     </h2>
                     <br />
@@ -158,37 +196,47 @@
                         class="d-flex align-items-center"
                         style="
                           border: 1px solid black;
-                          padding-left: 10%;
+                         padding-left: 6%;
                           margin-left: 10%;
-                          margin-right: 10%;
+                          margin-right: 8%;
                         "
                       >
                         <img
                           src="../../../assets/images/image-paiement-card-visa.png"
-                          style="width: 15%; margin-right: 5px"
+                          style="width: 12%; margin-right: 5px"
                           alt="Credit Card Icon"
                         />
                         <img
                           src="../../../assets/images/image-paiement-card-discover.png"
-                          style="width: 14%; margin-right: 5px"
+                          style="width: 12%; margin-right: 5px"
                           alt="Credit Card Icon"
                         />
-
+                        <img
+                          src="../../../assets/images/image-paiement-cards-diners.png"
+                          style="width: 12%; margin-right: 5px"
+                          alt="Credit Card Icon"
+                        />
                         <img
                           src="../../../assets/images/image-paiement-card-mastercard.png"
-                          style="width: 14%; margin-right: 5px"
+                          style="width: 12%; margin-right: 5px"
                           alt="Credit Card Icon"
                         />
                         <img
                           src="../../../assets/images/image-paiement-card-amex.png"
-                          style="width: 14%; margin-right: 5px"
+                          style="width: 12%; margin-right: 5px"
                           alt="Credit Card Icon"
                         />
                         <img
                           src="../../../assets/images/image-paiement-card-jcb.png"
-                          style="width: 14%; margin-right: 5px"
+                          style="width: 12%; margin-right: 5px"
                           alt="Credit Card Icon"
                         />
+                           <img
+                          src="../../../assets/images/image-paiement-card-unionpay.png"
+                          style="width: 12%; margin-right: 5px"
+                          alt="Credit Card Icon"
+                        />
+
                       </div>
                     </div>
                     <br />

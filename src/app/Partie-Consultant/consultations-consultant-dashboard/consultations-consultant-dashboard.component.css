@@ -234,13 +234,14 @@ textarea.form-control:focus {
 
 
  }
+.btnchat {
+    background: linear-gradient(#6b7adebc, #538bfabc, #566bf7bc);
+    color: white;
+    margin-top: 10%;
+        font-size: 130%;
 
- .btnchat {
-        background: linear-gradient( #3751ffbc ,#10efffbc , #3a52efbc);
-     color: white;
-     margin-top: 10%;
-     font-size: 130%;
- }
+}
+
 
  .btnchat:hover {
         background: linear-gradient(to right, #3751ffbc, #10efffbc, #3a52efbc);

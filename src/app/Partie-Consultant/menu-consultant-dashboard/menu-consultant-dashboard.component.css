@@ -108,13 +108,13 @@
 
   }
          .btnchat {
-             background: linear-gradient(#3751ffbc, #10efffbc, #3a52efbc);
+             background: linear-gradient(#6b7adebc, #538bfabc, #566bf7bc);
              color: white;
  
          }
     
          .btnchat:hover {
-             background: linear-gradient(to right, #3751ffbc, #10efffbc, #3a52efbc);
+             background: linear-gradient(to right, #3751ffbc, #7f94e0bc, #3a52efbc);
          }
   .btnuser {
        background-color: #6d4cff;
