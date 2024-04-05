@@ -29,6 +29,7 @@ export class InfosConsultationUtilisateurComponent implements OnInit {
         this._serviceClientPaiement.infoClientPaiement.francais=resp.francais;
         this._serviceClientPaiement.infoClientPaiement.fraisService=(resp.prixConsultation*10)/100;
         this._serviceClientPaiement.infoClientPaiement.total = (this._serviceClientPaiement.infoClientPaiement.fraisService + this._serviceClientPaiement.infoClientPaiement.prixConsultation);
+        this._serviceClientPaiement.infoClientPaiement.idConsultant=resp.idConsultant;
 
         // Supposons que resp.heureFin et resp.heureDebut sont des chaînes représentant des heures au format HH:mm
 const heureFinParts = resp.heureFin.split(":");

@@ -59,6 +59,7 @@
                   type="text"
                   class="form-control"
                   placeholder="Numéro de carte de paiement"
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.numCard"
                 />
               </div>
 
@@ -86,7 +87,8 @@
 
               <div class="form-group cvc">
                 <label for="">CVC</label>
-                <input type="text" class="form-control" placeholder="CVC " />
+                <input type="text" class="form-control" placeholder="CVC "
+                [(ngModel)]="_serviceClientPaiement.infoClientPaiement.cvc" />
               </div>
 
               <div
@@ -131,27 +133,27 @@
                   <label
                     >Nom complet<span class="label-1">&nbsp;</span> :</label
                   >
-                  <span style="margin-left: 10px">Oumaima hajji</span>
+                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.nomClient}}</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>Email <span class="label-2">&nbsp;</span> :</label>
-                  <span style="margin-left: 10px">ouma.hajj123@gmail.com</span>
+                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.emailClient}}</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>Telephone <span class="label-3">&nbsp;</span> :</label>
-                  <span style="margin-left: 10px">07652426728</span>
+                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.telephoneClient}}</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>Pays <span class="label-4">&nbsp;</span> :</label>
-                  <span style="margin-left: 10px">Maroc</span>
+                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.paysClient}}</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>Ville <span class="label-5">&nbsp;</span>:</label>
-                  <span style="margin-left: 10px">Berkane</span>
+                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.villeClient}}</span>
                 </div>
                 <div class="form-group first-form-group">
-                  <label>Addresse <span class="label-6">&nbsp;</span> :</label>
-                  <span style="margin-left: 10px">Oumaima</span>
+                  <label>Adresse <span class="label-6">&nbsp;</span> :</label>
+                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.adresseClient}}</span>
                 </div>
               </div>
             </div>
@@ -169,13 +171,13 @@
                     Identifiant
                     <span class="label-1card2">&nbsp;</span> :</label
                   >
-                  <span style="margin-left: 10px">836GHHGHSUD</span>
+                  <span style="margin-left: 10px">CU8****************EJ</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>
                     Montant<span class="label-2card2">&nbsp;</span> :</label
                   >
-                  <span style="margin-left: 10px">306 MAD </span>
+                  <span style="margin-left: 10px">{{_serviceClientPaiement.infoClientPaiement.total}} MAD </span>
                 </div>
               </div>
             </div>
@@ -183,8 +185,8 @@
         </div>
         <div class="row mt-3">
           <div class="col-md-12 col-sm-12">
-            <button type="button" class="btn validerbtn">Valider</button>
-            <button type="button" class="btn annulerbtn">Annuler</button>
+            <button type="button" class="btn validerbtn" (click)="paiement()">Valider</button>
+            <button type="button" class="btn annulerbtn" routerLink="/utilisateur/recherche-utilisateur">Annuler</button>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class PaiementService {
 
   infoClientPaiement={
+    idClient:'',
     idPlan:0,
     nomClient:'',
     emailClient:'',
@@ -30,12 +31,22 @@ export class PaiementService {
     francais:"false",
     duree:0,
     fraisService:0,
-    total:0
+    total:0,
+    descriptionClient:'',
+    numCard:'',
+    //date experation
+    cvc:'',
+    idCard:'',
+    idConsultant:0
   }
 
   constructor(private http: HttpClient) { }
 
   getDetailsConsultation(idPlan:number): Observable<any> {
     return this.http.get<any>('http://localhost:8080/IsticharaConsultation/api/paiement/details-consultation/'+idPlan);
+  }
+
+  prendreRendezVous(demandeRequest:any):Observable<any> {
+    return this.http.post('http://localhost:8080/IsticharaConsultation/api/paiement/creer-demande',demandeRequest);
   }
 }
