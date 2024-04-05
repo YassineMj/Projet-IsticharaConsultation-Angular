@@ -1,0 +1,41 @@
+body{
+  margin: 1%;
+}
+
+.header-card1 {
+  background-color: rgba(163, 172, 228, 0.87);
+  color: #fff;
+  padding: 9px 20px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.btn-accepter{
+  
+  background-color: rgba(59, 182, 46, 0.756);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+
+}
+
+.btn-accepter:hover {
+
+  background-color: rgba(60, 182, 46, 0.95);
+
+
+}
+.btn-refuser{
+background-color: rgba(255, 97, 97, 0.941);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+.btn-refuser:hover {
+ 
+  background-color: rgb(255, 72, 72);
+}

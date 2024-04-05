@@ -1,6 +1,7 @@
 .a {
     text-decoration: none;
     color: rgb(60, 22, 198);
+    cursor: pointer;
 }
 
 .valider:hover {
