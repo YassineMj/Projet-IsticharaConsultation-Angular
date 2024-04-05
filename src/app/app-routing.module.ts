@@ -33,7 +33,7 @@ const utilisateurRoutes:Routes=[
   {path:'apropos-utilisateur' , component:AproposUtilisateurComponent},
   { path: 'contact-utilisateur', component: ContactUtilisateurComponent },
   { path: 'profilConsultant-utilisateur/:idConsultant', component: ProfilConsultantUtilisateurComponent },
-  {path:'infos-utilisateur',component:InfosUtilisateurComponent},
+  {path:'infos-utilisateur/:idPlan',component:InfosUtilisateurComponent},
   { path: 'paiement-utilisateur', component: PaiementUtilisateurComponent },
   {path: 'infos-consultation-utilisateur', component:InfosConsultationUtilisateurComponent}
 ]
