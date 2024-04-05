@@ -24,28 +24,28 @@
               "
             >
               <div class="form-group">
-                <label>Nom complet <span class="label-1">&nbsp;</span> :</label>
-                <span style="font-size: large"> Oumaima hajji</span>
+                <label>Consultant <span class="label-1">&nbsp;</span> :</label>
+                <span style="font-size: large"> {{_serviceClientPaiement.infoClientPaiement.nomConsultant}} {{ this._serviceClientPaiement.infoClientPaiement.prenomConsultant}}</span>
               </div>
               <div class="form-group">
                 <label for="">Date <span class="label-3">&nbsp;</span> :</label>
-                <span style="font-size: large"> Vendredi 05 avril </span>
+                <span style="font-size: large"> {{_serviceClientPaiement.infoClientPaiement.jourDebut}} {{_serviceClientPaiement.infoClientPaiement.dateJourDebut}} </span>
               </div>
               <div class="form-group">
                 <label for=""
                   >Heure debut <span class="label-debut">&nbsp;</span> :</label
                 >
-                <span style="font-size: large"> 18:00 </span>
+                <span style="font-size: large"> {{_serviceClientPaiement.infoClientPaiement.heureDebut}} </span>
               </div>
               <div class="form-group">
                 <label for=""
                   >Heure Fin <span class="label-fin">&nbsp;</span> :</label
                 >
-                <span style="font-size: large"> 19:00 </span>
+                <span style="font-size: large"> {{_serviceClientPaiement.infoClientPaiement.heureFin}} </span>
               </div>
               <div class="form-group">
                 <label>Durée <span class="label-2">&nbsp;</span> :</label>
-                <span style="font-size: large"> 30min</span>
+                <span style="font-size: large"> {{_serviceClientPaiement.infoClientPaiement.duree}}min</span>
               </div>
 
               <div class="form-group">
@@ -56,25 +56,25 @@
                   >
                 </label>
                 <span class="text-primary">
-                  <img
+                  <img *ngIf="_serviceClientPaiement.infoClientPaiement.anglais=='true'"
                     src="../../../assets/images/anglais.png"
                     style="width: 27px"
                     alt=""
                     class="mr-3"
                   />
-                  <img
+                  <img *ngIf="_serviceClientPaiement.infoClientPaiement.arabe=='true'"
                     src="../../../assets/images/arabe.png"
                     style="width: 29px"
                     alt=""
                     class="mr-3"
                   />
-                  <img
+                  <img *ngIf="_serviceClientPaiement.infoClientPaiement.francais=='true'"
                     src="../../../assets/images/francais.png"
                     style="width: 29px"
                     alt=""
                     class="mr-3"
                   />
-                  <img
+                  <img *ngIf="_serviceClientPaiement.infoClientPaiement.espagnol=='true'"
                     src="../../../assets/images/espagnol.png"
                     style="width: 27px"
                     alt=""
@@ -111,7 +111,7 @@
                             background-color: rgba(253, 253, 21, 0.358);
                             color: rgb(48, 87, 246);
                           "
-                          >1000 DH</span
+                          >{{_serviceClientPaiement.infoClientPaiement.prixConsultation}}Dh</span
                         >
                       </div>
                       <div>
@@ -136,7 +136,7 @@
                             background-color: rgba(253, 253, 21, 0.358);
                             color: rgb(48, 87, 246);
                           "
-                          >100 DH</span
+                          >{{_serviceClientPaiement.infoClientPaiement.fraisService}}Dh</span
                         >
                       </div>
                     </div>
@@ -149,7 +149,7 @@
                     >
                       Montant à payer:
                       <span style="background-color: rgba(253, 253, 21, 0.358)"
-                        >1100 DH</span
+                        >{{_serviceClientPaiement.infoClientPaiement.total}}Dh</span
                       >
                     </h2>
                     <br />

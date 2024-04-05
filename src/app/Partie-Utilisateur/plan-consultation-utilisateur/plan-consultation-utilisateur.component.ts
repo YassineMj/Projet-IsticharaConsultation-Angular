@@ -23,7 +23,7 @@ import {
   CalendarView,
 } from 'angular-calendar';
 import { EventColor } from 'calendar-utils';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const colors: Record<string, EventColor> = {
   'red': {
@@ -66,18 +66,18 @@ export class PlanConsultationUtilisateurComponent implements OnInit{
 
   @Input() planConsultation:any;
 
-  constructor(private modal: NgbModal,private route: ActivatedRoute,  private cdr: ChangeDetectorRef) {}
+  constructor(private modal: NgbModal,private router: Router,  private cdr: ChangeDetectorRef) {}
   ngOnInit(){   
 
     this.events = this.planConsultation.map((donnee : any) => {
           
       return {
         id:donnee.id,
-        title: 'Event',
+        title: '',
         start: new Date(`${donnee.dateJourDebut}T${donnee.heureDebut}`),
         end: new Date(`${donnee.dateJourFin}T${donnee.heureFin}`),
-        color: { primary: '#ad2121', secondary: '#FAE3E3' },
-        draggable: true,
+        color: { primary: '#ad2121', secondary: '#ff0505' },
+        draggable: false,
         resizable: { beforeStart: true, afterEnd: true }
       };
     });
@@ -108,27 +108,10 @@ export class PlanConsultationUtilisateurComponent implements OnInit{
   
   activeDayIsOpen: boolean = true;
 
-  eventTimesChanged({
-    event,
-    newStart,
-    newEnd,
-  }: CalendarEventTimesChangedEvent): void {
-    this.events = this.events.map((iEvent) => {
-      if (iEvent === event) {
-        return {
-          ...event,
-          start: newStart,
-          end: newEnd,
-        };
-      }
-      return iEvent;
-    });
-    this.handleEvent('Dropped or resized', event);
-  }
 
-  handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
+  handleEvent(event: CalendarEvent): void {
+    this.router.navigate(['/utilisateur/infos-utilisateur', event.id]);
+
   }
 
 

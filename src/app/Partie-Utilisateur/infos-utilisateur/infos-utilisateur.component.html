@@ -26,12 +26,15 @@
                   class="form-control"
                   id="fullName"
                   placeholder="Nom complet"
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.nomClient"
                 />
                 <input
                   type="email"
                   class="form-control"
                   id="email"
                   placeholder="Email "
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.emailClient"
+
                 />
               </div>
 
@@ -39,16 +42,20 @@
 
               <div class="input-group-inline">
                 <div class="form-group" style="width: 50%">
-                  <select class="form-select">
+                  <select class="form-select" 
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.paysClient"
+                  >
                     <option disabled selected>Pays</option>
-                    <option value="1">maroc</option>
+                    <option value="maroc">maroc</option>
                   </select>
                 </div>
 
                 <div class="form-group" style="width: 50%; margin-left: 10px">
-                  <select class="form-select">
-                    <option disabled selected>Ville</option>
-                    <option value="1">berkane</option>
+                  <select class="form-select"
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.villeClient"
+                  >
+                  <option disabled selected>Ville</option>
+                  <option *ngFor="let ville of villesMaroc" [value]="ville">{{ville}}</option>
                   </select>
                 </div>
               </div>
@@ -60,11 +67,15 @@
                   type="text"
                   class="form-control"
                   placeholder="Code postale "
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.codePostaleClient"
+
                 />
                 <input
                   type="text"
                   class="form-control"
                   placeholder=" Province "
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.provinceClient"
+
                 />
               </div>
               <br />
@@ -73,14 +84,28 @@
                   type="tel"
                   class="form-control"
                   placeholder="Telephone "
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.telephoneClient"
+
                 />
               </div>
               <br />
               <div class="form-group">
                 <textarea
-                  placeholder="Addresse"
+                  placeholder="Adresse"
                   class="form-control"
                   rows="3"
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.adresseClient"
+
+                ></textarea>
+              </div>
+              <br />
+              <div class="form-group">
+                <textarea
+                  placeholder="Description"
+                  class="form-control"
+                  rows="3"
+                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.descriptionClient"
+
                 ></textarea>
               </div>
               <br />
