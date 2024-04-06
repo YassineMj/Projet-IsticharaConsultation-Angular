@@ -2,10 +2,10 @@
   <div class="bg-background"></div>
   <div class="container py-5">
     <div class="row py-5 g-3">
-      <div class="col-md-6 first_col">
+      <div class="  col-md-6 first_col">
         <h1 class="text-center mt-5">Contacter nous !</h1>
-        <div class="p-4 mt-3">
-          <div class="mb-3">
+        <div class="p-3 mt-2">
+          <div  class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nom</label>
             <input
               type="text"
@@ -13,7 +13,11 @@
               id="exampleFormControlInput1"
               placeholder="Nom"
               [(ngModel)]="Infomessage.nom"
+              name="nom" 
+              required
+              
             />
+            <div  class="text-danger">Le champ nom est obligatoire.</div>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
@@ -25,7 +29,7 @@
               id="exampleFormControlInput1"
               placeholder="Email "
               [(ngModel)]="Infomessage.email"
-            />
+            /><div class="text-danger">Le champ email est obligatoire.</div>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
@@ -37,7 +41,7 @@
               id="exampleFormControlInput1"
               placeholder="Numéro de Téléphone"
               [(ngModel)]="Infomessage.numero"
-            />
+            /><div class="text-danger">Le champ telephone est obligatoire.</div>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label"
@@ -50,7 +54,7 @@
               rows="3"
               placeholder="Message ..."
               [(ngModel)]="Infomessage.message"
-            ></textarea>
+            ></textarea><div class="text-danger">Le champ email est obligatoire.</div>
           </div>
           <div class="mb-3">
             <button class="btn btn-primary" (click)="send()">Envoyer</button>
