@@ -21,72 +21,157 @@
             </div>
             <div id="form">
               <div class="input-group-inline">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="fullName"
-                  placeholder="Nom complet"
-                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.nomClient"
-                />
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Email "
-                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.emailClient"
+                <div style="width: 107%">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullName"
+                    placeholder="Nom complet"
+                    [(ngModel)]="
+                      _serviceClientPaiement.infoClientPaiement.nomClient
+                    "
+                                  (input)="nomVide = false"
+                                      (input)="validateNom()"
 
-                />
+
+                  />
+                  <span  *ngIf="nomVide" class="text-danger"
+                    ><i class="fa fa-exclamation-circle"></i>Le champs est
+                    obligatoire</span
+                  >
+                  <span *ngIf="nomInvalid" class="text-danger"><i class="fa fa-exclamation-circle"></i>
+              Veuillez saisir un nom entre 4 et 20 lettres
+            </span>
+                </div>
+                <div style="margin-left: 5%; width: 107%">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Email@example.com"
+                    [(ngModel)]="
+                      _serviceClientPaiement.infoClientPaiement.emailClient
+                    "
+                                                      (input)="emailVide = false"
+                                                          (input)="validateEmail()"
+
+
+                  />
+                  <span *ngIf="emailVide" class="text-danger"
+                    ><i class="fa fa-exclamation-circle"></i>Le champs est
+                    obligatoire</span
+                  >
+                   <span *ngIf="emailInvalid" class="text-danger">
+             <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un email valide
+            </span>
+                </div>
               </div>
 
               <br />
 
               <div class="input-group-inline">
-                <div class="form-group" style="width: 50%">
-                  <select class="form-select" 
-                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.paysClient"
+                <div class="form-group" style="width: 110%">
+                  <select
+                    class="form-select"
+                    [(ngModel)]="
+                      _serviceClientPaiement.infoClientPaiement.paysClient
+                    "
+                                                      (input)="paysVide = false"
+
                   >
                     <option disabled selected>Pays</option>
                     <option value="maroc">maroc</option>
                   </select>
+                  <span *ngIf="paysVide" class="text-danger"
+                    ><i class="fa fa-exclamation-circle"></i>Le champs est
+                    obligatoire</span
+                  >
                 </div>
 
-                <div class="form-group" style="width: 50%; margin-left: 10px">
-                  <select class="form-select"
-                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.villeClient"
+                <div class="form-group" style="width: 110%; margin-left: 5%">
+                  <select
+                    class="form-select"
+                    [(ngModel)]="
+                      _serviceClientPaiement.infoClientPaiement.villeClient
+                    "
+                                                      (input)="villeVide = false"
+
                   >
-                  <option disabled selected>Ville</option>
-                  <option *ngFor="let ville of villesMaroc" [value]="ville">{{ville}}</option>
+                    <option disabled selected>Ville</option>
+                    <option *ngFor="let ville of villesMaroc" [value]="ville">
+                      {{ ville }}
+                    </option>
                   </select>
+                  <span *ngIf="villeVide" class="text-danger"
+                    ><i class="fa fa-exclamation-circle"></i>Le champs est
+                    obligatoire</span
+                  >
                 </div>
               </div>
 
               <br />
 
               <div class="input-group-inline">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Code postale "
-                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.codePostaleClient"
+                <div style="width: 110%">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Code postale "
+                    [(ngModel)]="
+                      _serviceClientPaiement.infoClientPaiement
+                        .codePostaleClient
+                    "
+                                                      (input)="codeVide = false"
+                                                      (input)="validateCode()"
 
-                />
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder=" Province "
-                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.provinceClient"
+                  />
+                  <span *ngIf="codeVide" class="text-danger"
+                    ><i class="fa fa-exclamation-circle"></i>Le champs est
+                    obligatoire</span
+                  >
+                  <span *ngIf="codeInvalid" class="text-danger">
+            <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un code  valide.
+            </span>
+                </div>
+                <div style="width: 110%; margin-left: 5%">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder=" Province "
+                    [(ngModel)]="
+                      _serviceClientPaiement.infoClientPaiement.provinceClient
+                    "
+                                                      (input)="provinceVide = false"
 
-                />
+                  />
+                  <span *ngIf="provinceVide" class="text-danger"
+                    ><i class="fa fa-exclamation-circle"></i>Le champs est
+                    obligatoire</span
+                  >
+
+                </div>
               </div>
               <br />
               <div class="form-group">
                 <input
                   type="tel"
                   class="form-control"
-                  placeholder="Telephone "
-                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.telephoneClient"
+                  placeholder="+212 5|6|7xxxxxxxxx"
+                  [(ngModel)]="
+                    _serviceClientPaiement.infoClientPaiement.telephoneClient
+                  "
+                                                    (input)="telephoneVide = false"
+                                                                      (input)="validatePhone()"
+
 
                 />
+                <span *ngIf="telephoneVide" class="text-danger"
+                  ><i class="fa fa-exclamation-circle"></i>Le champs est
+                  obligatoire</span
+                >
+                <span *ngIf="phoneInvalid" class="text-danger">
+            <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un numéro valide.
+            </span>
               </div>
               <br />
               <div class="form-group">
@@ -94,9 +179,16 @@
                   placeholder="Adresse"
                   class="form-control"
                   rows="3"
-                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.adresseClient"
+                  [(ngModel)]="
+                    _serviceClientPaiement.infoClientPaiement.adresseClient
+                  "
+                                                    (input)="adresseVide = false"
 
                 ></textarea>
+                <span   *ngIf="adresseVide" class="text-danger"
+                  ><i class="fa fa-exclamation-circle"></i>Le champs est
+                  obligatoire</span
+                >
               </div>
               <br />
               <div class="form-group">
@@ -104,9 +196,16 @@
                   placeholder="Description"
                   class="form-control"
                   rows="3"
-                  [(ngModel)]="_serviceClientPaiement.infoClientPaiement.descriptionClient"
+                  [(ngModel)]="
+                    _serviceClientPaiement.infoClientPaiement.descriptionClient
+                  "
+                                                    (input)="descriptionVide = false"
 
                 ></textarea>
+                <span *ngIf="descriptionVide" class="text-danger"
+                  ><i class="fa fa-exclamation-circle"></i>Le champs est
+                  obligatoire</span
+                >
               </div>
               <br />
 
@@ -114,21 +213,24 @@
                 <input
                   type="checkbox"
                   class="form-check-input"
-                  (click)="ouvrirNouvelOnglet()"
+                              [(ngModel)]="conditionsAccepted"
+
                 />
                 <label class="form-check-label"
                   >J'ai lu et accepté
-                  <a class="a" (click)="ouvrirNouvelOnglet()"> Termes & Conditions </a> notamment la
-                  mention relative à la protection des données à caractère
-                  personnel.</label
+                  <a class="a" (click)="ouvrirNouvelOnglet()">
+                    Termes & Conditions
+                  </a>
+                  notamment la mention relative à la protection des données à
+                  caractère personnel.</label
                 >
               </div>
 
               <br /><br />
               <button
                 type="submit"
-                routerLink="/utilisateur/infos-consultation-utilisateur"
                 class="btn valider"
+                (click)="validateInfos()"
               >
                 Valider
               </button>

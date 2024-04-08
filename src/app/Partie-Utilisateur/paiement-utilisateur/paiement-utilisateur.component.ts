@@ -7,96 +7,157 @@ import Stripe from 'stripe';
 @Component({
   selector: 'app-paiement-utilisateur',
   templateUrl: './paiement-utilisateur.component.html',
-  styleUrls: ['./paiement-utilisateur.component.css']
+  styleUrls: ['./paiement-utilisateur.component.css'],
 })
 export class PaiementUtilisateurComponent {
   constructor(
-    private router: Router, public _serviceClientPaiement: PaiementService) { }
+    private router: Router,
+    public _serviceClientPaiement: PaiementService
+  ) {}
+
+  numeroVide: boolean = false;
+  moisVide: boolean = false;
+  anneeVide: boolean = false;
+  cvcVide: boolean = false;
+  invalidNumero: boolean = false;
+  invalidCvc: boolean = false;
+  conditionsAccepted = false;
+
+  invalid() {
+    const numeroRegex = /^\d{16}$/;
+    this.invalidNumero = !numeroRegex.test(
+      this._serviceClientPaiement.infoClientPaiement.numCard.trim()
+    );
+  }
+
+  invalidC() {
+    const cvcRegex = /^\d{4}$/;
+    this.invalidCvc = !cvcRegex.test(
+      this._serviceClientPaiement.infoClientPaiement.cvc.trim()
+    );
+  }
+  validateinfos() {
+    this.invalid();
+    this.invalidC();
+    this.numeroVide =
+      this._serviceClientPaiement.infoClientPaiement.numCard === '';
+    this.cvcVide = this._serviceClientPaiement.infoClientPaiement.cvc === '';
+    if (
+      this.numeroVide ||
+      this.cvcVide ||
+      this.invalidNumero ||
+      this.invalidCvc
+    ) {
+      return;
+    } else {
+       if (this.conditionsAccepted) {
+         alert("paiement validé")
+       } else {
+         alert('veuillez accpeter les conditions');
+       }
+    }
+  }
 
   ouvrirNouvelOnglet() {
-
     const url = this.router.serializeUrl(
       this.router.createUrlTree(['/paiement-conditions'])
     );
     window.open(url, '_blank');
   }
 
-  stripe = new Stripe('sk_test_51OyypLAfJRZNY57iG5692KP0pf71AvYcyQRjEOzJCQTbkwyFPop01V3DPbBdTzz4JGVzUHgu7kRIUsUhiOIzClNa007kAcWtMi');
+  stripe = new Stripe(
+    'sk_test_51OyypLAfJRZNY57iG5692KP0pf71AvYcyQRjEOzJCQTbkwyFPop01V3DPbBdTzz4JGVzUHgu7kRIUsUhiOIzClNa007kAcWtMi'
+  );
   token: string = '';
-
 
   async paiement() {
     try {
-        const customer = await this.createCustomer();
-        this._serviceClientPaiement.infoClientPaiement.idClient = customer.id;
+      const customer = await this.createCustomer();
+      this._serviceClientPaiement.infoClientPaiement.idClient = customer.id;
 
-        const card=await this.addCardToCustomer(customer.id);
-        this._serviceClientPaiement.infoClientPaiement.idCard=card.id
+      const card = await this.addCardToCustomer(customer.id);
+      this._serviceClientPaiement.infoClientPaiement.idCard = card.id;
 
-        console.log("id client : "+this._serviceClientPaiement.infoClientPaiement.idClient);
-        console.log("id card : "+this._serviceClientPaiement.infoClientPaiement.idCard);
-
-        const demandeRequest={
-          idClientStripe: this._serviceClientPaiement.infoClientPaiement.idClient,
-          idCardStripe: this._serviceClientPaiement.infoClientPaiement.idCard,
-          nomClient: this._serviceClientPaiement.infoClientPaiement.nomClient,
-          emailClient: this._serviceClientPaiement.infoClientPaiement.emailClient,
-          villeClient: this._serviceClientPaiement.infoClientPaiement.villeClient,
-          paysClient: this._serviceClientPaiement.infoClientPaiement.paysClient,
-          adresseClient: this._serviceClientPaiement.infoClientPaiement.adresseClient,
-          idConsultant: this._serviceClientPaiement.infoClientPaiement.idConsultant,
-          idPlan: this._serviceClientPaiement.infoClientPaiement.idPlan,
-          prixTotal: this._serviceClientPaiement.infoClientPaiement.total
-        }
-
-        this._serviceClientPaiement.prendreRendezVous(demandeRequest).subscribe(
-          resp => {
-             
-          },
-          error => {
-              console.error('Une erreur s\'est produite lors de la prise de rendez-vous:', error);
-              alert("Le rendez-vous a été créé avec succès!");
-              this.router.navigate(['/utilisateur/accueil-utilisateur']);
-          }
+      console.log(
+        'id client : ' + this._serviceClientPaiement.infoClientPaiement.idClient
+      );
+      console.log(
+        'id card : ' + this._serviceClientPaiement.infoClientPaiement.idCard
       );
 
-    } catch (error) {
-        console.error('Une erreur s\'est produite lors du paiement:', error);
-    }
-}
+      const demandeRequest = {
+        idClientStripe: this._serviceClientPaiement.infoClientPaiement.idClient,
+        idCardStripe: this._serviceClientPaiement.infoClientPaiement.idCard,
+        nomClient: this._serviceClientPaiement.infoClientPaiement.nomClient,
+        emailClient: this._serviceClientPaiement.infoClientPaiement.emailClient,
+        villeClient: this._serviceClientPaiement.infoClientPaiement.villeClient,
+        paysClient: this._serviceClientPaiement.infoClientPaiement.paysClient,
+        adresseClient:
+          this._serviceClientPaiement.infoClientPaiement.adresseClient,
+        idConsultant:
+          this._serviceClientPaiement.infoClientPaiement.idConsultant,
+        idPlan: this._serviceClientPaiement.infoClientPaiement.idPlan,
+        prixTotal: this._serviceClientPaiement.infoClientPaiement.total,
+      };
 
-async createCustomer() {
-    try {
-        const customer = await this.stripe.customers.create({
-            email: this._serviceClientPaiement.infoClientPaiement.emailClient,
-            phone: this._serviceClientPaiement.infoClientPaiement.telephoneClient,
-            name: this._serviceClientPaiement.infoClientPaiement.nomClient,
-            description: this._serviceClientPaiement.infoClientPaiement.descriptionClient,
-            address: {
-                line1: this._serviceClientPaiement.infoClientPaiement.adresseClient,
-                city: this._serviceClientPaiement.infoClientPaiement.villeClient,
-                postal_code: this._serviceClientPaiement.infoClientPaiement.codePostaleClient,
-                country: this._serviceClientPaiement.infoClientPaiement.paysClient,
-            }
-        });
-        console.log('client ajouté:');
-        return customer;
+      this._serviceClientPaiement.prendreRendezVous(demandeRequest).subscribe(
+        (resp) => {},
+        (error) => {
+          console.error(
+            "Une erreur s'est produite lors de la prise de rendez-vous:",
+            error
+          );
+          alert('Le rendez-vous a été créé avec succès!');
+          this.router.navigate(['/utilisateur/accueil-utilisateur']);
+        }
+      );
     } catch (error) {
-        console.error('Une erreur s\'est produite lors de la création du client:', error);
-        throw error;
+      console.error("Une erreur s'est produite lors du paiement:", error);
     }
-}
+  }
+
+  async createCustomer() {
+    try {
+      const customer = await this.stripe.customers.create({
+        email: this._serviceClientPaiement.infoClientPaiement.emailClient,
+        phone: this._serviceClientPaiement.infoClientPaiement.telephoneClient,
+        name: this._serviceClientPaiement.infoClientPaiement.nomClient,
+        description:
+          this._serviceClientPaiement.infoClientPaiement.descriptionClient,
+        address: {
+          line1: this._serviceClientPaiement.infoClientPaiement.adresseClient,
+          city: this._serviceClientPaiement.infoClientPaiement.villeClient,
+          postal_code:
+            this._serviceClientPaiement.infoClientPaiement.codePostaleClient,
+          country: this._serviceClientPaiement.infoClientPaiement.paysClient,
+        },
+      });
+      console.log('client ajouté:');
+      return customer;
+    } catch (error) {
+      console.error(
+        "Une erreur s'est produite lors de la création du client:",
+        error
+      );
+      throw error;
+    }
+  }
 
   async addCardToCustomer(customerId: string) {
     try {
-      this.token=this.obtenirTypeDeCarte(this._serviceClientPaiement.infoClientPaiement.numCard)
+      this.token = this.obtenirTypeDeCarte(
+        this._serviceClientPaiement.infoClientPaiement.numCard
+      );
       const card = await this.stripe.customers.createSource(customerId, {
-        source: this.token
+        source: this.token,
       });
       console.log('Carte ajoutée avec succès:');
       return card;
     } catch (error) {
-      console.error('Une erreur s\'est produite lors de l\'ajout de la carte:', error);
+      console.error(
+        "Une erreur s'est produite lors de l'ajout de la carte:",
+        error
+      );
       throw error;
     }
   }
@@ -127,5 +188,4 @@ async createCustomer() {
         return 'tok_visa';
     }
   }
-
 }

@@ -58,11 +58,20 @@
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Numéro de carte de paiement"
+                  placeholder="xxxxxxxxxxxxxxxx"
                   [(ngModel)]="
                     _serviceClientPaiement.infoClientPaiement.numCard
                   "
+                  (input)="numeroVide=false"
+                  (input)="invalid()"
                 />
+                 <span *ngIf="numeroVide" class="text-danger"
+                    ><i class="fa fa-exclamation-circle"></i>Le champs est
+                    obligatoire</span
+                  >
+                  <span *ngIf="invalidNumero" class="text-danger">
+             <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un numero valide
+            </span>
               </div>
 
               <br />
@@ -74,6 +83,10 @@
                       <option selected>01</option>
                       <option value="1">02</option>
                     </select>
+                    <span  class="text-danger"
+                    ><i class="fa fa-exclamation-circle"></i>Le champs est
+                    obligatoire</span
+                  >
                   </div>
 
                   <div class="form-group" style="width: 50%; margin-left: 10px">
@@ -81,6 +94,10 @@
                       <option selected>2024</option>
                       <option>2025</option>
                     </select>
+                    <span  class="text-danger"
+                    ><i class="fa fa-exclamation-circle"></i>Le champs est
+                    obligatoire</span
+                  >
                   </div>
                 </div>
               </div>
@@ -92,9 +109,19 @@
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="CVC "
+                  placeholder="xxxx "
                   [(ngModel)]="_serviceClientPaiement.infoClientPaiement.cvc"
+                  (input)="cvcVide =false"
+                                    (input)="invalidC()"
+
                 />
+                <span *ngIf="cvcVide" class="text-danger"
+                    ><i class="fa fa-exclamation-circle"></i>Le champs est
+                    obligatoire</span
+                  >
+                  <span *ngIf="invalidCvc" class="text-danger">
+             <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un numero valide
+            </span>
               </div>
 
               <div
@@ -104,7 +131,7 @@
                 <input
                   type="checkbox"
                   class="form-check-input"
-                  (click)="ouvrirNouvelOnglet()"
+                              [(ngModel)]="conditionsAccepted"
                 />
                 <label class="form-check-label"
                   >Confirmer l'acceptation des
@@ -205,7 +232,7 @@
         </div>
         <div class="row mt-3">
           <div class="col-md-12 col-sm-12">
-            <button type="button" class="btn validerbtn" (click)="paiement()">
+            <button type="button" class="btn validerbtn" (click)=" validateinfos()">
               Valider
             </button>
             <button
