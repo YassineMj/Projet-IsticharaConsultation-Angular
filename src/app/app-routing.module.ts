@@ -21,6 +21,7 @@ import { InfosUtilisateurComponent } from './Partie-Utilisateur/infos-utilisateu
 import { PaiementUtilisateurComponent } from './Partie-Utilisateur/paiement-utilisateur/paiement-utilisateur.component';
 import { ConditionPaiementComponent } from './Partie-Utilisateur/condition-paiement/condition-paiement.component';
 import { InfosConsultationUtilisateurComponent } from './Partie-Utilisateur/infos-consultation-utilisateur/infos-consultation-utilisateur.component';
+import { ActualitesUtilisateurComponent } from './Partie-Utilisateur/actualites-utilisateur/actualites-utilisateur.component';
 
 
 //routes partie utilisateur
@@ -35,7 +36,8 @@ const utilisateurRoutes:Routes=[
   { path: 'profilConsultant-utilisateur/:idConsultant', component: ProfilConsultantUtilisateurComponent },
   {path:'infos-utilisateur/:idPlan',component:InfosUtilisateurComponent},
   { path: 'paiement-utilisateur', component: PaiementUtilisateurComponent },
-  {path: 'infos-consultation-utilisateur', component:InfosConsultationUtilisateurComponent}
+  { path: 'infos-consultation-utilisateur', component: InfosConsultationUtilisateurComponent },
+  {path: 'actualites-utilisateur', component:ActualitesUtilisateurComponent}
 ]
 
 //routes partie consultant
