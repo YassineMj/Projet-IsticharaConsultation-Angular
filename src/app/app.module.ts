@@ -49,6 +49,7 @@ import { ConditionPaiementComponent } from './Partie-Utilisateur/condition-paiem
 import { InfosUtilisateurComponent } from './Partie-Utilisateur/infos-utilisateur/infos-utilisateur.component';
 import { PaiementUtilisateurComponent } from './Partie-Utilisateur/paiement-utilisateur/paiement-utilisateur.component';
 import { InfosConsultationUtilisateurComponent } from './Partie-Utilisateur/infos-consultation-utilisateur/infos-consultation-utilisateur.component';
+import { ActualitesUtilisateurComponent } from './Partie-Utilisateur/actualites-utilisateur/actualites-utilisateur.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { InfosConsultationUtilisateurComponent } from './Partie-Utilisateur/info
     InfosUtilisateurComponent,
     PaiementUtilisateurComponent,
     InfosConsultationUtilisateurComponent,
+    ActualitesUtilisateurComponent,
   ],
   imports: [
 
