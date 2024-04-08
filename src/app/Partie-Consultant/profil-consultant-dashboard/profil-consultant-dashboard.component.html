@@ -213,7 +213,18 @@
                       class="form-control"
                       value="{{ _service.consultantAuthObjet.nom }}"
                       [(ngModel)]="_service.consultantAuthObjet.nom"
+                      (input)="validateNom()"
+                      (input)="NomValid = false"
                     />
+
+                    <span *ngIf="NomValid" class="text-danger"
+                      ><i class="fa fa-exclamation-circle"></i>Le champs est
+                      obligatoire
+                    </span>
+                    <span *ngIf="nomInvalid" class="text-danger">
+                      <i class="fa fa-exclamation-circle"></i> veuillez saisir
+                      un nom Valide</span
+                    >
                   </div>
                 </div>
                 <div class="form-group">
@@ -226,7 +237,17 @@
                       class="form-control"
                       value="{{ _service.consultantAuthObjet.prenom }}"
                       [(ngModel)]="_service.consultantAuthObjet.prenom"
+                      (input)="validatePrenom()"
+                      (input)="PrenomValid = false"
                     />
+                    <span *ngIf="PrenomValid" class="text-danger"
+                      ><i class="fa fa-exclamation-circle"></i>Le champs est
+                      obligatoire
+                    </span>
+                    <span *ngIf="prenomInvalid" class="text-danger">
+                      <i class="fa fa-exclamation-circle"></i> veuillez saisir
+                      un prenom Valide</span
+                    >
                   </div>
                 </div>
                 <div class="form-group">
@@ -239,7 +260,17 @@
                       class="form-control"
                       value="{{ _service.consultantAuthObjet.cin }}"
                       [(ngModel)]="_service.consultantAuthObjet.cin"
+                      (input)="validateCin()"
+                      (input)="CinValid = false"
                     />
+                    <span *ngIf="CinValid" class="text-danger"
+                      ><i class="fa fa-exclamation-circle"></i>Le champs est
+                      obligatoire
+                    </span>
+                    <span *ngIf="CinInvalid" class="text-danger">
+                      <i class="fa fa-exclamation-circle"></i> veuillez saisir
+                      un cin Valide</span
+                    >
                   </div>
                 </div>
                 <div class="form-group">
@@ -252,7 +283,17 @@
                       class="form-control"
                       value="{{ _service.consultantAuthObjet.pays }}"
                       [(ngModel)]="_service.consultantAuthObjet.pays"
+                      (input)="validatePays()"
+                      (input)="PaysValid = false"
                     />
+                    <span *ngIf="PaysValid" class="text-danger"
+                      ><i class="fa fa-exclamation-circle"></i>Le champs est
+                      obligatoire
+                    </span>
+                    <span *ngIf="paysInvalid" class="text-danger">
+                      <i class="fa fa-exclamation-circle"></i> veuillez saisir
+                      un pays Valide</span
+                    >
                   </div>
                 </div>
                 <div class="form-group">
@@ -265,7 +306,17 @@
                       class="form-control"
                       value="{{ _service.consultantAuthObjet.ville }}"
                       [(ngModel)]="_service.consultantAuthObjet.ville"
+                      (input)="validateVille()"
+                      (input)="VilleValid = false"
                     />
+                    <span *ngIf="VilleValid" class="text-danger"
+                      ><i class="fa fa-exclamation-circle"></i>Le champs est
+                      obligatoire
+                    </span>
+                    <span *ngIf="villeInvalid" class="text-danger">
+                      <i class="fa fa-exclamation-circle"></i> veuillez saisir
+                      un ville Valide</span
+                    >
                   </div>
                 </div>
               </fieldset>
@@ -281,7 +332,19 @@
                       class="form-control"
                       value="{{ _service.consultantAuthObjet.email }}"
                       [(ngModel)]="_service.consultantAuthObjet.email"
+                      (input)="validateEmail()"
+                      (input)="EmailValid = false"
+                      placeholder="Email@gmail.com"
                     />
+                    <span *ngIf="EmailValid" class="text-danger"
+                      ><i class="fa fa-exclamation-circle"></i>Le champs est
+                      obligatoire
+                    </span>
+
+                    <span *ngIf="emailInvalid" class="text-danger">
+                      <i class="fa fa-exclamation-circle"></i> veuillez saisir
+                      un email Valide</span
+                    >
                   </div>
                 </div>
                 <div class="form-group">
@@ -295,6 +358,10 @@
                       value="{{ _service.consultantAuthObjet.motDePasse }}"
                       [(ngModel)]="_service.consultantAuthObjet.motDePasse"
                     />
+                    <span *ngIf="PasswordValid" class="text-danger"
+                      ><i class="fa fa-exclamation-circle"></i>Le champs est
+                      obligatoire
+                    </span>
                   </div>
                 </div>
                 <div class="form-group">
@@ -307,7 +374,18 @@
                       class="form-control"
                       value="{{ _service.consultantAuthObjet.numeroTelephone }}"
                       [(ngModel)]="_service.consultantAuthObjet.numeroTelephone"
+                      (input)="validatePhone()"
+                      (input)="PhoneValid = false"
+                      placeholder="+212 5|6|7xxxxxxxxx"
                     />
+                    <span *ngIf="PhoneValid" class="text-danger"
+                      ><i class="fa fa-exclamation-circle"></i>Le champs est
+                      obligatoire
+                    </span>
+                    <span *ngIf="phoneInvalid" class="text-danger">
+                      <i class="fa fa-exclamation-circle"></i> veuillez saisir
+                      un téléphone Valide</span
+                    >
                   </div>
                 </div>
               </fieldset>
@@ -322,6 +400,22 @@
                     value="Editer le Profile"
                     (click)="edite()"
                   />
+                  <div
+                    *ngIf="editDone"
+                    class="alert alert-success"
+                    role="alert"
+                    style="margin-top: 1%"
+                  >
+                    Le profil a été bien editer !
+                  </div>
+                  <div
+                    *ngIf="showError"
+                    class="alert alert-danger"
+                    role="alert"
+                    style="margin-top: 1%"
+                  >
+                    Veuillez saisir tous les champs
+                  </div>
                 </div>
               </div>
             </div>
@@ -390,6 +484,22 @@
                     value="Editer Paiement"
                     (click)="edite()"
                   />
+                  <div
+                    *ngIf="editDone"
+                    class="alert alert-success"
+                    role="alert"
+                    style="margin-top: 1%"
+                  >
+                    Le paiement a été bien editer !
+                  </div>
+                  <div
+                    *ngIf="showError"
+                    class="alert alert-danger"
+                    role="alert"
+                    style="margin-top: 1%"
+                  >
+                    Veuillez saisir tous les champs
+                  </div>
                 </div>
               </div>
             </div>
@@ -484,6 +594,22 @@
                     value="Editer les Détails"
                     (click)="edite()"
                   />
+                  <div
+                    *ngIf="editDone"
+                    class="alert alert-success"
+                    role="alert"
+                    style="margin-top: 1%"
+                  >
+                    Les détails sont bien editer !
+                  </div>
+                  <div
+                    *ngIf="showError"
+                    class="alert alert-danger"
+                    role="alert"
+                    style="margin-top: 1%"
+                  >
+                    Veuillez saisir tous les champs
+                  </div>
                 </div>
               </div>
             </div>
@@ -501,21 +627,29 @@
                 <h3 class="fieldset-title">Expériences Professionnelle</h3>
                 <div class="form-group">
                   <div class="col-md-12 col-sm-9 col-xs-12">
-                    <div class="input-group">
+                    <div>
                       <input
                         type="text"
                         class="form-control"
                         [(ngModel)]="experience"
-                      />
-                      <button
-                        id="plus"
+                        (input)="isEmpty()"
+                        style="width: 95%;">
+
+
+
+<button
                         type="button"
                         (click)="addExperience()"
                         class="btn btn-success-outline"
+                        [disabled]="exprienceEmpty"
+                        style="margin-inline-start: 96%;
+    margin-top: -6%;"
                       >
                         <i class="fa fa-plus" style="color: white"></i>
                       </button>
+
                     </div>
+
 
                     <div class="table-responsive">
                       <table class="table table-striped">
@@ -566,12 +700,17 @@
                         type="text"
                         class="form-control"
                         [(ngModel)]="education"
+                        (input)="isEmpty()"
+                        style="width: 95%;"
                       />
                       <button
                         id="plus"
                         type="button"
                         (click)="addEducation()"
                         class="btn btn-success-outline"
+                        [disabled]="educationEmpty"
+                        style="margin-inline-start: 96%;
+    margin-top: -6%;"
                       >
                         <i class="fa fa-plus" style="color: white"></i>
                       </button>
@@ -625,12 +764,17 @@
                         type="text"
                         class="form-control"
                         [(ngModel)]="formation"
+                        (input)="isEmpty()"
+                        style="width: 95%;"
                       />
                       <button
                         id="plus"
                         type="button"
                         (click)="addFormation()"
                         class="btn btn-success-outline"
+                        [disabled]="formationEmpty"
+                        style="margin-inline-start: 96%;
+    margin-top: -6%;"
                       >
                         <i class="fa fa-plus" style="color: white"></i>
                       </button>
@@ -678,14 +822,30 @@
               <hr />
               <div class="form-group">
                 <div
-                  class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                  
+                  class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0"
+                >
                   <input
                     class="btn btn-primary"
                     type="submit"
                     value="Editer Carrière"
                     (click)="edite()"
                   />
+                  <div
+                    *ngIf="editDone"
+                    class="alert alert-success"
+                    role="alert"
+                    style="margin-top: 1%"
+                  >
+                    Carrière a été bien editer !
+                  </div>
+                  <div
+                    *ngIf="showError"
+                    class="alert alert-danger"
+                    role="alert"
+                    style="margin-top: 1%"
+                  >
+                    Veuiller remplir les champs!
+                  </div>
 
                 </div>
               </div>

@@ -645,7 +645,7 @@ background-color: #4a2df0;
 }
 
     /*NAVBAR*/
- 
+
           .container12 {
               background-color: rgba(240, 240, 240, 0.701);
               border-radius: 20px;
@@ -653,17 +653,17 @@ background-color: #4a2df0;
               width: 95%;
               margin-left: 40px;
               margin-right: 40px;
-            
-       
+
+
             }
-      
+
             .nav-link {
               color: black;
               position: relative;
               text-decoration: none;
             }
-      
-      
+
+
             .nav-link::before {
               content: "";
               position: absolute;
@@ -674,48 +674,48 @@ background-color: #4a2df0;
               transform: scaleX(0);
               transition: all 0.6s ease;
             }
-      
+
             .nav-link::before {
               bottom: 0;
               left: 0;
             }
-      
+
             .nav-link:hover::before {
               transform: scaleX(1);
-      
+
             }
-      
+
             .nav-link:hover {
               opacity: 0.5;
-      
+
             }
-      
-      
-      
-      
-      
+
+
+
+
+
             @media(max-width:991px) {
               .sidebar {
                 background-color: rgba(140, 152, 124, 0.13);
                 backdrop-filter: blur(20px);
-      
+
               }
             }
-      
+
             .offcanvas-header {
               border-bottom: 1px solid rgb(125, 255, 240);
             }
-      
-      
+
+
             .istichara {
               color: rgb(138, 127, 188);
             }
             .logo {
               transition: 0.35s ease;
             }
-      
+
             .logo:hover {}
-      
+
             .logo::before {
               content: "";
               position: absolute;
@@ -726,43 +726,43 @@ background-color: #4a2df0;
               transform: scaleX(0);
               transition: all 0.6s ease;
             }
-      
+
             .logo::before {
               bottom: 0;
               top: 70%;
               left: 0;
               margin-left: 6.5%;
             }
-      
+
             .logo:hover::before {
               transform: scaleX(1);
             }
-      
+
             .btncontacternous {
               font-weight: bold;
               margin-right: 10px;
               background-color: rgba(254, 254, 254, 0.302);
-      
+
             }
-      
-      
+
+
             .btncontacternous:hover {
               background-color: rgba(240, 248, 255);
               color: black;
-      
-      
+
+
             }
 
-               
+
                         .btnchat {
                           background: linear-gradient(#6b7adebc, #538bfabc, #566bf7bc);
                           color: white;
                           margin-top: 10%;
                           font-size: 130%;
-            
+
                         }
-            
-            
+
+
                         .btnchat:hover {
                           background: linear-gradient(to right, #3751ffbc, #10efffbc, #3a52efbc);
                         }
@@ -772,15 +772,15 @@ background-color: #4a2df0;
               margin-top: 10%;
               font-size: 130%;
             }
-      
+
             .btnuser:hover {
               background-color: rgb(59, 26, 249);
             }
-      
+
             .white-icon {
               color: white;
             }
-      
+
             .purple {
               color: rgb(19, 19, 19);
             }

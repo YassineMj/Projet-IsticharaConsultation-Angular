@@ -105,7 +105,9 @@ import { InfosConsultationUtilisateurComponent } from './Partie-Utilisateur/info
     MatCheckboxModule,
     MatTabsModule,
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

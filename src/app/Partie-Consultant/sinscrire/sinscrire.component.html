@@ -345,187 +345,203 @@
   <mat-card>
     <mat-card-content>
       <mat-stepper #stepper>
-        <mat-step
-          [stepControl]="firstFormGroup"
-          errorMessage="Infos are required."
-        >
-          <div [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Infos personnelles</ng-template>
-            <mat-form-field>
-              <mat-label>Nom</mat-label>
-              <input
-                [(ngModel)]="formData.nom"
-                matInput
-                placeholder="Nom"
-                formControlName="firstCtrl"
-                required
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Prénom</mat-label>
-              <input
-                [(ngModel)]="formData.prenom"
-                matInput
-                placeholder="Prénom"
-                formControlName="firstCtrl"
-                required
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Numéro de Télephone</mat-label>
-              <input
-                [(ngModel)]="formData.numeroTelephone"
-                matInput
-                placeholder="Numéro de Téléphone"
-                formControlName="firstCtrl"
-                required
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>CIN</mat-label>
-              <input
-                [(ngModel)]="formData.cin"
-                matInput
-                placeholder="CIN"
-                formControlName="firstCtrl"
-                required
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Email</mat-label>
-              <input
-                [(ngModel)]="formData.email"
-                matInput
-                placeholder="Email"
-                formControlName="firstCtrl"
-                required
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Mot de passe</mat-label>
-              <input
-                [(ngModel)]="formData.motDePasse"
-                matInput
-                [type]="hide ? 'password' : 'text'"
-                formControlName="firstCtrl"
-              />
-              <button
-                mat-icon-button
-                matSuffix
-                (click)="hide = !hide"
-                [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide"
-              >
-                <mat-icon>{{
-                  hide ? "visibility_off" : "visibility"
-                }}</mat-icon>
-              </button>
-            </mat-form-field>
+       <mat-step
+  [stepControl]="firstFormGroup"
+  errorMessage="Infos are required."
+  [completed]="firstFormGroup.valid"
+>
+  <div [formGroup]="firstFormGroup">
+    <ng-template matStepLabel>Infos personnelles</ng-template>
+    <mat-form-field>
 
-            <div>
-              <button mat-button matStepperNext>Suivant</button>
-            </div>
-          </div>
-        </mat-step>
-        <mat-step
-          [stepControl]="secondFormGroup"
-          label="Paiement"
-          errorMessage="Paiement is required."
-        >
-          <div [formGroup]="secondFormGroup">
-            <mat-form-field>
-              <mat-label>Pays</mat-label>
-              <input
-                [(ngModel)]="formData.pays"
-                matInput
-                formControlName="secondCtrl"
-                placeholder="Pays"
-                required
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Ville</mat-label>
-              <input
-                [(ngModel)]="formData.ville"
-                matInput
-                formControlName="secondCtrl"
-                placeholder="Ville"
-                required
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Adresse</mat-label>
-              <input
-                [(ngModel)]="formData.adresse"
-                matInput
-                formControlName="secondCtrl"
-                placeholder="Adresse"
-                required
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>RIB</mat-label>
-              <input
-                [(ngModel)]="formData.rib"
-                matInput
-                formControlName="secondCtrl"
-                placeholder="RIB"
-                required
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Banque</mat-label>
-              <mat-select
-                [(ngModel)]="formData.banque"
-                formControlName="secondCtrl"
-                required
-              >
-                <mat-option value="Al Akhdar Bank"> Al Akhdar Bank </mat-option>
-                <mat-option value="Attijari Wafa Bank">
-                  Attijari Wafa Bank
-                </mat-option>
-                <mat-option value="Banque Populaire">
-                  Banque Populaire
-                </mat-option>
-                <mat-option value="CIH banque"> CIH banque </mat-option>
-                <mat-option value="Umnia Bank"> Umnia Bank </mat-option>
-              </mat-select>
-            </mat-form-field>
+      <mat-label>Nom</mat-label>
+      <input
+        [(ngModel)]="formData.nom"
+        matInput
+        placeholder="Nom"
+        formControlName="nomCtrl"
+        required
+      />
 
-            <div>
-              <button mat-button matStepperPrevious>Précédent</button>
-              <button mat-button matStepperNext>Suivant</button>
-            </div>
-          </div>
-        </mat-step>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>Prénom</mat-label>
+      <input
+        [(ngModel)]="formData.prenom"
+        matInput
+        placeholder="Prénom"
+        formControlName="prenomCtrl"
+        required
+      />
+
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Numéro de Télephone</mat-label>
+      <input
+        [(ngModel)]="formData.numeroTelephone"
+        matInput
+        placeholder="Numéro de Téléphone"
+        formControlName="numeroTelephoneCtrl"
+        required
+      />
+
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>CIN</mat-label>
+      <input
+        [(ngModel)]="formData.cin"
+        matInput
+        placeholder="CIN"
+        formControlName="cinCtrl"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        [(ngModel)]="formData.email"
+        matInput
+        placeholder="Email"
+        formControlName="emailCtrl"
+        required
+      />
+
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Mot de passe</mat-label>
+      <input
+        [(ngModel)]="formData.motDePasse"
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        formControlName="motDePasseCtrl"
+        required
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{
+          hide ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+
+    </mat-form-field>
+
+    <div>
+      <button matStepperNext mat-button color="primary">Suivant</button>
+    </div>
+  </div>
+</mat-step>
+
+        <mat-step
+  [stepControl]="secondFormGroup"
+  label="Paiement"
+  errorMessage="Paiement is required."
+>
+  <div [formGroup]="secondFormGroup">
+    <mat-form-field>
+      <mat-label>Pays</mat-label>
+      <input
+        [(ngModel)]="formData.pays"
+        matInput
+        formControlName="paysCtrl"
+        placeholder="Pays"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Ville</mat-label>
+      <input
+        [(ngModel)]="formData.ville"
+        matInput
+        formControlName="villeCtrl"
+        placeholder="Ville"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Adresse</mat-label>
+      <input
+        [(ngModel)]="formData.adresse"
+        matInput
+        formControlName="adresseCtrl"
+        placeholder="Adresse"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>RIB</mat-label>
+      <input
+        [(ngModel)]="formData.rib"
+        matInput
+        formControlName="ribCtrl"
+        placeholder="RIB"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Banque</mat-label>
+      <mat-select
+        [(ngModel)]="formData.banque"
+        formControlName="banqueCtrl"
+        required
+      >
+        <mat-option value="Al Akhdar Bank"> Al Akhdar Bank </mat-option>
+        <mat-option value="Attijari Wafa Bank"> Attijari Wafa Bank </mat-option>
+        <mat-option value="Banque Populaire"> Banque Populaire </mat-option>
+        <mat-option value="CIH banque"> CIH banque </mat-option>
+        <mat-option value="Umnia Bank"> Umnia Bank </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div>
+      <button mat-button matStepperPrevious color="primary">Précédent</button>
+      <button mat-button matStepperNext color="primary" style="margin-left: 80%;">Suivant</button>
+    </div>
+  </div>
+</mat-step>
+
         <mat-step
           [stepControl]="thirdFormGroup"
           label="Détails"
           errorMessage="Détails are required."
         >
+          <div [formGroup]="thirdFormGroup">
+
           <mat-form-field class="inp">
             <mat-label>Description du Profil</mat-label>
             <textarea
               [(ngModel)]="formData.descriptionProfile"
               matInput
               required=""
+                    formControlName="descriptionProfileCtrl"
+
             ></textarea>
           </mat-form-field>
           <section class="example-section">
             <mat-label id="langue" required>Langue</mat-label>
 
-            <mat-checkbox [(ngModel)]="formData.francais" class="example-margin"
+            <mat-checkbox [(ngModel)]="formData.francais" class="example-margin"       formControlName="francaisCtrl"
+
               >Francais</mat-checkbox
             >
-            <mat-checkbox [(ngModel)]="formData.anglais" class="example-margin"
+            <mat-checkbox [(ngModel)]="formData.anglais" class="example-margin"       formControlName="anglaisCtrl"
+
               >Anglais</mat-checkbox
             >
 
-            <mat-checkbox [(ngModel)]="formData.arabe" class="example-margin"
+            <mat-checkbox [(ngModel)]="formData.arabe" class="example-margin"      formControlName="arabeCtrl"
+
               >Arabe</mat-checkbox
             >
 
             <mat-checkbox [(ngModel)]="formData.espagnol" class="example-margin"
+
               >Espagnol</mat-checkbox
             >
           </section>
@@ -557,18 +573,19 @@
               required
               (change)="onFileChange($event)"
               accept="image/*"
+                    formControlName="imageCtrl"
+
             />
           </div>
           <br />
           <div>
-            <button mat-button matStepperPrevious>Précédent</button>
-            <button mat-button matStepperNext>Suivant</button>
+            <button mat-button matStepperPrevious color="primary">Précédent</button>
+            <button mat-button matStepperNext color="primary" style="margin-left: 80%;">Suivant</button>
           </div>
-        </mat-step>
+          </div>  </mat-step>
         <mat-step
           [stepControl]="fourthFormGroup"
           label="Carrière"
-          errorMessage="Carrière is required."
         >
           <div>
             <!--  <mat-form-field class="inp">
@@ -596,12 +613,16 @@
                       type="text"
                       class="form-control"
                       [(ngModel)]="experience"
+                                            (input)="isEmpty()"
+
+
                     />
                     <button
                       id="plus"
                       type="button"
                       (click)="addExperience()"
                       class="btn btn-success-outline"
+                      [disabled]="exprienceEmpty"
                     >
                       <i class="fa fa-plus"></i>
                     </button>
@@ -655,12 +676,15 @@
                       type="text"
                       class="form-control"
                       [(ngModel)]="education"
+                                            (input)="isEmpty()"
+
                     />
                     <button
                       id="plus"
                       type="button"
                       (click)="addEducation()"
                       class="btn btn-success-outline"
+                      [disabled]="educationEmpty"
                     >
                       <i class="fa fa-plus"></i>
                     </button>
@@ -709,12 +733,14 @@
                       type="text"
                       class="form-control"
                       [(ngModel)]="formation"
+                      (input)="isEmpty()"
                     />
                     <button
                       id="plus"
                       type="button"
                       (click)="addFormation()"
                       class="btn btn-success-outline"
+                      [disabled]="formationEmpty"
                     >
                       <i class="fa fa-plus"></i>
                     </button>
@@ -793,8 +819,8 @@
             </label>
 <br>
             <div>
-              <button mat-button matStepperPrevious>Précédent</button>
-              <button mat-button matStepperNext>Suivant</button>
+              <button mat-button matStepperPrevious color="primary">Précédent</button>
+              <button mat-button matStepperNext color="primary" style="margin-left: 80%;">Suivant</button>
             </div>
           </div>
         </mat-step>
@@ -804,14 +830,18 @@
           <mat-checkbox
             class="example-margin"
             [(ngModel)]="conditionsAccepted"
-            (click)="ouvrirNouvelOnglet()"
-            >I agree to the termes et condition générales
+            >Veuillez accepter les
+                  <a class="a" (click)="ouvrirNouvelOnglet()">
+                    Termes & Conditions
+                  </a>
           </mat-checkbox>
+<br>
 <br>
           <div>
             <button mat-raised-button color="primary"  (click)="sinscrire()">
               Submit
             </button>
+
           </div>
         </mat-step>
       </mat-stepper>

@@ -1,23 +1,39 @@
+<head>
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+</head>
 <body>
   <div class="bg-background"></div>
   <div class="container py-5">
     <div class="row py-5 g-3">
-      <div class="  col-md-6 first_col">
+      <div class="col-md-6 first_col">
         <h1 class="text-center mt-5">Contacter nous !</h1>
         <div class="p-3 mt-2">
-          <div  class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Nom</label>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"
+              >Nom Complet</label
+            >
             <input
               type="text"
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="Nom"
               [(ngModel)]="Infomessage.nom"
-              name="nom" 
+              name="nom"
               required
-              
+              (input)="champNomVide = false"
+    (input)="validateNom()"
+
             />
-            <div  class="text-danger">Le champ nom est obligatoire.</div>
+            <div *ngIf="champNomVide" class="text-danger">
+             <i class="fa fa-exclamation-circle"></i> Le champ nom est obligatoire.
+            </div>
+            <div *ngIf="nomInvalid" class="text-danger"><i class="fa fa-exclamation-circle"></i>
+              Veuillez saisir un nom entre 4 et 20 lettres
+            </div>
+
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
@@ -27,9 +43,20 @@
               type="text"
               class="form-control"
               id="exampleFormControlInput1"
-              placeholder="Email "
+              placeholder="example@example.com"
               [(ngModel)]="Infomessage.email"
-            /><div class="text-danger">Le champ email est obligatoire.</div>
+                            (input)="champEmailVide = false"
+
+    (input)="validateEmail()"
+              required
+            />
+            <div *ngIf="champEmailVide" class="text-danger">
+             <i class="fa fa-exclamation-circle"></i> Le champ email est obligatoire.
+            </div>
+            <div *ngIf="emailInvalid" class="text-danger">
+             <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un email valide
+            </div>
+
           </div>
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"
@@ -39,9 +66,19 @@
               type="text"
               class="form-control"
               id="exampleFormControlInput1"
-              placeholder="Numéro de Téléphone"
+              placeholder="+212 5|6|7xxxxxxxxx"
               [(ngModel)]="Infomessage.numero"
-            /><div class="text-danger">Le champ telephone est obligatoire.</div>
+              (input)="champNumeroVide = false"
+                  (input)="validatePhone()"
+
+              required
+            />
+            <div *ngIf="champNumeroVide" class="text-danger">
+            <i class="fa fa-exclamation-circle"></i> Le champ téléphone est obligatoire.
+            </div>
+            <div *ngIf="phoneInvalid" class="text-danger">
+            <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un numéro valide.
+            </div>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label"
@@ -54,7 +91,12 @@
               rows="3"
               placeholder="Message ..."
               [(ngModel)]="Infomessage.message"
-            ></textarea><div class="text-danger">Le champ email est obligatoire.</div>
+              (input)="champMessageVide = false"
+              required
+            ></textarea>
+            <div *ngIf="champMessageVide" class="text-danger">
+             <i class="fa fa-exclamation-circle"></i> Le champ Message est obligatoire.
+            </div>
           </div>
           <div class="mb-3">
             <button class="btn btn-primary" (click)="send()">Envoyer</button>
@@ -96,7 +138,7 @@
             alt=""
             style="width: 50px"
           />
-          <hr style="color: purple; width: 140px ; margin-left: 40px;" />
+          <hr style="color: purple; width: 140px; margin-left: 40px" />
         </div>
       </div>
     </div>

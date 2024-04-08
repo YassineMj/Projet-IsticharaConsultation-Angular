@@ -32,15 +32,24 @@ mat-card {
 }
 
 body {
-  background-image: url("../../../assets/images/backgroundlogin.jpg");
+  background-image: url("../../../assets/images/image-new-back.jpg");
   background-size: cover;
   padding-bottom: 5%;
   margin-bottom: -3.8%;
 }
 
 mat-card {
-  background-image: url("../../../assets/images/login-new-bootstrap.jpg");
+  /* background-image: url("../../../assets/images/login-new-bootstrap.jpg");
   background-size: contain;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   border-radius: 20px;
+}
+.a {
+    text-decoration: none;
+    color: rgb(60, 22, 198);
+    cursor: pointer;
+}
+mat-stepper{
+/*   background-color: rgba(207, 193, 255, 0.836);
+ */
 }
