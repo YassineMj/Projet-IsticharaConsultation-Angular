@@ -142,14 +142,24 @@ export class PaiementUtilisateurComponent {
       throw error;
     }
   }
-
+  cardToken:any
+  
   async addCardToCustomer(customerId: string) {
     try {
-      this.token = this.obtenirTypeDeCarte(
-        this._serviceClientPaiement.infoClientPaiement.numCard
-      );
+      // this.token = this.obtenirTypeDeCarte(
+      //   this._serviceClientPaiement.infoClientPaiement.numCard
+      //);
+
+      this.cardToken = {
+        object: 'card',
+        number: this._serviceClientPaiement.infoClientPaiement.numCard,
+        exp_month: this._serviceClientPaiement.infoClientPaiement.dateExpMois,
+        exp_year: this._serviceClientPaiement.infoClientPaiement.dateExpAnne,
+        cvc: this._serviceClientPaiement.infoClientPaiement.cvc,
+      };
+  
       const card = await this.stripe.customers.createSource(customerId, {
-        source: this.token,
+        source: this.cardToken,
       });
       console.log('Carte ajoutée avec succès:');
       return card;
@@ -162,30 +172,30 @@ export class PaiementUtilisateurComponent {
     }
   }
 
-  obtenirTypeDeCarte(numCarte: string) {
-    const lastFourDigits = numCarte.slice(-4);
+  // obtenirTypeDeCarte(numCarte: string) {
+  //   const lastFourDigits = numCarte.slice(-4);
 
-    switch (lastFourDigits) {
-      case '4242':
-        return 'tok_visa';
-      case '5556':
-        return 'tok_visa_debit';
-      case '4444':
-        return 'tok_mastercard';
-      case '8210':
-        return 'tok_mastercard_debit';
-      case '5100':
-        return 'tok_mastercard_prepaid';
-      case '9424':
-        return 'tok_discover';
-      case '0004':
-        return 'tok_diners';
-      case '0000':
-        return 'tok_jcb';
-      case '0005':
-        return 'tok_uniopay';
-      default:
-        return 'tok_visa';
-    }
-  }
+  //   switch (lastFourDigits) {
+  //     case '4242':
+  //       return 'tok_visa';
+  //     case '5556':
+  //       return 'tok_visa_debit';
+  //     case '4444':
+  //       return 'tok_mastercard';
+  //     case '8210':
+  //       return 'tok_mastercard_debit';
+  //     case '5100':
+  //       return 'tok_mastercard_prepaid';
+  //     case '9424':
+  //       return 'tok_discover';
+  //     case '0004':
+  //       return 'tok_diners';
+  //     case '0000':
+  //       return 'tok_jcb';
+  //     case '0005':
+  //       return 'tok_uniopay';
+  //     default:
+  //       return 'tok_visa';
+  //   }
+  // }
 }

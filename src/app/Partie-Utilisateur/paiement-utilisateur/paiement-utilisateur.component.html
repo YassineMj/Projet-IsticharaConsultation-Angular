@@ -79,25 +79,27 @@
                 <label for="">Date d'expiration</label>
                 <div class="input-group-inline">
                   <div class="form-group" style="width: 50%">
-                    <select class="form-select">
+                    <select class="form-select" 
+                    [(ngModel)]="
+                      _serviceClientPaiement.infoClientPaiement.dateExpMois
+                    ">
                       <option selected>01</option>
-                      <option value="1">02</option>
+                      <option value="2">02</option>
                     </select>
-                    <span  class="text-danger"
-                    ><i class="fa fa-exclamation-circle"></i>Le champs est
-                    obligatoire</span
-                  >
+                    
+                  
                   </div>
 
                   <div class="form-group" style="width: 50%; margin-left: 10px">
-                    <select class="form-select">
+                    <select class="form-select"
+                    [(ngModel)]="
+                      _serviceClientPaiement.infoClientPaiement.dateExpAnne
+                    ">
                       <option selected>2024</option>
-                      <option>2025</option>
+                      <option value="2025">2025</option>
                     </select>
-                    <span  class="text-danger"
-                    ><i class="fa fa-exclamation-circle"></i>Le champs est
-                    obligatoire</span
-                  >
+                    
+                  
                   </div>
                 </div>
               </div>
@@ -111,8 +113,7 @@
                   class="form-control"
                   placeholder="xxxx "
                   [(ngModel)]="_serviceClientPaiement.infoClientPaiement.cvc"
-                  (input)="cvcVide =false"
-                                    (input)="invalidC()"
+                                   
 
                 />
                 <span *ngIf="cvcVide" class="text-danger"
@@ -232,7 +233,7 @@
         </div>
         <div class="row mt-3">
           <div class="col-md-12 col-sm-12">
-            <button type="button" class="btn validerbtn" (click)=" validateinfos()">
+            <button type="button" class="btn validerbtn" (click)=" paiement()">
               Valider
             </button>
             <button

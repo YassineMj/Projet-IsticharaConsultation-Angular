@@ -53,51 +53,85 @@ export class SinscrireComponent {
     anglaisCtrl: [false],
     arabeCtrl: [false],
     espagnolCtrl: [false],
+    langues:['', Validators.required],
+    imageCtrl: [null, Validators.required] // Image requise
+
   });
 
-  fourthFormGroup = this._formBuilder.group({
-    fourthCtrl: ['', Validators.required],
-  });
+  updateLanguesOnBlur() {    
+    const francaisValue = this.thirdFormGroup.get('francaisCtrl')?.value;
+    const anglaisValue = this.thirdFormGroup.get('anglaisCtrl')?.value;
+    const arabeValue = this.thirdFormGroup.get('arabeCtrl')?.value;
+    const espagnolValue = this.thirdFormGroup.get('espagnolCtrl')?.value;
+
+    if (francaisValue || anglaisValue || arabeValue || espagnolValue) {
+      this.thirdFormGroup.get('langues')?.setValue('true')
+    }
+    else{
+      this.thirdFormGroup.get('langues')?.setValue(null)
+
+    }
+  }
+
+
   hide = true;
 
-  /* NomValid: boolean = false;
-  PrenomValid: boolean = false;
-  PhoneValid: boolean = false;
-  CinValid: boolean = false;
-  EmailValid: boolean = false;
-  PasswordValid: boolean = false;
+  fourthFormGroup = this._formBuilder.group({
+    experience: ['', Validators.required],
+    education: ['', Validators.required],
+    formation: ['', Validators.required],
+    specialisation:['', Validators.required],
 
-  infos() {
-    this.NomValid = this.formData.nom === '';
-    this.PrenomValid = this.formData.prenom === '';
-    this.PhoneValid = this.formData.numeroTelephone === '';
-    this.CinValid = this.formData.cin === '';
-    this.EmailValid = this.formData.email === '';
-    this.PasswordValid = this.formData.motDePasse === '';
-    if (
-      this.NomValid ||
-      this.PrenomValid ||
-      this.PhoneValid ||
-      this.CinValid ||
-      this.EmailValid ||
-      this.PasswordValid
-    ) {
-      return; // Arrêtez l'envoi du formulaire si l'un des champs est vide
+  });
+
+  checkExp() {   
+    if (this.formData.experiencesPro.length>0) {
+      this.fourthFormGroup.get('experience')?.setValue('true')
     }
-  } */
+    else{
+      this.fourthFormGroup.get('experience')?.setValue(null)
+    }
+  }
+
+  checkEdu() {   
+    if (this.formData.educations.length>0) {
+      this.fourthFormGroup.get('education')?.setValue('true')
+    }
+    else{
+      this.fourthFormGroup.get('education')?.setValue(null)
+    }
+  }
+
+  checkFor() {   
+    if (this.formData.formations.length>0) {
+      this.fourthFormGroup.get('formation')?.setValue('true')
+    }
+    else{
+      this.fourthFormGroup.get('formation')?.setValue(null)
+    }
+  }
+
+  checkSpe() {   
+    if (this.formData.specialisation.length>0) {
+      this.fourthFormGroup.get('specialisation')?.setValue('true')
+    }
+    else{
+      this.fourthFormGroup.get('specialisation')?.setValue(null)
+    }
+  }
 
   constructor(
     private router: Router,
     private _service: DomaineService,
     private _consultantService: ConsultantService,
     private _formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this._service.getAllDomaine().subscribe((resp) => {
       this.domaines = resp;
     });
-        this.isEmpty();
+    this.isEmpty();
 
   }
 
@@ -140,29 +174,39 @@ export class SinscrireComponent {
     this.formData.experiencesPro.push(this.experience);
     this.experience = '';
     this.exprienceEmpty = true;
+    this.checkExp();
+
   }
 
   supprimerExperiencePro(index: number): void {
     this.formData.experiencesPro.splice(index, 1);
+    this.checkExp();
+
   }
   addEducation() {
     this.formData.educations.push(this.education);
     this.education = '';
     this.educationEmpty = true;
+    this.checkEdu();
   }
 
   addFormation() {
     this.formData.formations.push(this.formation);
     this.formation = '';
     this.formationEmpty = true;
+    this.checkFor();
   }
 
   supprimerFormation(index: number): void {
     this.formData.formations.splice(index, 1);
+    this.checkFor();
+
   }
 
   supprimerEducation(index: number): void {
     this.formData.educations.splice(index, 1);
+    this.checkEdu();
+
   }
   trackByFn(index: any) {
     return index;
@@ -198,6 +242,8 @@ export class SinscrireComponent {
       // Sinon, l'ajouter à la liste
       this.formData.specialisation.push(nomCategorie);
     }
+
+    this.checkSpe();
   }
 
   onFileChange(event: any): void {
@@ -212,44 +258,37 @@ export class SinscrireComponent {
   }
 
   conditionsAccepted = false;
-  sinscrire(): void {
+  sinscrire(): void {    
     if (
-      this.firstFormGroup.valid === false ||
-      this.secondFormGroup.valid === false ||
-      this.thirdFormGroup.valid === false
-    ) {
-      alert('Veuillez vérifier les champs en rouge');
+      this.firstFormGroup.invalid ||
+      this.secondFormGroup.invalid ||
+      this.thirdFormGroup.invalid || 
+      this.fourthFormGroup.invalid) {
+        
+      alert('Veuillez remplir tous les champs');
       return;
     } else {
-      //if (this.conditionsAccepted){code}
-      alert('Inscription réussie !');
-      this.router.navigate(['/consultant/sidentifier-consultant']);
-      //else ( alert)
-    } 
-    console.log("4", this.fourthFormGroup.valid)
+      if (this.conditionsAccepted) {
+        console.log(this.formData);
+        this._consultantService.addConsultant(this.formData).subscribe(
+          (resp) => {
+            console.log(resp);
+
+            console.log('Consultant uploadé avec succès. ID du consultant :',resp);
+
+            alert('Inscription réussie !');
+            this.router.navigate(['/consultant/sidentifier-consultant'])
+          },
+          (error) => {
+            console.error("Erreur lors de l'upload du consultant", error);
+          }
+        );
+      } else {
+        alert('accepte les conditions !');
+
+      }
+    }
+
   }
 
-  /* if (this.conditionsAccepted) {
-
-      console.log(this.formData);
-      // Appeler votre fonction sinscrire() ici
-      this._consultantService.addConsultant(this.formData).subscribe(
-        (resp) => {
-          console.log(resp);
-
-          console.log(
-            'Consultant uploadé avec succès. ID du consultant :',
-            resp
-          );
-          // Ajoutez ici la logique pour traiter l'ID du consultant si nécessaire
-        },
-        (error) => {
-          console.error("Erreur lors de l'upload du consultant", error);
-          // Gérez les erreurs d'upload ici
-        }
-      );
-    } else {
-      console.log('error');
-    } */
 }
-

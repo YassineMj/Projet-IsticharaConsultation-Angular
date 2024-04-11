@@ -34,7 +34,8 @@ export class PaiementService {
     total:0,
     descriptionClient:'',
     numCard:'',
-    //date experation
+    dateExpMois:'',
+    dateExpAnne:'',
     cvc:'',
     idCard:'',
     idConsultant:0
