@@ -127,19 +127,23 @@ export class PaiementUtilisateurComponent {
               this._serviceClientPaiement.infoClientPaiement.idConsultant,
             idPlan: this._serviceClientPaiement.infoClientPaiement.idPlan,
             prixTotal: this._serviceClientPaiement.infoClientPaiement.total,
+            message:this._serviceClientPaiement.infoClientPaiement.descriptionClient,
+            telephone:this._serviceClientPaiement.infoClientPaiement.telephoneClient
           };
 
           this._serviceClientPaiement
             .prendreRendezVous(demandeRequest)
             .subscribe(
-              (resp) => {},
+              (resp) => {
+                alert('Le rendez-vous a été créé avec succès!');
+                this.router.navigate(['/utilisateur/accueil-utilisateur']);
+              },
               (error) => {
                 console.error(
                   "Une erreur s'est produite lors de la prise de rendez-vous:",
                   error
                 );
-                alert('Le rendez-vous a été créé avec succès!');
-                this.router.navigate(['/utilisateur/accueil-utilisateur']);
+                
               }
             );
         } catch (error) {
