@@ -28,30 +28,13 @@ export class InfosUtilisateurComponent implements OnInit {
       this._serviceClientPaiement.infoClientPaiement.emailClient.trim()
     );
   }
-  validatePhone() {
-    const phoneRegex = /^\+212[5-7]{1}\d{8}$/;
 
-    this.phoneInvalid = !phoneRegex.test(
-      this._serviceClientPaiement.infoClientPaiement.telephoneClient.trim()
-    );
-  }
-  validateNom() {
-    const nomRegex = /^[a-zA-Z]{4,20}$/;
-    this.nomInvalid = !nomRegex.test(
-      this._serviceClientPaiement.infoClientPaiement.nomClient.trim()
-    );
-  }
-  validateCode() {
-    const codeRegex = /^\d+$/;
-    this.codeInvalid= !codeRegex.test(this._serviceClientPaiement.infoClientPaiement.codePostaleClient.trim( ));
-  }
+
 
   validateInfos() {
     // Valider chaque champ
-    this.validateNom();
     this.validateEmail();
-    this.validatePhone();
-    this.validateCode();
+
     this.nomVide =
       this._serviceClientPaiement.infoClientPaiement.nomClient === '';
     this.emailVide =
@@ -81,9 +64,8 @@ export class InfosUtilisateurComponent implements OnInit {
       this.telephoneVide ||
       this.adresseVide ||
       this.provinceVide ||
-      this.nomInvalid ||
-      this.emailInvalid ||
-      this.phoneInvalid|| this.codeInvalid
+      this.emailInvalid 
+
     ) {
       return;
     } else {

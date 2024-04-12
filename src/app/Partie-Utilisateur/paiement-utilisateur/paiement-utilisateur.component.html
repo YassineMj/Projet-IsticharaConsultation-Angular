@@ -56,22 +56,23 @@
               <div class="form-group">
                 <label for="">Numéro de carte de paiement</label>
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
                   placeholder="xxxxxxxxxxxxxxxx"
                   [(ngModel)]="
                     _serviceClientPaiement.infoClientPaiement.numCard
                   "
-                  (input)="numeroVide=false"
+                  (input)="numeroVide = false"
                   (input)="invalid()"
                 />
-                 <span *ngIf="numeroVide" class="text-danger"
-                    ><i class="fa fa-exclamation-circle"></i>Le champs est
-                    obligatoire</span
-                  >
-                  <span *ngIf="invalidNumero" class="text-danger">
+                <span *ngIf="numeroVide" class="text-danger"
+                  ><i class="fa fa-exclamation-circle"></i>Le champs est
+                  obligatoire</span
+                >
+                 <span *ngIf="invalidNumero" class="text-danger">
              <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un numero valide
             </span>
+
               </div>
 
               <br />
@@ -79,27 +80,62 @@
                 <label for="">Date d'expiration</label>
                 <div class="input-group-inline">
                   <div class="form-group" style="width: 50%">
-                    <select class="form-select" 
-                    [(ngModel)]="
-                      _serviceClientPaiement.infoClientPaiement.dateExpMois
-                    ">
+                    <select
+                      class="form-select"
+                      [(ngModel)]="
+                        _serviceClientPaiement.infoClientPaiement.dateExpMois
+                      "
+                      (input)="moisVide= false"
+                    >
                       <option selected>01</option>
                       <option value="2">02</option>
+                      <option value="3">03</option>
+                      <option value="4">04</option>
+                      <option value="5">05</option>
+                      <option value="6">06</option>
+                      <option value="7">07</option>
+                      <option value="8">08</option>
+                      <option value="9">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
                     </select>
-                    
-                  
+                    <span *ngIf="moisVide" class="text-danger"
+                  ><i class="fa fa-exclamation-circle"></i>Le champs est
+                  obligatoire</span
+                >
                   </div>
 
                   <div class="form-group" style="width: 50%; margin-left: 10px">
-                    <select class="form-select"
-                    [(ngModel)]="
-                      _serviceClientPaiement.infoClientPaiement.dateExpAnne
-                    ">
+                    <select
+                      class="form-select"
+                      [(ngModel)]="
+                        _serviceClientPaiement.infoClientPaiement.dateExpAnne
+                      "
+                      (input)="anneeVide=false"
+                    >
                       <option selected>2024</option>
                       <option value="2025">2025</option>
+                      <option value="2026">2026</option>
+                      <option value="2027">2027</option>
+                      <option value="2028">2028</option>
+                      <option value="2029">2029</option>
+                      <option value="2030">2030</option>
+                      <option value="2031">2031</option>
+                      <option value="2032">2032</option>
+                      <option value="2033">2033</option>
+                      <option value="2034">2034</option>
+                      <option value="2035">2035</option>
+                      <option value="2036">2036</option>
+                      <option value="2037">2037</option>
+                      <option value="2038">2038</option>
+                      <option value="2039">2039</option>
+                      <option value="2040">2040</option>
                     </select>
-                    
-                  
+                    <span *ngIf="anneeVide" class="text-danger"
+                  ><i class="fa fa-exclamation-circle"></i>Le champs est
+                  obligatoire</span
+                >
                   </div>
                 </div>
               </div>
@@ -109,20 +145,23 @@
               <div class="form-group cvc">
                 <label for="">CVC</label>
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
                   placeholder="xxxx "
                   [(ngModel)]="_serviceClientPaiement.infoClientPaiement.cvc"
-                                   
+                                                      (input)="invalidC()"
+                                                                        (input)="cvcVide =false"
+
 
                 />
                 <span *ngIf="cvcVide" class="text-danger"
-                    ><i class="fa fa-exclamation-circle"></i>Le champs est
-                    obligatoire</span
-                  >
-                  <span *ngIf="invalidCvc" class="text-danger">
+                  ><i class="fa fa-exclamation-circle"></i>Le champs est
+                  obligatoire</span
+                >
+                 <span *ngIf="invalidCvc" class="text-danger">
              <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un numero valide
             </span>
+
               </div>
 
               <div
@@ -132,11 +171,11 @@
                 <input
                   type="checkbox"
                   class="form-check-input"
-                              [(ngModel)]="conditionsAccepted"
+                  [(ngModel)]="conditionsAccepted"
                 />
                 <label class="form-check-label"
                   >Confirmer l'acceptation des
-                  <a class="a"  (click)="ouvrirNouvelOnglet()"
+                  <a class="a" (click)="ouvrirNouvelOnglet()"
                     >conditions générales d’utilisation du service</a
                   ></label
                 >
@@ -233,7 +272,7 @@
         </div>
         <div class="row mt-3">
           <div class="col-md-12 col-sm-12">
-            <button type="button" class="btn validerbtn" (click)=" paiement()">
+            <button type="button" class="btn validerbtn" (click)="paiement()">
               Valider
             </button>
             <button

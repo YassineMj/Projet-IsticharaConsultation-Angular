@@ -24,7 +24,7 @@
             <mat-form-field>
               <mat-label>Numéro de Télephone</mat-label>
               <input [(ngModel)]="formData.numeroTelephone" matInput placeholder="Numéro de Téléphone"
-                formControlName="numeroTelephoneCtrl" required />
+                formControlName="numeroTelephoneCtrl" required type="number" />
 
             </mat-form-field>
             <mat-form-field>
@@ -111,7 +111,7 @@
               <mat-checkbox [(ngModel)]="formData.arabe" class="example-margin"
                 formControlName="arabeCtrl" (change)="updateLanguesOnBlur()">Arabe</mat-checkbox>
 
-              <mat-checkbox [(ngModel)]="formData.espagnol" class="example-margin" 
+              <mat-checkbox [(ngModel)]="formData.espagnol" class="example-margin"
               formControlName="espagnolCtrl" (change)="updateLanguesOnBlur()">Espagnol</mat-checkbox>
             </section>
 
