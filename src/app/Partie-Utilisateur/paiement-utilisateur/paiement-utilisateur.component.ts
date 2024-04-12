@@ -24,29 +24,32 @@ export class PaiementUtilisateurComponent {
   conditionsAccepted = false;
 
   invalid() {
-    const numeroRegex = /^\d{16}$/;
+    const numeroRegex = /^\d{16,17}$/;
     this.invalidNumero = !numeroRegex.test(
-      this._serviceClientPaiement.infoClientPaiement.numCard.trim()
+      this._serviceClientPaiement.infoClientPaiement.numCard
     );
   }
-
   invalidC() {
-    const cvcRegex = /^\d{4}$/;
+    const cvcRegex = /^\d{3,4}$/;
     this.invalidCvc = !cvcRegex.test(
-      this._serviceClientPaiement.infoClientPaiement.cvc.trim()
+      this._serviceClientPaiement.infoClientPaiement.cvc
     );
   }
+  /*
   validateinfos() {
-    this.invalid();
-    this.invalidC();
+
     this.numeroVide =
       this._serviceClientPaiement.infoClientPaiement.numCard === '';
     this.cvcVide = this._serviceClientPaiement.infoClientPaiement.cvc === '';
+    this.moisVide = this._serviceClientPaiement.infoClientPaiement.dateExpMois === '';
+    this.anneeVide = this._serviceClientPaiement.infoClientPaiement.dateExpAnne === '';
+
     if (
       this.numeroVide ||
       this.cvcVide ||
       this.invalidNumero ||
-      this.invalidCvc
+      this.invalidCvc ||
+      this.moisVide||this.anneeVide
     ) {
       return;
     } else {
@@ -56,7 +59,7 @@ export class PaiementUtilisateurComponent {
          alert('veuillez accpeter les conditions');
        }
     }
-  }
+  } */
 
   ouvrirNouvelOnglet() {
     const url = this.router.serializeUrl(
@@ -71,48 +74,80 @@ export class PaiementUtilisateurComponent {
   token: string = '';
 
   async paiement() {
-    try {
-      const customer = await this.createCustomer();
-      this._serviceClientPaiement.infoClientPaiement.idClient = customer.id;
+    this.invalid();
+    this.invalidC();
+    this.numeroVide =
+      this._serviceClientPaiement.infoClientPaiement.numCard === '';
+    this.cvcVide = this._serviceClientPaiement.infoClientPaiement.cvc === '';
+    this.moisVide =
+      this._serviceClientPaiement.infoClientPaiement.dateExpMois === '';
+    this.anneeVide =
+      this._serviceClientPaiement.infoClientPaiement.dateExpAnne === '';
 
-      const card = await this.addCardToCustomer(customer.id);
-      this._serviceClientPaiement.infoClientPaiement.idCard = card.id;
+    if (
+      this.numeroVide ||
+      this.cvcVide ||
+      this.moisVide ||
+      this.anneeVide ||
+      this.invalidNumero ||
+      this.invalidCvc
+    ) {
+      return;
+    } else {
+      if (this.conditionsAccepted) {
+        try {
+          const customer = await this.createCustomer();
+          this._serviceClientPaiement.infoClientPaiement.idClient = customer.id;
 
-      console.log(
-        'id client : ' + this._serviceClientPaiement.infoClientPaiement.idClient
-      );
-      console.log(
-        'id card : ' + this._serviceClientPaiement.infoClientPaiement.idCard
-      );
+          const card = await this.addCardToCustomer(customer.id);
+          this._serviceClientPaiement.infoClientPaiement.idCard = card.id;
 
-      const demandeRequest = {
-        idClientStripe: this._serviceClientPaiement.infoClientPaiement.idClient,
-        idCardStripe: this._serviceClientPaiement.infoClientPaiement.idCard,
-        nomClient: this._serviceClientPaiement.infoClientPaiement.nomClient,
-        emailClient: this._serviceClientPaiement.infoClientPaiement.emailClient,
-        villeClient: this._serviceClientPaiement.infoClientPaiement.villeClient,
-        paysClient: this._serviceClientPaiement.infoClientPaiement.paysClient,
-        adresseClient:
-          this._serviceClientPaiement.infoClientPaiement.adresseClient,
-        idConsultant:
-          this._serviceClientPaiement.infoClientPaiement.idConsultant,
-        idPlan: this._serviceClientPaiement.infoClientPaiement.idPlan,
-        prixTotal: this._serviceClientPaiement.infoClientPaiement.total,
-      };
-
-      this._serviceClientPaiement.prendreRendezVous(demandeRequest).subscribe(
-        (resp) => {},
-        (error) => {
-          console.error(
-            "Une erreur s'est produite lors de la prise de rendez-vous:",
-            error
+          console.log(
+            'id client : ' +
+              this._serviceClientPaiement.infoClientPaiement.idClient
           );
-          alert('Le rendez-vous a été créé avec succès!');
-          this.router.navigate(['/utilisateur/accueil-utilisateur']);
+          console.log(
+            'id card : ' + this._serviceClientPaiement.infoClientPaiement.idCard
+          );
+
+          const demandeRequest = {
+            idClientStripe:
+              this._serviceClientPaiement.infoClientPaiement.idClient,
+            idCardStripe: this._serviceClientPaiement.infoClientPaiement.idCard,
+            nomClient: this._serviceClientPaiement.infoClientPaiement.nomClient,
+            emailClient:
+              this._serviceClientPaiement.infoClientPaiement.emailClient,
+            villeClient:
+              this._serviceClientPaiement.infoClientPaiement.villeClient,
+            paysClient:
+              this._serviceClientPaiement.infoClientPaiement.paysClient,
+            adresseClient:
+              this._serviceClientPaiement.infoClientPaiement.adresseClient,
+            idConsultant:
+              this._serviceClientPaiement.infoClientPaiement.idConsultant,
+            idPlan: this._serviceClientPaiement.infoClientPaiement.idPlan,
+            prixTotal: this._serviceClientPaiement.infoClientPaiement.total,
+          };
+
+          this._serviceClientPaiement
+            .prendreRendezVous(demandeRequest)
+            .subscribe(
+              (resp) => {},
+              (error) => {
+                console.error(
+                  "Une erreur s'est produite lors de la prise de rendez-vous:",
+                  error
+                );
+                alert('Le rendez-vous a été créé avec succès!');
+                this.router.navigate(['/utilisateur/accueil-utilisateur']);
+              }
+            );
+        } catch (error) {
+          console.error("Une erreur s'est produite lors du paiement:", error);
         }
-      );
-    } catch (error) {
-      console.error("Une erreur s'est produite lors du paiement:", error);
+      } else {
+        alert('veuillez accpeter les conditions');
+      }
     }
   }
 
@@ -142,8 +177,8 @@ export class PaiementUtilisateurComponent {
       throw error;
     }
   }
-  cardToken:any
-  
+  cardToken: any;
+
   async addCardToCustomer(customerId: string) {
     try {
       // this.token = this.obtenirTypeDeCarte(
@@ -157,7 +192,7 @@ export class PaiementUtilisateurComponent {
         exp_year: this._serviceClientPaiement.infoClientPaiement.dateExpAnne,
         cvc: this._serviceClientPaiement.infoClientPaiement.cvc,
       };
-  
+
       const card = await this.stripe.customers.createSource(customerId, {
         source: this.cardToken,
       });

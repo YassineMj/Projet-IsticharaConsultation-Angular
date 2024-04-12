@@ -31,7 +31,7 @@
                       _serviceClientPaiement.infoClientPaiement.nomClient
                     "
                                   (input)="nomVide = false"
-                                      (input)="validateNom()"
+
 
 
                   />
@@ -39,9 +39,7 @@
                     ><i class="fa fa-exclamation-circle"></i>Le champs est
                     obligatoire</span
                   >
-                  <span *ngIf="nomInvalid" class="text-danger"><i class="fa fa-exclamation-circle"></i>
-              Veuillez saisir un nom entre 4 et 20 lettres
-            </span>
+
                 </div>
                 <div style="margin-left: 5%; width: 107%">
                   <input
@@ -114,7 +112,7 @@
               <div class="input-group-inline">
                 <div style="width: 110%">
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     placeholder="Code postale "
                     [(ngModel)]="
@@ -122,16 +120,13 @@
                         .codePostaleClient
                     "
                                                       (input)="codeVide = false"
-                                                      (input)="validateCode()"
 
                   />
                   <span *ngIf="codeVide" class="text-danger"
                     ><i class="fa fa-exclamation-circle"></i>Le champs est
                     obligatoire</span
                   >
-                  <span *ngIf="codeInvalid" class="text-danger">
-            <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un code  valide.
-            </span>
+
                 </div>
                 <div style="width: 110%; margin-left: 5%">
                   <input
@@ -154,14 +149,13 @@
               <br />
               <div class="form-group">
                 <input
-                  type="tel"
+                  type="number"
                   class="form-control"
-                  placeholder="+212 5|6|7xxxxxxxxx"
+                  placeholder="0606060606"
                   [(ngModel)]="
                     _serviceClientPaiement.infoClientPaiement.telephoneClient
                   "
                                                     (input)="telephoneVide = false"
-                                                                      (input)="validatePhone()"
 
 
                 />
@@ -169,9 +163,7 @@
                   ><i class="fa fa-exclamation-circle"></i>Le champs est
                   obligatoire</span
                 >
-                <span *ngIf="phoneInvalid" class="text-danger">
-            <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un numéro valide.
-            </span>
+
               </div>
               <br />
               <div class="form-group">
