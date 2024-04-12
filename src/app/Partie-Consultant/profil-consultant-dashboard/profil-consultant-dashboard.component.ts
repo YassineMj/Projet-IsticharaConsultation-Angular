@@ -277,6 +277,7 @@ export class ProfilConsultantDashboardComponent implements OnInit {
         .subscribe(
           (resp) => {
             console.log(resp);
+            this._service.consultantAuthObjet.photoProfile=resp.photoProfile;
             this.editDone = true;
             console.log('edit done');
             setTimeout(() => {
