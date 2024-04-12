@@ -45,21 +45,15 @@ export class ProfilConsultantDashboardComponent implements OnInit {
     );
   }
 
-  validatePhone() {
-    const phoneRegex = /^\+212[5-7]{1}\d{8}$/;
 
-    this.phoneInvalid = !phoneRegex.test(
-      this._service.consultantAuthObjet.numeroTelephone.trim()
-    );
-  }
   validateNom() {
-    const nomRegex = /^[a-zA-Z]{4,20}$/;
+    const nomRegex = /^[a-zA-Z]{4,100}$/;
     this.nomInvalid = !nomRegex.test(
       this._service.consultantAuthObjet.nom.trim()
     );
   }
   validatePrenom() {
-    const nomRegex = /^[a-zA-Z]{4,20}$/;
+    const nomRegex = /^[a-zA-Z]{4,100}$/;
     this.prenomInvalid = !nomRegex.test(
       this._service.consultantAuthObjet.prenom.trim()
     );
@@ -218,7 +212,6 @@ export class ProfilConsultantDashboardComponent implements OnInit {
       this._service.consultantAuthObjet.arabe;
 
     this.validateEmail();
-    this.validatePhone();
     this.validateNom();
     this.validatePrenom();
     this.validatePays();

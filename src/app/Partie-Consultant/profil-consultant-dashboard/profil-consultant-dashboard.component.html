@@ -370,22 +370,18 @@
                   >
                   <div class="col-md-10 col-sm-9 col-xs-12">
                     <input
-                      type="text"
+                      type="number"
                       class="form-control"
                       value="{{ _service.consultantAuthObjet.numeroTelephone }}"
                       [(ngModel)]="_service.consultantAuthObjet.numeroTelephone"
-                      (input)="validatePhone()"
                       (input)="PhoneValid = false"
-                      placeholder="+212 5|6|7xxxxxxxxx"
+                      placeholder="0606060606"
                     />
                     <span *ngIf="PhoneValid" class="text-danger"
                       ><i class="fa fa-exclamation-circle"></i>Le champs est
                       obligatoire
                     </span>
-                    <span *ngIf="phoneInvalid" class="text-danger">
-                      <i class="fa fa-exclamation-circle"></i> veuillez saisir
-                      un téléphone Valide</span
-                    >
+
                   </div>
                 </div>
               </fieldset>
@@ -404,15 +400,16 @@
                     *ngIf="editDone"
                     class="alert alert-success"
                     role="alert"
-                    style="margin-top: 1%"
+                    style="margin-top: 1%
+                    ;width: 35%"
+
                   >
-                    Le profil a été bien editer !
-                  </div>
+                    Le profil a été bien editer !</div>
                   <div
                     *ngIf="showError"
                     class="alert alert-danger"
                     role="alert"
-                    style="margin-top: 1%"
+                    style="margin-top: 1% ;width: 35%"
                   >
                     Veuillez saisir tous les champs
                   </div>
@@ -488,7 +485,7 @@
                     *ngIf="editDone"
                     class="alert alert-success"
                     role="alert"
-                    style="margin-top: 1%"
+                    style="margin-top: 1%;width: 35%"
                   >
                     Le paiement a été bien editer !
                   </div>
@@ -496,7 +493,7 @@
                     *ngIf="showError"
                     class="alert alert-danger"
                     role="alert"
-                    style="margin-top: 1%"
+                    style="margin-top: 1% ;width: 35%"
                   >
                     Veuillez saisir tous les champs
                   </div>
@@ -598,7 +595,7 @@
                     *ngIf="editDone"
                     class="alert alert-success"
                     role="alert"
-                    style="margin-top: 1%"
+                    style="margin-top: 1% ;width: 35%"
                   >
                     Les détails sont bien editer !
                   </div>
@@ -606,7 +603,7 @@
                     *ngIf="showError"
                     class="alert alert-danger"
                     role="alert"
-                    style="margin-top: 1%"
+                    style="margin-top: 1% ;width: 35%"
                   >
                     Veuillez saisir tous les champs
                   </div>
@@ -834,7 +831,7 @@
                     *ngIf="editDone"
                     class="alert alert-success"
                     role="alert"
-                    style="margin-top: 1%"
+                    style="margin-top: 1% ;width: 35%"
                   >
                     Carrière a été bien editer !
                   </div>
@@ -842,7 +839,7 @@
                     *ngIf="showError"
                     class="alert alert-danger"
                     role="alert"
-                    style="margin-top: 1%"
+                    style="margin-top: 1% ;width: 35%"
                   >
                     Veuiller remplir les champs!
                   </div>
