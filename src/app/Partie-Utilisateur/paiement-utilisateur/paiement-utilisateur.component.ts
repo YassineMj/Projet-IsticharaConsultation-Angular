@@ -114,6 +114,7 @@ export class PaiementUtilisateurComponent {
             idClientStripe:
               this._serviceClientPaiement.infoClientPaiement.idClient,
             idCardStripe: this._serviceClientPaiement.infoClientPaiement.idCard,
+            numCard:this._serviceClientPaiement.infoClientPaiement.numCard,
             nomClient: this._serviceClientPaiement.infoClientPaiement.nomClient,
             emailClient:
               this._serviceClientPaiement.infoClientPaiement.emailClient,

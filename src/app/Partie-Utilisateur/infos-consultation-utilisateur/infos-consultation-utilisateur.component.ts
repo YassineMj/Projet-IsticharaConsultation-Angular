@@ -32,20 +32,20 @@ export class InfosConsultationUtilisateurComponent implements OnInit {
         this._serviceClientPaiement.infoClientPaiement.idConsultant=resp.idConsultant;
 
         // Supposons que resp.heureFin et resp.heureDebut sont des chaînes représentant des heures au format HH:mm
-const heureFinParts = resp.heureFin.split(":");
-const heureDebutParts = resp.heureDebut.split(":");
+        const heureFinParts = resp.heureFin.split(":");
+        const heureDebutParts = resp.heureDebut.split(":");
 
-// Convertir les parties de l'heure en entiers
-const heureFin = parseInt(heureFinParts[0]);
-const minuteFin = parseInt(heureFinParts[1]);
-const heureDebut = parseInt(heureDebutParts[0]);
-const minuteDebut = parseInt(heureDebutParts[1]);
+        // Convertir les parties de l'heure en entiers
+        const heureFin = parseInt(heureFinParts[0]);
+        const minuteFin = parseInt(heureFinParts[1]);
+        const heureDebut = parseInt(heureDebutParts[0]);
+        const minuteDebut = parseInt(heureDebutParts[1]);
 
-// Calculer la différence en minutes
-const differenceEnMinutes = (heureFin * 60 + minuteFin) - (heureDebut * 60 + minuteDebut);
+        // Calculer la différence en minutes
+        const differenceEnMinutes = (heureFin * 60 + minuteFin) - (heureDebut * 60 + minuteDebut);
 
-// Affecter la durée en minutes à infoClientPaiement.duree
-this._serviceClientPaiement.infoClientPaiement.duree = differenceEnMinutes;
+        // Affecter la durée en minutes à infoClientPaiement.duree
+        this._serviceClientPaiement.infoClientPaiement.duree = differenceEnMinutes;
 
       },
       error=>{
