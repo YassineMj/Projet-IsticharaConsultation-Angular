@@ -56,12 +56,13 @@ const consultantRoutes:Routes=[
 ]
 
 const routes: Routes = [
-  {path:'' , redirectTo: '/utilisateur/accueil-utilisateur', pathMatch: 'full'},
 
+  {path:'' , redirectTo: '/utilisateur/accueil-utilisateur', pathMatch: 'full'},
   {path:'utilisateur' , children:utilisateurRoutes},
   {path:'consultant' , children:consultantRoutes},
   {path:'paiement-conditions',component:ConditionPaiementComponent},
-  {path:'termes-conditions' , component:ConditionComponent},
+  { path: 'termes-conditions', component: ConditionComponent },
+  
 ];
 
 @NgModule({
