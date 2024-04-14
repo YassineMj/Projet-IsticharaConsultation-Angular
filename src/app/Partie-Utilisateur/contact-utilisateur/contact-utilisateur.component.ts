@@ -26,11 +26,7 @@ export class ContactUtilisateurComponent {
     const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     this.emailInvalid = !emailRegex.test(this.Infomessage.email.trim());
   }
-  validatePhone() {
-    const phoneRegex = /^\+212[5-7]{1}\d{8}$/;
 
-    this.phoneInvalid = !phoneRegex.test(this.Infomessage.numero.trim());
-  }
   validateNom() {
     const nomRegex = /^[a-zA-Z]{4,20}$/;
 this.nomInvalid=!nomRegex.test(this.Infomessage.nom.trim()) ;
@@ -41,7 +37,6 @@ this.nomInvalid=!nomRegex.test(this.Infomessage.nom.trim()) ;
     // Valider chaque champ
   this.validateNom();
   this.validateEmail();
-  this.validatePhone();
 
     
       this.champNomVide = this.Infomessage.nom === '';
@@ -55,8 +50,7 @@ this.nomInvalid=!nomRegex.test(this.Infomessage.nom.trim()) ;
         this.champNumeroVide ||
         this.champMessageVide ||
         this.nomInvalid ||
-        this.emailInvalid ||
-        this.phoneInvalid
+        this.emailInvalid 
       ) {
         return; // Arrêtez l'envoi du formulaire si l'un des champs est vide
       }

@@ -63,22 +63,17 @@
               >Numéro de Téléphone</label
             >
             <input
-              type="text"
+              type="number"
               class="form-control"
               id="exampleFormControlInput1"
-              placeholder="+212 5|6|7xxxxxxxxx"
+              placeholder=" 0606060606"
               [(ngModel)]="Infomessage.numero"
               (input)="champNumeroVide = false"
-                  (input)="validatePhone()"
-
               required
             />
             <div *ngIf="champNumeroVide" class="text-danger">
             <i class="fa fa-exclamation-circle"></i> Le champ téléphone est obligatoire.
-            </div>
-            <div *ngIf="phoneInvalid" class="text-danger">
-            <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un numéro valide.
-            </div>
+            </div> 
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label"
