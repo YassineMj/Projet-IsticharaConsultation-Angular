@@ -23,9 +23,41 @@ export class RendezvousConsultantDashboardComponent implements OnInit {
     this._serviceRendezVous.getRendezVous(this._serviceConsultant.consultantAuthObjet.idConsultant).subscribe(
       resp=>{
         this.listRendezVous=resp;
+      },error=>{
+        this.listRendezVous=null;
+      }
+      
+    )
+  }
+
+  refuseRendezVous(idRendezVous:any){
+    this._serviceRendezVous.refuseRendezVous(idRendezVous).subscribe(
+      resp=>{
+        this.ngOnInit();
       }
     )
   }
 
+  accepteRendezVous(idRendezVousParam : any , emailClientParam:any , dateJourParam:any , heureDebutParam:any){
+    const lienRequest={
+      idRendezVous:idRendezVousParam,
+      lien:this._serviceRendezVous.getUrl(),
+      emailConsultant:this._serviceConsultant.consultantAuthObjet.email,
+      emailClient:emailClientParam,
+      date:dateJourParam,
+      heureDebut:heureDebutParam
+    }
+
+    this._serviceRendezVous.accepteRendezVous(lienRequest).subscribe(
+      resp=>{
+        console.log(resp);
+        this.ngOnInit();
+      },error=>{
+        this.ngOnInit();
+        //traitement de si plan répeter
+      }
+    )
+    
+  }
   
 }

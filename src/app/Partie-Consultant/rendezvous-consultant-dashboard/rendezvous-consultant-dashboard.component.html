@@ -8,7 +8,8 @@
   />
 </head>
 <body>
-  <div class="container" >
+  <h1 *ngIf="listRendezVous==null">aucun rendez-vous</h1>
+  <div class="container" *ngIf="listRendezVous!=null">
     <div class="text-center" style="margin-top: 3%; margin-bottom: -10%;">
       <h1><img src="../../../assets/images/image-consultant-rendezvous-icn.jpg" style="width: 12%;" alt=""> Liste du rendez-vous</h1>
     </div>
@@ -22,10 +23,10 @@
               <i class="fa fa-user fa-2x text-black" ></i>
             </h2>
             <h2 style="margin-right: auto;color: black;text-transform: uppercase;">{{r.detailsMap.nom}}</h2>
-            <button class="btn btn-accepter" style="margin-right: 5px">
+            <button class="btn btn-accepter" (click)="accepteRendezVous(r.detailsMap.idRendezVous , r.detailsMap.email , r.detailsMap.date_jour , r.detailsMap.heure_debut)" style="margin-right: 5px">
               <i class="fa fa-check text-white"></i>
             </button>
-            <button class="btn btn-refuser">
+            <button class="btn btn-refuser" (click)="refuseRendezVous(r.detailsMap.idRendezVous)">
               <i class="fa fa-x text-white"></i>
             </button>
           </div>
