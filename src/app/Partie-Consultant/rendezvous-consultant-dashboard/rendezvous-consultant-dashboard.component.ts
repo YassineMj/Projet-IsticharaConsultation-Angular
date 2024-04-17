@@ -30,7 +30,7 @@ export class RendezvousConsultantDashboardComponent implements OnInit {
     )
   }
 
-  refuseRendezVous(idRendezVous:any){
+  refuseRendezVous(idRendezVous:any){    
     this._serviceRendezVous.refuseRendezVous(idRendezVous).subscribe(
       resp=>{
         this.ngOnInit();

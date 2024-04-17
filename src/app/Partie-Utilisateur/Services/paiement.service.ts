@@ -51,4 +51,8 @@ export class PaiementService {
   prendreRendezVous(demandeRequest:any):Observable<any> {
     return this.http.post('http://localhost:8080/IsticharaConsultation/api/paiement/creer-demande',demandeRequest);
   }
+
+  checkRendezVous(idPlan:any):Observable<any> {
+    return this.http.get('http://localhost:8080/IsticharaConsultation/api/plan/check-plan/'+idPlan);
+  }
 }

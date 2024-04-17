@@ -280,6 +280,7 @@ export class SinscrireComponent {
             this.router.navigate(['/consultant/sidentifier-consultant'])
           },
           (error) => {
+            alert('e-mail existe déjà.');
             console.error("Erreur lors de l'upload du consultant", error);
           }
         );
