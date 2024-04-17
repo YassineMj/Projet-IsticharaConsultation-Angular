@@ -24,6 +24,7 @@ import {
 } from 'angular-calendar';
 import { EventColor } from 'calendar-utils';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PaiementService } from '../Services/paiement.service';
 
 const colors: Record<string, EventColor> = {
   'red': {
@@ -66,7 +67,7 @@ export class PlanConsultationUtilisateurComponent implements OnInit{
 
   @Input() planConsultation:any;
 
-  constructor(private modal: NgbModal,private router: Router,  private cdr: ChangeDetectorRef) {}
+  constructor(private _servicePlan: PaiementService,private router: Router,  private cdr: ChangeDetectorRef) {}
   ngOnInit(){   
 
     this.events = this.planConsultation.map((donnee : any) => {
@@ -110,7 +111,19 @@ export class PlanConsultationUtilisateurComponent implements OnInit{
 
 
   handleEvent(event: CalendarEvent): void {
-    this.router.navigate(['/utilisateur/infos-utilisateur', event.id]);
+
+    this._servicePlan.checkRendezVous(event.id).subscribe(
+      resp=>{
+        if(resp.accepteTrueFound==true){
+          this.router.navigate(['/utilisateur/infos-utilisateur', event.id]);
+        }else{
+          alert("Le rendez-vous a déjà été réservé pour quelqu'un d'autre")
+        }        
+      }
+    )
+    
+
+    //si true faire alerte
 
   }
 
