@@ -24,6 +24,7 @@ import {
 import { EventColor } from 'calendar-utils';
 import { ActivatedRoute } from '@angular/router';
 import { PlanService } from '../Services/plan.service';
+import { id } from 'date-fns/locale';
 
 const colors: Record<string, EventColor> = {
   'red': {
@@ -181,6 +182,17 @@ export class PlanConsultationConsultantDashboardComponent implements OnInit{
       resp=>{
         console.log(resp);
         
+
+      },error=>{
+        if(typeof idP === 'undefined')
+        {
+          alert('supprimer le rendez-vous.')
+        }else
+        {
+          alert('Impossible de supprimer le rendez-vous car il est déjà réservé.')
+        }
+        
+        this.ngOnInit();
       }
     )
   }
@@ -201,30 +213,35 @@ export class PlanConsultationConsultantDashboardComponent implements OnInit{
       this._service.addPlan(donneesFormatees).subscribe(
         resp=>{
           console.log(resp);
+          this.ngOnInit();
+        },error=>{
+          console.error("Il y a déjà des rendez-vous existants dans la base de données pour cette période");
+          this.ngOnInit();
         }
       )
     }
+
   }
 
 
-extraireDonneesEvenement(event: any): any {
-  try {
-    const dateDebut = moment(event.start);
-    const dateFin = moment(event.end);
+  extraireDonneesEvenement(event: any): any {
+    try {
+      const dateDebut = moment(event.start);
+      const dateFin = moment(event.end);
 
-    return {      
-      consultationId: this.infoConsultation.idConsultation,
-      jourDebut: dateDebut.format('dddd'),
-      dateJourDebut: dateDebut.format('YYYY-MM-DD'),
-      jourFin: dateFin.format('dddd'),
-      dateJourFin: dateFin.format('YYYY-MM-DD'),
-      heureDebut: dateDebut.format('HH:mm'),
-      heureFin: dateFin.format('HH:mm')
-    };
-  } catch (error) {
-    console.error('Erreur lors de la conversion de la date', error);
+      return {      
+        consultationId: this.infoConsultation.idConsultation,
+        jourDebut: dateDebut.format('dddd'),
+        dateJourDebut: dateDebut.format('YYYY-MM-DD'),
+        jourFin: dateFin.format('dddd'),
+        dateJourFin: dateFin.format('YYYY-MM-DD'),
+        heureDebut: dateDebut.format('HH:mm'),
+        heureFin: dateFin.format('HH:mm')
+      };
+    } catch (error) {
+      console.error('Erreur lors de la conversion de la date', error);
+    }
   }
-}
 
 }
 

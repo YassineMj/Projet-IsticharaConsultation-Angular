@@ -115,7 +115,7 @@
   </nav>
 
   <!-- AjouterConsultationComponent HTML -->
-  <div class="container1 mt-4">
+  <div *ngIf="getConsultations==null" class="container1 mt-4">
     <div class="form-group">
       <label for="description">Description:</label>
       <textarea
@@ -153,8 +153,47 @@
     </div>
   </div>
 
+   <!-- ModifierConsultationComponent HTML -->
+   <div *ngIf="getConsultations!=null" class="container1 mt-4">
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea
+        class="form-control"
+        [(ngModel)]="consultationExist.description"
+        placeholder="Description"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="prix">Prix:</label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="consultationExist.prix"
+        placeholder="prix"
+      />
+    </div>
+    <div class="form-group">
+      <label for="duree">Durée (en minutes):</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="duree"
+        [(ngModel)]="consultationExist.duree"
+      />
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="modifierConsultation()"
+      >
+        Modifier
+      </button>
+    </div>
+  </div>
+
   <!-- ListerConsultationsComponent HTML -->
-  <div class="container mt-4">
+  <div *ngIf="getConsultations!=null" class="container mt-4">
     <table class="table">
       <thead>
         <tr>

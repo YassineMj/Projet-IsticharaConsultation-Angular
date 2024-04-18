@@ -14,6 +14,10 @@ export class ConsultationService {
     return this.http.post('http://localhost:8080/IsticharaConsultation/api/consultation/ajouter-consultation/'+idConsultant,consultation)
   }
 
+  updateConsultation(idConsultant:string,consultation:any){
+    return this.http.put('http://localhost:8080/IsticharaConsultation/api/consultation/modifier-consultation/'+idConsultant,consultation)
+  }
+
   getConsultation(idConsultation:string): Observable<consultationBean> {
     return this.http.get<consultationBean>('http://localhost:8080/IsticharaConsultation/api/consultation/'+idConsultation);
   }
