@@ -12,7 +12,12 @@ import { Router } from '@angular/router';
 export class ConsultationsConsultantDashboardComponent implements OnInit{
 
   consultation: consultationBean =new consultationBean();
-  getConsultations:any
+  getConsultations:any=null;
+  consultationExist={
+    description:'',
+    duree:0,
+    prix:0.0
+  }
 
   constructor(private _serviceConsultation:ConsultationService , private _serviceConsultant:ConsultantService , private router: Router){}
 
@@ -20,7 +25,11 @@ export class ConsultationsConsultantDashboardComponent implements OnInit{
   ngOnInit(): void {
     this._serviceConsultation.getConsultation(this._serviceConsultant.consultantAuthObjet.idConsultant).subscribe(
       (data) => {
-        this.getConsultations = data;        
+        this.getConsultations = data;   
+        this.consultationExist.description=data.description;  
+        this.consultationExist.duree=data.duree;  
+        this.consultationExist.prix=data.prix;  
+
       },
       (error) => {
         console.error('Erreur lors de la récupération des consultations', error);
@@ -30,6 +39,14 @@ export class ConsultationsConsultantDashboardComponent implements OnInit{
 
   ajouterConsultation(){    
     this._serviceConsultation.addConsultation(this._serviceConsultant.consultantAuthObjet.idConsultant,this.consultation).subscribe(
+      resp=>{
+        this.ngOnInit();
+      }
+    )
+  }
+
+  modifierConsultation(){
+    this._serviceConsultation.updateConsultation(this._serviceConsultant.consultantAuthObjet.idConsultant,this.consultationExist).subscribe(
       resp=>{
         this.ngOnInit();
       }
