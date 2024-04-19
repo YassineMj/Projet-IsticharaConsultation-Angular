@@ -7,54 +7,93 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-consultations-consultant-dashboard',
   templateUrl: './consultations-consultant-dashboard.component.html',
-  styleUrls: ['./consultations-consultant-dashboard.component.css']
+  styleUrls: ['./consultations-consultant-dashboard.component.css'],
 })
-export class ConsultationsConsultantDashboardComponent implements OnInit{
+export class ConsultationsConsultantDashboardComponent implements OnInit {
+  consultation: consultationBean = new consultationBean();
+  getConsultations: any = null;
+  consultationExist = {
+    description: '',
+    duree: 0,
+    prix: 0,
+  };
+  desc: boolean = false;
+  duree: boolean = false;
+  prix: boolean = false;
+  modification: boolean = false;
+  ajoute: boolean = false;
 
-  consultation: consultationBean =new consultationBean();
-  getConsultations:any=null;
-  consultationExist={
-    description:'',
-    duree:0,
-    prix:0.0
-  }
-
-  constructor(private _serviceConsultation:ConsultationService , private _serviceConsultant:ConsultantService , private router: Router){}
-
+  constructor(
+    private _serviceConsultation: ConsultationService,
+    private _serviceConsultant: ConsultantService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this._serviceConsultation.getConsultation(this._serviceConsultant.consultantAuthObjet.idConsultant).subscribe(
-      (data) => {
-        this.getConsultations = data;   
-        this.consultationExist.description=data.description;  
-        this.consultationExist.duree=data.duree;  
-        this.consultationExist.prix=data.prix;  
-
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération des consultations', error);
-      }
-    );
+    this._serviceConsultation
+      .getConsultation(this._serviceConsultant.consultantAuthObjet.idConsultant)
+      .subscribe(
+        (data) => {
+          this.getConsultations = data;
+          this.consultationExist.description = data.description;
+          this.consultationExist.duree = data.duree;
+          this.consultationExist.prix = data.prix;
+        },
+        (error) => {
+          console.error(
+            'Erreur lors de la récupération des consultations',
+            error
+          );
+        }
+      );
   }
 
-  ajouterConsultation(){    
-    this._serviceConsultation.addConsultation(this._serviceConsultant.consultantAuthObjet.idConsultant,this.consultation).subscribe(
-      resp=>{
-        this.ngOnInit();
-      }
-    )
+  ajouterConsultation() {
+    this.desc = this.consultation.description.trim() === '';
+    this.duree = this.consultation.duree === 0 || this.consultation.duree < 14;
+    this.prix = this.consultation.prix === 0 || this.consultation.prix<99;
+    if (this.prix || this.desc || this.duree) {
+      alert('veuillez remplir les champs avec duree min 15 et prix min 100');
+      return;
+    } else {
+      this._serviceConsultation
+        .addConsultation(
+          this._serviceConsultant.consultantAuthObjet.idConsultant,
+          this.consultation
+        )
+        .subscribe((resp) => {
+          this.ngOnInit();
+          this.ajoute = true;
+        });
+    }
   }
 
-  modifierConsultation(){
-    this._serviceConsultation.updateConsultation(this._serviceConsultant.consultantAuthObjet.idConsultant,this.consultationExist).subscribe(
-      resp=>{
-        this.ngOnInit();
-      }
-    )
+  modifierConsultation() {
+    this.desc = this.consultationExist.description.trim() === '';
+    this.duree =
+      this.consultationExist.duree === 0 || this.consultationExist.duree < 14;
+    this.prix =
+      this.consultationExist.prix === 0 || this.consultationExist.prix < 99;
+    if (this.prix || this.desc || this.duree) {
+      alert('veuillez remplir les champs avec duree min 15 et prix min 100');
+      return;
+    } else {
+      this._serviceConsultation
+        .updateConsultation(
+          this._serviceConsultant.consultantAuthObjet.idConsultant,
+          this.consultationExist
+        )
+        .subscribe((resp) => {
+          this.ngOnInit();
+          this.modification = true;
+        });
+    }
   }
 
-  goToPlan(idConsultation:string){
-    this.router.navigate(['/consultant/plan-consultations-consultant-dashboard', idConsultation]); 
+  goToPlan(idConsultation: string) {
+    this.router.navigate([
+      '/consultant/plan-consultations-consultant-dashboard',
+      idConsultation,
+    ]);
   }
-
 }
