@@ -50,6 +50,8 @@ import { InfosUtilisateurComponent } from './Partie-Utilisateur/infos-utilisateu
 import { PaiementUtilisateurComponent } from './Partie-Utilisateur/paiement-utilisateur/paiement-utilisateur.component';
 import { InfosConsultationUtilisateurComponent } from './Partie-Utilisateur/infos-consultation-utilisateur/infos-consultation-utilisateur.component';
 import { ActualitesUtilisateurComponent } from './Partie-Utilisateur/actualites-utilisateur/actualites-utilisateur.component';
+import { RendezvousAccepteConsultantDashboardComponent } from './Partie-Consultant/rendezvous-accepte-consultant-dashboard/rendezvous-accepte-consultant-dashboard.component';
+import { RendezvousRefuserConsultantDashboardComponent } from './Partie-Consultant/rendezvous-refuser-consultant-dashboard/rendezvous-refuser-consultant-dashboard.component';
 
 
 @NgModule({
@@ -79,6 +81,8 @@ import { ActualitesUtilisateurComponent } from './Partie-Utilisateur/actualites-
     PaiementUtilisateurComponent,
     InfosConsultationUtilisateurComponent,
     ActualitesUtilisateurComponent,
+    RendezvousAccepteConsultantDashboardComponent,
+    RendezvousRefuserConsultantDashboardComponent,
   ],
   imports: [
 
@@ -108,7 +112,7 @@ import { ActualitesUtilisateurComponent } from './Partie-Utilisateur/actualites-
     MatTabsModule,
   ],
   providers: [
-    
+
   ],
   bootstrap: [AppComponent],
 })

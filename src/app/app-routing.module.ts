@@ -22,6 +22,8 @@ import { PaiementUtilisateurComponent } from './Partie-Utilisateur/paiement-util
 import { ConditionPaiementComponent } from './Partie-Utilisateur/condition-paiement/condition-paiement.component';
 import { InfosConsultationUtilisateurComponent } from './Partie-Utilisateur/infos-consultation-utilisateur/infos-consultation-utilisateur.component';
 import { ActualitesUtilisateurComponent } from './Partie-Utilisateur/actualites-utilisateur/actualites-utilisateur.component';
+import { RendezvousAccepteConsultantDashboardComponent } from './Partie-Consultant/rendezvous-accepte-consultant-dashboard/rendezvous-accepte-consultant-dashboard.component';
+import { RendezvousRefuserConsultantDashboardComponent } from './Partie-Consultant/rendezvous-refuser-consultant-dashboard/rendezvous-refuser-consultant-dashboard.component';
 
 
 //routes partie utilisateur
@@ -41,19 +43,46 @@ const utilisateurRoutes:Routes=[
 ]
 
 //routes partie consultant
-const consultantRoutes:Routes=[
-
-  {path:'sinscrire-consultant' , component:SinscrireComponent},
+const consultantRoutes: Routes = [
+  { path: 'sinscrire-consultant', component: SinscrireComponent },
   { path: 'sidentifier-consultant', component: SidentifierComponent },
-  { path: 'rendezvous-consultant-dashboard', component: RendezvousConsultantDashboardComponent },
-  { path: 'profil-consultant-dashoard', component: ProfilConsultantDashboardComponent },
-  { path: 'menu-consultant-dashboard', component: MenuConsultantDashboardComponent },
-  { path: 'help-consultant-dashboard', component: HelpConsultantDashboardComponent },
-  { path: 'contact-consultant-dashboard', component: ContactConsultantDashboardComponent },
-  { path: 'consultations-consultant-dashboard', component: ConsultationsConsultantDashboardComponent },
-  { path: 'plan-consultations-consultant-dashboard/:idConsultation', component: PlanConsultationConsultantDashboardComponent },
-
-]
+  {
+    path: 'rendezvous-consultant-dashboard',
+    component: RendezvousConsultantDashboardComponent,
+  },
+  {
+    path: 'profil-consultant-dashoard',
+    component: ProfilConsultantDashboardComponent,
+  },
+  {
+    path: 'menu-consultant-dashboard',
+    component: MenuConsultantDashboardComponent,
+  },
+  {
+    path: 'help-consultant-dashboard',
+    component: HelpConsultantDashboardComponent,
+  },
+  {
+    path: 'contact-consultant-dashboard',
+    component: ContactConsultantDashboardComponent,
+  },
+  {
+    path: 'consultations-consultant-dashboard',
+    component: ConsultationsConsultantDashboardComponent,
+  },
+  {
+    path: 'plan-consultations-consultant-dashboard/:idConsultation',
+    component: PlanConsultationConsultantDashboardComponent,
+  },
+  {
+    path: 'rendezvous-accepte-consultant-dashboard',
+    component: RendezvousAccepteConsultantDashboardComponent,
+  },
+  {
+    path: 'rendezvous-refuser-consultant-dashboard',
+    component: RendezvousRefuserConsultantDashboardComponent,
+  },
+];
 
 const routes: Routes = [
 
@@ -62,7 +91,7 @@ const routes: Routes = [
   {path:'consultant' , children:consultantRoutes},
   {path:'paiement-conditions',component:ConditionPaiementComponent},
   { path: 'termes-conditions', component: ConditionComponent },
-  
+
 ];
 
 @NgModule({
