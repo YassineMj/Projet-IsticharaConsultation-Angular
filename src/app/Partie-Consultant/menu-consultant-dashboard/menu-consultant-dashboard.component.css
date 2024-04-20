@@ -90,10 +90,13 @@
   }
 
   .logo:hover::before {
+
       transform: scaleX(1);
+
   }
 
   .btncontacternous {
+
       font-weight: bold;
       margin-right: 10px;
       background-color: rgba(254, 254, 254, 0.302);
@@ -102,6 +105,7 @@
 
  
   .btncontacternous:hover {
+    
       background-color: rgba(240, 248, 255);
       color: black;
 

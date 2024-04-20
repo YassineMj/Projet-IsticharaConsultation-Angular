@@ -1,0 +1,86 @@
+body {
+    margin: 1%;
+}
+
+.header-card1 {
+    background-color: rgba(72, 219, 194, 0.749);
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+label {
+    font-weight: bold;
+}
+
+/* Style for the card */
+.card-2 {
+  border-radius: 10px;
+  background-color: #f8f6f6; /* Light gray background color */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Style for the link icon */
+.card-2 i.fa-link {
+  color: rgb(66, 79, 255); /* Blue color */
+  margin-right: 5px; /* Add a small margin to the right of the icon */
+}
+
+/* Style for the link text */
+.card-2 strong {
+  font-weight: bold;
+}
+
+/* Style for the link */
+.card-2 a {
+  color: #007bff; /* Blue color for the link */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Style for the link on hover */
+.card-2 a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+
+.btn-accepter:hover {
+
+    background-color: rgba(10, 177, 149, 0.749);
+
+
+}
+
+
+/* Center the card vertically and horizontally */
+
+/* Style for the card */
+.ca {
+
+    margin-top: 20%;
+    width: 550px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #e4feee43;
+    /* Light gray background color */
+    border: 1px solid rgba(3, 130, 96, 0.749);
+    box-shadow: 0 4px 8px rgba(161, 255, 252, 0.208);
+    /* Add a subtle shadow */
+}
+
+/* Style for the card title */
+.cat {
+    font-size: 24px;
+    color:rgba(3, 130, 96, 0.749);
+    margin-bottom: 10px;
+}
+
+.btn-accepter {
+
+    background-color: rgba(37, 170, 148, 0.749);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+
+}

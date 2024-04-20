@@ -1,47 +1,14 @@
-/* .firstDiv{
-
-    background: linear-gradient(to left, #f5fbd6, #aed5cd  , #abdac4);
-   background-size:cover;
-   background-position: center;
-
-}
-.row{
-
-       padding: 25px;
-
-}
-.dropdown-margin-left {
-
-    margin-left: 10%;
-
-  }
-  .btn{
-
-    margin-top: 5px;
-    height: 45px;
-    width: 55%;
-    border-radius: 10px;
-    background-color: #d48b15;
-    color: rgb(255, 255, 255);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-  }
-
-  .btn:hover {
-
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    outline: 3px solid #56a28f;
-
-  }
- */
 
 .firstDiv{
-
-   background: linear-gradient(to left, #5b53ef, #6754a9  , #5bb4e4);
+  
+   margin-right:10px;
+   margin-left: 10px;
+   border-radius: 10px;
+   background: linear-gradient(to left, #617be2,#7d7fff ,#6684e9 ,#6c6fff  );
    background-size:cover;
    background-position: center;
-margin-bottom: 4%;
+   margin-bottom: 4%;
+
 }
 .row{
        padding: 25px;
@@ -60,8 +27,10 @@ margin-bottom: 4%;
     height: 45px;
     width: 55%;
     border-radius: 10px;
-    background-color: #162245;
-    color: rgb(255, 255, 255);
+    background-color:#e3f8fa;
+    border :3px solid #7799ff;
+    font-weight: bold;
+    color: #507cff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
   }
@@ -76,9 +45,9 @@ margin-bottom: 4%;
   }
   .btn:hover {
     /* Your styles for the button when hovered over */
-    background-color: rgb(255, 255, 255); /* Example: Change background color to green */
-    color: rgb(0, 0, 0); /* Example: Change text color to white */
-    outline: 3px solid #3a1e72;
+    background-color: rgb(255, 253, 198); /* Example: Change background color to green */
+    color:#27271b; /* Example: Change text color to white */
+  border: 3px solid  rgba(87, 0, 227, 0.144);
 
   }
 #bd{
