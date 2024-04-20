@@ -8,8 +8,7 @@
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     rel="stylesheet"
   />
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -78,16 +77,41 @@
                 >Consultaion</a
               >
             </li>
-            <li class="nav-item mx-2 dropdown">
-  <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Rendez Vous
-  </a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" routerLink="/consultant/rendezvous-consultant-dashboard">Nouveau</a>
-    <a class="dropdown-item" routerLink="/consultant/rendezvous-refuser-consultant-dashboard">Refuser</a>
-    <a class="dropdown-item" routerLink="/consultant/rendezvous-accepte-consultant-dashboard">Accepter</a>
-  </div>
-</li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Rendez-Vous
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/consultant/rendezvous-consultant-dashboard"
+                    >Nouveau</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/consultant/rendezvous-refuser-consultant-dashboard"
+                    >Refuser</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/consultant/rendezvous-accepte-consultant-dashboard"
+                    >Accepter</a
+                  >
+                </li>
+              </ul>
+            </li>
             <li class="nav-item mx-2">
               <a
                 class="nav-link"
@@ -120,7 +144,7 @@
   </nav>
 
   <!-- AjouterConsultationComponent HTML -->
-  <div *ngIf="getConsultations==null" class="container1 mt-4">
+  <div *ngIf="getConsultations == null" class="container1 mt-4">
     <div class="form-group">
       <label for="description">Description:</label>
       <textarea
@@ -155,14 +179,19 @@
       >
         Ajouter
       </button>
-      <div  *ngIf="ajoute" class="alert alert-success" role="alert" style="margin-top: 3%; width: 20%; margin-left: 40%;">
-Ajoutement reussie!
-</div>
+      <div
+        *ngIf="ajoute"
+        class="alert alert-success"
+        role="alert"
+        style="margin-top: 3%; width: 20%; margin-left: 40%"
+      >
+        Ajoutement reussie!
+      </div>
     </div>
   </div>
 
-   <!-- ModifierConsultationComponent HTML -->
-   <div *ngIf="getConsultations!=null" class="container1 mt-4">
+  <!-- ModifierConsultationComponent HTML -->
+  <div *ngIf="getConsultations != null" class="container1 mt-4">
     <div class="form-group">
       <label for="description">Description:</label>
       <textarea
@@ -197,13 +226,19 @@ Ajoutement reussie!
       >
         Modifier
       </button>
-      <div  *ngIf="modification" class="alert alert-success" role="alert" style="margin-top: 3%; width: 20%; margin-left: 40%;">
-Modification reussie! </div>
+      <div
+        *ngIf="modification"
+        class="alert alert-success"
+        role="alert"
+        style="margin-top: 3%; width: 20%; margin-left: 40%"
+      >
+        Modification reussie!
+      </div>
     </div>
   </div>
 
   <!-- ListerConsultationsComponent HTML -->
-  <div *ngIf="getConsultations!=null" class="container mt-4">
+  <div *ngIf="getConsultations != null" class="container mt-4">
     <table class="table">
       <thead>
         <tr>

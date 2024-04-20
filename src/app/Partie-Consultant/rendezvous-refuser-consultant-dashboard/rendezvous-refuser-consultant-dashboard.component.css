@@ -1,0 +1,58 @@
+body {
+    margin: 1%;
+}
+
+.header-card1 {
+    background-color: rgba(255, 169, 163, 0.87);
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+label {
+    font-weight: bold;
+}
+
+
+
+.btn-accepter:hover {
+
+    background-color: rgba(60, 182, 46, 0.95);
+
+
+}
+
+.btn-refuser {
+    background-color: rgba(255, 97, 97, 0.941);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.btn-refuser:hover {
+
+    background-color: rgb(255, 72, 72);
+}
+
+/* Center the card vertically and horizontally */
+
+/* Style for the card */
+.ca {
+
+    margin-top: 20%;
+    width: 550px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #fde5e543;
+    /* Light gray background color */
+    border: 1px solid #ff4141;
+    box-shadow: 0 4px 8px rgba(255, 161, 161, 0.208);
+    /* Add a subtle shadow */
+}
+
+/* Style for the card title */
+.cat {
+    font-size: 24px;
+    color: #ff4141;
+    margin-bottom: 10px;
+}

@@ -9,8 +9,7 @@
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     rel="stylesheet"
   />
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -79,16 +78,41 @@
                 >Consultaion</a
               >
             </li>
-             <li class="nav-item mx-2 dropdown">
-  <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Rendez Vous
-  </a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" routerLink="/consultant/rendezvous-consultant-dashboard">Nouveau</a>
-    <a class="dropdown-item" routerLink="/consultant/rendezvous-refuser-consultant-dashboard">Refuser</a>
-    <a class="dropdown-item" routerLink="/consultant/rendezvous-accepte-consultant-dashboard">Accepter</a>
-  </div>
-</li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Rendez-Vous
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/consultant/rendezvous-consultant-dashboard"
+                    >Nouveau</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/consultant/rendezvous-refuser-consultant-dashboard"
+                    >Refuser</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/consultant/rendezvous-accepte-consultant-dashboard"
+                    >Accepter</a
+                  >
+                </li>
+              </ul>
+            </li>
             <li class="nav-item mx-2">
               <a
                 class="nav-link"
@@ -386,7 +410,6 @@
                       ><i class="fa fa-exclamation-circle"></i>Le champs est
                       obligatoire
                     </span>
-
                   </div>
                 </div>
               </fieldset>
@@ -405,16 +428,15 @@
                     *ngIf="editDone"
                     class="alert alert-success"
                     role="alert"
-                    style="margin-top: 1%
-                    ;width: 35%"
-
+                    style="margin-top: 1%; width: 35%"
                   >
-                    Le profil a été bien editer !</div>
+                    Le profil a été bien editer !
+                  </div>
                   <div
                     *ngIf="showError"
                     class="alert alert-danger"
                     role="alert"
-                    style="margin-top: 1% ;width: 35%"
+                    style="margin-top: 1%; width: 35%"
                   >
                     Veuillez saisir tous les champs
                   </div>
@@ -490,7 +512,7 @@
                     *ngIf="editDone"
                     class="alert alert-success"
                     role="alert"
-                    style="margin-top: 1%;width: 35%"
+                    style="margin-top: 1%; width: 35%"
                   >
                     Le paiement a été bien editer !
                   </div>
@@ -498,7 +520,7 @@
                     *ngIf="showError"
                     class="alert alert-danger"
                     role="alert"
-                    style="margin-top: 1% ;width: 35%"
+                    style="margin-top: 1%; width: 35%"
                   >
                     Veuillez saisir tous les champs
                   </div>
@@ -600,7 +622,7 @@
                     *ngIf="editDone"
                     class="alert alert-success"
                     role="alert"
-                    style="margin-top: 1% ;width: 35%"
+                    style="margin-top: 1%; width: 35%"
                   >
                     Les détails sont bien editer !
                   </div>
@@ -608,7 +630,7 @@
                     *ngIf="showError"
                     class="alert alert-danger"
                     role="alert"
-                    style="margin-top: 1% ;width: 35%"
+                    style="margin-top: 1%; width: 35%"
                   >
                     Veuillez saisir tous les champs
                   </div>
@@ -635,23 +657,19 @@
                         class="form-control"
                         [(ngModel)]="experience"
                         (input)="isEmpty()"
-                        style="width: 95%;">
+                        style="width: 95%"
+                      />
 
-
-
-<button
+                      <button
                         type="button"
                         (click)="addExperience()"
                         class="btn btn-success-outline"
                         [disabled]="exprienceEmpty"
-                        style="margin-inline-start: 96%;
-    margin-top: -6%;"
+                        style="margin-inline-start: 96%; margin-top: -6%"
                       >
                         <i class="fa fa-plus" style="color: white"></i>
                       </button>
-
                     </div>
-
 
                     <div class="table-responsive">
                       <table class="table table-striped">
@@ -703,7 +721,7 @@
                         class="form-control"
                         [(ngModel)]="education"
                         (input)="isEmpty()"
-                        style="width: 95%;"
+                        style="width: 95%"
                       />
                       <button
                         id="plus"
@@ -711,8 +729,7 @@
                         (click)="addEducation()"
                         class="btn btn-success-outline"
                         [disabled]="educationEmpty"
-                        style="margin-inline-start: 96%;
-    margin-top: -6%;"
+                        style="margin-inline-start: 96%; margin-top: -6%"
                       >
                         <i class="fa fa-plus" style="color: white"></i>
                       </button>
@@ -767,7 +784,7 @@
                         class="form-control"
                         [(ngModel)]="formation"
                         (input)="isEmpty()"
-                        style="width: 95%;"
+                        style="width: 95%"
                       />
                       <button
                         id="plus"
@@ -775,8 +792,7 @@
                         (click)="addFormation()"
                         class="btn btn-success-outline"
                         [disabled]="formationEmpty"
-                        style="margin-inline-start: 96%;
-    margin-top: -6%;"
+                        style="margin-inline-start: 96%; margin-top: -6%"
                       >
                         <i class="fa fa-plus" style="color: white"></i>
                       </button>
@@ -836,7 +852,7 @@
                     *ngIf="editDone"
                     class="alert alert-success"
                     role="alert"
-                    style="margin-top: 1% ;width: 35%"
+                    style="margin-top: 1%; width: 35%"
                   >
                     Carrière a été bien editer !
                   </div>
@@ -844,11 +860,10 @@
                     *ngIf="showError"
                     class="alert alert-danger"
                     role="alert"
-                    style="margin-top: 1% ;width: 35%"
+                    style="margin-top: 1%; width: 35%"
                   >
                     Veuiller remplir les champs!
                   </div>
-
                 </div>
               </div>
             </div>

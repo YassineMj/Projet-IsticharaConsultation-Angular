@@ -1,5 +1,5 @@
   .container{
-  background-color: rgba(240, 240, 240, 0.394);
+  background-color: rgba(192, 204, 252, 0.394);
   border-radius: 20px;
   padding: 10px;
 
@@ -9,7 +9,9 @@
   color: black;
   position: relative;
 }
-
+.nav-link:hover{
+   color: rgb(13, 41, 255);
+}
 
 .nav-link::before{
   content: "";
@@ -45,13 +47,14 @@
 
   }
 }
+
 .offcanvas-header{
   border-bottom: 1px solid rgb(125, 255, 240);
 }
 
 
 .istichara{
-  color: rgb(138, 127, 188);
+  color: rgb(100, 131, 255);
 }
 .logo{
   font-size: large;
@@ -86,7 +89,7 @@
 
 }
 .btnuser:hover{
-  background-color: rgba(215, 212, 32, 0.842);
+  background-color: rgba(85, 106, 199, 0.989);
 }
 .white-icon {
   color: white;
