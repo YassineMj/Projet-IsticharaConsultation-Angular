@@ -13,6 +13,14 @@ export class RendezVousService {
     return this.http.get<any>('http://localhost:8080/IsticharaConsultation/api/paiement/rendez-vous-By-id-consultant/'+idConsultant);
   }
 
+  getRendezVousRefuser(idConsultant:any): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/IsticharaConsultation/api/paiement/rendez-vous-refuser-By-id-consultant/'+idConsultant);
+  }
+
+  getRendezVousAccepter(idConsultant:any): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/IsticharaConsultation/api/paiement/rendez-vous-accepter-By-id-consultant/'+idConsultant);
+  }
+
   refuseRendezVous(idRendezVous:any): Observable<any> {
     return this.http.get<any>('http://localhost:8080/IsticharaConsultation/api/paiement/refuse-rendez-vous/'+idRendezVous);
   }
