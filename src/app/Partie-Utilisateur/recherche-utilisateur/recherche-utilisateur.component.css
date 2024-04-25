@@ -1,10 +1,10 @@
 
 .firstDiv{
   
-   margin-right:10px;
-   margin-left: 10px;
-   border-radius: 10px;
-   background: linear-gradient(to left, #617be2,#7d7fff ,#6684e9 ,#6c6fff  );
+   margin-right:5px;
+   margin-left: 5px;
+   border-bottom:4px solid  #feb600d1;
+   background: linear-gradient(to left,rgb(23, 167, 165),#1786a5 ,#059288);
    background-size:cover;
    background-position: center;
    margin-bottom: 4%;
@@ -27,10 +27,9 @@
     height: 45px;
     width: 55%;
     border-radius: 10px;
-    background-color:#e3f8fa;
-    border :3px solid #7799ff;
-    font-weight: bold;
-    color: #507cff;
+  background-color: #ff9500c5;
+    color: #ffffff;
+    border: 3px solid #ff9500a2;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
   }
@@ -45,15 +44,15 @@
   }
   .btn:hover {
     /* Your styles for the button when hovered over */
-    background-color: rgb(255, 253, 198); /* Example: Change background color to green */
-    color:#27271b; /* Example: Change text color to white */
-  border: 3px solid  rgba(87, 0, 227, 0.144);
+    background-color: #ff9500e6;
+      border-color: #ff9500db;
+      color: #ffffffed;
 
   }
 #bd{
 margin: auto;}
 .border1{
-    border: 1px solid rgb(67, 76, 255);
+    border: 1px solid rgb(23, 167, 165);
     border-radius: 10px; /* Border radius for rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
@@ -120,14 +119,37 @@ p {
 }
 .profile-description {
 
-  border-left: 3px solid rgb(172, 138, 211); /* Add a border only on the left side */
+  border-left: 3px solid rgb(255, 149, 0); /* Add a border only on the left side */
   padding-left: 22px; /* Add padding to separate the text from the border */
   margin-right: -10px;
   text-align: justify;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.413);
 
 }
 .desc{
   margin-left: 5%;
   margin-top: 5%;
+}
+/* For small devices (phones, 576px and up) */
+@media (max-width: 576px) {
+  .col2 {
+    width: 100%;
+    /* Take full width */
+  }
+}
+
+/* For medium devices (tablets, 768px and up) */
+@media (min-width: 576px) and (max-width: 992px) {
+  .col2 {
+    width: 50%;
+    /* Take half of the width */
+  }
+}
+
+/* For large and extra large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .col2 {
+    width: 58.07%;
+    /* Set back to original width */
+  }
 }

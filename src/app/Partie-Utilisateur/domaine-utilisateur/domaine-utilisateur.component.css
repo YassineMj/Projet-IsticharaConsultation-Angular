@@ -33,7 +33,7 @@
   height: 200px;
   width: 200px;
   border-radius: 100px;
-  background: linear-gradient(to right, #7087fbcd, #330f9676);
+  background: linear-gradient(to right, #04718acd, #319c93fe);
   transition: all 500ms ease-in;
   transition-delay: 1s;
   margin: auto;
@@ -121,13 +121,13 @@
 
 @media (min-width: 576px) {
   .rounded-nav {
-    border-radius: 50rem !important;
+    border-radius: 10rem !important;
   }
 }
 
 @media (min-width: 576px) {
   .rounded-nav .nav-link {
-    border-radius: 50rem !important;
+    border-radius: 10rem !important;
   }
 }
 
@@ -150,14 +150,13 @@
 */
 
 .nav-pills .nav-link {
-  color: #ffffff;
-  background-color: #423cabc6;
-
+  color: #000000;
+  background-color: #ffd289c7;
   margin-right: 15px;
+
 }
 .nav-pills .nav-link:hover {
-  background-color: #423cab;
-
+  background-color: #f6a000;
   text-decoration: none;
 }
 .navlist {
@@ -355,7 +354,7 @@ section {
   text-transform: uppercase;
   margin-bottom: 20px;
   padding-bottom: 0;
-  color: #4f8c81;
+  color: #04789b;
 }
 
 .section-title p {
@@ -421,7 +420,7 @@ section {
   padding: 30px;
   position: relative;
   overflow: hidden;
-  background: #fff;
+  background:#f2fcff;
   box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
   transition: all 0.3s ease-in-out;
   border-radius: 8px;
@@ -431,7 +430,7 @@ section {
 .services .icon-box::before {
   content: "";
   position: absolute;
-  background: #423cabc6;
+  background: #ff9b3ec6;
   right: -60px;
   top: -40px;
   width: 100px;
@@ -442,7 +441,7 @@ section {
 }
 
 .services .icon-box:hover::before {
-  background: #423cab;
+  background: #ff9b3e;
   right: 0;
   top: 0;
   width: 100%;
@@ -458,7 +457,7 @@ section {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  background: #f4ecb0;
+  background: #03a892;
   transition: all 0.3s ease-in-out;
 }
 
@@ -517,4 +516,60 @@ section {
   100% {
     transform: rotate(360deg);
   }
+}
+/* section 2 */
+
+.pricing .box {
+  padding: 40px 20px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+  border-radius: 20px;
+  border-top:20px solid rgba(8, 121, 136, 0.388) ;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.pricing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pricing .box:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+}
+
+.pricing .btn-buy {
+  display: inline-block;
+  padding: 8px 40px 10px 40px;
+  border-radius: 50px;
+  color: #ff6200;
+  transition: none;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  transition: 0.3s;
+  border: 2px solid #f18241ea;
+  cursor: pointer;
+}
+
+.pricing .btn-buy:hover {
+  background: #f8c47b;
+  color: #000000;
+}
+
+
+.specialisation-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.specialisation-list h5 {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+
+  /* Adjust spacing between items */
 }

@@ -61,6 +61,7 @@ this.nomInvalid=!nomRegex.test(this.Infomessage.nom.trim()) ;
       phone: this.Infomessage.numero,
       from_email: this.Infomessage.email,
       message: this.Infomessage.message,
+      
     });
 
     alert('Message envoyé');

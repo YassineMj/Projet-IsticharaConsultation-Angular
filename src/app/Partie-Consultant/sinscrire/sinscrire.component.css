@@ -23,16 +23,25 @@ mat-card {
 .example-margin {
   margin: 0 12px;
 }
+
 #langue {
   font-weight: bold;
   margin-left: 1%;
 }
+
 .inp {
   width: 92%;
 }
 
+.btnSuivant{
+   background-color: aliceblue;
+   border: 1px solid rgba(0, 126, 118, 0.326);
+   color:rgb(0, 173, 161); ;
+}
+
 body {
-  background-image: url("../../../assets/images/image-new-back.jpg");
+  background-image: url('../../../assets/images/image-sinscrire.png');
+  background-color: rgba(235, 251, 253, 0.185);
   background-size: cover;
   padding-bottom: 5%;
   margin-bottom: -3.8%;
@@ -43,10 +52,12 @@ mat-card {
   background-size: contain;
   background-repeat: no-repeat; */
   border-radius: 20px;
+  border: 6px solid rgba(255, 157, 0, 0.247);
+  
 }
 .a {
     text-decoration: none;
-    color: rgb(60, 22, 198);
+    color: rgb(7, 88, 138);
     cursor: pointer;
 }
 mat-stepper{
