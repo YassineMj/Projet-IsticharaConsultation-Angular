@@ -27,15 +27,15 @@ body {
     color: #ffffff;
 
     &.dark1 {
-        background-color: #fff4bf;
+        background-color: #fcb86bf8;
     }
 
     &.dark2 {
-        background-color: rgb(141, 169, 245);
+        background-color:rgb(143, 206, 205);
     }
 
     &.dark3 {
-        background-color: rgb(176, 167, 238);
+        background-color: #ffeda7d9;
     }
 
    
@@ -153,20 +153,20 @@ body {
 
     .postcard.dark1 {
         .postcard__text:before {
-            background: #fff4bf;
+            background: #fcb86bf8;
         }
     }
 
     .postcard.dark2 {
         .postcard__text:before {
-            background: rgb(141, 169, 245);
+            background:rgb(143, 206, 205);
 
         }
     }
 
     .postcard.dark3 {
         .postcard__text:before {
-            background: rgb(176, 167, 238);
+            background: #ffeda7d9;
 
         }
     }

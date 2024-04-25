@@ -1,131 +1,259 @@
-<body>
-  <app-menu-utilisateur></app-menu-utilisateur>
 
+  <app-menu-utilisateur></app-menu-utilisateur>
+<body>
   <mat-card>
     <mat-card-content>
       <mat-stepper #stepper>
-        <mat-step [stepControl]="firstFormGroup" errorMessage="Infos are required." [completed]="firstFormGroup.valid">
-          <div [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Infos personnelles</ng-template>
+        <mat-step
+          [stepControl]="firstFormGroup"
+          errorMessage="Infos are required."
+          [completed]="firstFormGroup.valid"
+        >
+          <div [formGroup]="firstFormGroup"  >
+            <ng-template  matStepLabel >Infos personnelles</ng-template>
             <mat-form-field>
-
               <mat-label>Nom</mat-label>
-              <input [(ngModel)]="formData.nom" matInput placeholder="Nom" formControlName="nomCtrl" required />
-
+              <input
+                [(ngModel)]="formData.nom"
+                matInput
+                placeholder="Nom"
+                formControlName="nomCtrl"
+                required
+              />
             </mat-form-field>
-
 
             <mat-form-field>
               <mat-label>Prénom</mat-label>
-              <input [(ngModel)]="formData.prenom" matInput placeholder="Prénom" formControlName="prenomCtrl"
-                required />
-
+              <input
+                [(ngModel)]="formData.prenom"
+                matInput
+                placeholder="Prénom"
+                formControlName="prenomCtrl"
+                required
+              />
             </mat-form-field>
             <mat-form-field>
               <mat-label>Numéro de Télephone</mat-label>
-              <input [(ngModel)]="formData.numeroTelephone" matInput placeholder="Numéro de Téléphone"
-                formControlName="numeroTelephoneCtrl" required type="number" />
-
+              <input
+                [(ngModel)]="formData.numeroTelephone"
+                matInput
+                placeholder="Numéro de Téléphone"
+                formControlName="numeroTelephoneCtrl"
+                required
+                type="number"
+              />
             </mat-form-field>
             <mat-form-field>
               <mat-label>CIN</mat-label>
-              <input [(ngModel)]="formData.cin" matInput placeholder="CIN" formControlName="cinCtrl" required />
+              <input
+                [(ngModel)]="formData.cin"
+                matInput
+                placeholder="CIN"
+                formControlName="cinCtrl"
+                required
+              />
             </mat-form-field>
             <mat-form-field>
               <mat-label>Email</mat-label>
-              <input [(ngModel)]="formData.email" matInput placeholder="Email" formControlName="emailCtrl" required />
-
+              <input
+                [(ngModel)]="formData.email"
+                matInput
+                placeholder="Email"
+                formControlName="emailCtrl"
+                required
+              />
             </mat-form-field>
             <mat-form-field>
               <mat-label>Mot de passe</mat-label>
-              <input [(ngModel)]="formData.motDePasse" matInput [type]="hide ? 'password' : 'text'"
-                formControlName="motDePasseCtrl" required />
-              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide">
+              <input
+                [(ngModel)]="formData.motDePasse"
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                formControlName="motDePasseCtrl"
+                required
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
                 <mat-icon>{{
                   hide ? "visibility_off" : "visibility"
-                  }}</mat-icon>
+                }}</mat-icon>
               </button>
-
             </mat-form-field>
 
-            <div>
-              <button matStepperNext mat-button color="primary">Suivant</button>
+            <div style="display: flex; justify-content: flex-end">
+              <button matStepperNext mat-button class="btnSuivant">
+                Suivant
+              </button>
             </div>
           </div>
         </mat-step>
 
-        <mat-step [stepControl]="secondFormGroup" label="Paiement" errorMessage="Paiement is required.">
+        <mat-step
+          [stepControl]="secondFormGroup"
+          label="Paiement"
+          errorMessage="Paiement is required."
+        >
           <div [formGroup]="secondFormGroup">
             <mat-form-field>
               <mat-label>Pays</mat-label>
-              <input [(ngModel)]="formData.pays" matInput formControlName="paysCtrl" placeholder="Pays" required />
+              <input
+                [(ngModel)]="formData.pays"
+                matInput
+                formControlName="paysCtrl"
+                placeholder="Pays"
+                required
+              />
             </mat-form-field>
             <mat-form-field>
               <mat-label>Ville</mat-label>
-              <input [(ngModel)]="formData.ville" matInput formControlName="villeCtrl" placeholder="Ville" required />
+              <input
+                [(ngModel)]="formData.ville"
+                matInput
+                formControlName="villeCtrl"
+                placeholder="Ville"
+                required
+              />
             </mat-form-field>
             <mat-form-field>
               <mat-label>Adresse</mat-label>
-              <input [(ngModel)]="formData.adresse" matInput formControlName="adresseCtrl" placeholder="Adresse"
-                required />
+              <input
+                [(ngModel)]="formData.adresse"
+                matInput
+                formControlName="adresseCtrl"
+                placeholder="Adresse"
+                required
+              />
             </mat-form-field>
             <mat-form-field>
               <mat-label>RIB</mat-label>
-              <input [(ngModel)]="formData.rib" matInput formControlName="ribCtrl" placeholder="RIB" required />
+              <input
+                [(ngModel)]="formData.rib"
+                matInput
+                formControlName="ribCtrl"
+                placeholder="RIB"
+                required
+              />
             </mat-form-field>
             <mat-form-field>
               <mat-label>Banque</mat-label>
-              <mat-select [(ngModel)]="formData.banque" formControlName="banqueCtrl" required>
+              <mat-select
+                [(ngModel)]="formData.banque"
+                formControlName="banqueCtrl"
+                required
+              >
                 <mat-option value="Al Akhdar Bank"> Al Akhdar Bank </mat-option>
-                <mat-option value="Attijari Wafa Bank"> Attijari Wafa Bank </mat-option>
-                <mat-option value="Banque Populaire"> Banque Populaire </mat-option>
+                <mat-option value="Attijari Wafa Bank">
+                  Attijari Wafa Bank
+                </mat-option>
+                <mat-option value="Banque Populaire">
+                  Banque Populaire
+                </mat-option>
                 <mat-option value="CIH banque"> CIH banque </mat-option>
                 <mat-option value="Umnia Bank"> Umnia Bank </mat-option>
               </mat-select>
             </mat-form-field>
 
             <div>
-              <button mat-button matStepperPrevious color="primary">Précédent</button>
-              <button mat-button matStepperNext color="primary" style="margin-left: 80%;">Suivant</button>
+              <button mat-button matStepperPrevious class="btnSuivant">
+                Précédent
+              </button>
+              <div
+                style="
+                  display: flex;
+                  justify-content: flex-end;
+                  margin-top: -37px;
+                "
+              >
+                <button mat-button matStepperNext class="btnSuivant">
+                  Suivant
+                </button>
+              </div>
             </div>
           </div>
         </mat-step>
 
-        <mat-step [stepControl]="thirdFormGroup" label="Détails" errorMessage="Détails are required.">
+        <mat-step
+          [stepControl]="thirdFormGroup"
+          label="Détails"
+          errorMessage="Détails are required."
+        >
           <div [formGroup]="thirdFormGroup">
-
             <mat-form-field class="inp">
               <mat-label>Description du Profil</mat-label>
-              <textarea [(ngModel)]="formData.descriptionProfile" matInput required=""
-                formControlName="descriptionProfileCtrl"></textarea>
+              <textarea
+                [(ngModel)]="formData.descriptionProfile"
+                matInput
+                required=""
+                formControlName="descriptionProfileCtrl"
+              ></textarea>
             </mat-form-field>
             <section class="example-section">
               <mat-label id="langue" required>Langue</mat-label>
 
-              <mat-checkbox [(ngModel)]="formData.francais" class="example-margin"
-                formControlName="francaisCtrl" (change)="updateLanguesOnBlur()">Francais</mat-checkbox>
-              <mat-checkbox [(ngModel)]="formData.anglais" class="example-margin"
-                formControlName="anglaisCtrl" (change)="updateLanguesOnBlur()">Anglais</mat-checkbox>
+              <mat-checkbox
+                [(ngModel)]="formData.francais"
+                class="example-margin"
+                formControlName="francaisCtrl"
+                (change)="updateLanguesOnBlur()"
+                >Francais</mat-checkbox
+              >
+              <mat-checkbox
+                [(ngModel)]="formData.anglais"
+                class="example-margin"
+                formControlName="anglaisCtrl"
+                (change)="updateLanguesOnBlur()"
+                >Anglais</mat-checkbox
+              >
 
-              <mat-checkbox [(ngModel)]="formData.arabe" class="example-margin"
-                formControlName="arabeCtrl" (change)="updateLanguesOnBlur()">Arabe</mat-checkbox>
+              <mat-checkbox
+                [(ngModel)]="formData.arabe"
+                class="example-margin"
+                formControlName="arabeCtrl"
+                (change)="updateLanguesOnBlur()"
+                >Arabe</mat-checkbox
+              >
 
-              <mat-checkbox [(ngModel)]="formData.espagnol" class="example-margin"
-              formControlName="espagnolCtrl" (change)="updateLanguesOnBlur()">Espagnol</mat-checkbox>
+              <mat-checkbox
+                [(ngModel)]="formData.espagnol"
+                class="example-margin"
+                formControlName="espagnolCtrl"
+                (change)="updateLanguesOnBlur()"
+                >Espagnol</mat-checkbox
+              >
             </section>
 
             <input type="hidden" formControlName="langues" />
 
-
             <div>
-              <input type="file" required (change)="onFileChange($event)" accept="image/*"
-                formControlName="imageCtrl" />
+              <input
+                type="file"
+                required
+                (change)="onFileChange($event)"
+                accept="image/*"
+                formControlName="imageCtrl"
+              />
             </div>
             <br />
             <div>
-              <button mat-button matStepperPrevious color="primary">Précédent</button>
-              <button mat-button matStepperNext color="primary" style="margin-left: 80%;">Suivant</button>
+              <button mat-button matStepperPrevious class="btnSuivant">
+                Précédent
+              </button>
+              <div
+                style="
+                  display: flex;
+                  justify-content: flex-end;
+                  margin-top: -33px;
+                "
+              >
+                <button class="btnSuivant" mat-button matStepperNext>
+                  Suivant
+                </button>
+              </div>
             </div>
           </div>
         </mat-step>
@@ -137,9 +265,19 @@
               <div class="form-group">
                 <div class="col-md-12 col-sm-9 col-xs-12">
                   <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="experience" (input)="isEmpty()" />
-                    <button id="plus" type="button" (click)="addExperience()" class="btn btn-success-outline"
-                      [disabled]="exprienceEmpty">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="experience"
+                      (input)="isEmpty()"
+                    />
+                    <button
+                      id="plus"
+                      type="button"
+                      (click)="addExperience()"
+                      class="btn btn-success-outline"
+                      [disabled]="exprienceEmpty"
+                    >
                       <i class="fa fa-plus"></i>
                     </button>
                   </div>
@@ -156,17 +294,22 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="
+                        <tr
+                          *ngFor="
                             let exp of formData.experiencesPro;
                             let i = index
-                          ">
+                          "
+                        >
                           <td>{{ exp }}</td>
                           <td></td>
                           <td></td>
                           <td class="text-right"></td>
                           <td class="td-actions text-right">
-                            <button type="button" class="btn btn-danger btn-just-icon btn-sm"
-                              (click)="supprimerExperiencePro(i)">
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-just-icon btn-sm"
+                              (click)="supprimerExperiencePro(i)"
+                            >
                               <i class="fa fa-trash"></i>
                             </button>
                           </td>
@@ -183,9 +326,19 @@
               <div class="form-group">
                 <div class="col-md-12 col-sm-9 col-xs-12">
                   <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="education" (input)="isEmpty()" />
-                    <button id="plus" type="button" (click)="addEducation()" class="btn btn-success-outline"
-                      [disabled]="educationEmpty">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="education"
+                      (input)="isEmpty()"
+                    />
+                    <button
+                      id="plus"
+                      type="button"
+                      (click)="addEducation()"
+                      class="btn btn-success-outline"
+                      [disabled]="educationEmpty"
+                    >
                       <i class="fa fa-plus"></i>
                     </button>
                   </div>
@@ -201,14 +354,19 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let ed of formData.educations; let i = index">
+                        <tr
+                          *ngFor="let ed of formData.educations; let i = index"
+                        >
                           <td>{{ ed }}</td>
                           <td></td>
                           <td></td>
                           <td class="text-right"></td>
                           <td class="td-actions text-right">
-                            <button type="button" class="btn btn-danger btn-just-icon btn-sm"
-                              (click)="supprimerEducation(i)">
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-just-icon btn-sm"
+                              (click)="supprimerEducation(i)"
+                            >
                               <i class="fa fa-trash"></i>
                             </button>
                           </td>
@@ -225,9 +383,19 @@
               <div class="form-group">
                 <div class="col-md-12 col-sm-9 col-xs-12">
                   <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="formation" (input)="isEmpty()" />
-                    <button id="plus" type="button" (click)="addFormation()" class="btn btn-success-outline"
-                      [disabled]="formationEmpty">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="formation"
+                      (input)="isEmpty()"
+                    />
+                    <button
+                      id="plus"
+                      type="button"
+                      (click)="addFormation()"
+                      class="btn btn-success-outline"
+                      [disabled]="formationEmpty"
+                    >
                       <i class="fa fa-plus"></i>
                     </button>
                   </div>
@@ -243,14 +411,19 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let for of formData.formations; let i = index">
+                        <tr
+                          *ngFor="let for of formData.formations; let i = index"
+                        >
                           <td>{{ for }}</td>
                           <td></td>
                           <td></td>
                           <td class="text-right"></td>
                           <td class="td-actions text-right">
-                            <button type="button" class="btn btn-danger btn-just-icon btn-sm"
-                              (click)="supprimerFormation(i)">
+                            <button
+                              type="button"
+                              class="btn btn-danger btn-just-icon btn-sm"
+                              (click)="supprimerFormation(i)"
+                            >
                               <i class="fa fa-trash"></i>
                             </button>
                           </td>
@@ -262,30 +435,60 @@
               </div>
             </fieldset>
 
-            <select class="form-select" (change)="onIdDomaineChange()" id="Category-2" name="Category-2" required=""
-              data-name="Category 2" [(ngModel)]="formData.idDomaine">
+            <select
+              class="form-select"
+              (change)="onIdDomaineChange()"
+              id="Category-2"
+              name="Category-2"
+              required=""
+              data-name="Category 2"
+              [(ngModel)]="formData.idDomaine"
+            >
               <option value="" disabled selected>Choisi Domaine</option>
-              <option *ngFor="let domaine of domaines" value="{{ domaine.idDomaine }}">
+              <option
+                *ngFor="let domaine of domaines"
+                value="{{ domaine.idDomaine }}"
+              >
                 {{ domaine.nomDomaine }}
               </option>
             </select>
 
-            <label *ngFor="let categorie of categories" style="margin-right: 2%; padding-top: 2%">
-
-              <mat-checkbox (change)="ajouterSpecialisation(categorie.nomCategorie)"></mat-checkbox>
+            <label
+              *ngFor="let categorie of categories"
+              style="margin-right: 2%; padding-top: 2%"
+            >
+              <mat-checkbox
+                (change)="ajouterSpecialisation(categorie.nomCategorie)"
+              ></mat-checkbox>
               <span>{{ categorie.nomCategorie }}</span>
             </label>
-            <br>
+            <br />
 
             <input type="hidden" formControlName="experience" />
             <input type="hidden" formControlName="education" />
             <input type="hidden" formControlName="formation" />
             <input type="hidden" formControlName="specialisation" />
 
-
             <div>
-              <button mat-button matStepperPrevious color="primary">Précédent</button>
-              <button mat-button matStepperNext color="primary" style="margin-left: 80%;">Suivant</button>
+              <button mat-button matStepperPrevious class="btnSuivant">
+                Précédent
+              </button>
+              <div
+                style="
+                  display: flex;
+                  justify-content: flex-end;
+                  margin-top: -37px;
+                "
+              >
+                <button
+                  mat-button
+                  matStepperNext
+                  style="margin-left: 80%"
+                  class="btnSuivant"
+                >
+                  Suivant
+                </button>
+              </div>
             </div>
           </div>
         </mat-step>
@@ -293,21 +496,20 @@
         <mat-step>
           <ng-template matStepLabel>Fin</ng-template>
 
-          <mat-checkbox class="example-margin" [(ngModel)]="conditionsAccepted">Veuillez accepter les
+          <mat-checkbox class="example-margin" [(ngModel)]="conditionsAccepted"
+            >Veuillez accepter les
             <a class="a" (click)="ouvrirNouvelOnglet()">
               Termes & Conditions
             </a>
           </mat-checkbox>
-          <br>
-          <br>
+          <br />
+          <br />
           <div>
-            <button mat-raised-button color="primary" (click)="sinscrire()">
+            <button mat-raised-button   style="background-color: rgb(0, 140, 150);color: white;" (click)="sinscrire()">
               Submit
             </button>
-
           </div>
         </mat-step>
-
       </mat-stepper>
     </mat-card-content>
   </mat-card>

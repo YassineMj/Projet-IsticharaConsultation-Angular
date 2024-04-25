@@ -1,5 +1,5 @@
   .container{
-  background-color: rgba(192, 204, 252, 0.394);
+  background-color: rgba(53, 189, 199, 0.269);
   border-radius: 20px;
   padding: 10px;
 
@@ -54,7 +54,7 @@
 
 
 .istichara{
-  color: rgb(100, 131, 255);
+  color: #faa61f;
 }
 .logo{
   font-size: large;
@@ -70,26 +70,28 @@
 
 }
 
-
-
 .btncontacternous{
        font-weight: bold;
        margin-right: 10px;
-       background-color: rgba(254, 254, 254, 0.302);
+       border: 3px solid #ffb535b0;
+       background-color: rgba(254, 254, 254, 0.744);
 
       }
+      
 .btncontacternous:hover{
   background-color: rgba(240, 248, 255);
   color:black ;
-
+  border: 3px solid #037481b0;
 
 }
+
 .btnuser{
-  background-color: rgb(53, 37, 105);
+  background-color: #ffb535;
+  border: 2px solid rgba(255, 255, 255, 0.591);
 
 }
 .btnuser:hover{
-  background-color: rgba(85, 106, 199, 0.989);
+  background-color: #ffa200;
 }
 .white-icon {
   color: white;

@@ -1,4 +1,3 @@
-
 <head>
   <link
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
@@ -6,15 +5,17 @@
   />
 </head>
 <body>
-  <section id="hero">
+  <section id="hero" class="hero d-flex align-items-center">
     <div class="container">
       <div class="row justify-content-between">
         <div
           class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center"
         >
           <div id="text-hero" data-aos="zoom-out">
-            <h1>Prenez rendez-vous pour une consultation vidéo en ligne !</h1>
-            <h2>
+            <h1 style="color: rgba(0, 0, 0, 0.927)">
+              Prenez rendez-vous pour une consultation vidéo en ligne !
+            </h1>
+            <h2 style="color: rgba(39, 40, 46, 0.927)">
               Rejoignez notre Communauté d'experts et élargissez votre Audience
               en proposant des Consultations en ligne
             </h2>
@@ -22,8 +23,8 @@
               <a
                 routerLink="/consultant/sidentifier-consultant"
                 class="btn-get-started scrollto"
-                >Vous êtes Consultant ?</a
-              >
+                >Vous êtes Consultant <i class="fa fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -32,16 +33,37 @@
           data-aos="zoom-out"
           data-aos-delay="300"
         >
-          <img
-            src="../../../assets/images/image-body-top.jpeg"
+          <!--  <img
+            src="../../../assets/images/image-religion.jpg"
             class="img-fluid animated"
-            style="border-radius: 50%; width: 90%"
+            style="border-radius: 50%; width: 100%"
             alt="online"
           />
+          <img
+            src="../../../assets/images/actualites-domaine-religion.jpg"
+            class="img-fluid animated"
+            style="border-radius: 50%; width: 21%; margin-left: 10px ; margin-top: 22px; "
+            alt="online"
+          /><img
+            src="../../../assets/images/actualites-domaine-economie.jpg"
+            class="img-fluid animated"
+            style="border-radius: 50%; width: 21%; margin-left: 10px ; margin-top: 22px;"
+            alt="online"
+          /><img
+            src="../../../assets/images/actualites-domaine-technologie.jpg"
+            class="img-fluid animated"
+            style="border-radius: 50%; width: 21%; margin-left: 10px ; margin-top: 22px;"
+            alt="online"
+          /><img
+            src="../../../assets/images/actualites-domaine-droit.jpg"
+            class="img-fluid animated"
+            style="border-radius: 50%; width: 21%; margin-left: 10px ; margin-top: 22px;"
+            alt="online"
+          />-->
         </div>
       </div>
     </div>
-    <svg
+    <!-- <svg
       class="hero-waves"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="0 24 150 28"
@@ -72,7 +94,7 @@
       <g class="wave3">
         <use xlink:href="#wave-path" x="50" y="9" fill="#fff" />
       </g>
-    </svg>
+    </svg>-->
   </section>
   <!-- End Hero -->
 
@@ -89,7 +111,13 @@
           <div class="col-md-6">
             <div class="input-group mb-3">
               <label class="input-group-text" for="dropdown1"
-                ><i class="fa fa-globe"></i
+                ><i
+                  class="fa fa-globe"
+                  style="
+                    background-color: rgb(168, 255, 242);
+                    border-radius: 50px;
+                  "
+                ></i
               ></label>
               <select
                 [(ngModel)]="idDomaine"
@@ -189,7 +217,7 @@
       id="services"
       class="services"
       style="
-        background-image: url('../../../assets/images/image-acceuill-navigate.jpg');
+        background-image: url('../../../assets/images/image-acceuil-naviguer.jpg');
         background-size: cover;
       "
     >
@@ -206,8 +234,8 @@
             <div class="icon-box" data-aos="zoom-in-left">
               <h5 class="title">
                 <a>
-                  <span style="color: rgb(110, 4, 239)">#1 </span>Exploration
-                  des Domaines</a
+                  <span style="color: rgb(239, 94, 4)">#1 </span>Exploration des
+                  Domaines</a
                 >
               </h5>
               <p class="description">
@@ -225,7 +253,7 @@
             >
               <h5 class="title">
                 <a>
-                  <span style="color: rgb(110, 4, 239)">#2 </span>Sélection du
+                  <span style="color: rgb(239, 94, 4)">#2 </span>Sélection du
                   Consultant</a
                 >
               </h5>
@@ -240,7 +268,7 @@
             <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
               <h5 class="title">
                 <a>
-                  <span style="color: rgb(110, 4, 239)">#3 </span>Planification
+                  <span style="color: rgb(239, 94, 4)">#3 </span>Planification
                   de la Consultation</a
                 >
               </h5>
@@ -259,7 +287,7 @@
             >
               <h5 class="title">
                 <a>
-                  <span style="color: rgb(110, 4, 239)">#4 </span>Paiement
+                  <span style="color: rgb(239, 94, 4)">#4 </span>Paiement
                   Sécurisé</a
                 >
               </h5>
@@ -275,8 +303,8 @@
             <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">
               <h5 class="title">
                 <a>
-                  <span style="color: rgb(110, 4, 239)">#5 </span>Participation
-                  à la Consultation en Ligne</a
+                  <span style="color: rgb(239, 94, 4)">#5 </span>Participation à
+                  la Consultation en Ligne</a
                 >
               </h5>
               <p class="description">
@@ -294,7 +322,7 @@
             >
               <h5 class="title">
                 <a>
-                  <span style="color: rgb(110, 4, 239)">#6 </span>Donnez Votre
+                  <span style="color: rgb(239, 94, 4)">#6 </span>Donnez Votre
                   Avis</a
                 >
               </h5>
@@ -321,7 +349,7 @@
           <div class="row content">
             <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
               <img
-                src="../../../assets/images/securite.jpeg"
+                src="../../../assets/images/image-acceuill-confort.jpg"
                 class="img-fluid"
                 alt=""
                 style="
@@ -337,17 +365,17 @@
               style="
                 padding-top: 5%;
                 padding-left: 3%;
-                background-color: rgba(57, 15, 164, 0.331);
+                background-color: #ff9500a5;
                 border-radius: 12px;
                 margin-left: 1%;
               "
             >
-              <h3>Confidentialité et Sécurité</h3>
+              <h3>Confort et Adaptabilité</h3>
               <h5>
-                Votre vie privée est notre priorité. Bénéficiez de consultations
-                confidentielles, où chaque interaction est sécurisée et
-                protégée. Notre engagement envers la confidentialité garantit
-                que vos échanges restent privés et sécurisés.
+                Profitez d'une expérience de consultation en ligne sans tracas,
+                où le confort de votre propre espace est préservé. Avec une
+                interface conviviale et des consultations adaptées à votre
+                emploi du temps, nous mettons le confort entre vos mains.
               </h5>
             </div>
           </div>
@@ -397,7 +425,7 @@
           <div class="row content">
             <div class="col-md-4 order-1 order-md-2" data-aos="fade-left">
               <img
-                src="../../../assets/images/image-acceuill-confort.jpg"
+                src="../../../assets/images/securite.jpeg"
                 class="img-fluid"
                 alt=""
                 style="
@@ -414,17 +442,17 @@
               style="
                 padding-top: 5%;
                 padding-left: 3%;
-                background-color: rgba(100, 136, 245, 0.412);
+                background-color: rgba(0, 122, 138, 0.349);
                 border-radius: 12px;
                 margin-left: 1%;
               "
             >
-              <h3>Confort et Adaptabilité</h3>
+              <h3>Confidentialité et Sécurité</h3>
               <h5>
-                Profitez d'une expérience de consultation en ligne sans tracas,
-                où le confort de votre propre espace est préservé. Avec une
-                interface conviviale et des consultations adaptées à votre
-                emploi du temps, nous mettons le confort entre vos mains.
+                Votre vie privée est notre priorité. Bénéficiez de consultations
+                confidentielles, où chaque interaction est sécurisée et
+                protégée. Notre engagement envers la confidentialité garantit
+                que vos échanges restent privés et sécurisés.
               </h5>
             </div>
           </div>
@@ -497,14 +525,14 @@
       id="faq"
       class="faq"
       style="
-        background-image: url('../../../assets/images/image-background-section-question.jpg');
+        background-image: url('../../../assets/images/image-test-questionnaires.jpg');
         background-size: cover;
       "
     >
       <div
         class="container"
         style="
-          background-color: rgba(240, 248, 255, 0.405);
+          background-color: rgba(255, 214, 118, 0.479);
           border-radius: 50px;
           padding: 19px;
         "
@@ -522,8 +550,8 @@
           <div class="col-lg-5">
             <h4 style="color: black; font-weight: bold">
               <img
-                src="../../../assets/images/question.jpeg"
-                style="width: 30px"
+                src="../../../assets/images/icon-questions.png"
+                style="width: 30px ; border-radius: 50px;"
                 alt=""
               />
               {{ faq.question }}

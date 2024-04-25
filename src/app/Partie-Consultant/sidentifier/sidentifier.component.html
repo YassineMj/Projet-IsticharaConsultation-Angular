@@ -1,15 +1,17 @@
+
+<app-menu-utilisateur></app-menu-utilisateur>
+
 <body>
-  <app-menu-utilisateur></app-menu-utilisateur>
-  
   <div class="wrapper">
     <div class="container main">
       <div class="row">
-        <div class="col-md-6 side-image">
+        <div class="col-md-7 side-image">
           <!-------------      image     ------------->
         </div>
-        <div class="col-md-6 right">
-          <div class="input-box" style="margin-top: 3%;">
-            <header>Se connecter</header>
+        <div class="col-md-5 right">
+          <div class="input-box" style="margin-top: 3%">
+            <header>🔒 Se connecter</header>
+
             <div class="input-field">
               <input
                 type="text"
@@ -19,38 +21,46 @@
                 autocomplete="off"
                 name="email"
                 [(ngModel)]="consultantAuth.email"
-
               />
-              <label for="email">Email</label>
-
+              <label for="email"><i class="fa fa-user"></i> Email</label>
             </div>
-            <div class="input-field">
-              <input
-                type="password"
-                class="input"
-                id="pass"
-                required=""
-                name="password"
-                [(ngModel)]="consultantAuth.motDePasse"
-              />
-              <label for="pass">Mot de passe</label>
-
-            </div>
+             <div class="input-field" id="password1">
+                <input
+                  type="password"
+                  class="input"
+                  id="pass"
+                  required=""
+                  [(ngModel)]="consultantAuth.motDePasse"
+                />
+                <label for="pass"><i class="fa fa-eye"></i> Mot de passe</label>
+              </div>
+          
             <div class="input-field">
               <input
                 type="submit"
                 class="submit"
-                value="Se Connecter"
+                value="Se connecter"
                 (click)="auth()"
+                 
               />
             </div>
-            <br>
-              <div *ngIf="notfound" class="alert alert-danger" role="alert" style="padding: 0;">
-  Compte Non trouvé ! Merci de s'inscrire
-</div>
-<div *ngIf="showError" class="alert alert-danger" role="alert" style="padding: 0;">
-  Les champs sont obligatoires !
-</div>
+            <br />
+            <div
+              *ngIf="notfound"
+              class="alert alert-danger"
+              role="alert"
+              style="padding: 0"
+            >
+              Compte Non trouvé ! Merci de s'inscrire
+            </div>
+            <div
+              *ngIf="showError"
+              class="alert alert-danger"
+              role="alert"
+              style="padding: 0"
+            >
+              Les champs sont obligatoires !
+            </div>
             <div class="signin">
               <span
                 >Vous n’avez pas de compte?
@@ -66,5 +76,6 @@
       </div>
     </div>
   </div>
-  <app-bas-de-page></app-bas-de-page>
 </body>
+
+<app-bas-de-page></app-bas-de-page>
