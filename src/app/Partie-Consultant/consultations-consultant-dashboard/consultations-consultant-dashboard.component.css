@@ -1,6 +1,6 @@
 
 body{
-    background-image: url("../../../assets/images/mine.png");    background-color: #1818ff37;
+    background-image: url('../../../assets/images/TEsse.png');
     background-size: cover;
 }
 
@@ -8,11 +8,13 @@ body{
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #fffffffb;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   
-    
+    border-bottom: 10px solid #038484;
+    border-radius: 30px;
+    border-top: 20px solid #038484;
+
 }
 
 .form-group {
@@ -46,17 +48,25 @@ label {
     transition: background-color 0.3s;
     margin-left: 25%;
     width: 50%;
-    background-color: #bfb7ff60;
-    border: 2px solid #3d07ff;
-    color: #3d07ff;
+    background-color: #faf5ed77;
+    border: 2px solid #ff9900;
+    color: #ff9900;
    
 }
 
 .btn-primary:hover {
-    background-color: #2b10fbd3;
+    background-color: #ff9900;
+    border: 2px solid #ff9900;
     color: white;
     
 }
+.btn-primary:focus {
+    background-color: #ff9900;
+    border: 2px solid #ff9900;
+    color: white;
+
+}
+
 .container {
     max-width: 925px;
     margin: 0 auto;
@@ -82,7 +92,7 @@ label {
 }
 
 .table th {
-    background-color: #2b10fbd3;
+    background-color: #017d79d3;
     color: #fff;
     
 }
@@ -100,12 +110,13 @@ label {
     border-radius: 4px;
     cursor: pointer;
     background-color: #ffffff;
-    border: 2px solid #3d07ff;
-    color: #3d07ff;
+    border: 2px solid #ff9900;
+    color: #ffb300;
 }
 
 .btn-secondary:hover {
-background-color: #2b10fbd3;
+background-color: #ff9900;
+border: 2px solid #ff9900;
 color: white;
 
 }
@@ -127,7 +138,7 @@ textarea.form-control:focus {
  /*NAVBAR*/
 
  .container12 {
-     background-color: rgba(240, 240, 240, 0.71);
+    background-color: rgba(53, 189, 199, 0.269);
      border-radius: 20px;
      padding: 5px;
      width: 95%;
@@ -183,78 +194,36 @@ textarea.form-control:focus {
  }
 
  .offcanvas-header {
-     border-bottom: 1px solid rgb(125, 255, 240);
+     border-bottom: 1px solid rgb(6, 150, 133);
  }
 
 
  .istichara {
-     color: rgb(138, 127, 188);
+     color: #faa61f;
  }
 
- .logo {
-     transition: 0.35s ease;
- }
-
- .logo:hover {}
-
- .logo::before {
-     content: "";
-     position: absolute;
-     width: 10%;
-     height: 2px;
-     background: wheat;
-     border-radius: 5px;
-     transform: scaleX(0);
-     transition: all 0.6s ease;
- }
-
- .logo::before {
-     bottom: 0;
-     top: 70%;
-     left: 0;
-     margin-left: 6.5%;
- }
-
- .logo:hover::before {
-     transform: scaleX(1);
- }
-
- .btncontacternous {
-     font-weight: bold;
-     margin-right: 10px;
-     background-color: rgba(254, 254, 254, 0.302);
-
- }
-
-
- .btncontacternous:hover {
-     background-color: rgba(240, 248, 255);
-     color: black;
-
-
- }
 .btnchat {
-    background: linear-gradient(#6b7adebc, #538bfabc, #566bf7bc);
-    color: white;
-    margin-top: 10%;
-        font-size: 130%;
+    background-color: #2d8e86;
+        border: 2px solid rgba(255, 255, 255, 0.591);
+        margin-top: 10%;
+        font-size: 120%;
 
 }
 
 
  .btnchat:hover {
-        background: linear-gradient(to right, #3751ffbc, #10efffbc, #3a52efbc);
+        background-color: rgb(78, 192, 165);
  }
 
  .btnuser {
-     background-color: #6d4cff;
-     color: white;
+    background-color: #ffb535;
+    border: 2px solid rgba(255, 255, 255, 0.591);
      margin-top: 10%;
-     font-size: 130%;
+     font-size: 120%;
  }
 
  .btnuser:hover {
-     background-color: rgb(59, 26, 249);
+    background-color: #ffa200;
  }
 
  .white-icon {

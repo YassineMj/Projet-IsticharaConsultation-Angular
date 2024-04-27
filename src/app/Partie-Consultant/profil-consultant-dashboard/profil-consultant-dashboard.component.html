@@ -1,5 +1,4 @@
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link
     href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     rel="stylesheet"
@@ -9,6 +8,10 @@
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     rel="stylesheet"
   />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -17,7 +20,7 @@
     <!--fixed-top-->
     <div class="container12">
       <a
-        routerLink="/"
+        routerLink="/consultant/profil-consultant-dashoard"
         class="navbar-brand purple"
         style="
           font-size: 170%;
@@ -25,7 +28,10 @@
           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
             sans-serif;
         "
-        >I<span class="istichara">S</span>TICHARA</a
+        ><i class="fa fa-video" style="color: rgb(0, 0, 0)"></i> I<span
+          class="istichara"
+          >S</span
+        >TICHARA</a
       >
       <button
         class="navbar-toggler shadow-none border-0"
@@ -144,10 +150,15 @@
     </div>
   </nav>
 
-  <div class="container" style="padding-bottom: 10px">
+  <div class="container" style="padding-bottom: 10px; margin-top: 6%">
     <div
       class="view-account"
-      style="border-radius: 50px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5)"
+      style="
+        border-top: 12px solid#2d8e86b6;
+        border-bottom: 12px solid #2d8e86a1;
+        border-radius: 50px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+      "
     >
       <section class="module">
         <div class="module-inner">
@@ -167,7 +178,7 @@
                   {{ _service.consultantAuthObjet.prenom }}
                   <label
                     class="label label-info"
-                    style="background-color: rgb(108, 91, 231)"
+                    style="background-color: rgba(224, 182, 13, 0.614)"
                     >{{
                       _service.consultantAuthObjet.domaine.nomDomaine
                     }}</label
@@ -667,7 +678,7 @@
                         [disabled]="exprienceEmpty"
                         style="margin-inline-start: 96%; margin-top: -6%"
                       >
-                        <i class="fa fa-plus" style="color: white"></i>
+                        <i class="fa fa-plus" style="color: rgb(210, 91, 18)"></i>
                       </button>
                     </div>
 
@@ -701,7 +712,7 @@
                                 style="background-color: red"
                                 (click)="supprimerExperiencePro(i)"
                               >
-                                <i class="fa fa-trash" style="color: white"></i>
+                                <i class="fa fa-trash" style="color: rgb(255, 255, 255)"></i>
                               </button>
                             </td>
                           </tr>
@@ -731,7 +742,7 @@
                         [disabled]="educationEmpty"
                         style="margin-inline-start: 96%; margin-top: -6%"
                       >
-                        <i class="fa fa-plus" style="color: white"></i>
+                        <i class="fa fa-plus" style="color: rgb(210, 91, 18)"></i>
                       </button>
                     </div>
                     <div class="table-responsive">
@@ -763,7 +774,7 @@
                                 style="background-color: red"
                                 (click)="supprimerEducation(i)"
                               >
-                                <i class="fa fa-trash" style="color: white"></i>
+                                <i class="fa fa-trash" style="color: rgb(255, 255, 255)"></i>
                               </button>
                             </td>
                           </tr>
@@ -794,7 +805,7 @@
                         [disabled]="formationEmpty"
                         style="margin-inline-start: 96%; margin-top: -6%"
                       >
-                        <i class="fa fa-plus" style="color: white"></i>
+                        <i class="fa fa-plus" style="color: rgb(210, 91, 18)"></i>
                       </button>
                     </div>
                     <div class="table-responsive">

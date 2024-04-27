@@ -46,8 +46,8 @@
   height: 210px;
   border-radius: 50%;
   border: 25px solid transparent;
-  border-top-color: #988fffd0;
-  border-right-color: #988fffd0;
+  border-top-color: #00738d;
+  border-right-color: #00738d;
   z-index: 1;
   transform: rotate(45deg)
 }
@@ -62,7 +62,7 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, .4);
   font-size: 40px;
   font-weight: 700;
-  color: #988fffd0;
+  color: #00738d;
   text-align: center;
   transform: rotate(-45deg)
 }
@@ -70,7 +70,7 @@
 .main-timeline5 .timeline-content {
   width: 35%;
   float: right;
-  background: #988fffd0;
+  background: #00738d;
   padding: 30px 20px;
   margin: 50px 0;
   z-index: 1;
@@ -81,7 +81,7 @@
   content: "";
   width: 20%;
   height: 15px;
-  background: #988fffd0;
+  background: #00738d;
   position: absolute;
   top: 50%;
   left: -20%;
@@ -109,13 +109,13 @@
 
 .main-timeline5 .timeline:nth-child(2n) .timeline-icon {
   transform: rotate(-135deg);
-  border-top-color: #8facdb;
-  border-right-color: #8facdb;
+  border-top-color: #7fb9a7f0;
+  border-right-color: #7fb9a7f0;
 }
 
 .main-timeline5 .timeline:nth-child(2n) .year {
   transform: rotate(135deg);
-  color: #8facdb;
+  color: #7fb9a7f0;
 }
 
 .main-timeline5 .timeline:nth-child(2n) .timeline-content {
@@ -129,35 +129,35 @@
 
 .main-timeline5 .timeline:nth-child(2n) .timeline-content,
 .main-timeline5 .timeline:nth-child(2n) .timeline-content:before {
-  background: #d5da7c;
+  background: #7fb9a7f0;
 }
 
 .main-timeline5 .timeline:nth-child(3n) .timeline-icon {
-  border-top-color: #d5da7c;
-  border-right-color: #d5da7c;
+  border-top-color: #e37209f0;
+  border-right-color: #e37209f0;
 }
 
 .main-timeline5 .timeline:nth-child(3n) .year {
-  color: #d5da7c;
+  color: #e37209f0;
 }
 
 .main-timeline5 .timeline:nth-child(3n) .timeline-content,
 .main-timeline5 .timeline:nth-child(3n) .timeline-content:before {
-  background: #d5da7c;
+  background: #e37209f0;
 }
 
 .main-timeline5 .timeline:nth-child(4n) .timeline-icon {
-  border-top-color: rgba(75, 125, 250, 0.847);
-  border-right-color: rgba(75, 125, 250, 0.847);
+  border-top-color: #7fb9a7f0;
+  border-right-color: #7fb9a7f0;
 }
 
 .main-timeline5 .timeline:nth-child(4n) .year {
-  color: rgba(75, 125, 250, 0.847);
+  color: #7fb9a7f0;
 }
 
 .main-timeline5 .timeline:nth-child(4n) .timeline-content,
 .main-timeline5 .timeline:nth-child(4n) .timeline-content:before {
-  background: rgba(75, 125, 250, 0.847);
+  background: #7fb9a7f0;
 }
 
 @media only screen and (max-width:1199px) {
@@ -236,15 +236,15 @@
 /* Define the keyframes for the animation */
 @keyframes colorChange {
   60% {
-    background-color: #988fffd0;
+    background-color: #00738d;
   }
 
   40% {
-    background-color: #f4f06e;
+    background-color: rgba(14, 68, 151, 0.847);
   }
 
   90% {
-    background-color: rgba(75, 125, 250, 0.999);
+    background-color: #e37209f0;
   }
 }
 

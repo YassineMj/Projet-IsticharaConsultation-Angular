@@ -8,6 +8,10 @@
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     rel="stylesheet"
   />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -24,7 +28,10 @@
           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
             sans-serif;
         "
-        >I<span class="istichara">S</span>TICHARA</a
+        ><i class="fa fa-video" style="color: rgb(0, 0, 0)"></i> I<span
+          class="istichara"
+          >S</span
+        >TICHARA</a
       >
       <button
         class="navbar-toggler shadow-none border-0"
@@ -191,7 +198,7 @@
   </div>
 
   <!-- ModifierConsultationComponent HTML -->
-  <div *ngIf="getConsultations != null" class="container1 mt-4">
+  <div *ngIf="getConsultations != null" class="container1 mt-4" >
     <div class="form-group">
       <label for="description">Description:</label>
       <textarea
@@ -238,8 +245,8 @@
   </div>
 
   <!-- ListerConsultationsComponent HTML -->
-  <div *ngIf="getConsultations != null" class="container mt-4">
-    <table class="table">
+  <div *ngIf="getConsultations != null" class="container mt-4"> 
+    <table class="table" style="border: 4px solid rgba(255, 166, 0, 0.537);">
       <thead>
         <tr>
           <th>Description</th>

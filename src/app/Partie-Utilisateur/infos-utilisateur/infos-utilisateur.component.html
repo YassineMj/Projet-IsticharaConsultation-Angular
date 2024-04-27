@@ -1,21 +1,21 @@
 <body>
   <div class="custom-bg">
     <img
-      src="../../../assets/images/image-infos-header.jpg"
-      style="width: 57%; margin-left: 24%; margin-top: -4%"
+      src="../../../assets/images/image-infos-utilisateur.jpg"
+      style="width: 57%; margin-left: 24%; margin-top: -6%"
       alt=""
     />
   </div>
 
-  <div class="container pt-4" style="margin-bottom: 60px">
+  <div class="container pt-5" style="margin-bottom: 40px">
     <div class="row">
       <div class="col-md-6">
         <div class="card shadow">
           <div class="card-body">
             <div>
               <img
-                src="../../../assets/images/image-infos-card1-infos.jpg"
-                style="width: 50%; margin-left: 25%"
+                src="../../../assets/images/image-infos-card1.jpg"
+                style="width: 80%; margin-left: 10%"
                 alt=""
               />
             </div>
@@ -30,16 +30,12 @@
                     [(ngModel)]="
                       _serviceClientPaiement.infoClientPaiement.nomClient
                     "
-                                  (input)="nomVide = false"
-
-
-
+                    (input)="nomVide = false"
                   />
-                  <span  *ngIf="nomVide" class="text-danger"
+                  <span *ngIf="nomVide" class="text-danger"
                     ><i class="fa fa-exclamation-circle"></i>Le champs est
                     obligatoire</span
                   >
-
                 </div>
                 <div style="margin-left: 5%; width: 107%">
                   <input
@@ -50,18 +46,17 @@
                     [(ngModel)]="
                       _serviceClientPaiement.infoClientPaiement.emailClient
                     "
-                                                      (input)="emailVide = false"
-                                                          (input)="validateEmail()"
-
-
+                    (input)="emailVide = false"
+                    (input)="validateEmail()"
                   />
                   <span *ngIf="emailVide" class="text-danger"
                     ><i class="fa fa-exclamation-circle"></i>Le champs est
                     obligatoire</span
                   >
-                   <span *ngIf="emailInvalid" class="text-danger">
-             <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un email valide
-            </span>
+                  <span *ngIf="emailInvalid" class="text-danger">
+                    <i class="fa fa-exclamation-circle"></i> Veuillez saisir un
+                    email valide
+                  </span>
                 </div>
               </div>
 
@@ -74,8 +69,7 @@
                     [(ngModel)]="
                       _serviceClientPaiement.infoClientPaiement.paysClient
                     "
-                                                      (input)="paysVide = false"
-
+                    (input)="paysVide = false"
                   >
                     <option disabled selected>Pays</option>
                     <option value="maroc">maroc</option>
@@ -92,8 +86,7 @@
                     [(ngModel)]="
                       _serviceClientPaiement.infoClientPaiement.villeClient
                     "
-                                                      (input)="villeVide = false"
-
+                    (input)="villeVide = false"
                   >
                     <option disabled selected>Ville</option>
                     <option *ngFor="let ville of villesMaroc" [value]="ville">
@@ -119,14 +112,12 @@
                       _serviceClientPaiement.infoClientPaiement
                         .codePostaleClient
                     "
-                                                      (input)="codeVide = false"
-
+                    (input)="codeVide = false"
                   />
                   <span *ngIf="codeVide" class="text-danger"
                     ><i class="fa fa-exclamation-circle"></i>Le champs est
                     obligatoire</span
                   >
-
                 </div>
                 <div style="width: 110%; margin-left: 5%">
                   <input
@@ -136,14 +127,12 @@
                     [(ngModel)]="
                       _serviceClientPaiement.infoClientPaiement.provinceClient
                     "
-                                                      (input)="provinceVide = false"
-
+                    (input)="provinceVide = false"
                   />
                   <span *ngIf="provinceVide" class="text-danger"
                     ><i class="fa fa-exclamation-circle"></i>Le champs est
                     obligatoire</span
                   >
-
                 </div>
               </div>
               <br />
@@ -155,15 +144,12 @@
                   [(ngModel)]="
                     _serviceClientPaiement.infoClientPaiement.telephoneClient
                   "
-                                                    (input)="telephoneVide = false"
-
-
+                  (input)="telephoneVide = false"
                 />
                 <span *ngIf="telephoneVide" class="text-danger"
                   ><i class="fa fa-exclamation-circle"></i>Le champs est
                   obligatoire</span
                 >
-
               </div>
               <br />
               <div class="form-group">
@@ -174,10 +160,9 @@
                   [(ngModel)]="
                     _serviceClientPaiement.infoClientPaiement.adresseClient
                   "
-                                                    (input)="adresseVide = false"
-
+                  (input)="adresseVide = false"
                 ></textarea>
-                <span   *ngIf="adresseVide" class="text-danger"
+                <span *ngIf="adresseVide" class="text-danger"
                   ><i class="fa fa-exclamation-circle"></i>Le champs est
                   obligatoire</span
                 >
@@ -191,8 +176,7 @@
                   [(ngModel)]="
                     _serviceClientPaiement.infoClientPaiement.descriptionClient
                   "
-                                                    (input)="descriptionVide = false"
-
+                  (input)="descriptionVide = false"
                 ></textarea>
                 <span *ngIf="descriptionVide" class="text-danger"
                   ><i class="fa fa-exclamation-circle"></i>Le champs est
@@ -205,8 +189,7 @@
                 <input
                   type="checkbox"
                   class="form-check-input"
-                              [(ngModel)]="conditionsAccepted"
-
+                  [(ngModel)]="conditionsAccepted"
                 />
                 <label class="form-check-label"
                   >J'ai lu et accepté
@@ -231,10 +214,10 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" style="margin-top:10px ;">
         <div
           class="card shadow"
-          style="background-color: rgba(240, 248, 255, 0.779)"
+          style="background-color: rgba(240, 248, 255, 0.845)"
         >
           <div class="card-body">
             <img

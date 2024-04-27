@@ -1,19 +1,20 @@
+
 .a {
     text-decoration: none;
-    color: rgb(60, 22, 198);
+    color: rgb(220, 93, 38);
     cursor: pointer;
 }
 
 .valider:hover {
-    background-color: #3d07ff;
+    background-color: #ff7707;
 
     color: white;
 }
 
 .valider {
-    background-color: #bfb7ff60;
-    border: 2px solid #3d07ff;
-    color: #3d07ff;
+    background-color: #fff1e860;
+    border: 2px solid #ff7707;
+    color: #ff7707;
 
     width: 60%;
     margin-left: 20%;

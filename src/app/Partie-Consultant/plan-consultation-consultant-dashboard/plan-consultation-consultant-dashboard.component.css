@@ -1,14 +1,14 @@
 body{
-    background-color: #1818ff12;
+    background-color: #effdfd8e;
 }
 .valider:hover{
-       background-color: #2229ffaf;
+       background-color: #e98000fc;
        color: white;
 }
 .valider{
-        background-color: #bfb7ff60;
-        border: 2px solid #3d07ff;
-        color: #3d07ff;
+        background-color: #fff0e960;
+        border: 2px solid #e98000f1;
+        color: #e98000f1;
         margin-right: 34%;
         margin-top: -2%;
         width: 30%;
@@ -30,7 +30,7 @@ body{
 .th{
 
     text-align: center;
-    background-color: #2c33ffaf;
+    background-color: #007078b8;
     color: white;
 
 }

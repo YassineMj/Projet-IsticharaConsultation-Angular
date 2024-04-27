@@ -1,5 +1,5 @@
   .container {
-      background-color: rgba(240, 240, 240, 0.394);
+      background-color: rgba(53, 189, 199, 0.269);
       border-radius: 20px;
       padding: 10px;
 
@@ -10,6 +10,9 @@
       position: relative;
   }
 
+  .nav-link:hover {
+      color: rgb(13, 41, 255);
+  }
 
   .nav-link::before {
       content: "";
@@ -55,7 +58,7 @@
 
 
   .istichara {
-      color: rgb(138, 127, 188);
+      color: #faa61f;
   }
 
   .logo {
@@ -69,65 +72,28 @@
       transition: 0.35s ease;
   }
 
-  .logo:hover {}
-
-  .logo::before {
-      content: "";
-      position: absolute;
-      width: 10%;
-      height: 2px;
-      background: wheat;
-      border-radius: 5px;
-      transform: scaleX(0);
-      transition: all 0.6s ease;
-  }
-
-  .logo::before {
-      bottom: 0;
-      top: 70%;
-      left: 0;
-      margin-left: 6.5%;
-  }
-
-  .logo:hover::before {
-
+  .logo:hover {
       transform: scaleX(1);
 
   }
 
-  .btncontacternous {
+ .btnchat {
+     background-color: #2d8e86;
+     border: 2px solid rgba(255, 255, 255, 0.591);
+ }
 
-      font-weight: bold;
-      margin-right: 10px;
-      background-color: rgba(254, 254, 254, 0.302);
+ .btnchat:hover {
+     background-color: rgb(78, 192, 165);
+ }
 
-  }
-
- 
-  .btncontacternous:hover {
-    
-      background-color: rgba(240, 248, 255);
-      color: black;
-
-
-  }
-         .btnchat {
-             background: linear-gradient(#6b7adebc, #538bfabc, #566bf7bc);
-             color: white;
- 
-         }
-    
-         .btnchat:hover {
-             background: linear-gradient(to right, #3751ffbc, #7f94e0bc, #3a52efbc);
-         }
   .btnuser {
-       background-color: #6d4cff;
-       color: white;
+      background-color: #ffb535;
+      border: 2px solid rgba(255, 255, 255, 0.591);
 
   }
 
   .btnuser:hover {
-    background-color: rgb(59, 26, 249);
+      background-color: #ffa200;
   }
 
   .white-icon {
