@@ -3,14 +3,15 @@ body {
 }
 
 .header-card1 {
-    background: linear-gradient(to left, #5b53ef, #6754a9, #5b89e4);    color: #fff;
+    background: linear-gradient(to left, #007787, #2a9fa3); 
+    color: #fff;
     padding: 2px 30px ;
     border-radius: 5px 5px 0px 0px;
 }
 
 .header-card2 {
-    background: linear-gradient(to left, #5b53ef, #6754a9, #5b89e4);
-        color: #fff;
+    background: linear-gradient(to left, #009b8e, #2a9fa3);
+    color: #fff;
     padding: 9px 20px;
     border-radius: 5px 5px 0px 0px;
 }
@@ -53,14 +54,14 @@ label {
 }
 
 .validerbtn:hover {
-    background-color: rgba(33, 17, 216, 0.795);
+    background-color: rgba(255, 145, 0, 0.863);
     color: white;
 }
 
 .validerbtn {
-    background-color: rgba(189, 183, 250, 0.557);
-    border: 2px solid rgba(33, 17, 216, 0.795);
-    color: rgba(33, 17, 216, 0.795);
+    background-color: rgba(253, 244, 236, 0.557);
+    border: 2px solid rgba(255, 145, 0, 0.863);
+    color: rgba(255, 145, 0, 0.863);
     font-weight: bold;
     width: 50%;
     margin-left: 25%;

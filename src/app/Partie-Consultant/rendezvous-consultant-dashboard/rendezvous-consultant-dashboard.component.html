@@ -1,3 +1,4 @@
+
 <app-menu-consultant-dashboard></app-menu-consultant-dashboard>
 
 <head>
@@ -9,10 +10,10 @@
 <body>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="listRendezVous == null">
         <div class="card ca text-center">
           <div class="card-body">
-            <h1 *ngIf="listRendezVous == null" class="card-title cat">
+            <h1  class="card-title cat">
               <i class="fa fa-face-smile"></i> Aucun rendez-vous !!
             </h1>
           </div>
@@ -42,12 +43,12 @@
             style="display: flex; align-items: center; padding-top: 10px"
           >
             <h2 style="margin-right: 10px">
-              <i class="fa fa-user fa-2x text-black"></i>
+              <i class="fa fa-user fa-2x text-white"></i>
             </h2>
             <h2
               style="
                 margin-right: auto;
-                color: black;
+                color: rgb(255, 255, 255);
                 text-transform: uppercase;
               "
             >
