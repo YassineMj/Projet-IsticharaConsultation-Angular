@@ -1,0 +1,81 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<body>
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 order-md-2">
+          <img
+            src="../../../assets/images/image-sidentifier-admin.jpg"
+            alt="Image"
+            height="150%"
+            class="img-fluid"
+          />
+        </div>
+        <div
+          class="col-md-6 contents"
+          style="
+            background-color: rgba(216, 227, 255, 0.315);
+            padding: 20px;
+            border-radius: 20px;
+          "
+        >
+          <div class="row justify-content-center">
+            <div class="col-md-8" style="margin-top: 82px">
+              <div class="mb-4">
+                <h3>
+                  <img
+                    src="../../../assets/images/icon-sidentifier-admin.png"
+                    style="width: 13%; border-radius: 40px"
+                    alt=""
+                  />
+                  Portail <strong>Administrateur</strong>
+                </h3>
+                <p class="mb-4">
+                  Bienvenue ! Veuillez vous connecter pour continuer.
+                </p>
+              </div>
+              <form action="#" method="post">
+                <div class="form-group first">
+                  <label for="username"><i class="fa fa-user"></i> Email</label
+                  ><br /><br /><br />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="exemple@gmail.com"
+                  />
+                </div>
+                <div class="form-group last mb-4">
+                  <label for="password">
+                    <i class="fa fa-eye"></i> Mot de pass</label
+                  ><br /><br /><br />
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="*************"
+                  />
+                </div>
+                <input
+                  type="submit"
+                  value="Se connecter"
+                  id="btn"
+                  routerLink="/admin/menu-admin"
+                  class="btn text-black btn-block btn-warning"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

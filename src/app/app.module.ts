@@ -52,6 +52,13 @@ import { InfosConsultationUtilisateurComponent } from './Partie-Utilisateur/info
 import { ActualitesUtilisateurComponent } from './Partie-Utilisateur/actualites-utilisateur/actualites-utilisateur.component';
 import { RendezvousAccepteConsultantDashboardComponent } from './Partie-Consultant/rendezvous-accepte-consultant-dashboard/rendezvous-accepte-consultant-dashboard.component';
 import { RendezvousRefuserConsultantDashboardComponent } from './Partie-Consultant/rendezvous-refuser-consultant-dashboard/rendezvous-refuser-consultant-dashboard.component';
+import { SidentifierAdminComponent } from './Partie-Admin/sidentifier-admin/sidentifier-admin.component';
+import { MenuAdminComponent } from './Partie-Admin/menu-admin/menu-admin.component';
+import { DashboardAdminComponent } from './Partie-Admin/dashboard-admin/dashboard-admin.component';
+import { DomaineCrudAdminComponent } from './Partie-Admin/domaine-crud-admin/domaine-crud-admin.component';
+import { CategorieCrudAdminComponent } from './Partie-Admin/categorie-crud-admin/categorie-crud-admin.component';
+import { QuestionCrudAdminComponent } from './Partie-Admin/question-crud-admin/question-crud-admin.component';
+import { ConsultantDemandeAdminComponent } from './Partie-Admin/consultant-demande-admin/consultant-demande-admin.component';
 
 
 @NgModule({
@@ -83,6 +90,13 @@ import { RendezvousRefuserConsultantDashboardComponent } from './Partie-Consulta
     ActualitesUtilisateurComponent,
     RendezvousAccepteConsultantDashboardComponent,
     RendezvousRefuserConsultantDashboardComponent,
+    SidentifierAdminComponent,
+    MenuAdminComponent,
+    DashboardAdminComponent,
+    DomaineCrudAdminComponent,
+    CategorieCrudAdminComponent,
+    QuestionCrudAdminComponent,
+    ConsultantDemandeAdminComponent,
   ],
   imports: [
 
