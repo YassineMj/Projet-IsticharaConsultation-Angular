@@ -24,23 +24,58 @@ import { InfosConsultationUtilisateurComponent } from './Partie-Utilisateur/info
 import { ActualitesUtilisateurComponent } from './Partie-Utilisateur/actualites-utilisateur/actualites-utilisateur.component';
 import { RendezvousAccepteConsultantDashboardComponent } from './Partie-Consultant/rendezvous-accepte-consultant-dashboard/rendezvous-accepte-consultant-dashboard.component';
 import { RendezvousRefuserConsultantDashboardComponent } from './Partie-Consultant/rendezvous-refuser-consultant-dashboard/rendezvous-refuser-consultant-dashboard.component';
+import { SidentifierAdminComponent } from './Partie-Admin/sidentifier-admin/sidentifier-admin.component';
+import { MenuAdminComponent } from './Partie-Admin/menu-admin/menu-admin.component';
+import { QuestionCrudAdminComponent } from './Partie-Admin/question-crud-admin/question-crud-admin.component';
+import { DomaineCrudAdminComponent } from './Partie-Admin/domaine-crud-admin/domaine-crud-admin.component';
+import { DashboardAdminComponent } from './Partie-Admin/dashboard-admin/dashboard-admin.component';
+import { CategorieCrudAdminComponent } from './Partie-Admin/categorie-crud-admin/categorie-crud-admin.component';
+import { ConsultantDemandeAdminComponent } from './Partie-Admin/consultant-demande-admin/consultant-demande-admin.component';
 
 
 //routes partie utilisateur
 const utilisateurRoutes:Routes=[
 
-  {path:'' , redirectTo: 'accueil-utilisateur', pathMatch: 'full'},
-  {path:'accueil-utilisateur' , component:AccueilUtilisateurComponent},
-  {path:'domaine-utilisateur' , component:DomaineUtilisateurComponent},
-  {path:'recherche-utilisateur' , component:RechercheUtilisateurComponent},
-  {path:'apropos-utilisateur' , component:AproposUtilisateurComponent},
+  { path:'' , redirectTo: 'accueil-utilisateur', pathMatch: 'full'},
+  { path:'accueil-utilisateur' , component:AccueilUtilisateurComponent},
+  { path:'domaine-utilisateur' , component:DomaineUtilisateurComponent},
+  { path:'recherche-utilisateur' , component:RechercheUtilisateurComponent},
+  { path:'apropos-utilisateur' , component:AproposUtilisateurComponent},
   { path: 'contact-utilisateur', component: ContactUtilisateurComponent },
   { path: 'profilConsultant-utilisateur/:idConsultant', component: ProfilConsultantUtilisateurComponent },
-  {path:'infos-utilisateur/:idPlan',component:InfosUtilisateurComponent},
+  { path:'infos-utilisateur/:idPlan',component:InfosUtilisateurComponent},
   { path: 'paiement-utilisateur', component: PaiementUtilisateurComponent },
   { path: 'infos-consultation-utilisateur', component: InfosConsultationUtilisateurComponent },
-  {path: 'actualites-utilisateur', component:ActualitesUtilisateurComponent}
+  { path: 'actualites-utilisateur', component: ActualitesUtilisateurComponent }
+  
 ]
+
+
+
+/*const routes: Routes = [
+  {
+    path: 'menu',
+    component: MenuComponent,
+       children: [
+         { path: 'acceuil', component: AcceuilComponent },
+         { path: 'poub', component: PoubComponent },
+         { path: 'dashboard', component: DashboardComponent },
+      // Add more routes as needed for other components
+    ]
+  },
+  { path: '', redirectTo: '/menu/poub', pathMatch: 'full' } // Default route
+];*/
+
+//admins Rout
+const adminRoutes: Routes = [
+    
+      { path: 'sidentifier-admin', component: SidentifierAdminComponent },
+      { path: 'question-admin', component: QuestionCrudAdminComponent },
+      { path: 'domaine-admin', component: DomaineCrudAdminComponent },
+      { path: 'dashboard-admin', component: DashboardAdminComponent },
+      { path: 'categorie-admin', component: CategorieCrudAdminComponent },
+      { path: 'consultant-admin', component: ConsultantDemandeAdminComponent },
+];
 
 //routes partie consultant
 const consultantRoutes: Routes = [
@@ -82,15 +117,17 @@ const consultantRoutes: Routes = [
     path: 'rendezvous-refuser-consultant-dashboard',
     component: RendezvousRefuserConsultantDashboardComponent,
   },
+
 ];
 
 const routes: Routes = [
 
   {path:'' , redirectTo: '/utilisateur/accueil-utilisateur', pathMatch: 'full'},
   {path:'utilisateur' , children:utilisateurRoutes},
-  {path:'consultant' , children:consultantRoutes},
+  {path: 'consultant', children: consultantRoutes },
+  {path:'admin',component:MenuAdminComponent, children:  adminRoutes },
   {path:'paiement-conditions',component:ConditionPaiementComponent},
-  { path: 'termes-conditions', component: ConditionComponent },
+  {path: 'termes-conditions', component: ConditionComponent },
 
 ];
 
