@@ -38,7 +38,7 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link nav-icon" data-bs-toggle="dropdown">
-          <i class="fa fa-bell " style="color: rgb(3, 101, 108);"></i>
+          <i class="fa fa-bell" style="color: rgb(3, 101, 108)"></i>
           <span class="badge bg-warning badge-number">4</span> </a
         ><!-- End Notification Icon -->
 
@@ -81,7 +81,7 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link nav-icon" data-bs-toggle="dropdown">
-          <i class="fa fa-message" style="color: rgb(3, 101, 108);"></i>
+          <i class="fa fa-message" style="color: rgb(3, 101, 108)"></i>
           <span class="badge bg-danger badge-number">3</span>
         </a>
         <ul
@@ -214,7 +214,6 @@
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
         <a class="nav-link" routerLink="/admin/dashboard-admin">
-          
           <i class="bi bi-bar-chart"></i><span>Dashboard</span>
         </a>
       </li>
@@ -223,22 +222,12 @@
       <li class="nav-item">
         <a
           class="nav-link collapsed"
-          data-bs-target="#components-nav"
+          data-bs-target="#forms-nav"
           data-bs-toggle="collapse"
-          routerLink="/admin/domaine-admin"
+          routerLink="/admin/categorie-admin"
         >
-          <i class="fa-solid fa-globe"></i><span>Domaine</span
-          ><i class="fa fa-chevron-down ms-auto"></i>
+          <i class="fa-solid fa-globe"></i><span>Domaines</span>
         </a>
-        <ul
-          id="components-nav"
-          class="nav-content collapse"
-          data-bs-parent="#sidebar-nav"
-        >
-          <li>
-            <a> <i class="fa fa-circle"></i><span>Alerts</span> </a>
-          </li>
-        </ul>
       </li>
       <!-- End Components Nav -->
 
@@ -249,13 +238,60 @@
           data-bs-toggle="collapse"
           routerLink="/admin/categorie-admin"
         >
-          <i class="fa-solid fa-layer-group"></i><span>Categories</span
-          >
+          <i class="fa-solid fa-layer-group"></i><span>Categories</span>
         </a>
-        
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link collapsed"
+          data-bs-target="#forms-nav"
+          data-bs-toggle="collapse"
+          routerLink="/admin/question-admin"
+        >
+          <i class="fa-solid fa-question"></i><span>FAQ</span>
+        </a>
       </li>
       <!-- End Forms Nav -->
+       <!-- End Dashboard Nav -->
 
+      <li class="nav-item">
+        <a
+          class="nav-link collapsed"
+          data-bs-target="#components-nav"
+          data-bs-toggle="collapse"
+
+        >
+          <i class="fa-solid fa-users"></i><span>Consultants</span
+          ><i class="fa fa-chevron-down ms-auto"></i>
+        </a>
+        <ul
+          id="components-nav"
+          class="nav-content collapse"
+          data-bs-parent="#sidebar-nav"
+        >
+          <li>
+            <a  routerLink="/admin/consultant-demande-admin"> <i class="fa fa-circle"></i><span>Demande de Création</span> </a>
+          </li>
+          <li>
+            <a routerLink="/admin/consultant-accepter-admin"> <i class="fa fa-circle"></i><span>Consultant Acceptés</span> </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End Components Nav -->
+
+
+
+      <li class="nav-item">
+        <a
+        routerLink="/admin/consultation-verification-admin"
+          class="nav-link collapsed"
+          data-bs-target="#charts-nav"
+          data-bs-toggle="collapse"
+        >
+          <i class="bi bi-grid"></i><span>Consultation</span>
+        </a>
+      </li>
+      <!-- End Charts Nav -->
       <li class="nav-item">
         <a
           class="nav-link collapsed"
@@ -263,24 +299,10 @@
           data-bs-toggle="collapse"
           routerLink="/admin/sidentifier-admin"
         >
-          <i class="fa fa-circle-info"></i><span>Help</span
-          >
+          <i class="fa fa-circle-info"></i><span>Help</span>
         </a>
       </li>
       <!-- End Tables Nav -->
-
-      <li class="nav-item">
-        <a
-          class="nav-link collapsed"
-          data-bs-target="#charts-nav"
-          data-bs-toggle="collapse"
-        >
-          <i class="bi bi-grid"></i><span>Consultation</span
-          >
-        </a>
-    
-      </li>
-      <!-- End Charts Nav -->
     </ul>
   </aside>
   <!-- End Sidebar-->

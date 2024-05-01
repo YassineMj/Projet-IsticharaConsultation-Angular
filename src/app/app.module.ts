@@ -59,6 +59,8 @@ import { DomaineCrudAdminComponent } from './Partie-Admin/domaine-crud-admin/dom
 import { CategorieCrudAdminComponent } from './Partie-Admin/categorie-crud-admin/categorie-crud-admin.component';
 import { QuestionCrudAdminComponent } from './Partie-Admin/question-crud-admin/question-crud-admin.component';
 import { ConsultantDemandeAdminComponent } from './Partie-Admin/consultant-demande-admin/consultant-demande-admin.component';
+import { ConsultantAccpeterAdminComponent } from './Partie-Admin/consultant-accpeter-admin/consultant-accpeter-admin.component';
+import { ConsultationsVerificationAdminComponent } from './Partie-Admin/consultations-verification-admin/consultations-verification-admin.component';
 
 
 @NgModule({
@@ -97,6 +99,8 @@ import { ConsultantDemandeAdminComponent } from './Partie-Admin/consultant-deman
     CategorieCrudAdminComponent,
     QuestionCrudAdminComponent,
     ConsultantDemandeAdminComponent,
+    ConsultantAccpeterAdminComponent,
+    ConsultationsVerificationAdminComponent,
   ],
   imports: [
 
