@@ -51,25 +51,9 @@ const utilisateurRoutes:Routes=[
 ]
 
 
-
-/*const routes: Routes = [
-  {
-    path: 'menu',
-    component: MenuComponent,
-       children: [
-         { path: 'acceuil', component: AcceuilComponent },
-         { path: 'poub', component: PoubComponent },
-         { path: 'dashboard', component: DashboardComponent },
-      // Add more routes as needed for other components
-    ]
-  },
-  { path: '', redirectTo: '/menu/poub', pathMatch: 'full' } // Default route
-];*/
-
 //admins Rout
 const adminRoutes: Routes = [
     
-      { path: 'sidentifier-admin', component: SidentifierAdminComponent },
       { path: 'question-admin', component: QuestionCrudAdminComponent },
       { path: 'domaine-admin', component: DomaineCrudAdminComponent },
       { path: 'dashboard-admin', component: DashboardAdminComponent },
@@ -128,6 +112,7 @@ const routes: Routes = [
   {path:'admin',component:MenuAdminComponent, children:  adminRoutes },
   {path:'paiement-conditions',component:ConditionPaiementComponent},
   {path: 'termes-conditions', component: ConditionComponent },
+  {path: 'sidentifier-admin', component: SidentifierAdminComponent },
 
 ];
 

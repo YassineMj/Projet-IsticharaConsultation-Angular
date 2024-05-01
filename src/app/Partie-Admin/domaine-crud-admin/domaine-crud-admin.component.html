@@ -13,12 +13,12 @@
 />
 <body>
   <div class="container">
-    <div class="section-title" style="padding-top: 10%;">
+    <div class="section-title" style="padding-top: 10%">
       <h3><i class="fa fa-globe"></i> Domaine</h3>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div class="card card1 shadow">
+        <div class="card card1">
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
@@ -50,8 +50,12 @@
                 placeholder=" Description de domaine"
               ></textarea>
             </div>
-            <div class="text-center">
-              <button type="button" class="btn btnAjouter">Ajouter</button>
+            <div class="col-md-10 d-flex justify-content-end">
+              <div class="text-left">
+                <button type="button" class="btn btnAjouter">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -80,46 +84,22 @@
                 <tbody>
                   <tr>
                     <td class="text-center">1</td>
+                    <td>Sport</td>
                     <td>
-                      <ng-container *ngIf="!isEditing; else editdomaine">
-                        {{ domaine }}
-                      </ng-container>
-                      <ng-template #editdomaine>
-                        <input class="form-control" [(ngModel)]="domaine" />
-                      </ng-template>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Tempore, accusamus in. Nemo repudiandae voluptate saepe
+                      fuga rerum quas, tenetur temporibus facere pariatur ut
+                      tempora provident fugiat unde quisquam. Illo, eaque!
                     </td>
                     <td>
-                      <ng-container *ngIf="!isEditing; else editField">
-                        {{ message }}
-                      </ng-container>
-                      <ng-template #editField>
-                        <textarea
-                          class="form-control"
-                          id="descriptionInput"
-                          rows="5"
-                          [(ngModel)]="message"
-                          placeholder="Enter Description"
-                        ></textarea>
-                      </ng-template>
-                    </td>
-                    <td>
-                      <div *ngIf="!isEditing">
+                      <div>
                         <img
                           src="../../../assets/images/image-contacter-nous.jpg"
                           width="200px"
                           alt=""
                         />
                       </div>
-                      <div *ngIf="isEditing">
-                        <input
-                          type="file"
-                          id="1"
-                          class="form-control form-control-sm"
-                          (change)="onFileSelected($event)"
-                        />
-                      </div>
                     </td>
-
                     <td
                       class="td-actions text-right"
                       style="
@@ -133,7 +113,8 @@
                         rel="tooltip"
                         class="btn btn-info btn-round btn-just-icon"
                         style="margin-right: 4px"
-                        (click)="isEditing = !isEditing"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
                       >
                         <i class="fa fa-edit" style="font-size: medium"></i>
                       </button>
@@ -151,6 +132,87 @@
                   </tr>
                 </tbody>
               </table>
+              <!-- Button trigger modal -->
+              <div class="modal fade" id="exampleModal">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title" id="exampleModalLabel">
+                          <i class="fa fa-pen"></i> Modifier
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close text-white"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="nomInput" class="form-label"
+                                  >Domaine</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="nomInput"
+                                  placeholder="Nom de domaine"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="mb-3">
+                                <label for="imageInput" class="form-label"
+                                  >Image</label
+                                >
+                                <input
+                                  type="file"
+                                  class="form-control"
+                                  id="imageInput"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="mb-3">
+                                <label for="descriptionInput" class="form-label"
+                                  >Description</label
+                                >
+                                <textarea
+                                  class="form-control"
+                                  id="descriptionInput"
+                                  rows="3"
+                                  placeholder=" Description de categorie"
+                                ></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer justify-content-center">
+                        <button
+                          type="button"
+                          class="btn btn-round colormodalfermer"
+                          data-bs-dismiss="modal"
+                        >
+                          <i class="fa fa-close text-white"></i>
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-round colormodalmodifier"
+                        >
+                          <i class="fa fa-save text-white"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
