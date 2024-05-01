@@ -16,21 +16,22 @@ input[type="text"] {
 }
 
 .btnAjouter {
-    font-size: 15px;
-    background-color: #fcf5f2;
-    color: #ff6a00;
-    border: 3px solid #ff6a00a2;
-    font-weight: bold;
-    border-radius: 50px;
+    font-size: 20px;
+    background-color: #ff8800ac;
+    color: #fffffffc;
+    font-weight: bolder;
+    border-radius: 100px;
+    outline: none;
+
 
 
 }
 
 .btnAjouter:hover {
 
-    background-color: #ff8c3ae4;
-    color: #ffffff;
-
+    background-color: #ff8a03cc;
+    color: #fffffffc;
+    outline: none;
 
 
 }
@@ -41,7 +42,7 @@ input[type="text"]:focus {
     /* Change border color on focus */
     outline: 0;
     /* Remove default focus outline */
-    box-shadow: 0 0 0 0.2rem rgba(4, 102, 129, 0.534);
+    box-shadow: 0 0 0 0.2rem rgba(58, 100, 112, 0.534);
     /* Add box shadow on focus */
 }
 
@@ -67,9 +68,9 @@ input[type="text"]:focus {
     /* Add border radius */
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
     /* Add box shadow */
-    border-top: 22px solid #046a839a;
+    border-top: 22px solid #ff6a00c5;
     border-radius: 40px;
-            border-bottom: 5px solid #046a839a;
+            border-bottom: 5px solid #ff6a00c5;
     margin: 2%;
 }
 .card1{
@@ -78,9 +79,13 @@ input[type="text"]:focus {
         /* Add border radius */
         box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
         /* Add box shadow */
-        border-top: 24px solid #046a839a;
-        border-bottom: 5px solid #046a839a;
+        border-top: 24px solid #ff6a00c5;
+        border-bottom: 5px solid #ff6a00c5;
         border-radius: 41px;
+}
+.card1:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
 }
 .card-body {
     padding: 1.25rem;
@@ -550,3 +555,44 @@ small {
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
     color: #555 !important;
 }
+
+
+.colormodalmodifier {
+    background-color: #f39f0f;
+    color: white;
+    font-size: 20px;
+    border-radius: 100px;
+
+}
+
+.colormodalmodifier:hover {
+    background-color: #f3be0f;
+    color: white;
+
+
+}
+
+.colormodalfermer {
+    background-color: rgb(52, 52, 52);
+    color: white;
+    font-size: 20px;
+    border-radius: 100px;
+}
+
+.colormodalfermer:hover {
+    background-color: rgb(52, 52, 52);
+    color: white;
+
+}
+
+/* Style for Modal Header */
+.modal-header {
+    background-color: rgb(179, 231, 253);
+    color: rgb(0, 0, 0);
+    padding: 7px 20px;
+    
+}
+.modal-title{
+    padding-top: 12px;
+}
+
