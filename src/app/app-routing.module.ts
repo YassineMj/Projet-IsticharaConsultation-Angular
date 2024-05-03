@@ -57,6 +57,7 @@ const utilisateurRoutes: Routes = [
 
 //admins Rout
 const adminRoutes: Routes = [
+  { path: '', redirectTo: 'dashboard-admin', pathMatch: 'full' },
   { path: 'question-admin', component: QuestionCrudAdminComponent },
   { path: 'domaine-admin', component: DomaineCrudAdminComponent },
   { path: 'dashboard-admin', component: DashboardAdminComponent },
@@ -129,7 +130,7 @@ const routes: Routes = [
   { path: 'admin', component: MenuAdminComponent, children: adminRoutes },
   { path: 'paiement-conditions', component: ConditionPaiementComponent },
   { path: 'termes-conditions', component: ConditionComponent },
-  { path: 'sidentifier-admin', component: SidentifierAdminComponent },
+  { path: 'admin-sidentifier', component: SidentifierAdminComponent },
 ];
 
 @NgModule({

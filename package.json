@@ -27,6 +27,7 @@
     "angularx-flatpickr": "^7.3.0",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "chart.js": "^4.4.2",
     "date-fns": "^2.30.0",
     "file-saver": "^2.0.5",
     "flatpickr": "^4.6.13",

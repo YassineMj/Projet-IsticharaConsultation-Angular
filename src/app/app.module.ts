@@ -24,18 +24,13 @@ import { ContactConsultantDashboardComponent } from './Partie-Consultant/contact
 import { ConsultationsConsultantDashboardComponent } from './Partie-Consultant/consultations-consultant-dashboard/consultations-consultant-dashboard.component';
 import { PlanConsultationConsultantDashboardComponent } from './Partie-Consultant/plan-consultation-consultant-dashboard/plan-consultation-consultant-dashboard.component';
 
-
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlanConsultationUtilisateurComponent } from './Partie-Utilisateur/plan-consultation-utilisateur/plan-consultation-utilisateur.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  FormBuilder,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -61,7 +56,7 @@ import { QuestionCrudAdminComponent } from './Partie-Admin/question-crud-admin/q
 import { ConsultantDemandeAdminComponent } from './Partie-Admin/consultant-demande-admin/consultant-demande-admin.component';
 import { ConsultantAccpeterAdminComponent } from './Partie-Admin/consultant-accpeter-admin/consultant-accpeter-admin.component';
 import { ConsultationsVerificationAdminComponent } from './Partie-Admin/consultations-verification-admin/consultations-verification-admin.component';
-
+import { BarChartComponent } from './Partie-Admin/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -101,9 +96,9 @@ import { ConsultationsVerificationAdminComponent } from './Partie-Admin/consulta
     ConsultantDemandeAdminComponent,
     ConsultantAccpeterAdminComponent,
     ConsultationsVerificationAdminComponent,
+    BarChartComponent,
   ],
   imports: [
-
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -129,9 +124,7 @@ import { ConsultationsVerificationAdminComponent } from './Partie-Admin/consulta
     MatCheckboxModule,
     MatTabsModule,
   ],
-  providers: [
-
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
