@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <main id="main" class="main">
+      <div class="pagetitle">
+        <h1>Profile</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a>Admin</a></li>
+          </ol>
+        </nav>
+      </div>
+      <!-- End Page Title -->
+
+      <section class="section profile">
+        <div class="row">
+          <div class="col-xl-4">
+            <div class="card">
+              <div
+                class="card-body profile-card pt-4 d-flex flex-column align-items-center"
+              >
+                <img
+                  src="../../../assets/images/icon-sidentifier-admin.png"
+                  alt="Profile"
+                  width="60%"
+                  class="rounded-circle"
+                />
+                <br />
+                <h2>Hajji Oumaima</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-8">
+            <div class="card">
+              <div class="card-body pt-3">
+                <!-- Bordered Tabs -->
+                <ul class="nav nav-tabs nav-tabs-bordered">
+                  <li class="nav-item">
+                    <button
+                      class="nav-link active"
+                      data-bs-toggle="tab"
+                      data-bs-target="#profile-overview"
+                    >
+                      <i class="fa fa-user"></i> Profile
+                    </button>
+                  </li>
+
+                  <li class="nav-item">
+                    <button
+                      class="nav-link"
+                      data-bs-toggle="tab"
+                      data-bs-target="#profile-edit"
+                    >
+                      <i class="fa fa-edit"></i> Modifier
+                    </button>
+                  </li>
+
+                  <li class="nav-item">
+                    <button
+                      class="nav-link"
+                      data-bs-toggle="tab"
+                      data-bs-target="#profile-change-password"
+                    >
+                      <i class="fa fa-eye"></i> Changer le mot de passe
+                    </button>
+                  </li>
+                </ul>
+                <div class="tab-content pt-2">
+                  <div
+                    class="tab-pane fade show active profile-overview"
+                    id="profile-overview"
+                  >
+                    <h5 class="card-title">A propos</h5>
+                    <p class="small fst-italic">
+                      Administrateur expérimenté et web designer passionné. Je
+                      garantis la fluidité et la sécurité de notre plateforme
+                      tout en veillant à ce que l'interface utilisateur soit
+                      intuitive et esthétique.
+                    </p>
+
+                    <h5 class="card-title">Profile Details</h5>
+
+                    <div
+                      class="row"
+                      style="border-left: 4px solid rgba(150, 210, 255, 0.632)"
+                    >
+                      <div class="col-lg-1 col-md-4 label">
+                        <strong><i class="fa fa-user"></i> </strong>
+                      </div>
+                      <div class="col-lg-11 col-md-8">Hajji Oumaima</div>
+                    </div>
+
+                    <div
+                      class="row"
+                      style="border-left: 4px solid rgba(150, 210, 255, 0.632)"
+                    >
+                      <div class="col-lg-1 col-md-4 label">
+                        <strong><i class="fa-solid fa-envelope"></i> </strong>
+                      </div>
+                      <div class="col-lg-11 col-md-8">
+                        ouma.hajj123@gmail.com
+                      </div>
+                    </div>
+
+                    <div
+                      class="row"
+                      style="border-left: 4px solid rgba(150, 210, 255, 0.632)"
+                    >
+                      <div class="col-lg-1 col-md-4 label">
+                        <strong> <i class="fa-solid fa-phone"></i> </strong>
+                      </div>
+                      <div class="col-lg-11 col-md-8">+212 604440220</div>
+                    </div>
+
+                    <div
+                      class="row"
+                      style="border-left: 4px solid rgba(150, 210, 255, 0.632)"
+                    >
+                      <div class="col-lg-1 col-md-4 label">
+                        <strong>
+                          <i class="fa-solid fa-earth-americas"></i>
+                        </strong>
+                      </div>
+                      <div class="col-lg-11 col-md-8">Maroc</div>
+                    </div>
+
+                    <div
+                      class="row"
+                      style="border-left: 4px solid rgba(150, 210, 255, 0.632)"
+                    >
+                      <div class="col-lg-1 col-md-4 label">
+                        <strong>
+                          <i class="fa-solid fa-location-dot"></i>
+                        </strong>
+                      </div>
+                      <div class="col-lg-11 col-md-8">
+                        A108 Rue fallah chari3 ahram
+                      </div>
+                    </div>
+
+                    <div
+                      class="row"
+                      style="border-left: 4px solid rgba(150, 210, 255, 0.632)"
+                    >
+                      <div class="col-lg-1 col-md-4 label">
+                        <strong>
+                          <i class="fa-solid fa-business-time"></i>
+                        </strong>
+                      </div>
+                      <div class="col-lg-11 col-md-8">Web designer</div>
+                    </div>
+
+                    <hr
+                      style="
+                        border: 4px solid rgba(156, 218, 244, 0.934);
+                        background-color: aliceblue;
+                        border-radius: 10px;
+                        width: 60%;
+                      "
+                    />
+                  </div>
+
+                  <div
+                    class="tab-pane fade profile-edit pt-3"
+                    id="profile-edit"
+                  >
+                    <!-- Profile Edit Form -->
+                    <form>
+                      <div class="row mb-3">
+                        <label
+                          for="profileImage"
+                          class="col-md-4 col-lg-3 col-form-label"
+                          >Profile Image</label
+                        >
+                        <div class="col-md-8 col-lg-9">
+                          <img
+                            [src]="
+                              profileImageUrl ||
+                              '../../assets/image/image-user.png'
+                            "
+                            width="55%"
+                            alt="Profile"
+                          />
+                          <div class="pt-2">
+                            <label
+                              for="profile-image"
+                              class="btn btn-warning btn-sm"
+                              title="Upload new profile image"
+                            >
+                              <i class="fa fa-upload"></i> Modifier l'image
+                            </label>
+                            <input
+                              type="file"
+                              id="profile-image"
+                              name="profile-image"
+                              style="display: none"
+                              (change)="onFileSelected($event)"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label
+                          for="fullName"
+                          class="col-md-4 col-lg-3 col-form-label"
+                          >Nom complet</label
+                        >
+                        <div class="col-md-8 col-lg-9">
+                          <input
+                            name="fullName"
+                            type="text"
+                            class="form-control"
+                            id="fullName"
+                            value="Hajji Oumaima"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label
+                          for="about"
+                          class="col-md-4 col-lg-3 col-form-label"
+                          >A propos</label
+                        >
+                        <div class="col-md-8 col-lg-9">
+                          <textarea
+                            name="about"
+                            class="form-control"
+                            id="about"
+                            style="height: 100px"
+                          >
+                           Administrateur expérimenté et web designer passionné. Je
+                      garantis la fluidité et la sécurité de notre plateforme
+                      tout en veillant à ce que l'interface utilisateur soit
+                      intuitive et esthétique.
+                          </textarea>
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label
+                          for="email"
+                          class="col-md-4 col-lg-3 col-form-label"
+                        >
+                          Email</label
+                        >
+                        <div class="col-md-8 col-lg-9">
+                          <input
+                            name="company"
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            value="ouma.hajj123@gmail.com"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label
+                          for="Phone"
+                          class="col-md-4 col-lg-3 col-form-label"
+                          >Telephone</label
+                        >
+                        <div class="col-md-8 col-lg-9">
+                          <input
+                            name="phone"
+                            type="text"
+                            class="form-control"
+                            id="Phone"
+                            value="+212 65456787"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label
+                          for="Country"
+                          class="col-md-4 col-lg-3 col-form-label"
+                          >Pays
+                        </label>
+                        <div class="col-md-8 col-lg-9">
+                          <input
+                            name="country"
+                            type="text"
+                            class="form-control"
+                            id="Country"
+                            value="Maroc"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label
+                          for="Address"
+                          class="col-md-4 col-lg-3 col-form-label"
+                          >Address</label
+                        >
+                        <div class="col-md-8 col-lg-9">
+                          <input
+                            name="address"
+                            type="text"
+                            class="form-control"
+                            id="Address"
+                            value="A108 haay fallah chari3 ahram berkane"
+                          />
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label
+                          for="travail"
+                          class="col-md-4 col-lg-3 col-form-label"
+                          >Travail</label
+                        >
+                        <div class="col-md-8 col-lg-9">
+                          <input
+                            name="travail"
+                            type="text"
+                            class="form-control"
+                            id="travail"
+                            value="Web designer"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-info text-white">
+                          Sauvegarder
+                        </button>
+                      </div>
+                    </form>
+                    <!-- End Profile Edit Form -->
+                  </div>
+
+                  <div class="tab-pane fade pt-3" id="profile-change-password">
+                    <!-- Change Password Form -->
+                    <form>
+                      <div class="row mb-3">
+                        <label
+                          for="currentPassword"
+                          class="col-md-4 col-lg-3 col-form-label"
+                          >Mot de passe actuel</label
+                        >
+                        <div class="col-md-8 col-lg-9">
+                          <input
+                            name="password"
+                            type="password"
+                            class="form-control"
+                            id="currentPassword"
+                            placeholder="Mot de passe actuel"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label
+                          for="newPassword"
+                          class="col-md-4 col-lg-3 col-form-label"
+                          >Nouveau mot de passe</label
+                        >
+                        <div class="col-md-8 col-lg-9">
+                          <input
+                            name="newpassword"
+                            type="password"
+                            class="form-control"
+                            id="newPassword"
+                            placeholder="Nouveau mot de passe"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="row mb-3">
+                        <label
+                          for="renewPassword"
+                          class="col-md-4 col-lg-3 col-form-label"
+                          >Ré-entrez le nouveau mot de passe</label
+                        >
+                        <div class="col-md-8 col-lg-9">
+                          <input
+                            name="renewpassword"
+                            type="password"
+                            class="form-control"
+                            id="renewPassword"
+                            placeholder="Ré-entrez le nouveau mot de passe"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-info text-white">
+                          Sauvegarder
+                        </button>
+                      </div>
+                    </form>
+                    <!-- End Change Password Form -->
+                  </div>
+                </div>
+                <!-- End Bordered Tabs -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- End #main -->
+  </body>
+</html>

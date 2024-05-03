@@ -57,6 +57,7 @@ import { ConsultantDemandeAdminComponent } from './Partie-Admin/consultant-deman
 import { ConsultantAccpeterAdminComponent } from './Partie-Admin/consultant-accpeter-admin/consultant-accpeter-admin.component';
 import { ConsultationsVerificationAdminComponent } from './Partie-Admin/consultations-verification-admin/consultations-verification-admin.component';
 import { BarChartComponent } from './Partie-Admin/bar-chart/bar-chart.component';
+import { ProfilAdminComponent } from './Partie-Admin/profil-admin/profil-admin.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { BarChartComponent } from './Partie-Admin/bar-chart/bar-chart.component'
     ConsultantAccpeterAdminComponent,
     ConsultationsVerificationAdminComponent,
     BarChartComponent,
+    ProfilAdminComponent,
   ],
   imports: [
     BrowserModule,

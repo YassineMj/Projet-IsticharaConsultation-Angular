@@ -33,6 +33,7 @@ import { CategorieCrudAdminComponent } from './Partie-Admin/categorie-crud-admin
 import { ConsultantDemandeAdminComponent } from './Partie-Admin/consultant-demande-admin/consultant-demande-admin.component';
 import { ConsultantAccpeterAdminComponent } from './Partie-Admin/consultant-accpeter-admin/consultant-accpeter-admin.component';
 import { ConsultationsVerificationAdminComponent } from './Partie-Admin/consultations-verification-admin/consultations-verification-admin.component';
+import { ProfilAdminComponent } from './Partie-Admin/profil-admin/profil-admin.component';
 
 //routes partie utilisateur
 const utilisateurRoutes: Routes = [
@@ -57,11 +58,14 @@ const utilisateurRoutes: Routes = [
 
 //admins Rout
 const adminRoutes: Routes = [
+
   { path: '', redirectTo: 'dashboard-admin', pathMatch: 'full' },
   { path: 'question-admin', component: QuestionCrudAdminComponent },
   { path: 'domaine-admin', component: DomaineCrudAdminComponent },
   { path: 'dashboard-admin', component: DashboardAdminComponent },
   { path: 'categorie-admin', component: CategorieCrudAdminComponent },
+  { path: 'profil-admin', component: ProfilAdminComponent },
+
   {
     path: 'consultant-demande-admin',
     component: ConsultantDemandeAdminComponent,
@@ -124,7 +128,6 @@ const routes: Routes = [
     redirectTo: '/utilisateur/accueil-utilisateur',
     pathMatch: 'full',
   },
-
   { path: 'utilisateur', children: utilisateurRoutes },
   { path: 'consultant', children: consultantRoutes },
   { path: 'admin', component: MenuAdminComponent, children: adminRoutes },
