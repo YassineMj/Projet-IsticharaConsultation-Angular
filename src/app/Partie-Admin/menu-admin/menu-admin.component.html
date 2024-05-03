@@ -23,7 +23,6 @@
         >TICHARA</span
       >
     </a>
-
     <i
       class="fa fa-list toggle-sidebar-btn"
       style="color: rgb(255, 145, 0)"
@@ -167,12 +166,9 @@
           </li>
 
           <li>
-            <a
-              class="dropdown-item d-flex align-items-center"
-              href="../../assets/image/USER.jpg"
-            >
-              <i class="fa fa-person"></i>
-              <span>My Profile</span>
+            <a class="dropdown-item d-flex align-items-center"  routerLink="/admin/profil-admin">
+              <i class="fa fa-user"></i>
+              <span>Mon profile</span>
             </a>
           </li>
           <li>
@@ -180,10 +176,7 @@
           </li>
 
           <li>
-            <a
-              class="dropdown-item d-flex align-items-center"
-              href="pages-faq.html"
-            >
+            <a class="dropdown-item d-flex align-items-center">
               <i class="fa fa-question-circle"></i>
               <span>Need Help?</span>
             </a>
@@ -194,8 +187,8 @@
 
           <li>
             <a class="dropdown-item d-flex align-items-center">
-              <i class="fa fa-box-arrow"></i>
-              <span>Sign Out</span>
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span>Se déconnecter</span>
             </a>
           </li>
         </ul>
@@ -252,14 +245,13 @@
         </a>
       </li>
       <!-- End Forms Nav -->
-       <!-- End Dashboard Nav -->
+      <!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a
           class="nav-link collapsed"
           data-bs-target="#components-nav"
           data-bs-toggle="collapse"
-
         >
           <i class="fa-solid fa-users"></i><span>Consultants</span
           ><i class="fa fa-chevron-down ms-auto"></i>
@@ -270,20 +262,22 @@
           data-bs-parent="#sidebar-nav"
         >
           <li>
-            <a  routerLink="/admin/consultant-demande-admin"> <i class="fa fa-circle"></i><span>Demande de Création</span> </a>
+            <a routerLink="/admin/consultant-demande-admin">
+              <i class="fa fa-circle"></i><span>Demande de Création</span>
+            </a>
           </li>
           <li>
-            <a routerLink="/admin/consultant-accepter-admin"> <i class="fa fa-circle"></i><span>Consultant Acceptés</span> </a>
+            <a routerLink="/admin/consultant-accepter-admin">
+              <i class="fa fa-circle"></i><span>Consultant Acceptés</span>
+            </a>
           </li>
         </ul>
       </li>
       <!-- End Components Nav -->
 
-
-
       <li class="nav-item">
         <a
-        routerLink="/admin/consultation-verification-admin"
+          routerLink="/admin/consultation-verification-admin"
           class="nav-link collapsed"
           data-bs-target="#charts-nav"
           data-bs-toggle="collapse"
