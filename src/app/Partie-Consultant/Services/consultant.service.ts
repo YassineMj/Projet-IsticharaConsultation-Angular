@@ -13,7 +13,7 @@ export class ConsultantService {
   constructor(private http: HttpClient) {}
 
   addConsultant(consultantInfo:any) {
-    return this.http.post<string>('http://localhost:8080/IsticharaConsultation/api/consultant', consultantInfo);
+    return this.http.post<string>('http://localhost:8080/IsticharaConsultation/api/demande-Compte/add-demande-compte', consultantInfo);
   }
 
   getConsultantProfil(idConsultant:string): Observable<consultantBean> {
