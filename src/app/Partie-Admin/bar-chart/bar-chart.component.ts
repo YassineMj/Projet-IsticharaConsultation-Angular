@@ -38,8 +38,10 @@ export class BarChartComponent implements OnInit {
     };
 
     const options = {
+        
+
       scales: {
-        y: {
+        x: {
           beginAtZero: true,
         },
       },
