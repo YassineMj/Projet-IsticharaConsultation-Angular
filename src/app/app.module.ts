@@ -58,6 +58,10 @@ import { ConsultantAccpeterAdminComponent } from './Partie-Admin/consultant-accp
 import { ConsultationsVerificationAdminComponent } from './Partie-Admin/consultations-verification-admin/consultations-verification-admin.component';
 import { BarChartComponent } from './Partie-Admin/bar-chart/bar-chart.component';
 import { ProfilAdminComponent } from './Partie-Admin/profil-admin/profil-admin.component';
+import { PieChartComponent } from './Partie-Admin/pie-chart/pie-chart.component';
+import { DoughnutChartComponent } from './Partie-Admin/doughnut-chart/doughnut-chart.component';
+import { BarHorizontalChartComponent } from './Partie-Admin/bar-horizontal-chart/bar-horizontal-chart.component';
+import { PieAvisChartComponent } from './Partie-Admin/pie-avis-chart/pie-avis-chart.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +103,10 @@ import { ProfilAdminComponent } from './Partie-Admin/profil-admin/profil-admin.c
     ConsultationsVerificationAdminComponent,
     BarChartComponent,
     ProfilAdminComponent,
+    PieChartComponent,
+    DoughnutChartComponent,
+    BarHorizontalChartComponent,
+    PieAvisChartComponent,
   ],
   imports: [
     BrowserModule,

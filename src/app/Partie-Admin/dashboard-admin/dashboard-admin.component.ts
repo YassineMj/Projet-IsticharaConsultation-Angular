@@ -24,4 +24,17 @@ export class DashboardAdminComponent {
   ];
   datacategories = [2, 8, 5, 4, 3, 7];
   dataconsultants = [5, 6, 10, 7, 12, 13];
+
+  consultantData = {
+    labels: ['Accepté', 'Refusé', 'En attente'],
+    values: [10, 20, 30],
+  };
+  domaineData = {
+    labels: ['Accepté', 'Refusé', 'En attente'],
+    values: [15, 10, 20],
+  };
+  avisData = {
+    labels: ['Favorable', 'Défavorable'],
+    values: [40,5],
+  };
 }

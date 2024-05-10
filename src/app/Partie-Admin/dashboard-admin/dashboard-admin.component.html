@@ -136,17 +136,80 @@
             </div>
           </div>
           <!-- End Customers Card -->
-          <!--domaine categorie-->
+          <!-- Sales Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title">Demandes d'inscription</h5>
+
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>20</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Sales Card -->
+          <!-- Sales Card -->
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title">Nombre de Plan par Consultant</h5>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Choisir un consultant</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <br />
+                <div class="d-flex align-items-center">
+                  <div class="ps-3">
+                    <h6>50</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Sales Card -->
+          <!--domaine categorie consultant-->
           <div class="col-xxl-4 col-xl-12">
             <div class="card info-card customers-card">
               <div class="card-body">
-                <h5 class="card-title">Nombre de Catégories et Consultants par Domaine</h5>
-                <app-bar-chart [labels]="labels" [data1]="datacategories" [data2]="dataconsultants"></app-bar-chart>
+                <h5 class="card-title">
+                  Nombre de Catégories et Consultants par Domaine
+                </h5>
+                <app-bar-chart
+                  [labels]="labels"
+                  [data1]="datacategories"
+                  [data2]="dataconsultants"
+                ></app-bar-chart>
               </div>
             </div>
           </div>
           <!--end-->
-
+          <!--domaine consultation plan-->
+          <div class="col-xxl-4 col-xl-12">
+            <div class="card info-card customers-card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  Nombre de Consultation et Plan par Domaine
+                </h5>
+                <app-bar-horizontal-chart
+                  [labels]="labels"
+                  [data1]="datacategories"
+                  [data2]="dataconsultants"
+                >
+                </app-bar-horizontal-chart>
+              </div>
+            </div>
+          </div>
+          <!--end-->
         </div>
       </div>
       <!-- End Left side columns -->
@@ -230,6 +293,55 @@
           </div>
         </div>
         <!-- End Recent Activity -->
+
+        <!-- Budget Report -->
+        <div class="card">
+          <div class="card-body pb-0">
+            <h5 class="card-title">Rendez-vous par Domaine</h5>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Choisir un domaine</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <app-pie-chart [data]="domaineData"></app-pie-chart>
+            <br />
+          </div>
+        </div>
+        <!-- End Budget Report -->
+
+        <!-- Website Traffic -->
+        <div class="card">
+          <div class="card-body pb-0">
+            <h5 class="card-title">Rendez-vous par Consultant</h5>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Choisir un consultant</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <app-doughnut-chart [data]="consultantData"></app-doughnut-chart>
+            <br />
+          </div>
+        </div>
+
+        <!-- End Website Traffic -->
+        <!-- Website Traffic -->
+        <div class="card">
+          <div class="card-body pb-0">
+            <h5 class="card-title">Avis par Consultant</h5>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Choisir un consultant</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <app-pie-avis-chart [data]="avisData"></app-pie-avis-chart>
+            <br />
+          </div>
+        </div>
+
+        <!-- End Website Traffic -->
       </div>
       <!-- End Right side columns -->
     </div>
