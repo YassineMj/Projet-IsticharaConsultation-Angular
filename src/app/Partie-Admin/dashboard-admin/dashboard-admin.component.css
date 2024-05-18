@@ -510,3 +510,8 @@ h6 {
     font-size: 13px;
     color: #012970;
 }
+
+.activity {
+    max-height: 400px; /* Vous pouvez ajuster cette hauteur selon vos besoins */
+    overflow-y: auto;  /* Permet le défilement vertical */
+  }

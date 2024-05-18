@@ -1,1 +1,5 @@
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="idDomaine" (change)="getInfoDomaine()">
+              <option disabled value="" selected>Choisir un domaine</option>
+              <option *ngFor="let d of getAllDomaine" value="{{d.idTable}}">{{d.nomDomaine}}</option>
+            </select>
 <canvas id="myChart"></canvas>

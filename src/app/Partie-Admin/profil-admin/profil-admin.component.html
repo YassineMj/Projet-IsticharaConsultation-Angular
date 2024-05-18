@@ -26,7 +26,7 @@
                   class="rounded-circle"
                 />
                 <br />
-                <h2>Hajji Oumaima</h2>
+                <h2>{{_serviceAdmin.authAdminObjet.nomComplet}}</h2>
               </div>
             </div>
           </div>
@@ -73,10 +73,7 @@
                   >
                     <h5 class="card-title">A propos</h5>
                     <p class="small fst-italic">
-                      Administrateur expérimenté et web designer passionné. Je
-                      garantis la fluidité et la sécurité de notre plateforme
-                      tout en veillant à ce que l'interface utilisateur soit
-                      intuitive et esthétique.
+                      {{_serviceAdmin.authAdminObjet.description}}
                     </p>
 
                     <h5 class="card-title">Profile Details</h5>
@@ -88,7 +85,7 @@
                       <div class="col-lg-1 col-md-4 label">
                         <strong><i class="fa fa-user"></i> </strong>
                       </div>
-                      <div class="col-lg-11 col-md-8">Hajji Oumaima</div>
+                      <div class="col-lg-11 col-md-8">{{_serviceAdmin.authAdminObjet.nomComplet}}</div>
                     </div>
 
                     <div
@@ -99,7 +96,7 @@
                         <strong><i class="fa-solid fa-envelope"></i> </strong>
                       </div>
                       <div class="col-lg-11 col-md-8">
-                        ouma.hajj123@gmail.com
+                        {{_serviceAdmin.authAdminObjet.email}}
                       </div>
                     </div>
 
@@ -110,7 +107,7 @@
                       <div class="col-lg-1 col-md-4 label">
                         <strong> <i class="fa-solid fa-phone"></i> </strong>
                       </div>
-                      <div class="col-lg-11 col-md-8">+212 604440220</div>
+                      <div class="col-lg-11 col-md-8">{{_serviceAdmin.authAdminObjet.telephone}}</div>
                     </div>
 
                     <div
@@ -122,7 +119,7 @@
                           <i class="fa-solid fa-earth-americas"></i>
                         </strong>
                       </div>
-                      <div class="col-lg-11 col-md-8">Maroc</div>
+                      <div class="col-lg-11 col-md-8">{{_serviceAdmin.authAdminObjet.pays}}</div>
                     </div>
 
                     <div
@@ -135,7 +132,7 @@
                         </strong>
                       </div>
                       <div class="col-lg-11 col-md-8">
-                        A108 Rue fallah chari3 ahram
+                        {{_serviceAdmin.authAdminObjet.adresse}}
                       </div>
                     </div>
 
@@ -148,7 +145,7 @@
                           <i class="fa-solid fa-business-time"></i>
                         </strong>
                       </div>
-                      <div class="col-lg-11 col-md-8">Web designer</div>
+                      <div class="col-lg-11 col-md-8">{{_serviceAdmin.authAdminObjet.travail}}</div>
                     </div>
 
                     <hr
@@ -166,41 +163,6 @@
                     id="profile-edit"
                   >
                     <!-- Profile Edit Form -->
-                    <form>
-                      <div class="row mb-3">
-                        <label
-                          for="profileImage"
-                          class="col-md-4 col-lg-3 col-form-label"
-                          >Profile Image</label
-                        >
-                        <div class="col-md-8 col-lg-9">
-                          <img
-                            [src]="
-                              profileImageUrl ||
-                              '../../assets/image/image-user.png'
-                            "
-                            width="55%"
-                            alt="Profile"
-                          />
-                          <div class="pt-2">
-                            <label
-                              for="profile-image"
-                              class="btn btn-warning btn-sm"
-                              title="Upload new profile image"
-                            >
-                              <i class="fa fa-upload"></i> Modifier l'image
-                            </label>
-                            <input
-                              type="file"
-                              id="profile-image"
-                              name="profile-image"
-                              style="display: none"
-                              (change)="onFileSelected($event)"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
                       <div class="row mb-3">
                         <label
                           for="fullName"
@@ -209,11 +171,11 @@
                         >
                         <div class="col-md-8 col-lg-9">
                           <input
+                          [(ngModel)]="dataProfile.nomComplet"
                             name="fullName"
                             type="text"
                             class="form-control"
                             id="fullName"
-                            value="Hajji Oumaima"
                           />
                         </div>
                       </div>
@@ -226,15 +188,14 @@
                         >
                         <div class="col-md-8 col-lg-9">
                           <textarea
+                          [(ngModel)]="dataProfile.description"
+
                             name="about"
                             class="form-control"
                             id="about"
                             style="height: 100px"
                           >
-                           Administrateur expérimenté et web designer passionné. Je
-                      garantis la fluidité et la sécurité de notre plateforme
-                      tout en veillant à ce que l'interface utilisateur soit
-                      intuitive et esthétique.
+                           
                           </textarea>
                         </div>
                       </div>
@@ -248,11 +209,12 @@
                         >
                         <div class="col-md-8 col-lg-9">
                           <input
+                          [(ngModel)]="dataProfile.email"
+
                             name="company"
                             type="email"
                             class="form-control"
                             id="email"
-                            value="ouma.hajj123@gmail.com"
                           />
                         </div>
                       </div>
@@ -265,11 +227,12 @@
                         >
                         <div class="col-md-8 col-lg-9">
                           <input
+                          [(ngModel)]="dataProfile.telephone"
+
                             name="phone"
                             type="text"
                             class="form-control"
                             id="Phone"
-                            value="+212 65456787"
                           />
                         </div>
                       </div>
@@ -282,11 +245,12 @@
                         </label>
                         <div class="col-md-8 col-lg-9">
                           <input
+                          [(ngModel)]="dataProfile.pays"
+
                             name="country"
                             type="text"
                             class="form-control"
                             id="Country"
-                            value="Maroc"
                           />
                         </div>
                       </div>
@@ -299,11 +263,12 @@
                         >
                         <div class="col-md-8 col-lg-9">
                           <input
+                          [(ngModel)]="dataProfile.adresse"
+
                             name="address"
                             type="text"
                             class="form-control"
                             id="Address"
-                            value="A108 haay fallah chari3 ahram berkane"
                           />
                         </div>
                       </div>
@@ -315,21 +280,21 @@
                         >
                         <div class="col-md-8 col-lg-9">
                           <input
+                          [(ngModel)]="dataProfile.travail"
+
                             name="travail"
                             type="text"
                             class="form-control"
                             id="travail"
-                            value="Web designer"
                           />
                         </div>
                       </div>
 
                       <div class="text-center">
-                        <button type="submit" class="btn btn-info text-white">
+                        <button type="submit" class="btn btn-info text-white" (click)="sauvegarderInfo()">
                           Sauvegarder
                         </button>
                       </div>
-                    </form>
                     <!-- End Profile Edit Form -->
                   </div>
 
@@ -344,6 +309,7 @@
                         >
                         <div class="col-md-8 col-lg-9">
                           <input
+                          [(ngModel)]="dataProfile.motDepasse"
                             name="password"
                             type="password"
                             class="form-control"
@@ -361,6 +327,8 @@
                         >
                         <div class="col-md-8 col-lg-9">
                           <input
+                          [(ngModel)]="nPassword"
+
                             name="newpassword"
                             type="password"
                             class="form-control"
@@ -369,26 +337,8 @@
                           />
                         </div>
                       </div>
-
-                      <div class="row mb-3">
-                        <label
-                          for="renewPassword"
-                          class="col-md-4 col-lg-3 col-form-label"
-                          >Ré-entrez le nouveau mot de passe</label
-                        >
-                        <div class="col-md-8 col-lg-9">
-                          <input
-                            name="renewpassword"
-                            type="password"
-                            class="form-control"
-                            id="renewPassword"
-                            placeholder="Ré-entrez le nouveau mot de passe"
-                          />
-                        </div>
-                      </div>
-
                       <div class="text-center">
-                        <button type="submit" class="btn btn-info text-white">
+                        <button type="submit" class="btn btn-info text-white" (click)="sauvegarderPassword()">
                           Sauvegarder
                         </button>
                       </div>
