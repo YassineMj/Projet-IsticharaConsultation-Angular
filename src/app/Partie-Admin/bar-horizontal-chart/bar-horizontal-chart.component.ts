@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { AdminService } from '../Services/admin.service';
 
 @Component({
   selector: 'app-bar-horizontal-chart',
@@ -7,13 +8,32 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./bar-horizontal-chart.component.css'],
 })
 export class BarHorizontalChartComponent implements OnInit {
-  constructor() {}
-  @Input() labels: String[] = [];
-  @Input() data1: number[] = [];
-  @Input() data2: number[] = [];
+
+  constructor(private _serviceAdmin : AdminService) {}
+
+  labels: any[] = [];
+  data1: number[] = [];
+  data2: number[] = [];
+
   ngOnInit(): void {
-    this.createBarHorizontalChart();
-  }
+    this._serviceAdmin.countConsultationsPlansByDomaine().subscribe(
+      resp => {
+        // Traiter la réponse pour extraire les données pertinentes
+        resp.forEach(item => {
+          // Ajouter le nom de domaine à labels
+          this.labels.push(item.nomDomaine);
+          // Ajouter le nombre de consultations à data1
+          this.data1.push(item.consultations);
+          // Ajouter le nombre de plans à data2
+          this.data2.push(item.plans);
+        });
+
+        // Une fois que les données sont extraites, créer le graphique
+        this.createBarHorizontalChart();
+      }
+    );
+}
+
 
   createBarHorizontalChart(): void {
     const data = {

@@ -42,11 +42,11 @@
                   Bienvenue ! Veuillez vous connecter pour continuer.
                 </p>
               </div>
-              <form action="#" method="post">
                 <div class="form-group first">
                   <label for="username"><i class="fa fa-user"></i> Email</label
                   ><br /><br /><br />
                   <input
+                  [(ngModel)]="loginData.email"
                     type="text"
                     class="form-control"
                     id="username"
@@ -58,6 +58,8 @@
                     <i class="fa fa-eye"></i> Mot de pass</label
                   ><br /><br /><br />
                   <input
+                    [(ngModel)]="loginData.motDePasse"
+
                     type="password"
                     class="form-control"
                     id="password"
@@ -65,13 +67,13 @@
                   />
                 </div>
                 <input
+                (click)="login()"
                   type="submit"
                   value="Se connecter"
                   id="btn"
                   routerLink="/admin/menu-admin"
                   class="btn text-black btn-block btn-warning"
                 />
-              </form>
             </div>
           </div>
         </div>

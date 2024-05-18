@@ -41,49 +41,48 @@
                   <th>Status</th>
                 </tr>
               </thead>
+
               <tbody>
-                <tr class="alert" role="alert">
+                <tr *ngFor="let d of listDemandeComptes" class="alert" role="alert">
                   <td class="d-flex align-items-center">
                     <div
                       class="img"
                       style="
-                        background-image: url(../../../assets/images/icon-sidentifier-admin.png);
+                        background-image: url(../../../assets/images-consultants/{{d.photoProfile}});
                       "
                     ></div>
                     <div class="pl-3">
-                      <h3>Oumaima hajji</h3>
-                      <span>ouma.hajj1dddd23@gmail.com</span>
+                      <h3>{{d.nom}} {{d.prenom}}</h3>
+                      <span>{{d.email}}</span>
                     </div>
                   </td>
 
-                  <td style="width: 200px">Religion</td>
+                  <td style="width: 200px">{{d.domaine.nomDomaine}}</td>
                   <td style="width: 800px">
                     <ul>
-                      <li>7adith</li>
-                      <li>Fi9h</li>
-                      <li>textDDDD</li>
+                      <li *ngFor="let s of d.specialisation">{{s}}</li>
                     </ul>
                   </td>
                   <td style="width: 2200px">
-                    <img
+                    <img *ngIf="d.francais"
                       src="../../../assets/images/francais.png"
                       width="25px"
                       style="display: inline-block; margin-right: 5px"
                       alt=""
                     />
-                    <img
+                    <img *ngIf="d.anglais"
                       src="../../../assets/images/anglais.png"
                       width="25px"
                       style="display: inline-block; margin-right: 5px"
                       alt=""
                     />
-                    <img
+                    <img *ngIf="d.arabe"
                       src="../../../assets/images/arabe.png"
                       width="25px"
                       style="display: inline-block; margin-right: 5px"
                       alt=""
                     />
-                    <img
+                    <img *ngIf="d.espagnol"
                       src="../../../assets/images/espagnol.png"
                       width="25px"
                       style="display: inline-block; margin-right: 5px"
@@ -92,6 +91,7 @@
                   </td>
                   <td style="width: 100px">
                     <button
+                      (click)="getDetailcompte(d.idDemande , d.nom,d.prenom)"
                       type="button"
                       class="btn btn-warning"
                       data-bs-toggle="modal"
@@ -104,15 +104,17 @@
                   <td>
                     <div class="form-check form-switch">
                       <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="flexSwitchCheckDefault"
-                        style="font-size: 26px"
-                      />
+                      class="form-check-input"
+                      type="checkbox"
+                      id="flexSwitchCheckDefault"
+                      style="font-size: 26px"
+                      (change)="toggleActivation($event,d.idDemande , d.nom , d.prenom)"
+                    />
                     </div>
                   </td>
                 </tr>
               </tbody>
+
             </table>
 
             <div class="modal fade" id="exampleModal">
@@ -130,7 +132,7 @@
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div class="modal-body">
+                  <div *ngIf="detailCompte!=null" class="modal-body">
                     <div class="container-fluid">
                       <div class="row">
                         <div class="col-md-4">
@@ -142,7 +144,7 @@
                             "
                           >
                             <img
-                              src="../../../assets/images/icon-sidentifier-admin.png"
+                              [src]="'../../../assets/images-consultants/'+detailCompte.photoProfile"
                               class="card-img-top"
                               alt="Consultant Image"
                             />
@@ -150,65 +152,65 @@
                               <h3
                                 class="card-title d-flex justify-content-center"
                               >
-                                HAJJI OUMAIMA
+                                {{detailCompte.nom}} {{detailCompte.prenom}} 
                               </h3>
                               <p class="card-text">
                                 <strong
                                   ><i class="fa-solid fa-address-card"></i
                                 ></strong>
-                                FA165545
+                                {{detailCompte.cin}} 
                               </p>
                               <p class="card-text">
                                 <strong
                                   ><i class="fa-solid fa-envelope"></i
                                 ></strong>
-                                consultant@email.com
+                                {{detailCompte.email}} 
                               </p>
                               <p class="card-text">
                                 <strong
                                   ><i class="fa-solid fa-phone"></i
                                 ></strong>
-                                +212 874567890
+                                {{detailCompte.numeroTelephone}} 
                               </p>
                               <p class="card-text">
                                 <strong
                                   ><i class="fa-solid fa-location-dot"></i
                                 ></strong>
-                                18 rue fallah ahram
+                                {{detailCompte.adresse}} 
                               </p>
                               <p class="card-text">
                                 <strong>
                                   <i class="fa-solid fa-earth-americas"></i>
                                 </strong>
-                                Maroc
+                                {{detailCompte.pays}} 
                               </p>
                               <p class="card-text">
                                 <strong
                                   ><i class="fa-solid fa-city"></i
                                 ></strong>
-                                Berkane
+                                {{detailCompte.ville}} 
                               </p><hr>
                               <div class="text-center">
                                 <div class="d-inline">
-                                  <img
+                                  <img *ngIf="detailCompte.francais"
                                     src="../../../assets/images/francais.png"
                                     width="25px"
                                     style="margin-right: 5px"
                                     alt=""
                                   />
-                                  <img
+                                  <img *ngIf="detailCompte.anglais"
                                     src="../../../assets/images/anglais.png"
                                     width="25px"
                                     style="margin-right: 5px"
                                     alt=""
                                   />
-                                  <img
+                                  <img *ngIf="detailCompte.arabe"
                                     src="../../../assets/images/arabe.png"
                                     width="25px"
                                     style="margin-right: 5px"
                                     alt=""
                                   />
-                                  <img
+                                  <img *ngIf="detailCompte.espagnol"
                                     src="../../../assets/images/espagnol.png"
                                     width="25px"
                                     style="margin-right: 5px"
@@ -242,17 +244,7 @@
                                   >Profil Description
                                 </strong>
                                 <p>
-                                  Lorem ipsum dolor sit amet consectetur
-                                  adipisicing elit. Corporis doloremque
-                                  obcaecati, delectus voluptatem illum odit
-                                  minima itaque. Odit labore vitae et enim
-                                  facilis eligendi, aliquam, qui aspernatur
-                                  libero ratione laboriosam? Lorem ipsum dolor
-                                  sit amet consectetur, adipisicing elit. Totam
-                                  nam placeat in facere ea, officia vero aliquam
-                                  officiis, minus nisi omnis sint porro
-                                  molestias accusamus consequatur dolore odit,
-                                  esse facilis.
+                                  {{detailCompte.descriptionProfile}}
                                 </p>
                               </div>
                               <div class="card-text">
@@ -267,7 +259,7 @@
                                   "
                                   >Domaine
                                 </strong>
-                                <h4>Religion</h4>
+                                <h4>{{detailCompte.domaine.nomDomaine}}</h4>
                               </div>
                               <div class="card-text">
                                 <strong
@@ -283,22 +275,11 @@
                                   Categorie</strong
                                 >
                                 <ul style="list-style: none">
-                                  <li>
+                                  <li *ngFor="let c of detailCompte.specialisation">
                                     <i class="fa fa-check text-success"></i>
-                                    3a9ida
+                                    {{c}}
                                   </li>
-                                  <li>
-                                    <i class="fa fa-check text-success"></i>
-                                    7adith
-                                  </li>
-                                  <li>
-                                    <i class="fa fa-check text-success"></i>
-                                    coran
-                                  </li>
-                                  <li>
-                                    <i class="fa fa-check text-success"></i>
-                                    Tafsir
-                                  </li>
+                                  
                                 </ul>
                               </div>
                               <hr />
@@ -316,18 +297,10 @@
                                 >
                               </p>
                               <ul class="list-group mb-3">
-                                <li class="list-group-item">
-                                  Lorem ipsum dolor sit amet consectetur
-                                  adipisicing elit.
+                                <li *ngFor="let ex of detailCompte.experiencesPro" class="list-group-item">
+                                  {{ex}}
                                 </li>
-                                <li class="list-group-item">
-                                  Lorem ipsum dolor sit amet consectetur,
-                                  adipisicing elit.
-                                </li>
-                                <li class="list-group-item">
-                                  Lorem, ipsum dolor sit amet consectetur
-                                  adipisicing elit. Voluptatibus
-                                </li>
+                                
                               </ul>
                               <p class="card-text">
                                 <strong
@@ -343,18 +316,10 @@
                                 >
                               </p>
                               <ul class="list-group mb-3">
-                                <li class="list-group-item">
-                                  Lorem ipsum dolor sit amet consectetur
-                                  adipisicing elit.
+                                <li *ngFor="let ed of detailCompte.educations" class="list-group-item">
+                                  {{ed}}
                                 </li>
-                                <li class="list-group-item">
-                                  Lorem ipsum dolor sit amet consectetur
-                                  adipisicing elit.
-                                </li>
-                                <li class="list-group-item">
-                                  Lorem ipsum dolor sit amet consectetur
-                                  adipisicing elit.
-                                </li>
+                                
                               </ul>
                               <p class="card-text">
                                 <strong
@@ -370,18 +335,10 @@
                                 >
                               </p>
                               <ul class="list-group mb-3">
-                                <li class="list-group-item">
-                                  Lorem ipsum dolor sit amet consectetur
-                                  adipisicing elit.
+                                <li *ngFor="let f of detailCompte.formations" class="list-group-item">
+                                 {{f}}
                                 </li>
-                                <li class="list-group-item">
-                                  Lorem ipsum dolor sit amet consectetur
-                                  adipisicing elit.
-                                </li>
-                                <li class="list-group-item">
-                                  Lorem ipsum dolor sit amet consectetur
-                                  adipisicing elit.
-                                </li>
+                                
                               </ul>
                             </div>
                           </div>

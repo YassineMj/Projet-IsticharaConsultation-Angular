@@ -6,6 +6,7 @@
     <div>
       <div class="input-group mb-3">
         <input
+        [(ngModel)]="idReclamation"
           type="text"
           class="form-control"
           placeholder="Recherche dans les consultations"
@@ -13,6 +14,7 @@
           style="width: 70%; margin-left: 3%"
         />
         <button
+        (click)="getReclamation()"
           class="btn btnAjouter"
           type="button"
           id="button-addon2"
@@ -30,37 +32,37 @@
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="nomInput" class="form-label">Consultant</label>
-                  <p></p>
+                  <p>{{dataReclamation.nom}} {{dataReclamation.prenom}}</p>
                 </div>
                 <div class="mb-3">
                   <label for="nomInput" class="form-label">Domaine</label>
-                  <p></p>
+                  <p>{{dataReclamation.nom_domaine}}</p>
                 </div>
                 <div class="mb-3">
                   <label for="nomInput" class="form-label">Heure-Debut</label>
-                  <p></p>
+                  <p>{{dataReclamation.heure_debut}}</p>
                 </div>
                 <div class="mb-3">
                   <label for="nomInput" class="form-label">Durée</label>
-                  <p></p>
+                  <p>{{dataReclamation.duree}}</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="nomInput" class="form-label">Client</label>
-                  <p></p>
+                  <p>{{dataReclamation.nom_client}}</p>
                 </div>
                 <div class="mb-3">
                   <label for="nomInput" class="form-label">Date</label>
-                  <p></p>
+                  <p>{{dataReclamation.date_jour_debut}}</p>
                 </div>
                 <div class="mb-3">
                   <label for="nomInput" class="form-label">Heure-Fin</label>
-                  <p></p>
+                  <p>{{dataReclamation.heure_fin}}</p>
                 </div>
                 <div class="mb-3">
                   <label for="nomInput" class="form-label">Prix</label>
-                  <p></p>
+                  <p>{{dataReclamation.prix}}</p>
                 </div>
               </div>
             </div>
@@ -68,13 +70,13 @@
               <label for="descriptionInput" class="form-label"
                 >Lien Meet</label
               >
-              <p></p>
+              <p>{{dataReclamation.lien_meet}}</p>
             </div>
              <div class="mb-3">
               <label for="descriptionInput" class="form-label"
                 >Code de Paiement</label
               >
-              <p></p>
+              <p>{{dataReclamation.paiement}}</p>
             </div>
             <div class="d-flex justify-content-center">
              <button
@@ -86,6 +88,7 @@
           <i class="fa-solid fa-video"></i> Voir Enregistrement
         </button>
          <button
+         (click)="rembourser()"
           class="btn btnAjouter"
           type="button"
           id="button-addon2"

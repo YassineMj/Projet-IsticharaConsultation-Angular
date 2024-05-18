@@ -26,6 +26,7 @@
                   >Question</label
                 >
                 <textarea
+                [(ngModel)]="questionData.question"
                   class="form-control"
                   id="descriptionInput"
                   rows="3"
@@ -36,6 +37,8 @@
             <div class="mb-3">
               <label for="descriptionInput" class="form-label">Réponse</label>
               <textarea
+              [(ngModel)]="questionData.reponse"
+
                 class="form-control"
                 id="descriptionInput"
                 rows="3"
@@ -44,7 +47,7 @@
             </div>
             <div class="col-md-10 d-flex justify-content-end">
               <div class="text-left">
-                <button type="button" class="btn btnAjouter">
+                <button type="button" class="btn btnAjouter" (click)="ajouterQuestion()">
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -64,29 +67,21 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th class="text-center">
-                      <i class="fa-solid fa-question"></i>
-                    </th>
+
                     <th>Questions</th>
                     <th>Réponses</th>
 
                     <th class="text-right">Actions</th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  <tr>
-                    <td class="text-center">1</td>
+                  <tr *ngFor="let q of listQuestions">
                     <td>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Tempore, accusamus in. Nemo repudiandae voluptate saepe
-                      fuga rerum quas, tenetur temporibus facere pariatur ut
-                      tempora provident fugiat unde quisquam. Illo, eaque!
+                      {{q.question}}
                     </td>
                     <td>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Tempore, accusamus in. Nemo repudiandae voluptate saepe
-                      fuga rerum quas, tenetur temporibus facere pariatur ut
-                      tempora provident fugiat unde quisquam. Illo, eaque!
+                      {{q.reponse}}
                     </td>
 
                     <td
@@ -104,56 +99,12 @@
                         style="margin-right: 4px"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
+                        (click)="getQuestionById(q.id)"
                       >
                         <i class="fa fa-edit" style="font-size: medium"></i>
                       </button>
                       <button
-                      onclick="return confirm('voulez vous supprimer ce champs?')"
-                        type="button"
-                        rel="tooltip"
-                        class="btn btn-danger btn-round btn-just-icon"
-                      >
-                        <i class="fa fa-trash" style="font-size: medium"></i>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-                <tbody>
-                  <tr>
-                    <td class="text-center">1</td>
-                    <td>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Tempore, accusamus in. Nemo repudiandae voluptate saepe
-                      fuga rerum quas, tenetur temporibus facere pariatur ut
-                      tempora provident fugiat unde quisquam. Illo, eaque!
-                    </td>
-                    <td>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Tempore, accusamus in. Nemo repudiandae voluptate saepe
-                      fuga rerum quas, tenetur temporibus facere pariatur ut
-                      tempora provident fugiat unde quisquam. Illo, eaque!
-                    </td>
-
-                    <td
-                      class="td-actions text-right"
-                      style="
-                        display: flex;
-                        justify-content: flex-end;
-                        align-items: center;
-                      "
-                    >
-                      <button
-                        type="button"
-                        rel="tooltip"
-                        class="btn btn-info btn-round btn-just-icon"
-                        style="margin-right: 4px"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                      >
-                        <i class="fa fa-edit" style="font-size: medium"></i>
-                      </button>
-                      <button
-                      onclick="return confirm('voulez vous supprimer ce champs?')"
+                        (click)="deleteQuestion(q.id,q.question)"
                         type="button"
                         rel="tooltip"
                         class="btn btn-danger btn-round btn-just-icon"
@@ -165,7 +116,7 @@
                 </tbody>
               </table>
               <!-- Button trigger modal -->
-              <div class="modal fade" id="exampleModal">
+              <div *ngIf="questionDataUpdate!=null" class="modal fade" id="exampleModal">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -189,6 +140,7 @@
                                   >Question</label
                                 >
                                 <textarea
+                                [(ngModel)]="questionDataUpdate.question"
                                   class="form-control"
                                   id="descriptionInput"
                                   rows="3"
@@ -204,6 +156,8 @@
                                   >Réponse</label
                                 >
                                 <textarea
+                                [(ngModel)]="questionDataUpdate.reponse"
+
                                   class="form-control"
                                   id="descriptionInput"
                                   rows="3"
@@ -223,6 +177,7 @@
                           <i class="fa fa-close text-white"></i>
                         </button>
                         <button
+                        (click)="updateQuestion()"
                           type="button"
                           class="btn btn-round colormodalmodifier"
                         >

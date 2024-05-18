@@ -28,7 +28,7 @@
                     <i class="fa fa-globe"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>10</h6>
+                    <h6>{{countAllData.countDomaine}}</h6>
                   </div>
                 </div>
               </div>
@@ -48,7 +48,7 @@
                     <i class="fa-solid fa-layer-group"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>50</h6>
+                    <h6>{{countAllData.countCategorie}}</h6>
                   </div>
                 </div>
               </div>
@@ -68,7 +68,7 @@
                     <i class="fa-solid fa-users"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>125</h6>
+                    <h6>{{countAllData.countConsultant}}</h6>
                   </div>
                 </div>
               </div>
@@ -89,7 +89,7 @@
                     <i class="fa-solid fa-users"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>145</h6>
+                    <h6>{{countAllData.countClient}}</h6>
                   </div>
                 </div>
               </div>
@@ -109,7 +109,7 @@
                     <i class="bi bi-grid"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>145</h6>
+                    <h6>{{countAllData.countConsultations}}</h6>
                   </div>
                 </div>
               </div>
@@ -129,7 +129,7 @@
                     <i class="fa-solid fa-clipboard-list"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>125</h6>
+                    <h6>{{countAllData.countRendezVous}}</h6>
                   </div>
                 </div>
               </div>
@@ -149,7 +149,7 @@
                     <i class="fa-solid fa-right-to-bracket"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>20</h6>
+                    <h6>{{countAllData.countDemandeCompte}}</h6>
                   </div>
                 </div>
               </div>
@@ -161,16 +161,17 @@
             <div class="card info-card sales-card">
               <div class="card-body">
                 <h5 class="card-title">Nombre de Plan par Consultant</h5>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Choisir un consultant</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="idConsultant1" (change)="getNombrePlan()">
+                  <option disabled selected value="">Choisir un consultant</option>
+                  <option *ngFor="let c of allConsultants" value="{{c.id}}" >{{c.nom}} {{c.prenom}}</option>
+
                 </select>
                 <br />
                 <div class="d-flex align-items-center">
                   <div class="ps-3">
-                    <h6>50</h6>
+                    <h6 *ngIf="countPlanByConsultant!=null">{{countPlanByConsultant.count}}</h6>
+                    <h6 *ngIf="countPlanByConsultant==null">0</h6>
+
                   </div>
                 </div>
               </div>
@@ -184,11 +185,7 @@
                 <h5 class="card-title">
                   Nombre de Catégories et Consultants par Domaine
                 </h5>
-                <app-bar-chart
-                  [labels]="labels"
-                  [data1]="datacategories"
-                  [data2]="dataconsultants"
-                ></app-bar-chart>
+                <app-bar-chart></app-bar-chart>
               </div>
             </div>
           </div>
@@ -200,11 +197,7 @@
                 <h5 class="card-title">
                   Nombre de Consultation et Plan par Domaine
                 </h5>
-                <app-bar-horizontal-chart
-                  [labels]="labels"
-                  [data1]="datacategories"
-                  [data2]="dataconsultants"
-                >
+                <app-bar-horizontal-chart>
                 </app-bar-horizontal-chart>
               </div>
             </div>
@@ -217,78 +210,26 @@
         <!-- Recent Activity -->
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Dérnières Activités<span>|Ce jour</span></h5>
+            <h5 class="card-title">Dérnières Activités</h5>
 
             <div class="activity">
-              <div class="activity-item d-flex">
-                <div class="activite-label">32 min</div>
-                <i
-                  class="bi bi-circle-fill activity-badge text-success align-self-start"
-                ></i>
-                <div class="activity-content">
-                  Quia quae rerum
-                  <a href="#" class="fw-bold text-dark">explicabo officiis</a>
-                  beatae
-                </div>
-              </div>
-              <!-- End activity item-->
 
-              <div class="activity-item d-flex">
-                <div class="activite-label">56 min</div>
-                <i
-                  class="bi bi-circle-fill activity-badge text-danger align-self-start"
-                ></i>
+              <div *ngFor="let activity of listActivity" class="activity-item d-flex">
+                <div class="activite-label">{{ formatDate(activity.date) }}</div>
+                <i class="bi bi-circle-fill activity-badge align-self-start"
+                   [ngClass]="{
+                     'text-success': activity.action === 'ajouter',
+                     'text-danger': activity.action === 'supprimer',
+                     'text-warning': activity.action === 'consulter',
+                     'text-primary': activity.action === 'modifier',
+                     'text-muted': activity.action === 'rembourser'
+                   }"></i>
                 <div class="activity-content">
-                  Voluptatem blanditiis blanditiis eveniet
+                  {{ activity.description }}
                 </div>
               </div>
               <!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">2 hrs</div>
-                <i
-                  class="bi bi-circle-fill activity-badge text-primary align-self-start"
-                ></i>
-                <div class="activity-content">
-                  Voluptates corrupti molestias voluptatem
-                </div>
-              </div>
-              <!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">1 day</div>
-                <i
-                  class="bi bi-circle-fill activity-badge text-info align-self-start"
-                ></i>
-                <div class="activity-content">
-                  Tempore autem saepe
-                  <a href="#" class="fw-bold text-dark">occaecati voluptatem</a>
-                  tempore
-                </div>
-              </div>
-              <!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">2 days</div>
-                <i
-                  class="bi bi-circle-fill activity-badge text-warning align-self-start"
-                ></i>
-                <div class="activity-content">
-                  Est sit eum reiciendis exercitationem
-                </div>
-              </div>
-              <!-- End activity item-->
-
-              <div class="activity-item d-flex">
-                <div class="activite-label">4 weeks</div>
-                <i
-                  class="bi bi-circle-fill activity-badge text-muted align-self-start"
-                ></i>
-                <div class="activity-content">
-                  Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                </div>
-              </div>
-              <!-- End activity item-->
+              
             </div>
           </div>
         </div>
@@ -298,13 +239,7 @@
         <div class="card">
           <div class="card-body pb-0">
             <h5 class="card-title">Rendez-vous par Domaine</h5>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Choisir un domaine</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <app-pie-chart [data]="domaineData"></app-pie-chart>
+            <app-pie-chart></app-pie-chart>
             <br />
           </div>
         </div>
@@ -314,13 +249,8 @@
         <div class="card">
           <div class="card-body pb-0">
             <h5 class="card-title">Rendez-vous par Consultant</h5>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Choisir un consultant</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <app-doughnut-chart [data]="consultantData"></app-doughnut-chart>
+            
+            <app-doughnut-chart></app-doughnut-chart>
             <br />
           </div>
         </div>

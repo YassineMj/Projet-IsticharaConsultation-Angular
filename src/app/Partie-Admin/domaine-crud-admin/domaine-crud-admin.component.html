@@ -25,6 +25,7 @@
                 <div class="mb-3">
                   <label for="nomInput" class="form-label">Nom</label>
                   <input
+                  [(ngModel)]="dataDomaine.nomDomaine"
                     type="text"
                     class="form-control"
                     id="nomInput"
@@ -35,7 +36,13 @@
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="imageInput" class="form-label">Image</label>
-                  <input type="file" class="form-control" id="imageInput" />
+                  <input
+                  type="file"
+                  required
+                  (change)="onFileChange($event)"
+                  accept="image/*"
+                  class="form-control"
+                />
                 </div>
               </div>
             </div>
@@ -44,6 +51,8 @@
                 >Description</label
               >
               <textarea
+              [(ngModel)]="dataDomaine.descriptionDomaine"
+
                 class="form-control"
                 id="descriptionInput"
                 rows="3"
@@ -52,7 +61,7 @@
             </div>
             <div class="col-md-10 d-flex justify-content-end">
               <div class="text-left">
-                <button type="button" class="btn btnAjouter">
+                <button type="button" class="btn btnAjouter" (click)="ajouterDomaine()">
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -72,9 +81,7 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th class="text-center">
-                      <i class="fa-solid fa-earth-americas"></i>
-                    </th>
+
                     <th>Domaine</th>
                     <th>Description</th>
                     <th>Image</th>
@@ -82,19 +89,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="text-center">1</td>
-                    <td>Sport</td>
+
+                  <tr *ngFor="let d of listDomaine">
+                    <td>{{d.nomDomaine}}</td>
                     <td>
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Tempore, accusamus in. Nemo repudiandae voluptate saepe
-                      fuga rerum quas, tenetur temporibus facere pariatur ut
-                      tempora provident fugiat unde quisquam. Illo, eaque!
+                      {{d.descriptionDomaine}}
                     </td>
                     <td>
                       <div>
                         <img
-                          src="../../../assets/images/image-contacter-nous.jpg"
+                          [src]="'../../../assets/images/'+d.pathImage"
                           width="200px"
                           alt=""
                         />
@@ -115,11 +119,12 @@
                         style="margin-right: 4px"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
+                        (click)="getDomainById(d.idDomaine)"
                       >
                         <i class="fa fa-edit" style="font-size: medium"></i>
                       </button>
                       <button
-                      onclick="return confirm('voulez vous supprimer ce champs?')"
+                      (click)="deleteDomaine(d.idDomaine,d.nomDomaine)"
                         type="button"
                         rel="tooltip"
                         class="btn btn-danger btn-round btn-just-icon"
@@ -131,10 +136,11 @@
                       </button>
                     </td>
                   </tr>
+
                 </tbody>
               </table>
               <!-- Button trigger modal -->
-              <div class="modal fade" id="exampleModal">
+              <div *ngIf="updateDomaineData!=null" class="modal fade" id="exampleModal">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -158,6 +164,7 @@
                                   >Domaine</label
                                 >
                                 <input
+                                [(ngModel)]="updateDomaineData.nomDomaine"
                                   type="text"
                                   class="form-control"
                                   id="nomInput"
@@ -171,6 +178,9 @@
                                   >Image</label
                                 >
                                 <input
+                                  required
+                                  (change)="onFileChangeUpdate($event)"
+                                  accept="image/*"
                                   type="file"
                                   class="form-control"
                                   id="imageInput"
@@ -185,6 +195,8 @@
                                   >Description</label
                                 >
                                 <textarea
+                                [(ngModel)]="updateDomaineData.descriptionDomaine"
+
                                   class="form-control"
                                   id="descriptionInput"
                                   rows="3"
@@ -204,6 +216,7 @@
                           <i class="fa fa-close text-white"></i>
                         </button>
                         <button
+                        (click)="updateDomaine()"
                           type="button"
                           class="btn btn-round colormodalmodifier"
                         >
