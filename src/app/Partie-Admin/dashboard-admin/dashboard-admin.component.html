@@ -1,25 +1,31 @@
 <main
   id="main"
   class="main"
-  style="background-color: rgba(242, 253, 255, 0.97)"
+  style="background-color: rgba(222, 251, 255, 0.112)"
 >
   <div class="pagetitle">
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item active text-primary">
+          <i class="fa-solid fa-chart-column"></i> Dashboard
+        </li>
       </ol>
     </nav>
   </div>
   <section class="section dashboard">
     <div class="row">
       <!-- Left side columns -->
-      <div class="col-lg-8">
+      <div class="col-lg-7">
         <div class="row">
           <!-- Sales Card -->
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card sales-card">
               <div class="card-body">
-                <h5 class="card-title">Domaines</h5>
+                <h5 class="card-title">
+                  <strong
+                    ><i class="fa-solid fa-arrow-up-9-1"></i> Domaines</strong
+                  >
+                </h5>
 
                 <div class="d-flex align-items-center">
                   <div
@@ -28,7 +34,7 @@
                     <i class="fa fa-globe"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>{{countAllData.countDomaine}}</h6>
+                    <h6>{{ countAllData.countDomaine }}</h6>
                   </div>
                 </div>
               </div>
@@ -39,7 +45,11 @@
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card sales-card">
               <div class="card-body">
-                <h5 class="card-title">Catégories</h5>
+                <h5 class="card-title">
+                  <strong
+                    ><i class="fa-solid fa-arrow-up-9-1"></i> Catégories</strong
+                  >
+                </h5>
 
                 <div class="d-flex align-items-center">
                   <div
@@ -48,18 +58,24 @@
                     <i class="fa-solid fa-layer-group"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>{{countAllData.countCategorie}}</h6>
+                    <h6>{{ countAllData.countCategorie }}</h6>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
           <!-- Customers Card -->
           <div class="col-xxl-4 col-xl-12">
-            <div class="card info-card customers-card">
+            <div
+              class="card info-card customers-card"
+              style="border-bottom: 5px solid rgba(255, 102, 0, 0.47)"
+            >
               <div class="card-body">
-                <h5 class="card-title">Consultants</h5>
+                <h5 class="card-title">
+                  <strong
+                    ><i class="fa-solid fa-users-line"></i> Consultants</strong
+                  >
+                </h5>
 
                 <div class="d-flex align-items-center">
                   <div
@@ -68,19 +84,22 @@
                     <i class="fa-solid fa-users"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>{{countAllData.countConsultant}}</h6>
+                    <h6>{{ countAllData.countConsultant }}</h6>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- End Customers Card -->
-
           <!-- End Sales Card --><!-- Sales Card -->
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card sales-card">
               <div class="card-body">
-                <h5 class="card-title">Clients</h5>
+                <h5 class="card-title">
+                  <strong
+                    ><i class="fa-solid fa-users-between-lines"></i>
+                    Clients</strong
+                  >
+                </h5>
 
                 <div class="d-flex align-items-center">
                   <div
@@ -89,7 +108,7 @@
                     <i class="fa-solid fa-users"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>{{countAllData.countClient}}</h6>
+                    <h6>{{ countAllData.countClient }}</h6>
                   </div>
                 </div>
               </div>
@@ -100,7 +119,12 @@
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card sales-card">
               <div class="card-body">
-                <h5 class="card-title">Consultations</h5>
+                <h5 class="card-title">
+                  <strong
+                    ><i class="fa-solid fa-people-arrows"></i>
+                    Consultations</strong
+                  >
+                </h5>
 
                 <div class="d-flex align-items-center">
                   <div
@@ -109,7 +133,7 @@
                     <i class="bi bi-grid"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>{{countAllData.countConsultations}}</h6>
+                    <h6>{{ countAllData.countConsultations }}</h6>
                   </div>
                 </div>
               </div>
@@ -118,9 +142,17 @@
           <!-- End Sales Card -->
           <!-- Customers Card -->
           <div class="col-xxl-4 col-xl-12">
-            <div class="card info-card customers-card">
+            <div
+              class="card info-card cardRende customers-card"
+              style="border-bottom: 5px solid rgba(255, 102, 0, 0.47)"
+            >
               <div class="card-body">
-                <h5 class="card-title">Rendez-vous</h5>
+                <h5 class="card-title">
+                  <strong
+                    ><i class="fa-solid fa-calendar-check"></i>
+                    Rendez-vous</strong
+                  >
+                </h5>
 
                 <div class="d-flex align-items-center">
                   <div
@@ -129,7 +161,7 @@
                     <i class="fa-solid fa-clipboard-list"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>{{countAllData.countRendezVous}}</h6>
+                    <h6>{{ countAllData.countRendezVous }}</h6>
                   </div>
                 </div>
               </div>
@@ -140,7 +172,9 @@
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card sales-card">
               <div class="card-body">
-                <h5 class="card-title">Demandes d'inscription</h5>
+                <h5 class="card-title">
+                  <strong> Demandes d'inscription</strong>
+                </h5>
 
                 <div class="d-flex align-items-center">
                   <div
@@ -149,7 +183,7 @@
                     <i class="fa-solid fa-right-to-bracket"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>{{countAllData.countDemandeCompte}}</h6>
+                    <h6>{{ countAllData.countDemandeCompte }}</h6>
                   </div>
                 </div>
               </div>
@@ -160,18 +194,29 @@
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card sales-card">
               <div class="card-body">
-                <h5 class="card-title">Nombre de Plan par Consultant</h5>
-                <select class="form-select" aria-label="Default select example" [(ngModel)]="idConsultant1" (change)="getNombrePlan()">
-                  <option disabled selected value="">Choisir un consultant</option>
-                  <option *ngFor="let c of allConsultants" value="{{c.id}}" >{{c.nom}} {{c.prenom}}</option>
-
+                <h5 class="card-title">
+                  <strong>Nombre de Plan par Consultant</strong>
+                </h5>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  [(ngModel)]="idConsultant1"
+                  (change)="getNombrePlan()"
+                >
+                  <option disabled selected value="">
+                    Choisir un consultant
+                  </option>
+                  <option *ngFor="let c of allConsultants" value="{{ c.id }}">
+                    {{ c.nom }} {{ c.prenom }}
+                  </option>
                 </select>
                 <br />
                 <div class="d-flex align-items-center">
                   <div class="ps-3">
-                    <h6 *ngIf="countPlanByConsultant!=null">{{countPlanByConsultant.count}}</h6>
-                    <h6 *ngIf="countPlanByConsultant==null">0</h6>
-
+                    <h6 *ngIf="countPlanByConsultant != null">
+                      {{ countPlanByConsultant.count }}
+                    </h6>
+                    <h6 *ngIf="countPlanByConsultant == null">0</h6>
                   </div>
                 </div>
               </div>
@@ -183,7 +228,9 @@
             <div class="card info-card customers-card">
               <div class="card-body">
                 <h5 class="card-title">
-                  Nombre de Catégories et Consultants par Domaine
+                  <strong
+                    >Nombre de Catégories et Consultants par Domaine</strong
+                  >
                 </h5>
                 <app-bar-chart></app-bar-chart>
               </div>
@@ -192,13 +239,15 @@
           <!--end-->
           <!--domaine consultation plan-->
           <div class="col-xxl-4 col-xl-12">
-            <div class="card info-card customers-card">
+            <div
+              class="card info-card customers-card"
+              style="border-bottom: 5px solid rgba(124, 32, 210, 0.47)"
+            >
               <div class="card-body">
                 <h5 class="card-title">
-                  Nombre de Consultation et Plan par Domaine
+                  <strong>Nombre de Consultation et Plan par Domaine</strong>
                 </h5>
-                <app-bar-horizontal-chart>
-                </app-bar-horizontal-chart>
+                <app-bar-horizontal-chart> </app-bar-horizontal-chart>
               </div>
             </div>
           </div>
@@ -206,30 +255,39 @@
         </div>
       </div>
       <!-- End Left side columns -->
-      <div class="col-lg-4">
+      <div class="col-lg-5">
         <!-- Recent Activity -->
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Dérnières Activités</h5>
+            <h5 class="card-title">
+              <strong
+                ><i class="fa-solid fa-barcode"></i> Dérnières Activités</strong
+              >
+            </h5>
 
             <div class="activity">
-
-              <div *ngFor="let activity of listActivity" class="activity-item d-flex">
-                <div class="activite-label">{{ formatDate(activity.date) }}</div>
-                <i class="bi bi-circle-fill activity-badge align-self-start"
-                   [ngClass]="{
-                     'text-success': activity.action === 'ajouter',
-                     'text-danger': activity.action === 'supprimer',
-                     'text-warning': activity.action === 'consulter',
-                     'text-primary': activity.action === 'modifier',
-                     'text-muted': activity.action === 'rembourser'
-                   }"></i>
+              <div
+                *ngFor="let activity of listActivity"
+                class="activity-item d-flex"
+              >
+                <div class="activite-label">
+                  {{ formatDate(activity.date) }}
+                </div>
+                <i
+                  class="bi bi-circle-fill activity-badge align-self-start"
+                  [ngClass]="{
+                    'text-success': activity.action === 'ajouter',
+                    'text-danger': activity.action === 'supprimer',
+                    'text-warning': activity.action === 'consulter',
+                    'text-primary': activity.action === 'modifier',
+                    'text-muted': activity.action === 'rembourser'
+                  }"
+                ></i>
                 <div class="activity-content">
                   {{ activity.description }}
                 </div>
               </div>
               <!-- End activity item-->
-              
             </div>
           </div>
         </div>
@@ -238,7 +296,12 @@
         <!-- Budget Report -->
         <div class="card">
           <div class="card-body pb-0">
-            <h5 class="card-title">Rendez-vous par Domaine</h5>
+            <h5 class="card-title">
+              <strong
+                ><i class="fa-solid fa-calendar-check"></i> Rendez-vous par
+                Domaine</strong
+              >
+            </h5>
             <app-pie-chart></app-pie-chart>
             <br />
           </div>
@@ -246,10 +309,18 @@
         <!-- End Budget Report -->
 
         <!-- Website Traffic -->
-        <div class="card">
+        <div
+          class="card"
+          style="border-bottom: 5px solid rgba(255, 119, 0, 0.338)"
+        >
           <div class="card-body pb-0">
-            <h5 class="card-title">Rendez-vous par Consultant</h5>
-            
+            <h5 class="card-title">
+              <strong
+                ><i class="fa-solid fa-calendar-check"></i> Rendez-vous par
+                Consultant</strong
+              >
+            </h5>
+
             <app-doughnut-chart></app-doughnut-chart>
             <br />
           </div>
@@ -257,9 +328,17 @@
 
         <!-- End Website Traffic -->
         <!-- Website Traffic -->
-        <div class="card">
+        <div
+          class="card"
+          style="border-bottom: 5px solid rgba(194, 131, 224, 0.473)"
+        >
           <div class="card-body pb-0">
-            <h5 class="card-title">Avis par Consultant</h5>
+            <h5 class="card-title">
+              <strong
+                ><i class="fa-regular fa-face-smile"></i> Avis par
+                Consultant</strong
+              >
+            </h5>
             <select class="form-select" aria-label="Default select example">
               <option selected>Choisir un consultant</option>
               <option value="1">One</option>
