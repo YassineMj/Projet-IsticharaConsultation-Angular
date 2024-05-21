@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable, first, flatMap, forkJoin, lastValueFrom, map, mergeMap, switchMap, tap, throwError } from 'rxjs';
+
 import { catchError } from 'rxjs/operators';
 
 
@@ -26,7 +28,7 @@ export class AdminService {
 
   private apiUrlReclamation='http://localhost:8080/IsticharaConsultation/api/paiement/reclamation'
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient , private db: AngularFireDatabase) {}
 
   addActivity(request: any): Observable<any> {
     return this.http.post<any>(`http://localhost:8080/IsticharaConsultation/api/admin/add-activity`, request);
@@ -149,8 +151,8 @@ export class AdminService {
     return this.http.get<any>(this.baseUrlDemandeCompte + `get-demande-compte/${idDemande}`);
   }
 
-  activeCompte(idDemande: string): Observable<any> {
-    return this.http.post<any>(this.baseUrlDemandeCompte + `active-compte/${idDemande}`, null);
+  activeCompte(idDemande: string , idFireBase:string): Observable<any> {
+    return this.http.post<any>(this.baseUrlDemandeCompte + `active-compte/${idDemande}/${idFireBase}`, null);
   }
 
   getConsultantById(idConsultant: string): Observable<any> {
@@ -162,4 +164,52 @@ export class AdminService {
   }
 
 
+  async registerConsultantFireBase(): Promise<any> {
+    try {
+        const consultantId = this.generateCode();
+        const consultantRef = this.db.object(`users/${consultantId}`);
+        const role="consultant";
+        
+        await consultantRef.set({role});
+
+        // Créer les conversations pour le nouvel consultant
+        await this.createConversationsForConsultant(consultantId);
+
+        return { message: "Consultant successfully registered" , idFireBase:consultantId };
+    } catch (error) {
+        console.error("Error registering consultant:", error);
+        throw error; // Re-throw for caller handling
+    }
+  }
+
+  async createConversationsForConsultant(consultantId: string): Promise<void> {
+    try {
+        const adminsSnapshot = await lastValueFrom(
+            this.db.list('users', ref => ref.orderByChild('role').equalTo('admin')).snapshotChanges().pipe(first())
+        );
+
+        if (adminsSnapshot && adminsSnapshot.length > 0) {
+            console.log("Creating conversations for the consultant");
+
+            const promises = adminsSnapshot.map(adminSnapshot => {
+                const adminKey = adminSnapshot.payload.key;
+                const conversationId = this.generateCode();
+                const conversationData = { adminId: adminKey, consultantId};
+
+                return this.db.object(`conversations/${conversationId}`).set(conversationData);
+            });
+
+            await Promise.all(promises);
+        } else {
+            throw new Error("Aucun administrateur trouvé.");
+        }
+    } catch (error) {
+        console.error("Erreur lors de la création des conversations:", error);
+        throw error;
+    }
+  }
+
+  generateCode(): string {
+    return this.db.createPushId();
+  }
 }
