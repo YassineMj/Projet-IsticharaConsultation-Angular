@@ -42,7 +42,7 @@
                 <h5
                   class="font-weight-bold mb-3 text-center text-lg-start text-primary"
                 >
-                  <i class="fa-solid fa-users"></i> List des Admins
+                  <i class="fa-solid fa-users"></i> List des Consultants
                 </h5>
                 <hr style="border: 2px solid rgb(106, 175, 255)" />
                 <ul class="list-unstyled member-list mb-0">
@@ -50,11 +50,11 @@
                     class=""
                     style="border-bottom: 1px solid rgba(0, 161, 215, 0.311)"
                   >
-                    <a (click)="getChat(c.idConversation)" class="d-flex justify-content-between">
+                    <a (click)="getChat(c.idConversation,c.imageConsultant)" class="d-flex justify-content-between">
                       <div class="d-flex flex-row">
                         <img
-                          src="../../../assets/images/icon-sidentifier-admin.png"
-                          alt="avatar"
+                        [src]="'../../../assets/images-consultants/'+c.imageConsultant"
+                        alt="avatar"
                           class="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
                           width="60"
                         />
@@ -74,56 +74,54 @@
             <div *ngIf="activeChat" class="card card2 shadow">
               <ul class="list-unstyled message-list">
 
-              <div *ngFor="let m of messages">
+                  <div *ngFor="let m of messages">
 
-                  <li *ngIf="m.senderId==_serviceConsultant.consultantAuthObjet.idFireBase" class="d-flex justify-content-between mb-4">
-                    <img
-                    [src]="
-                    '../../../assets/images-consultants/' +
-                    _serviceConsultant.consultantAuthObjet.photoProfile
-                  "                      alt="avatar"
-                      class="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
-                      width="60"
-                    />
-                    <div class="card message-card w-100">
-                      <div
-                        class="card-header card-header1 d-flex justify-content-between p-3"
-                      >
-                        <p class="fw-bold mb-0 mr-2">{{m.nomSender}}</p>
+                      <li *ngIf="m.senderId==_serviceAdmin.authAdminObjet.idFireBase" class="d-flex justify-content-between mb-4">
+                        <img
+                        src="../../../assets/images/icon-sidentifier-admin.png"                     
+                        alt="avatar"
+                          class="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
+                          width="60"
+                        />
+                        <div class="card message-card w-100">
+                          <div
+                            class="card-header card-header1 d-flex justify-content-between p-3"
+                          >
+                            <p class="fw-bold mb-0 mr-2">{{m.nomSender}}</p>
 
-                        <p class="text-muted small mb-0">
-                          <i class="far fa-clock"></i> {{ m.timestamp | date:'short' }}
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p class="mb-0">{{m.text}}</p>
-                      </div>
-                    </div>
-                  </li>
+                            <p class="text-muted small mb-0">
+                              <i class="far fa-clock"></i> {{ m.timestamp | date:'short' }}
+                            </p>
+                          </div>
+                          <div class="card-body">
+                            <p class="mb-0">{{m.text}}</p>
+                          </div>
+                        </div>
+                      </li>
 
-                  <li *ngIf="m.senderId!=_serviceConsultant.consultantAuthObjet.idFireBase" class="d-flex justify-content-between mb-4">
-                    <div class="card message-card w-100">
-                      <div
-                        class="card-header card-header2 d-flex justify-content-between p-3"
-                      >
-                        <p class="fw-bold mb-0">{{m.nomSender}}</p>
-                        <p class="text-muted small mb-0">
-                          <i class="far fa-clock"></i> {{ m.timestamp | date:'short' }}
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p class="mb-0">{{m.text}}</p>
-                      </div>
-                    </div>
-                    <img
-                    src="../../../assets/images/icon-sidentifier-admin.png"
-                    alt="avatar"
-                      class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong"
-                      width="60"
-                    />
-                  </li>
-              
-              </div>
+                      <li *ngIf="m.senderId!=_serviceAdmin.authAdminObjet.idFireBase" class="d-flex justify-content-between mb-4">
+                        <div class="card message-card w-100">
+                          <div
+                            class="card-header card-header2 d-flex justify-content-between p-3"
+                          >
+                            <p class="fw-bold mb-0">{{m.nomSender}}</p>
+                            <p class="text-muted small mb-0">
+                              <i class="far fa-clock"></i> {{ m.timestamp | date:'short' }}
+                            </p>
+                          </div>
+                          <div class="card-body">
+                            <p class="mb-0">{{m.text}}</p>
+                          </div>
+                        </div>
+                        <img
+                        [src]="'../../../assets/images-consultants/'+imageConsultantChat"
+                        alt="avatar"
+                          class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong"
+                          width="60"
+                        />
+                      </li>
+                  
+                  </div>
 
               </ul>
 

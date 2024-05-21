@@ -55,10 +55,12 @@ export class ConsultantDemandeAdminComponent implements OnInit {
     )
   }
 
-  toggleActivation(event: any,idDemande:any , nom:any , prenom:any): void {
+  async toggleActivation(event: any,idDemande:any , nom:any , prenom:any): Promise<void> {
     const isChecked = event?.target?.checked; // Utilisation de l'opérateur de navigation sécurisé
     if (isChecked !== undefined && isChecked) {
-      this._serviceAdmin.activeCompte(idDemande).subscribe(
+      const responseFireBase=await this._serviceAdmin.registerConsultantFireBase();
+      
+      this._serviceAdmin.activeCompte(idDemande,responseFireBase.idFireBase).subscribe(
         resp=>{
           alert(resp.message);
 

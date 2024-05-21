@@ -77,63 +77,6 @@ export class ProfilConsultantDashboardComponent implements OnInit {
     );
   }
 
-  /*  tab: boolean = false;
-
-  tablevide() {
-    if (this._service.consultantAuthObjet.experiencesPro.length === 0 || this._service.consultantAuthObjet.formations.length === 0 || this._service.consultantAuthObjet.educations.length === 0)
-      this.tab = true;
-    if (this.tab) {
-      alert("tablea est vide")
-
-    }
-    else(alert("la table n'est pas vide"))
-} */
-
-
-  /*  editvalidate() {
-    this.validateEmail();
-        this.validatePhone();
-    this.validateNom();
-    this.validatePrenom();
-    this.validatePays();
-    this.validateVille();
-    this.validateCin();
-
-    this.NomValid = this._service.consultantAuthObjet.nom === '';
-    this.PrenomValid = this._service.consultantAuthObjet.prenom === '';
-    this.CinValid = this._service.consultantAuthObjet.cin === '';
-    this.PaysValid = this._service.consultantAuthObjet.pays === '';
-    this.VilleValid = this._service.consultantAuthObjet.ville === '';
-    this.EmailValid = this._service.consultantAuthObjet.email === '';
-    this.PasswordValid = this._service.consultantAuthObjet.motDePasse === '';
-    this.PhoneValid = this._service.consultantAuthObjet.numeroTelephone === '';
-
-    if (
-      this.NomValid ||
-      this.PrenomValid ||
-      this.PhoneValid ||
-      this.CinValid ||
-      this.EmailValid ||
-      this.PasswordValid ||
-      this.PaysValid ||
-      this.VilleValid ||
-      this.paysInvalid ||
-      this.villeInvalid ||
-      this.CinInvalid ||
-      this.prenomInvalid ||
-      this.phoneInvalid ||
-      this.nomInvalid ||
-      this.emailInvalid
-    ) {
-      this.showError = true;
-      setTimeout(() => {
-        this.showError = false; // Réinitialise editDone à false après 2 secondes
-      }, 3000);
-
-      return; // Arrêtez l'envoi du formulaire si l'un des champs est vide
-    }
-  } */
-
   selectedTab: string = 'Profile';
 
   navigateProfile(tab: string): void {

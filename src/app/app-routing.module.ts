@@ -34,6 +34,7 @@ import { ConsultantDemandeAdminComponent } from './Partie-Admin/consultant-deman
 import { ConsultantAccpeterAdminComponent } from './Partie-Admin/consultant-accpeter-admin/consultant-accpeter-admin.component';
 import { ConsultationsVerificationAdminComponent } from './Partie-Admin/consultations-verification-admin/consultations-verification-admin.component';
 import { ProfilAdminComponent } from './Partie-Admin/profil-admin/profil-admin.component';
+import { ChatComponent } from './Partie-Admin/chat/chat.component';
 
 //routes partie utilisateur
 const utilisateurRoutes: Routes = [
@@ -65,6 +66,8 @@ const adminRoutes: Routes = [
   { path: 'dashboard-admin', component: DashboardAdminComponent },
   { path: 'categorie-admin', component: CategorieCrudAdminComponent },
   { path: 'profil-admin', component: ProfilAdminComponent },
+  { path: 'chat-admin', component: ChatComponent },
+
 
   {
     path: 'consultant-demande-admin',
@@ -120,6 +123,7 @@ const consultantRoutes: Routes = [
     path: 'rendezvous-refuser-consultant-dashboard',
     component: RendezvousRefuserConsultantDashboardComponent,
   },
+
 ];
 
 const routes: Routes = [

@@ -63,6 +63,15 @@ import { DoughnutChartComponent } from './Partie-Admin/doughnut-chart/doughnut-c
 import { BarHorizontalChartComponent } from './Partie-Admin/bar-horizontal-chart/bar-horizontal-chart.component';
 import { PieAvisChartComponent } from './Partie-Admin/pie-avis-chart/pie-avis-chart.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+import { environment } from '../../environments';
+import { ChatComponent } from './Partie-Admin/chat/chat.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -107,6 +116,7 @@ import { PieAvisChartComponent } from './Partie-Admin/pie-avis-chart/pie-avis-ch
     DoughnutChartComponent,
     BarHorizontalChartComponent,
     PieAvisChartComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
@@ -133,6 +143,10 @@ import { PieAvisChartComponent } from './Partie-Admin/pie-avis-chart/pie-avis-ch
     MatIconModule,
     MatCheckboxModule,
     MatTabsModule,
+
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
