@@ -98,22 +98,25 @@
             alt="Profile"
             class="rounded-circle"
           />
-          <span class="d-none d-md-block dropdown-toggle ps-2"
-            >{{_serviceAdmin.authAdminObjet.nomComplet}}</span
-          > </a
+          <span class="d-none d-md-block dropdown-toggle ps-2">{{
+            _serviceAdmin.authAdminObjet.nomComplet
+          }}</span> </a
         ><!-- End Profile Iamge Icon -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <li class="dropdown-header">
-            <h6>{{_serviceAdmin.authAdminObjet.nomComplet}}</h6>
-            <span>{{_serviceAdmin.authAdminObjet.travail}}</span>
+            <h6>{{ _serviceAdmin.authAdminObjet.nomComplet }}</h6>
+            <span>{{ _serviceAdmin.authAdminObjet.travail }}</span>
           </li>
           <li>
             <hr class="dropdown-divider" />
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center"  routerLink="/admin/profil-admin">
+            <a
+              class="dropdown-item d-flex align-items-center"
+              routerLink="/admin/profil-admin"
+            >
               <i class="fa fa-user"></i>
               <span>Mon profile</span>
             </a>
@@ -126,7 +129,10 @@
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" routerLink="/admin-sidentifier" >
+            <a
+              class="dropdown-item d-flex align-items-center"
+              routerLink="/admin-sidentifier"
+            >
               <i class="fa-solid fa-right-from-bracket"></i>
               <span>Se déconnecter</span>
             </a>
@@ -142,8 +148,10 @@
 <!-- End Header -->
 
 <section>
+ 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar" [ngClass]="{ hidden: !sidebarVisible }">
+    <br />
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
         <a class="nav-link" routerLink="/admin/dashboard-admin">
@@ -174,6 +182,13 @@
           <i class="fa-solid fa-layer-group"></i><span>Categories</span>
         </a>
       </li>
+      <hr
+        style="
+          border: 0;
+          height: 4px;
+          background: linear-gradient(to right, rgba(4, 106, 180, 0.884), rgb(255, 157, 0));
+        "
+      />
       <li class="nav-item">
         <a
           class="nav-link collapsed"
@@ -225,7 +240,13 @@
           <i class="bi bi-grid"></i><span>Suivi visioconférence</span>
         </a>
       </li>
-      <!-- End Charts Nav -->
+     <hr
+        style="
+          border: 0;
+          height: 4px;
+          background: linear-gradient(to right, rgb(0, 81, 255), rgb(255, 157, 0));
+        "
+      />      <!-- End Charts Nav -->
       <li class="nav-item">
         <a
           class="nav-link collapsed"
