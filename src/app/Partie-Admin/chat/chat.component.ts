@@ -77,6 +77,4 @@ export class ChatComponent {
     console.log(this.conversation);
     
   }
-
-
 }
