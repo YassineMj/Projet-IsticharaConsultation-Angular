@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild, ElementRef, AfterViewChecked  } from '@angular/core';
 import { AdminService } from '../Services/admin.service';
 import { Router } from '@angular/router';
 import { ChatService } from 'src/app/Partie-Consultant/Services/chat.service';
@@ -10,6 +10,7 @@ import { ChatService } from 'src/app/Partie-Consultant/Services/chat.service';
 })
 export class ChatComponent {
 
+   @ViewChild('messageContainer') private messageContainer: ElementRef;
   constructor(public _serviceAdmin:AdminService,private _serviceChat:ChatService,private router:Router){}
 
   conversations: any[] = [];
@@ -61,8 +62,15 @@ export class ChatComponent {
     )
     
   }
+ scrollToBottom(): void {
+    try {
+      this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
+    } catch(err) { }
+  }
 
-  sendMessage(){
+  sendMessage() {
+    if (this.text.trim() !== ''){
+     this.scrollToBottom();
     this._serviceChat.sendMessage(this.conversation,this._serviceAdmin.authAdminObjet.idFireBase,this.text,this._serviceAdmin.authAdminObjet.nomComplet)
     .then(() => {
       console.log('Message envoyé avec succès');
@@ -75,6 +83,10 @@ export class ChatComponent {
       console.error('Erreur lors de l\'envoi du message:', error);
     });
     console.log(this.conversation);
-    
+    }
+  }
+   ngAfterViewChecked() {
+    // After Angular checks the component's views, scroll to the bottom
+    this.scrollToBottom();
   }
 }
