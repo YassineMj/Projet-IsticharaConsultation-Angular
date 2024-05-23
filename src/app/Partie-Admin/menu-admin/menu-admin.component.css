@@ -27,13 +27,17 @@
     z-index: 997;
     height: 70px;
     box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-    background: linear-gradient(to right, rgba(191, 255, 250, 0.466),rgba(157, 210, 220, 0.466)
+    background: linear-gradient(to right, rgb(222, 247, 255),rgb(209, 237, 255)
         );
     padding-left: 20px;
     /* Toggle Sidebar Button */
     /* Search Bar */
 }
-
+.active {
+    background-color: rgba(220, 241, 255, 0.715);
+    border-radius: 8px;
+    /* Couleur de fond pour l'élément actif */
+}
 .header .toggle-sidebar-btn {
 
     font-size: 32px;
@@ -330,7 +334,7 @@ a{
 .sidebar-nav .nav-heading {
     font-size: 11px;
     text-transform: uppercase;
-    color: #cdfbff;
+    color: #1d3be8;
     font-weight: 600;
     margin: 10px 0 5px 15px;
 }
@@ -340,9 +344,9 @@ a{
     align-items: center;
     font-size: 15px;
     font-weight: 600;
-    color: #00707a;
+    color: #0761c8e1;
     transition: 0.3;
-    background: #e9fafada;
+    background: transparent;
     padding: 10px 15px;
     border-radius: 4px;
 }
@@ -350,25 +354,25 @@ a{
 .sidebar-nav .nav-link i {
     font-size: 16px;
     margin-right: 10px;
-    color: #00707a;
+    color: #1c7db1b3;
 }
 
 .sidebar-nav .nav-link.collapsed {
     color: #000000;
-    background: #fff;
+    background: transparent;
 }
 
 .sidebar-nav .nav-link.collapsed i {
-    color: #899bbd;
+    color: #0043fcdf;
 }
 
 .sidebar-nav .nav-link:hover {
-    color: #cb7717;
-    background: #f6f9ff;
+    color: #009fc6;
+    background: #e2f5ffd5;
 }
 
 .sidebar-nav .nav-link:hover i {
-    color: #cb7717;
+    color: rgb(0, 157, 255);
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -418,7 +422,25 @@ a{
 }
 
 
+.btntoggle-sidebar-btn {
+    border: 3px solid rgba(168, 216, 255, 0.196);
+    background-color: rgba(16, 68, 255, 0.797);
+    cursor: pointer;
+    padding: 5px 9px;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 
+}
+.btntoggle-sidebar-btn:hover {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    
+}
+.btn-toggle-sidebar i {
+    font-size: 20px;
+}
 a {
     color: #4154f1;
     text-decoration: none;
@@ -437,3 +459,4 @@ h5,
 h6 {
     font-family: "Nunito", sans-serif;
 }
+

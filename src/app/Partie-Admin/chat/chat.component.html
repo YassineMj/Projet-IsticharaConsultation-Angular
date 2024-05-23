@@ -12,155 +12,141 @@
   rel="stylesheet"
 />
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Template</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-  </head>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
 
-  <body>
-    <section class="">
-      <div class="container chat-container">
-        <div class="row">
-          <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
-            <div  class="card card1 shadow">
-              <div class="card-body">
-                <h4
-                  class="font-weight-bold mb-3 text-center text-lg-start text-primary"
-                >
-                  <i class="fa-solid fa-users"></i> List des Consultants
-                </h4>
-                <hr style="border: 2px solid rgb(106, 175, 255)" />
-                <ul   class="list-unstyled member-list mb-0">
-                  <li
-                    *ngFor="let c of conversations"
-                    class=""
-                    style="border-bottom: 1px solid rgba(0, 161, 215, 0.311)"
-                  >
-                    <a
-                      (click)="getChat(c.idConversation, c.imageConsultant)"
-                      class="d-flex justify-content-between"
-                    >
-                      <div class="d-flex flex-row">
-                        <img
-                          [src]="
-                            '../../../assets/images-consultants/' +
-                            c.imageConsultant
-                          "
-                          alt="avatar"
-                          class="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
-                          width="60"
-                        />
-                        <div class="pt-3">
-                          <p class="fw-bold mb-0">{{ c.nomConsultant }}</p>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-8 col-xl-8">
-            <div *ngIf="activeChat" class="card card2 shadow">
-              <ul   #messageContainer class="list-unstyled message-list">
-                <div *ngFor="let m of messages">
-                  <li
-                    *ngIf="
-                      m.senderId == _serviceAdmin.authAdminObjet.idFireBase
+<div class="container-fluid chat-container">
+  <div class="row">
+    <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+      <div class="card card1 shadow">
+        <div class="card-body">
+          <h4
+            class="font-weight-bold mb-3 text-center text-lg-start text-primary"
+          >
+            <i class="fa-solid fa-users"></i> List des Consultants
+          </h4>
+          <hr style="border: 2px solid rgb(106, 175, 255)" />
+          <ul class="list-unstyled member-list mb-0">
+            <li
+              *ngFor="let c of conversations"
+              class=""
+              style="border-bottom: 1px solid rgba(0, 161, 215, 0.311)"
+            >
+              <a
+                (click)="getChat(c.idConversation, c.imageConsultant)"
+                class="d-flex justify-content-between"
+              >
+                <div class="d-flex flex-row">
+                  <img
+                    [src]="
+                      '../../../assets/images-consultants/' + c.imageConsultant
                     "
-                    class="d-flex justify-content-between mb-4"
-                  >
-                    <img
-                      src="../../../assets/images/icon-sidentifier-admin.png"
-                      alt="avatar"
-                      class="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
-                      width="60"
-                    />
-                    <div class="card message-card w-100">
-                      <div
-                        class="card-header card-header1 d-flex justify-content-between p-3"
-                      >
-                        <p class="fw-bold mb-0 mr-2">{{ m.nomSender }}</p>
-
-                        <p class="text-muted small mb-0">
-                          <i class="far fa-clock"></i>
-                          {{ m.timestamp | date : "short" }}
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p class="mb-0">{{ m.text }}</p>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li
-                    *ngIf="
-                      m.senderId != _serviceAdmin.authAdminObjet.idFireBase
-                    "
-                    class="d-flex justify-content-between mb-4"
-                  >
-                    <div class="card message-card w-100">
-                      <div
-                        class="card-header card-header2 d-flex justify-content-between p-3"
-                      >
-                        <p class="fw-bold mb-0">{{ m.nomSender }}</p>
-                        <p class="text-muted small mb-0">
-                          <i class="far fa-clock"></i>
-                          {{ m.timestamp | date : "short" }}
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p class="mb-0">{{ m.text }}</p>
-                      </div>
-                    </div>
-                    <img
-                      [src]="
-                        '../../../assets/images-consultants/' +
-                        imageConsultantChat
-                      "
-                      alt="avatar"
-                      class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong"
-                      width="60"
-                    />
-                  </li>
-                </div>
-              </ul>
-
-              <div class="bg-white mb-3">
-                <div class="form-outline d-flex">
-                  <input
-                    [(ngModel)]="text"
-                    type="text"
-                    class="form-control"
-                     (keyup.enter)="sendMessage()"
-                    placeholder="Type a message..."
+                    alt="avatar"
+                    class="rounded-circle d-flex align-self-center me-3 shadow-1-strong"
+                    width="60"
                   />
-                  <button
-                    (click)="sendMessage()"
- [disabled]="!text.trim()"                    type="button"
-                    class="btn btn-info btn-rounded send-button"
-                  >
-                    <i class="far fa-paper-plane"></i>
-                    <!-- Using Font Awesome icon -->
-                  </button>
+                  <div class="pt-3">
+                    <p class="fw-bold mb-0">{{ c.nomConsultant }}</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-8 col-xl-8">
+      <div *ngIf="activeChat" class="card card2 shadow chat-card">
+        <ul
+          #messageContainer
+          class="list-unstyled message-list message-container"
+        >
+          <div *ngFor="let m of messages">
+            <li
+              *ngIf="m.senderId == _serviceAdmin.authAdminObjet.idFireBase"
+              class="d-flex justify-content-between mb-4"
+            >
+              <img
+                src="../../../assets/images/icon-sidentifier-admin.png"
+                alt="avatar"
+                class="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
+                width="60"
+              />
+              <div class="card message-card w-100">
+                <div
+                  class="card-header card-header1 d-flex justify-content-between p-3"
+                >
+                  <p class="fw-bold mb-0 mr-2">{{ m.nomSender }}</p>
+
+                  <p class="text-muted small mb-0">
+                    <i class="far fa-clock"></i>
+                    {{ m.timestamp | date : "short" }}
+                  </p>
+                </div>
+                <div class="card-body">
+                  <p class="mb-0">{{ m.text }}</p>
                 </div>
               </div>
-            </div>
+            </li>
+
+            <li
+              *ngIf="m.senderId != _serviceAdmin.authAdminObjet.idFireBase"
+              class="d-flex justify-content-between mb-4"
+            >
+              <div class="card message-card w-100">
+                <div
+                  class="card-header card-header2 d-flex justify-content-between p-3"
+                >
+                  <p class="fw-bold mb-0">{{ m.nomSender }}</p>
+                  <p class="text-muted small mb-0">
+                    <i class="far fa-clock"></i>
+                    {{ m.timestamp | date : "short" }}
+                  </p>
+                </div>
+                <div class="card-body">
+                  <p class="mb-0">{{ m.text }}</p>
+                </div>
+              </div>
+              <img
+                [src]="
+                  '../../../assets/images-consultants/' + imageConsultantChat
+                "
+                alt="avatar"
+                class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong"
+                width="60"
+              />
+            </li>
+          </div>
+        </ul>
+
+        <div class="bg-white mb-3">
+          <div class="form-outline d-flex">
+            <input
+              [(ngModel)]="text"
+              type="text"
+              class="form-control"
+              (keyup.enter)="sendMessage()"
+              placeholder="Type a message..."
+            />
+            <button
+              (click)="sendMessage()"
+              [disabled]="!text.trim()"
+              type="button"
+              class="btn btn-info btn-rounded send-button"
+            >
+              <i class="far fa-paper-plane"></i>
+              <!-- Using Font Awesome icon -->
+            </button>
           </div>
         </div>
       </div>
-    </section>
-  </body>
-</html>
+    </div>
+  </div>
+</div>

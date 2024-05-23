@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild, ElementRef, AfterViewChecked  } from '@angular/core';
 import { ChatService } from '../Services/chat.service';
 import { ConsultantService } from '../Services/consultant.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ContactConsultantDashboardComponent {
 
+   @ViewChild('messageContainer') private messageContainer: ElementRef;
   constructor(public _serviceConsultant:ConsultantService,private _serviceChat:ChatService,private router:Router){}
 
   conversations: any[] = [];
@@ -40,6 +41,12 @@ export class ContactConsultantDashboardComponent {
     )
   }
 
+   scrollToBottom(): void {
+    try {
+      this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
+    } catch(err) { }
+  }
+
   getChat(idConversation:any){
     this._serviceChat.getMessages(idConversation).subscribe(
       resp=>{
@@ -58,20 +65,33 @@ export class ContactConsultantDashboardComponent {
     
   }
 
-  sendMessage(){
-    this._serviceChat.sendMessage(this.conversation,this._serviceConsultant.consultantAuthObjet.idFireBase,this.text,this._serviceConsultant.consultantAuthObjet.nom+' '+this._serviceConsultant.consultantAuthObjet.prenom)
-    .then(() => {
-      console.log('Message envoyé avec succès');
-      // Effacer le champ de saisie après l'envoi du message
-      this.text = '';
-      // Rafraîchir la liste des messages après l'envoi du message
-      this.getChat(this.conversation);
-    })
-    .catch((error) => {
-      console.error('Erreur lors de l\'envoi du message:', error);
-    });
-    console.log(this.conversation);
+  sendMessage() {
+    if (this.text.trim() !== '') {
+      this.scrollToBottom();
+      this._serviceChat.sendMessage(this.conversation, this._serviceConsultant.consultantAuthObjet.idFireBase, this.text, this._serviceConsultant.consultantAuthObjet.nom + ' ' + this._serviceConsultant.consultantAuthObjet.prenom)
+        .then(() => {
+          console.log('Message envoyé avec succès');
+          // Effacer le champ de saisie après l'envoi du message
+          this.text = '';
+          // Rafraîchir la liste des messages après l'envoi du message
+          this.getChat(this.conversation);
+        })
+        .catch((error) => {
+          console.error('Erreur lors de l\'envoi du message:', error);
+        });
+      console.log(this.conversation);
     
+    }
+  }
+     ngAfterViewChecked() {
+    // After Angular checks the component's views, scroll to the bottom
+    this.scrollToBottom();
   }
 
+  isChatVisible: boolean = false;
+
+  toggleChat() {
+    this.isChatVisible = !this.isChatVisible;
+  }
+  
 }
