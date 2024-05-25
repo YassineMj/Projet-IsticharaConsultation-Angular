@@ -69,6 +69,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { environment } from '../../environments';
 import { ChatComponent } from './Partie-Admin/chat/chat.component';
+import { ReclamationUtilisateurComponent } from './Partie-Utilisateur/reclamation-utilisateur/reclamation-utilisateur.component';
+import { ListReclamationAdminComponent } from './Partie-Admin/list-reclamation-admin/list-reclamation-admin.component';
 
 
 
@@ -117,6 +119,8 @@ import { ChatComponent } from './Partie-Admin/chat/chat.component';
     BarHorizontalChartComponent,
     PieAvisChartComponent,
     ChatComponent,
+    ReclamationUtilisateurComponent,
+    ListReclamationAdminComponent,
   ],
   imports: [
     BrowserModule,

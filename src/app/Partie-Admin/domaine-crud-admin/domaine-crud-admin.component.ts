@@ -12,8 +12,11 @@ export class DomaineCrudAdminComponent implements OnInit{
 
   showSearchInput: boolean = false;
   
- toggleSearchInput() {
-   this.showSearchInput = !this.showSearchInput;
+ toggleSearchInput(inputElement: HTMLInputElement) {
+    this.showSearchInput = !this.showSearchInput;
+     if (!this.showSearchInput) {
+      inputElement.value = '';
+    }
    
   }
   constructor(private _serviceAdmin: AdminService , private router: Router ,private modalService: NgbModal) {}
@@ -69,7 +72,8 @@ export class DomaineCrudAdminComponent implements OnInit{
     }
   }
 
-  ajouterDomaine( fileInput : HTMLInputElement){
+  ajouterDomaine(fileInput: HTMLInputElement) {
+    
     this._serviceAdmin.createDomaine(this.dataDomaine).subscribe(
       resp=>{
         console.log(resp);
@@ -99,13 +103,14 @@ export class DomaineCrudAdminComponent implements OnInit{
           this.showSuccessMessage = false;
         }, 3000);
 
-         this.resetForm(fileInput);
+        this.resetForm(fileInput);
         this.ngOnInit();
       }
     )
     
   }
-    resetForm(fileInput: HTMLInputElement) {
+  resetForm(fileInput: HTMLInputElement) {
+      
     this.dataDomaine = {
       nomDomaine: '',
       pathImage: '',
@@ -124,6 +129,7 @@ export class DomaineCrudAdminComponent implements OnInit{
       }
     )
   }
+
  isModalVisible: boolean = false;
 
   updateDomaine(){
@@ -168,7 +174,7 @@ export class DomaineCrudAdminComponent implements OnInit{
 
   isFormComplete(): boolean {
   return !!this.dataDomaine.nomDomaine && !!this.dataDomaine.descriptionDomaine && !!this.dataDomaine.pathImage;
-}
+  }
  
   domainToDeleteId: number;
   domainToDeleteName: string;
@@ -179,7 +185,8 @@ export class DomaineCrudAdminComponent implements OnInit{
     this.domainToDeleteName = nom;
   }
 
-  deleteDomaine(idDomaine:any , nomDomaine:any){
+  deleteDomaine(idDomaine: any, nomDomaine: any) {
+    
     this._serviceAdmin.deleteDomaine(idDomaine).subscribe(
       resp=>{
         console.log(resp);
@@ -201,12 +208,14 @@ export class DomaineCrudAdminComponent implements OnInit{
             
           }
         );
-     // Show success message
+
+        // Show success message
         this.showDangerMessage = true;
         // Hide success message after 3 seconds
         setTimeout(() => {
           this.showDangerMessage = false;
         }, 3000);
+        
         this.ngOnInit();
       }
     )

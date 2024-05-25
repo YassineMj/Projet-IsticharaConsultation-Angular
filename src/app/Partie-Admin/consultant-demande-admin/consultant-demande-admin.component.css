@@ -7,8 +7,14 @@ body {
     color: #212529;
     text-align: left;
     background-color: #fff;
-    padding-top: 14%;
 }
+.container h3 {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #004ed5d0;
+}
+
 .modal-header {
     background-color:rgba(0, 107, 137, 0.566);
     color: rgb(0, 0, 0);
@@ -20,17 +26,17 @@ body {
 }
 .section-title {
     text-align: center;
-    padding-bottom: 30px;
 }
 
 .section-title h3 {
-    font-size: 28px;
+   
+    font-size: 25px;
+    margin-top: 40px;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-transform: uppercase;
-    margin-bottom: 20px;
     padding-bottom: 0;
-    color: rgb(2, 94, 122);
+    color: #004ed5d0;
 
 }
 

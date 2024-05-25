@@ -37,6 +37,7 @@ input[type="text"] {
 
 
 }
+
 .search-button {
     transition: margin-right 0.3s ease;
 }
@@ -59,13 +60,15 @@ input[type="text"] {
 .search-input:not(.d-none) {
     max-width: 300px;
 }
-
+.infocolormodalfermer-message .close-btn:hover {
+    color: #f1f1f1;
+}
 .d-none {
     display: none !important;
 }
 .info-message{
         position: fixed;
-            top: 40px;
+            bottom: 40px;
             right: 20px;
             background-color: #0b90a7;
             color: white;
@@ -85,12 +88,10 @@ input[type="text"] {
     font-size: 20px;
     cursor: pointer;
 }
-.infocolormodalfermer-message .close-btn:hover {
-    color: #f1f1f1;
-}
+
 .success-message {
     position: fixed;
-    top: 40px;
+    bottom: 40px;
     right: 20px;
     background-color: #28a745;
     color: white;
@@ -105,7 +106,7 @@ input[type="text"] {
 
 .danger-message {
     position: fixed;
-    top: 40px;
+    bottom:  40px;
     right: 20px;
     background-color: #d12a21;
     color: white;
@@ -693,6 +694,14 @@ small {
     border-radius: 100px;
 
 }
+
+
+.colormodalmodifier:hover {
+    background-color: rgba(49, 71, 211, 0.861);
+    color: white;
+
+
+}
 .colormodalsupp {
     background-color: rgba(37, 66, 254, 0.861);
     color: white;
@@ -701,22 +710,15 @@ small {
 
 }
 
-.colormodalmodifier:hover {
-    background-color: rgba(49, 71, 211, 0.861);
-    color: white;
-
-
-}
-
 .colormodalfermer {
-    background-color: rgba(34, 129, 218, 0.66);
+    background-color: rgb(52, 52, 52);
     color: white;
     font-size: 20px;
     border-radius: 100px;
 }
 
 .colormodalfermer:hover {
-    background-color: rgba(1, 132, 255, 0.66);
+    background-color: rgb(52, 52, 52);
     color: white;
 
 }
@@ -727,6 +729,10 @@ small {
     color: rgba(37, 66, 254, 0.861);
     padding: 7px 20px;
     
+}
+.MODAL{
+        background-color: rgba(255, 0, 0, 0.553);
+        color: rgba(255, 255, 255, 0.861);
 }
 .modal-title{
     padding-top: 3px;

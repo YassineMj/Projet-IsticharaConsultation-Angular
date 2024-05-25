@@ -1,0 +1,217 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+
+<body>
+  <section class="ftco-section">
+    <div class="card cardall">
+      <div class="section-title">
+        <h3>
+          <i class="fa-solid fa-user-check"></i>
+          Liste des Réclamations
+        </h3>
+      </div>
+      <br />
+      <hr
+        style="
+          border: 2px solid rgba(139, 218, 255, 0.87);
+          width: 40%;
+          margin-left: 30%;
+          margin-top: -1%;
+        "
+      />
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-wrap">
+              <table class="table table-responsive-xl">
+                <thead>
+                  <tr>
+                    <th>Nom du Client</th>
+                    <th>Avis</th>
+                    <th>Nom du Consultant</th>
+                    <th>Domaine de consultant</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let reclamation of reclamations">
+                    <tr>
+                      <td>{{ reclamation.nomClient }}</td>
+                      <td>
+                        <span
+                          class="badge"
+                          [ngClass]="{
+                            'badge-success': reclamation.avis === 'favorable',
+                            'badge-danger': reclamation.avis === 'defavorable'
+                          }"
+                        >
+                          {{ reclamation.avis }}
+                        </span>
+                      </td>
+                      <td>{{ reclamation.nomConsultant }}</td>
+                      <td>
+                        {{ reclamation.nomdomaine }}
+                      </td>
+                      <td style="width: 100px">
+                        <button
+                          *ngIf="reclamation.avis === 'defavorable'"
+                          type="button"
+                          class="btn btn-danger"
+                          (click)="toggleProblemes(reclamation)"
+                          style="border-radius: 100px"
+                        >
+                          <i
+                            class="fa-solid fa-circle-question text-white"
+                            style="font-size: larger"
+                          ></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr
+                      [ngClass]="{
+                        'bg-light':
+                          reclamation.showProblemes &&
+                          reclamation.avis === 'defavorable'
+                      }"
+                    >
+                      <td colspan="1"></td>
+                      <td colspan="3">
+                        <div
+                          class="card card1"
+                          *ngIf="
+                            reclamation.showProblemes &&
+                            reclamation.avis === 'defavorable'
+                          "
+                        >
+                          <div
+                            style="
+                              padding: 10px;
+                              background-color: rgba(255, 0, 0, 0.534);
+                              border-radius: 4px;
+                            "
+                          >
+                            <h3 class="text-white">
+                              <i
+                                class="fa-solid fa-triangle-exclamation text-warning"
+                              ></i>
+                              Problèmes rencontrés
+                            </h3>
+                          </div>
+
+                          <div class="card-body">
+                            <ul class="list-group">
+                              <li
+                                *ngIf="
+                                  reclamation.problemes?.consultantPasParle
+                                "
+                                class="list-group-item"
+                              >
+                                <i
+                                  class="fas fa-exclamation-circle text-danger mr-2"
+                                ></i>
+                                <span class="font-weight-bold"
+                                  >Le consultant n'a pas parlé</span
+                                >
+                              </li>
+                              <li
+                                *ngIf="
+                                  reclamation.problemes?.consultantPasParticipe
+                                "
+                                class="list-group-item"
+                              >
+                                <i
+                                  class="fas fa-exclamation-circle text-danger mr-2"
+                                ></i>
+                                <span class="font-weight-bold"
+                                  >Le consultant n'a pas participé</span
+                                >
+                              </li>
+                              <li
+                                *ngIf="reclamation.problemes?.problemeVoix"
+                                class="list-group-item"
+                              >
+                                <i
+                                  class="fas fa-exclamation-circle text-danger mr-2"
+                                ></i>
+                                <span class="font-weight-bold"
+                                  >Problème de voix</span
+                                >
+                              </li>
+                              <li
+                                *ngIf="
+                                  reclamation.problemes?.mauvaiseQualiteVideo
+                                "
+                                class="list-group-item"
+                              >
+                                <i
+                                  class="fas fa-exclamation-circle text-danger mr-2"
+                                ></i>
+                                <span class="font-weight-bold"
+                                  >Mauvaise qualité vidéo</span
+                                >
+                              </li>
+                              <li
+                                *ngIf="
+                                  reclamation.problemes?.manqueDeConnaissances
+                                "
+                                class="list-group-item"
+                              >
+                                <i
+                                  class="fas fa-exclamation-circle text-danger mr-2"
+                                ></i>
+                                <span class="font-weight-bold"
+                                  >Manque de connaissances</span
+                                >
+                              </li>
+                              <li
+                                *ngIf="
+                                  reclamation.problemes?.mauvaiseQualiteAudio
+                                "
+                                class="list-group-item"
+                              >
+                                <i
+                                  class="fas fa-exclamation-circle text-danger mr-2"
+                                ></i>
+                                <span class="font-weight-bold"
+                                  >Mauvaise qualité audio</span
+                                >
+                              </li>
+                              <li
+                                *ngIf="
+                                  reclamation.problemes?.connexionInterrompue
+                                "
+                                class="list-group-item"
+                              >
+                                <i
+                                  class="fas fa-exclamation-circle text-danger mr-2"
+                                ></i>
+                                <span class="font-weight-bold"
+                                  >Connexion interrompue</span
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </td>
+                      <td colspan="1"></td></tr
+                  ></ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>

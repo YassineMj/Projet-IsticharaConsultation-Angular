@@ -1,0 +1,145 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.claim-heading {
+  font-size: 24px; /* Taille de la police */
+  font-weight: bold; /* Gras */
+  color: #333; /* Couleur du texte */
+  text-align: center; /* Centrer le texte */
+  margin-bottom: 20px; /* Marge inférieure */
+  text-transform: uppercase; /* Convertir en majuscules */
+  letter-spacing: 2px; /* Espacement des lettres */
+}
+
+.reclamation-card{
+       
+        border-radius: 20px;
+        border-bottom:2px solid #007bff81;
+        border-top: 2px solid #007bff81;
+        
+}
+.reclamation-card h2 {
+    margin-bottom: 20px;
+    
+    color: #333333;
+}
+
+.reclamation-card h3 {
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+   .radio-group {
+       display: flex;
+       align-items: center;
+   }
+
+   .radio-group label {
+       margin-right: 20px;
+       /* Adjust spacing between labels as needed */
+   }
+
+   .radio-group input[type="radio"] {
+       margin-right: 5px;
+       /* Adjust spacing between radio button and label text as needed */
+   }
+   
+.reclamation-card input[type="text"],
+.reclamation-card textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.reclamation-card label {
+    display: block;
+    margin-bottom: 10px;
+}
+input:focus {
+    border-color: #9ecdff;
+    /* Change border color */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    /* Add box-shadow */
+    outline: none;
+    /* Remove default outline */
+}
+textarea:focus{
+    border-color: #9ecdff;
+        /* Change border color */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        /* Add box-shadow */
+    outline: none;
+}
+.reclamation-card button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reclamation-card button:hover {
+    background-color: #0056b3;
+}
+.reclamation-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.reclamation-card h2 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.reclamation-card .step {
+    margin-bottom: 20px;
+}
+
+.reclamation-card .step h3 {
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.reclamation-card .step p {
+    color: #555555;
+}
+
+.reclamation-card .step button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reclamation-card .step button:hover {
+    background-color: #0056b3;
+}
+button:disabled {
+    background-color: #dddddd;
+    /* Change background color */
+    color: #999999;
+    /* Change text color */
+    cursor: not-allowed;
+    /* Change cursor */
+    opacity: 0.5;
+    /* Adjust opacity to indicate disabled state */
+    /* You can add more styles to customize the appearance further */
+}

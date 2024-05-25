@@ -35,6 +35,8 @@ import { ConsultantAccpeterAdminComponent } from './Partie-Admin/consultant-accp
 import { ConsultationsVerificationAdminComponent } from './Partie-Admin/consultations-verification-admin/consultations-verification-admin.component';
 import { ProfilAdminComponent } from './Partie-Admin/profil-admin/profil-admin.component';
 import { ChatComponent } from './Partie-Admin/chat/chat.component';
+import { ReclamationUtilisateurComponent } from './Partie-Utilisateur/reclamation-utilisateur/reclamation-utilisateur.component';
+import { ListReclamationAdminComponent } from './Partie-Admin/list-reclamation-admin/list-reclamation-admin.component';
 
 //routes partie utilisateur
 const utilisateurRoutes: Routes = [
@@ -44,6 +46,7 @@ const utilisateurRoutes: Routes = [
   { path: 'recherche-utilisateur', component: RechercheUtilisateurComponent },
   { path: 'apropos-utilisateur', component: AproposUtilisateurComponent },
   { path: 'contact-utilisateur', component: ContactUtilisateurComponent },
+  { path: 'reclamation-utilisateur', component: ReclamationUtilisateurComponent },
   {
     path: 'profilConsultant-utilisateur/:idConsultant',
     component: ProfilConsultantUtilisateurComponent,
@@ -66,6 +69,7 @@ const adminRoutes: Routes = [
   { path: 'dashboard-admin', component: DashboardAdminComponent },
   { path: 'categorie-admin', component: CategorieCrudAdminComponent },
   { path: 'profil-admin', component: ProfilAdminComponent },
+   { path: 'reclamation-admin', component: ListReclamationAdminComponent },
   { path: 'chat-admin', component: ChatComponent },
 
 
