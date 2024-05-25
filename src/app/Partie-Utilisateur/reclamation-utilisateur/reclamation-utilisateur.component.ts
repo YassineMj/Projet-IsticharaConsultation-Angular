@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PaiementService } from '../Services/paiement.service';
 
 @Component({
   selector: 'app-reclamation-utilisateur',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./reclamation-utilisateur.component.css']
 })
 export class ReclamationUtilisateurComponent {
+
+  constructor(private _service:PaiementService){}
 
   allFieldsFilled: boolean = false;
   commentaireFilled: boolean = false;
@@ -107,14 +110,30 @@ onCheckboxChange() {
 
   submitReclamation() {
     const reclamationData = {
-      code: this.reclamationCode,
+      codeReclamation: this.reclamationCode,
       avis: this.avis,
       commentaire: this.commentaire,
-      problemes: this.problemes
+      consultantPasParle: this.problemes.consultantPasParle,
+      consultantPasParticipe: this.problemes.consultantPasParticipe,
+      problemeVoix: this.problemes.problemeVoix,
+      mauvaiseQualiteVideo: this.problemes.mauvaiseQualiteVideo,
+      manqueDeConnaissances: this.problemes.manqueDeConnaissances,
+      mauvaiseQualiteAudio: this.problemes.mauvaiseQualiteAudio,
+      connexionInterrompue: this.problemes.connexionInterrompue
     };
 
-    console.log('Réclamation soumise :', reclamationData);
-    alert('Votre réclamation a été soumise avec succès.');
+    this._service.reclamation(reclamationData).subscribe(
+      resp => {
+        if (resp.message === "Reclamation ajoutée avec succès") {
+          alert('Votre réclamation a été soumise avec succès.');
+        } else {
+          alert('Votre réclamation a déjà été effectuée ou le code de réclamation n\'existe pas !');
+        }
+      },
+      error => {
+        alert('Une erreur s\'est produite lors de la soumission de votre réclamation.');
+      }
+    );
   }
 
 }
