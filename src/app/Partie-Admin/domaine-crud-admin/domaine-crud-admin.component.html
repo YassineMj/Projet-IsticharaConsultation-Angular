@@ -33,18 +33,26 @@
 
 <body>
   <div class="container">
-    <div class="section-title" style="padding-top: 2%">
-      <h3><i class="fa fa-globe"></i> Domaine</h3>
-    </div>
     <div class="row">
       <div class="col-md-12">
         <div class="card card1">
+          <div class="section-title" style="padding-top: 2%">
+            <h3><i class="fa fa-globe"></i> Domaine</h3>
+          </div>
+          <hr
+            style="
+              border: 2px solid rgba(139, 218, 255, 0.87);
+              width: 40%;
+              margin-left: 30%;
+              margin-top: -2%;
+            "
+          />
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="nomInput" class="form-label"
-                    >Nom <span class="text-danger">(*)</span></label
+                    >Nom <span class="text-danger">*</span></label
                   >
                   <input
                     [(ngModel)]="dataDomaine.nomDomaine"
@@ -58,7 +66,7 @@
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="imageInput" class="form-label">
-                    Image <span class="text-danger">(*)</span></label
+                    Image <span class="text-danger">*</span></label
                   >
                   <input
                     #fileInput
@@ -73,14 +81,14 @@
             </div>
             <div class="mb-3">
               <label for="descriptionInput" class="form-label"
-                >Description <span class="text-danger">(*)</span></label
+                >Description <span class="text-danger">*</span></label
               >
               <textarea
                 [(ngModel)]="dataDomaine.descriptionDomaine"
                 class="form-control"
                 id="descriptionInput"
                 rows="3"
-                placeholder=" Description de domaine"
+                placeholder="Description de domaine"
               ></textarea>
             </div>
             <div class="col-md-10 d-flex justify-content-end">
@@ -101,6 +109,7 @@
       </div>
     </div>
   </div>
+
   <br />
   <div class="container">
     <div class="row">
@@ -110,7 +119,7 @@
             <div class="d-flex align-items-center mb-3 position-relative">
               <button
                 class="btn btn-primary search-button"
-                (click)="toggleSearchInput()"
+                (click)="toggleSearchInput(searchInput)"
                 [class.expand-input]="showSearchInput"
               >
                 <i class="fa fa-search"></i>
@@ -120,6 +129,7 @@
                 [class.d-none]="!showSearchInput"
               >
                 <input
+                 #searchInput
                   type="text"
                   class="form-control"
                   placeholder="Rechercher..."
@@ -180,7 +190,7 @@
                         style="background-color: rgb(255, 112, 112)"
                       >
                         <i
-                          class="fa fa-trash"
+                          class="fa-solid fa-trash-can"
                           style="font-size: medium; padding-bottom: 11%"
                         ></i>
                       </button>
@@ -198,10 +208,10 @@
               >
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header MODAL">
                       <h4
                         class="modal-title"
-                        style="color: rgba(0, 42, 255, 0.906); font-size: 19px"
+                        style="color: rgb(255, 255, 255); font-size: 19px"
                         id="deleteConfirmationModalLabel"
                       >
                         <i class="fa-solid fa-trash"></i> Confirmation de
@@ -214,6 +224,7 @@
                         aria-label="Close"
                       ></button>
                     </div>
+
                     <div class="modal-body text-danger">
                       <div class="alert alert-danger" role="alert">
                         <i class="fa-solid fa-triangle-exclamation"></i>

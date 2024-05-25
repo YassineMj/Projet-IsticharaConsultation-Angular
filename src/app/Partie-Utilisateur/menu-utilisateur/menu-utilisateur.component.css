@@ -100,3 +100,6 @@
 color: rgb(19, 19, 19);
 }
 
+a{
+  cursor: pointer;
+}

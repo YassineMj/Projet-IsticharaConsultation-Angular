@@ -9,9 +9,14 @@ import { Router } from '@angular/router';
 })
 export class CategorieCrudAdminComponent implements  OnInit {
 
+    showSuccessMessage: boolean = false;
+    showInfoMessage: boolean = false;
+    showDangerMessage: boolean = false;
+    showSearchInput: boolean = false;
 
-  constructor(private _serviceAdmin: AdminService , private router: Router) {}
-
+  constructor(private _serviceAdmin: AdminService, private router: Router) { }
+  
+  listCategorie: any
   listDomaine:any
   idDomaine:any;
 
@@ -20,7 +25,30 @@ export class CategorieCrudAdminComponent implements  OnInit {
     descriptionCategorie:""
   }
 
-  listCategorie:any
+  isFormComplete(): boolean {
+
+  return !!this.categorieData.nomCategorie && 
+         !!this.categorieData.descriptionCategorie &&
+         !!this.idDomaine;
+    
+}
+
+  categorieToDeleteId: number;
+  categorieToDeleteName: string;
+
+  // Méthode pour stocker les informations du domaine à supprimer
+  setCategorieToDelete(id: number, nom: string): void {
+    this.categorieToDeleteId = id;
+    this.categorieToDeleteName = nom;
+  }
+
+ toggleSearchInput(inputElement: HTMLInputElement) {
+   this.showSearchInput = !this.showSearchInput;
+     if (!this.showSearchInput) {
+      inputElement.value = '';
+    }
+   
+  }
 
   ngOnInit(): void {
     if(this._serviceAdmin.authAdminObjet==null){
@@ -41,6 +69,7 @@ export class CategorieCrudAdminComponent implements  OnInit {
   }
 
   ajouterCategorie(){
+    
     console.log(this.idDomaine);
     
     this._serviceAdmin.addCategorie(this.idDomaine,this.categorieData).subscribe(
@@ -65,6 +94,13 @@ export class CategorieCrudAdminComponent implements  OnInit {
           }
         );
 
+        // Show success message
+        this.showSuccessMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 3000);
+        
         this.categorieData.descriptionCategorie="";
         this.categorieData.nomCategorie="";
         this.ngOnInit();
@@ -105,6 +141,14 @@ export class CategorieCrudAdminComponent implements  OnInit {
           }
         );
 
+           
+         // Show success message
+        this.showInfoMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showInfoMessage = false;
+        }, 3000);
+
         this.categorieUpdateData.descriptionCategorie="";
         this.categorieUpdateData.nomCategorie="";
 
@@ -136,6 +180,13 @@ export class CategorieCrudAdminComponent implements  OnInit {
             
           }
         );
+        
+           // Show success message
+        this.showDangerMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showDangerMessage = false;
+        }, 3000);
 
         this.ngOnInit();
       }

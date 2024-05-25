@@ -1,0 +1,155 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<div class="reclamation-card mt-3">
+  <h2>
+    <i class="fa-solid fa-triangle-exclamation text-warning"></i> Réclamation
+  </h2>
+  <p class="text-primary">
+    <i class="fa-solid fa-circle-exclamation" style="font-size: 15px"></i>
+    Veuillez entrer votre code de réclamation
+  </p>
+  <input
+    type="text"
+    [(ngModel)]="reclamationCode"
+    placeholder="Code de réclamation"
+    (input)="onCodeInput()"
+  />
+
+  <div *ngIf="reclamationCode" class="radio-group">
+    <h3 style="margin-right: 30px">Votre avis</h3>
+    <hr />
+    <div class="radio-group">
+      <label>
+        <input
+          type="radio"
+          name="avis"
+          value="favorable"
+          (change)="onAvisChange('favorable')"
+        />
+        <i
+          class="fa-solid fa-thumbs-up text-primary"
+          style="font-size: 15px"
+        ></i>
+        Favorable
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="avis"
+          value="defavorable"
+          (change)="onAvisChange('defavorable')"
+        />
+        <i
+          class="fa-solid fa-thumbs-down text-primary"
+          style="font-size: 15px"
+        ></i>
+        Défavorable
+      </label>
+    </div>
+  </div>
+
+  <div
+    [ngClass]="{
+      favorable: avis === 'favorable',
+      defavorable: avis === 'defavorable',
+      hide: !reclamationCode
+    }"
+  >
+    <div *ngIf="avis === 'favorable' || avis === 'defavorable'">
+      <hr
+        style="
+          border: 2px solid rgba(139, 218, 255, 0.87);
+
+          margin-top: -1%;
+        "
+      />
+      <h3><i class="fa-solid fa-comments text-primary"></i> Commentaires</h3>
+
+      <textarea
+        [(ngModel)]="commentaire"
+        placeholder="Écrivez vos commentaires ici..."
+        style="height: 100px"
+      ></textarea>
+      <hr
+        style="border: 2px solid rgba(139, 218, 255, 0.87); margin-top: -1%"
+      />
+    </div>
+
+    <div *ngIf="avis === 'defavorable'" class="checkbox-container">
+      <h3 class="text-center">
+        <i class="fa-solid fa-check text-primary"></i> Problèmes rencontrés
+      </h3>
+
+      <div class="row">
+        <div class="col-md-6">
+          <label class="checkbox-label form-check form-check-inline">
+            <input
+              type="checkbox"
+              [(ngModel)]="problemes.consultantPasParle"
+              class="form-check-input"
+            />
+            <label for="">Le consultant n'a pas parlé</label>
+          </label>
+          <label class="checkbox-label form-check form-check-inline">
+            <input
+              type="checkbox"
+              [(ngModel)]="problemes.consultantPasParticipe"
+              class="form-check-input"
+            /><label>Le consultant n'a pas participé</label>
+          </label>
+          <label class="checkbox-label form-check form-check-inline">
+            <input
+              type="checkbox"
+              [(ngModel)]="problemes.problemeVoix"
+              class="form-check-input"
+            /><label>Manque de connaissances</label>
+          </label>
+          <label class="checkbox-label form-check form-check-inline">
+            <input
+              type="checkbox"
+              [(ngModel)]="problemes.mauvaiseQualiteAudio"
+              class="form-check-input"
+            /><label>Mauvaise qualité audio</label>
+          </label>
+        </div>
+        <div class="col-md-6">
+          <label class="checkbox-label form-check form-check-inline">
+            <input
+              type="checkbox"
+              [(ngModel)]="problemes.mauvaiseQualiteVideo"
+              class="form-check-input"
+            /><label>Mauvaise qualité vidéo</label>
+          </label>
+          <label class="checkbox-label form-check form-check-inline">
+            <input
+              type="checkbox"
+              [(ngModel)]="problemes.manqueDeConnaissances"
+              class="form-check-input"
+            /><label> Problème de voix</label>
+          </label>
+          <label class="checkbox-label form-check form-check-inline">
+            <input
+              type="checkbox"
+              [(ngModel)]="problemes.connexionInterrompue"
+              class="form-check-input"
+            /><label>Connexion interrompue</label>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button
+    [disabled]="!allFieldsFille()"
+    (click)="submitReclamation(); resetFormFields()"
+  >
+    <i class="fa-regular fa-paper-plane"></i> Soumettre
+  </button>
+</div>

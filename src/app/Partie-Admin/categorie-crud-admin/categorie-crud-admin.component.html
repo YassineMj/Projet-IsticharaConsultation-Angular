@@ -11,19 +11,49 @@
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
   rel="stylesheet"
 />
+
+<div *ngIf="showSuccessMessage" class="success-message">
+  Domaine ajouté avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+<div *ngIf="showInfoMessage" class="info-message">
+  Domaine Modifier avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+<div *ngIf="showDangerMessage" class="danger-message">
+  Domaine supprimer avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+
 <body>
   <div class="container">
-    <div class="section-title" style="padding-top: 10%">
-      <h3><i class="fa-solid fa-layer-group"></i> Categorie</h3>
-    </div>
     <div class="row">
       <div class="col-md-12">
         <div class="card card1">
+          <div class="section-title" style="padding-top: 2%">
+            <h3><i class="fa-solid fa-layer-group"></i> Categorie</h3>
+          </div>
+          <hr
+            style="
+              border: 2px solid rgba(139, 218, 255, 0.87);
+              width: 40%;
+              margin-left: 30%;
+              margin-top: -2%;
+            "
+          />
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-3">
-                  <label for="nomInput" class="form-label">Nom </label>
+                  <label for="nomInput" class="form-label"
+                    >Nom <span class="text-danger">*</span></label
+                  >
                   <input
                     [(ngModel)]="categorieData.nomCategorie"
                     type="text"
@@ -35,8 +65,14 @@
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
-                  <label for="domaine" class="form-label">Domaine</label>
-                  <select class="form-select" id="domaine" [(ngModel)]="idDomaine">
+                  <label for="domaine" class="form-label"
+                    >Domaine <span class="text-danger">*</span></label
+                  >
+                  <select
+                    class="form-select"
+                    id="domaine"
+                    [(ngModel)]="idDomaine"
+                  >
                     <option value="" selected disabled>
                       Choisir le Domaine
                     </option>
@@ -46,27 +82,31 @@
                     >
                       {{ domaine.nomDomaine }}
                     </option>
-
                   </select>
                 </div>
               </div>
             </div>
             <div class="mb-3">
               <label for="descriptionInput" class="form-label"
-                >Description</label
+                >Description <span class="text-danger">*</span></label
               >
               <textarea
-              [(ngModel)]="categorieData.descriptionCategorie"
-
+                [(ngModel)]="categorieData.descriptionCategorie"
                 class="form-control"
                 id="descriptionInput"
                 rows="3"
-                placeholder=" Description de categorie"
+                placeholder="Description de categorie"
               ></textarea>
             </div>
             <div class="col-md-10 d-flex justify-content-end">
               <div class="text-left">
-                <button type="button" class="btn btnAjouter" (click)="ajouterCategorie()">
+                <button
+                  type="button"
+                  class="btn btnAjouter"
+                  (click)="ajouterCategorie()"
+                  [disabled]="!isFormComplete()"
+                  [ngClass]="{ disabled: !isFormComplete() }"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -80,25 +120,46 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 ml-auto mr-auto">
-        <div class="card">
+        <div class="card card2">
           <div class="card-body">
+            <div class="d-flex align-items-center mb-3 position-relative">
+              <button
+                class="btn btn-primary search-button"
+                (click)="toggleSearchInput(searchInput)"
+                [class.expand-input]="showSearchInput"
+              >
+                <i class="fa fa-search"></i>
+              </button>
+              <div
+                class="input-group search-input ms-2"
+                [class.d-none]="!showSearchInput"
+              >
+                <input
+                  #searchInput
+                  type="text"
+                  class="form-control"
+                  placeholder="Rechercher..."
+                  aria-label="Rechercher"
+                />
+              </div>
+            </div>
             <div class="table-responsive">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>Categorie</th>
-                    <th>Description</th>
-                    <th>Domaine</th>
-                    <th class="text-right">Actions</th>
+                    <th><strong>Categorie</strong></th>
+                    <th><strong>Description</strong></th>
+                    <th><strong>Domaine</strong></th>
+                    <th class="text-right"><strong>Actions</strong></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let c of listCategorie">
-                    <td>{{c.nomCategorie}}</td>
+                    <td>{{ c.nomCategorie }}</td>
                     <td>
-                      {{c.descriptionCategorie}}
+                      {{ c.descriptionCategorie }}
                     </td>
-                    <td>{{c.domaine.nomDomaine}}</td>
+                    <td>{{ c.domaine.nomDomaine }}</td>
                     <td
                       class="td-actions text-right"
                       style="
@@ -108,10 +169,10 @@
                       "
                     >
                       <button
-                      (click)="getCategorieById(c.idCategorie)"
+                        (click)="getCategorieById(c.idCategorie)"
                         type="button"
                         rel="tooltip"
-                        class="btn btn-info btn-round btn-just-icon"
+                        class="btn btn-primary btn-round btn-just-icon"
                         style="margin-right: 4px"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
@@ -119,23 +180,95 @@
                         <i class="fa fa-edit" style="font-size: medium"></i>
                       </button>
                       <button
-                        (click)="deleteCategorie(c.idCategorie,c.nomCategorie)"
+                        (click)="
+                          setCategorieToDelete(c.idCategorie, c.nomCategorie)
+                        "
                         type="button"
                         rel="tooltip"
-                        class="btn btn-danger btn-round btn-just-icon"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteConfirmationModal"
+                        class="btn btn-round btn-just-icon"
+                        style="background-color: rgb(255, 112, 112)"
                       >
                         <i
-                          class="fa fa-trash"
+                          class="fa-solid text-white fa-trash-can"
                           style="font-size: medium; padding-bottom: 11%"
                         ></i>
                       </button>
                     </td>
                   </tr>
                 </tbody>
-
               </table>
+              <!-- Modal de confirmation de suppression -->
+              <div
+                class="modal fade"
+                id="deleteConfirmationModal"
+                tabindex="-1"
+                aria-labelledby="deleteConfirmationModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header MODAL">
+                      <h4
+                        class="modal-title"
+                        style="color: rgb(255, 255, 255); font-size: 19px"
+                        id="deleteConfirmationModalLabel"
+                      >
+                        <i class="fa-solid fa-trash"></i> Confirmation de
+                        Suppression
+                      </h4>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+
+                    <div class="modal-body text-danger">
+                      <div class="alert alert-danger" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Êtes-vous sûr de vouloir supprimer le categorie "{{
+                          categorieToDeleteName
+                        }}" ?
+                      </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                      <!-- Bouton Annuler -->
+                      <button
+                        type="button"
+                        class="btn colormodalfermer"
+                        data-bs-dismiss="modal"
+                        style="border-radius: 50px"
+                      >
+                        <i class="fa-solid fa-close"></i>
+                      </button>
+                      <!-- Bouton Supprimer -->
+                      <button
+                        type="button"
+                        class="btn btn-danger colormodalsupp"
+                        style="border-radius: 50px"
+                        (click)="
+                          deleteCategorie(
+                            categorieToDeleteId,
+                            categorieToDeleteName
+                          )
+                        "
+                        data-bs-dismiss="modal"
+                      >
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <!-- Button trigger modal -->
-              <div *ngIf="categorieUpdateData!=null" class="modal fade" id="exampleModal">
+              <div
+                *ngIf="categorieUpdateData != null"
+                class="modal fade"
+                id="exampleModal"
+              >
                 <div class="modal-dialog modal-lg">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -159,7 +292,7 @@
                                   >Categorie</label
                                 >
                                 <input
-                                [(ngModel)]="categorieUpdateData.nomCategorie"
+                                  [(ngModel)]="categorieUpdateData.nomCategorie"
                                   type="text"
                                   class="form-control"
                                   id="nomInput"
@@ -172,10 +305,19 @@
                                 <label for="domaine" class="form-label"
                                   >Domaine</label
                                 >
-                                <select class="form-select" id="domaine" [(ngModel)]="categorieUpdateData.domaine.idDomaine" >
-
-                                  <option value="{{categorieUpdateData.domaine.idDomaine}}" >
-                                    {{categorieUpdateData.domaine.nomDomaine}}
+                                <select
+                                  class="form-select"
+                                  id="domaine"
+                                  [(ngModel)]="
+                                    categorieUpdateData.domaine.idDomaine
+                                  "
+                                >
+                                  <option
+                                    value="{{
+                                      categorieUpdateData.domaine.idDomaine
+                                    }}"
+                                  >
+                                    {{ categorieUpdateData.domaine.nomDomaine }}
                                   </option>
                                   <option
                                     *ngFor="let domaine of listDomaine"
@@ -194,8 +336,9 @@
                                   >Description</label
                                 >
                                 <textarea
-                                [(ngModel)]="categorieUpdateData.descriptionCategorie"
-
+                                  [(ngModel)]="
+                                    categorieUpdateData.descriptionCategorie
+                                  "
                                   class="form-control"
                                   id="descriptionInput"
                                   rows="3"
@@ -215,9 +358,12 @@
                           <i class="fa fa-close text-white"></i>
                         </button>
                         <button
-                        (click)="updateCategorie(categorieUpdateData.idCategorie)"
+                          (click)="
+                            updateCategorie(categorieUpdateData.idCategorie)
+                          "
                           type="button"
                           class="btn btn-round colormodalmodifier"
+                          data-bs-dismiss="modal"
                         >
                           <i class="fa fa-save text-white"></i>
                         </button>
