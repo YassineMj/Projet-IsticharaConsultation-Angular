@@ -13,7 +13,11 @@
 />
 
 <!-- ======= Header ======= -->
-<header id="header" class="header fixed-top d-flex align-items-center">
+<header
+  id="header"
+  class="header sticky-top d-flex align-items-center"
+  style="z-index: 2"
+>
   <div class="d-flex align-items-center justify-content-between">
     <a class="logo d-flex align-items-center">
       <span class="d-none d-lg-block"
@@ -23,11 +27,15 @@
         >TICHARA</span
       >
     </a>
-    <i
-      class="fa fa-list toggle-sidebar-btn"
-      style="color: rgb(255, 145, 0)"
+
+    <button
+      class="btn-toggle-sidebar btntoggle-sidebar-btn"
       (click)="toggleSidebar()"
-    ></i>
+    >
+      <i
+        [ngClass]="sidebarVisible ? 'fa fa-arrow-left' : 'fa fa-arrow-right'"
+      ></i>
+    </button>
   </div>
   <!-- End Logo -->
 
@@ -37,8 +45,8 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link nav-icon" data-bs-toggle="dropdown">
-          <i class="fa fa-bell" style="color: rgb(3, 101, 108)"></i>
-          <span class="badge bg-warning badge-number">4</span> </a
+          <i class="fa fa-bell" style="color: rgba(3, 32, 253, 0.89)"></i>
+        </a
         ><!-- End Notification Icon -->
 
         <ul
@@ -79,9 +87,12 @@
       <!-- End Notification Nav -->
 
       <li class="nav-item dropdown">
-        <a class="nav-link nav-icon" data-bs-toggle="dropdown" routerLink="/admin/chat-admin">
-          <i class="fa fa-message" style="color: rgb(3, 101, 108)"></i>
-          <span class="badge bg-danger badge-number">3</span>
+        <a
+          class="nav-link nav-icon"
+          data-bs-toggle="dropdown"
+          routerLink="/admin/chat-admin"
+        >
+          <i class="fa fa-message" style="color: rgba(3, 32, 253, 0.89)"></i>
         </a>
 
         <!-- End Messages Dropdown Items -->
@@ -89,7 +100,7 @@
       <!-- End Messages Nav -->
 
       <li class="nav-item dropdown pe-3">
-        <a 
+        <a
           class="nav-link nav-profile d-flex align-items-center pe-0"
           data-bs-toggle="dropdown"
         >
@@ -148,37 +159,27 @@
 <!-- End Header -->
 
 <section>
- 
   <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar" [ngClass]="{ hidden: !sidebarVisible }">
+  <aside
+    id="sidebar"
+    class="sidebar"
+    [ngClass]="{ hidden: !sidebarVisible, 'icon-only': !sidebarVisible }"
+    style="border-radius: 20px; border-top: 4px solid rgba(0, 89, 255, 0.468)"
+  >
     <br />
     <ul class="sidebar-nav" id="sidebar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/admin/dashboard-admin">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link collapsed" routerLink="/admin/dashboard-admin">
           <i class="bi bi-bar-chart"></i><span>Dashboard</span>
         </a>
       </li>
-      <!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a
-          class="nav-link collapsed"
-          data-bs-target="#forms-nav"
-          data-bs-toggle="collapse"
-          routerLink="/admin/domaine-admin"
-        >
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link collapsed" routerLink="/admin/domaine-admin">
           <i class="fa-solid fa-globe"></i><span>Domaines</span>
         </a>
       </li>
-      <!-- End Components Nav -->
-
-      <li class="nav-item">
-        <a
-          class="nav-link collapsed"
-          data-bs-target="#forms-nav"
-          data-bs-toggle="collapse"
-          routerLink="/admin/categorie-admin"
-        >
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link collapsed" routerLink="/admin/categorie-admin">
           <i class="fa-solid fa-layer-group"></i><span>Categories</span>
         </a>
       </li>
@@ -186,23 +187,15 @@
         style="
           border: 0;
           height: 4px;
-          background: linear-gradient(to right, rgba(4, 106, 180, 0.884), rgb(255, 157, 0));
+          background-color: rgba(0, 149, 255, 0.726);
         "
       />
-      <li class="nav-item">
-        <a
-          class="nav-link collapsed"
-          data-bs-target="#forms-nav"
-          data-bs-toggle="collapse"
-          routerLink="/admin/question-admin"
-        >
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link collapsed" routerLink="/admin/question-admin">
           <i class="fa-solid fa-question"></i><span>FAQ</span>
         </a>
       </li>
-      <!-- End Forms Nav -->
-      <!-- End Dashboard Nav -->
-
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a
           class="nav-link collapsed"
           data-bs-target="#components-nav"
@@ -216,48 +209,38 @@
           class="nav-content collapse"
           data-bs-parent="#sidebar-nav"
         >
-          <li>
+          <li >
             <a routerLink="/admin/consultant-demande-admin">
               <i class="fa fa-circle"></i><span>Demande de Création</span>
             </a>
           </li>
-          <li>
+          <li >
             <a routerLink="/admin/consultant-accepter-admin">
               <i class="fa fa-circle"></i><span>Consultant Acceptés</span>
             </a>
           </li>
         </ul>
       </li>
-      <!-- End Components Nav -->
-
-      <li class="nav-item">
+      <li class="nav-item" routerLinkActive="active">
         <a
-          routerLink="/admin/consultation-verification-admin"
           class="nav-link collapsed"
-          data-bs-target="#charts-nav"
-          data-bs-toggle="collapse"
+          routerLink="/admin/consultation-verification-admin"
         >
-          <i class="bi bi-grid"></i><span>Suivi visioconférence</span>
+          <i class="bi bi-grid"></i><span>Suivi video-conférence</span>
         </a>
       </li>
-     <hr
+      <hr
         style="
           border: 0;
           height: 4px;
-          background: linear-gradient(to right, rgb(0, 81, 255), rgb(255, 157, 0));
+          background-color: rgba(0, 149, 255, 0.726);
         "
-      />      <!-- End Charts Nav -->
-      <li class="nav-item">
-        <a
-          class="nav-link collapsed"
-          data-bs-target="#tables-nav"
-          data-bs-toggle="collapse"
-          routerLink="/admin/sidentifier-admin"
-        >
+      />
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link collapsed" routerLink="/admin/reclamation-admin">
           <i class="fa fa-circle-info"></i><span>Reclamation</span>
         </a>
       </li>
-      <!-- End Tables Nav -->
     </ul>
   </aside>
   <!-- End Sidebar-->

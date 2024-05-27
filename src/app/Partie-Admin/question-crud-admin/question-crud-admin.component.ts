@@ -11,7 +11,11 @@ export class QuestionCrudAdminComponent implements OnInit {
 
   constructor(private _serviceAdmin: AdminService , private router: Router) {}
 
-
+  showSearchInput: boolean = false;
+  showSuccessMessage: boolean = false;
+  showInfoMessage: boolean = false;
+  showDangerMessage: boolean = false;
+  
   listQuestions:any
 
   questionData={
@@ -19,6 +23,20 @@ export class QuestionCrudAdminComponent implements OnInit {
     reponse:""
   }
 
+   isFormComplete(): boolean {
+
+     return !!this.questionData.question &&
+            !!this.questionData.reponse;
+    
+  }
+  
+ toggleSearchInput(inputElement: HTMLInputElement) {
+   this.showSearchInput = !this.showSearchInput;
+     if (!this.showSearchInput) {
+      inputElement.value = '';
+    }
+   
+  }
   ngOnInit(): void {
 
     if(this._serviceAdmin.authAdminObjet==null){
@@ -54,6 +72,15 @@ export class QuestionCrudAdminComponent implements OnInit {
             
           }
         );
+
+        
+        // Show success message
+        this.showSuccessMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 3000);
+        
 
         this.questionData.question="";
         this.questionData.reponse="";
@@ -95,11 +122,28 @@ export class QuestionCrudAdminComponent implements OnInit {
           }
         );
 
+            // Show success message
+        this.showInfoMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showInfoMessage = false;
+        }, 3000);
         this.ngOnInit();
         
       }
     )
   }
+
+
+  questionToDeleteId: number;
+  questionToDeleteName: string;
+
+  // Méthode pour stocker les informations du domaine à supprimer
+  setQuestionToDelete(id: number, nom: string): void {
+    this.questionToDeleteId = id;
+    this.questionToDeleteName = nom;
+  }
+
 
   deleteQuestion(idQuestion:any , question:any){
     this._serviceAdmin.deleteQuestion(idQuestion).subscribe(
@@ -124,6 +168,12 @@ export class QuestionCrudAdminComponent implements OnInit {
           }
         );
 
+          // Show success message
+        this.showDangerMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showDangerMessage = false;
+        }, 3000);
         this.ngOnInit();
         
       }

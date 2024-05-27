@@ -11,43 +11,83 @@
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
   rel="stylesheet"
 />
+
+<div *ngIf="showSuccessMessage" class="success-message">
+  Domaine ajouté avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+<div *ngIf="showInfoMessage" class="info-message">
+  Domaine Modifier avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+<div *ngIf="showDangerMessage" class="danger-message">
+  Domaine supprimer avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+
 <body>
   <div class="container">
-    <div class="section-title" style="padding-top: 10%">
-      <h3><i class="fa-solid fa-question"></i> Questions et Réponse</h3>
-    </div>
     <div class="row">
       <div class="col-md-12">
         <div class="card card1">
+          <div class="section-title" style="padding-top: 2%">
+            <h3>
+              <i class="fa-solid fa-clipboard-question"></i> Questions et
+              Réponse
+            </h3>
+          </div>
+          <hr
+            style="
+              border: 2px solid rgba(139, 218, 255, 0.87);
+              width: 40%;
+              margin-left: 30%;
+              margin-top: -2%;
+            "
+          />
           <div class="card-body">
             <div class="row">
               <div class="mb-3">
                 <label for="descriptionInput" class="form-label"
-                  >Question</label
+                  ><i class="fa-solid text-primary fa-circle-question"></i>
+                  Question <span class="text-danger">*</span></label
                 >
                 <textarea
-                [(ngModel)]="questionData.question"
+                  [(ngModel)]="questionData.question"
                   class="form-control"
                   id="descriptionInput"
                   rows="3"
-                  placeholder=" Question... "
+                  placeholder="La Question... "
                 ></textarea>
               </div>
             </div>
             <div class="mb-3">
-              <label for="descriptionInput" class="form-label">Réponse</label>
+              <label for="descriptionInput" class="form-label">
+                <i class="fa-solid fa-comment-dots text-primary"></i> Réponse
+                <span class="text-danger">*</span></label
+              >
               <textarea
-              [(ngModel)]="questionData.reponse"
-
+                [(ngModel)]="questionData.reponse"
                 class="form-control"
                 id="descriptionInput"
                 rows="3"
-                placeholder=" Réponse..."
+                placeholder="La Réponse..."
               ></textarea>
             </div>
             <div class="col-md-10 d-flex justify-content-end">
               <div class="text-left">
-                <button type="button" class="btn btnAjouter" (click)="ajouterQuestion()">
+                <button
+                  type="button"
+                  class="btn btnAjouter"
+                  (click)="ajouterQuestion()"
+                  [disabled]="!isFormComplete()"
+                  [ngClass]="{ disabled: !isFormComplete() }"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -61,27 +101,47 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 ml-auto mr-auto">
-        <div class="card">
+        <div class="card card2">
           <div class="card-body">
+            <div class="d-flex align-items-center mb-3 position-relative">
+              <button
+                class="btn btn-primary search-button"
+                (click)="toggleSearchInput(searchInput)"
+                [class.expand-input]="showSearchInput"
+              >
+                <i class="fa fa-search"></i>
+              </button>
+              <div
+                class="input-group search-input ms-2"
+                [class.d-none]="!showSearchInput"
+              >
+                <input
+                  #searchInput
+                  type="text"
+                  class="form-control"
+                  placeholder="Rechercher..."
+                  aria-label="Rechercher"
+                />
+              </div>
+            </div>
             <div class="table-responsive">
               <table class="table">
                 <thead>
                   <tr>
+                    <th><strong>Questions</strong></th>
+                    <th><strong>Réponses</strong></th>
 
-                    <th>Questions</th>
-                    <th>Réponses</th>
-
-                    <th class="text-right">Actions</th>
+                    <th class="text-right"><strong>Actions</strong></th>
                   </tr>
                 </thead>
 
                 <tbody>
                   <tr *ngFor="let q of listQuestions">
                     <td>
-                      {{q.question}}
+                      {{ q.question }}
                     </td>
                     <td>
-                      {{q.reponse}}
+                      {{ q.reponse }}
                     </td>
 
                     <td
@@ -95,7 +155,7 @@
                       <button
                         type="button"
                         rel="tooltip"
-                        class="btn btn-info btn-round btn-just-icon"
+                        class="btn btn-warning text-white btn-round btn-just-icon"
                         style="margin-right: 4px"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
@@ -104,19 +164,93 @@
                         <i class="fa fa-edit" style="font-size: medium"></i>
                       </button>
                       <button
-                        (click)="deleteQuestion(q.id,q.question)"
+                        (click)="setQuestionToDelete(q.id, q.question)"
                         type="button"
                         rel="tooltip"
-                        class="btn btn-danger btn-round btn-just-icon"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteConfirmationModal"
+                        class="btn btn-round btn-just-icon"
+                        style="background-color: rgb(255, 112, 112)"
                       >
-                        <i class="fa fa-trash" style="font-size: medium"></i>
+                        <i
+                          class="fa-solid text-white fa-trash-can"
+                          style="font-size: medium; padding-bottom: 11%"
+                        ></i>
                       </button>
                     </td>
                   </tr>
                 </tbody>
               </table>
+              <!-- Modal de confirmation de suppression -->
+              <div
+                class="modal fade"
+                id="deleteConfirmationModal"
+                tabindex="-1"
+                aria-labelledby="deleteConfirmationModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header MODAL">
+                      <h4
+                        class="modal-title ml-3"
+                        style="color: rgb(255, 255, 255); font-size: 19px"
+                        id="deleteConfirmationModalLabel"
+                      >
+                        <i class="fa-solid fa-trash"></i> Confirmation de
+                        Suppression
+                      </h4>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+
+                    <div class="modal-body text-danger">
+                      <div class="alert alert-danger" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Êtes-vous sûr de vouloir supprimer Question "{{
+                          questionToDeleteName
+                        }}" ?
+                      </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                      <!-- Bouton Annuler -->
+                      <button
+                        type="button"
+                        class="btn colormodalfermer"
+                        data-bs-dismiss="modal"
+                        style="border-radius: 50px"
+                      >
+                        <i class="fa-solid fa-close"></i>
+                      </button>
+                      <!-- Bouton Supprimer -->
+                      <button
+                        type="button"
+                        class="btn btn-danger colormodalsupp"
+                        style="border-radius: 50px"
+                        (click)="
+                          deleteQuestion(
+                            questionToDeleteId,
+                            questionToDeleteName
+                          )
+                        "
+                        data-bs-dismiss="modal"
+                      >
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <!-- Button trigger modal -->
-              <div *ngIf="questionDataUpdate!=null" class="modal fade" id="exampleModal">
+              <div
+                *ngIf="questionDataUpdate != null"
+                class="modal fade"
+                id="exampleModal"
+              >
                 <div class="modal-dialog modal-lg">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -136,11 +270,17 @@
                           <div class="row">
                             <div class="col-md-12">
                               <div class="mb-3">
-                                <label for="descriptionInput" class="form-label"
-                                  >Question</label
+                                <label
+                                  for="descriptionInput"
+                                  class="form-label"
+                                >
+                                  <i
+                                    class="fa-solid text-primary fa-circle-question"
+                                  ></i>
+                                  Question</label
                                 >
                                 <textarea
-                                [(ngModel)]="questionDataUpdate.question"
+                                  [(ngModel)]="questionDataUpdate.question"
                                   class="form-control"
                                   id="descriptionInput"
                                   rows="3"
@@ -152,12 +292,17 @@
                           <div class="row">
                             <div class="col-md-12">
                               <div class="mb-3">
-                                <label for="descriptionInput" class="form-label"
-                                  >Réponse</label
+                                <label
+                                  for="descriptionInput"
+                                  class="form-label"
+                                >
+                                  <i
+                                    class="fa-solid fa-comment-dots text-primary"
+                                  ></i>
+                                  Réponse</label
                                 >
                                 <textarea
-                                [(ngModel)]="questionDataUpdate.reponse"
-
+                                  [(ngModel)]="questionDataUpdate.reponse"
                                   class="form-control"
                                   id="descriptionInput"
                                   rows="3"
@@ -177,9 +322,10 @@
                           <i class="fa fa-close text-white"></i>
                         </button>
                         <button
-                        (click)="updateQuestion()"
+                          (click)="updateQuestion()"
                           type="button"
                           class="btn btn-round colormodalmodifier"
+                          data-bs-dismiss="modal"
                         >
                           <i class="fa fa-save text-white"></i>
                         </button>

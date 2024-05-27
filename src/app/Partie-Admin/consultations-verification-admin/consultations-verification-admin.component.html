@@ -1,101 +1,161 @@
 <body>
   <div class="container">
-    <div class="section-title" style="padding-top: 10%">
-      <h3><i class="bi bi-grid"></i> Verification des Consultations</h3>
-    </div>
-    <div>
-      <div class="input-group mb-3">
-        <input
-        [(ngModel)]="idReclamation"
-          type="text"
-          class="form-control"
-          placeholder="Recherche dans les consultations"
-          aria-describedby="button-addon2"
-          style="width: 70%; margin-left: 3%"
-        />
-        <button
-        (click)="getReclamation()"
-          class="btn btnAjouter"
-          type="button"
-          id="button-addon2"
-          style="margin-right: 3%; margin-left: 1%"
-        >
-          <i class="fa fa-search"></i> Recherche
-        </button>
+    <div class="card card1">
+      <br />
+      <div class="section-title">
+        <h3><i class="bi bi-grid"></i> Verification des Consultations</h3>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card card1">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="mb-3">
-                  <label for="nomInput" class="form-label">Consultant</label>
-                  <p>{{dataReclamation.nom}} {{dataReclamation.prenom}}</p>
+      <hr
+        style="
+          border: 2px solid rgba(139, 218, 255, 0.87);
+          width: 40%;
+          margin-left: 30%;
+          margin-top: -2%;
+        "
+      />
+      <div>
+        <br />
+        <div class="input-group mb-3">
+          <input
+            [(ngModel)]="idReclamation"
+            type="text"
+            class="form-control"
+            placeholder="Recherche dans les consultations....."
+            aria-describedby="button-addon2"
+            style="width: 70%; margin-left: 3%"
+          />
+          <button
+            (click)="getReclamation()"
+            class="btn btnAjouter"
+            type="button"
+            id="button-addon2"
+            style="margin-right: 3%; margin-left: 1%"
+          >
+            <i class="fa fa-search"></i> Recherche
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card2">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="nomInput" class="form-label text-center"
+                      ><i class="fa-solid fa-clock text-primary"></i>
+                      Heure-Debut</label
+                    >
+                    <p style="padding-left: 10px" class="pt-1">
+                      {{ dataReclamation.heure_debut }}
+                    </p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="nomInput" class="form-label"
+                      ><i class="fa-solid fa-user-tie text-primary"></i>
+                      Consultant</label
+                    >
+                    <p style="padding-left: 10px" class="pt-1">
+                      {{ dataReclamation.nom }} {{ dataReclamation.prenom }}
+                    </p>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="nomInput" class="form-label"
+                      ><i class="fa-solid fa-globe text-primary"></i>
+                      Domaine</label
+                    >
+                    <p style="padding-left: 10px" class="pt-1">
+                      {{ dataReclamation.nom_domaine }}
+                    </p>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="nomInput" class="form-label"
+                      ><i class="fa-solid fa-hourglass-start text-primary"></i>
+                      Durée</label
+                    >
+                    <p style="padding-left: 10px" class="pt-1">{{ dataReclamation.duree }}</p>
+                  </div>
                 </div>
-                <div class="mb-3">
-                  <label for="nomInput" class="form-label">Domaine</label>
-                  <p>{{dataReclamation.nom_domaine}}</p>
-                </div>
-                <div class="mb-3">
-                  <label for="nomInput" class="form-label">Heure-Debut</label>
-                  <p>{{dataReclamation.heure_debut}}</p>
-                </div>
-                <div class="mb-3">
-                  <label for="nomInput" class="form-label">Durée</label>
-                  <p>{{dataReclamation.duree}}</p>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="nomInput" class="form-label"
+                      ><i class="fa-solid fa-clock text-primary"></i>
+                      Heure-Fin</label
+                    >
+                    <p style="padding-left: 10px" class="pt-1">
+                      {{ dataReclamation.heure_fin }}
+                    </p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="nomInput" class="form-label">
+                      <i class="fa-solid fa-user text-primary"></i>
+                      Client</label
+                    >
+                    <p style="padding-left: 10px" class="pt-1">
+                      {{ dataReclamation.nom_client }}
+                    </p>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="nomInput" class="form-label"
+                      ><i class="fa-solid fa-calendar-days text-primary"></i>
+                      Date</label
+                    >
+                    <p style="padding-left: 10px" class="pt-1">
+                      {{ dataReclamation.date_jour_debut }}
+                    </p>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="nomInput" class="form-label">
+                      <i
+                        class="fa-solid fa-money-check-dollar text-primary"
+                      ></i>
+                      Prix</label
+                    >
+                    <p style="padding-left: 10px" class="pt-1">{{ dataReclamation.prix }}</p>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="mb-3">
-                  <label for="nomInput" class="form-label">Client</label>
-                  <p>{{dataReclamation.nom_client}}</p>
-                </div>
-                <div class="mb-3">
-                  <label for="nomInput" class="form-label">Date</label>
-                  <p>{{dataReclamation.date_jour_debut}}</p>
-                </div>
-                <div class="mb-3">
-                  <label for="nomInput" class="form-label">Heure-Fin</label>
-                  <p>{{dataReclamation.heure_fin}}</p>
-                </div>
-                <div class="mb-3">
-                  <label for="nomInput" class="form-label">Prix</label>
-                  <p>{{dataReclamation.prix}}</p>
-                </div>
+              <div class="mb-3">
+                <label for="descriptionInput" class="form-label"
+                  ><i class="fa-solid fa-link text-primary"></i> Lien
+                  Meet</label
+                >
+                <p style="padding-left: 10px" class="pt-1 text-primary">{{ dataReclamation.lien_meet }}</p>
+              </div>
+              <div class="mb-3">
+                <label for="descriptionInput" class="form-label"
+                  ><i
+                    class="fa-solid fa-barcode text-primary"
+                    style="font-size: 18px"
+                  ></i>
+                  Code de Paiement</label
+                >
+                <p style="padding-left: 10px" class="pt-1">{{ dataReclamation.paiement }}</p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button
+                  class="btn btn-danger"
+                  type="button"
+                  id="button-addon2"
+                  style="margin-right: 3%; margin-left: 1%"
+                >
+                  <i class="fa-solid fa-video"></i> Voir Enregistrement
+                </button>
+                <button
+                  (click)="rembourser()"
+                  class="btn btn-warning"
+                  type="button"
+                  id="button-addon2"
+                  style="margin-right: 3%; margin-left: 1%"
+                >
+                  <i class="fa-solid fa-credit-card"></i> Rembourser
+                </button>
               </div>
             </div>
-            <div class="mb-3">
-              <label for="descriptionInput" class="form-label"
-                >Lien Meet</label
-              >
-              <p>{{dataReclamation.lien_meet}}</p>
-            </div>
-             <div class="mb-3">
-              <label for="descriptionInput" class="form-label"
-                >Code de Paiement</label
-              >
-              <p>{{dataReclamation.paiement}}</p>
-            </div>
-            <div class="d-flex justify-content-center">
-             <button
-          class="btn btnAjouter"
-          type="button"
-          id="button-addon2"
-          style="margin-right: 3%; margin-left: 1%"
-        >
-          <i class="fa-solid fa-video"></i> Voir Enregistrement
-        </button>
-         <button
-         (click)="rembourser()"
-          class="btn btnAjouter"
-          type="button"
-          id="button-addon2"
-          style="margin-right: 3%; margin-left: 1%"
-        >
-          <i class="fa-solid fa-credit-card"></i> Rembourser
-        </button></div>
           </div>
         </div>
       </div>

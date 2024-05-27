@@ -1,0 +1,252 @@
+body {
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+
+}
+
+.modal-header {
+    background-color: rgba(0, 107, 137, 0.566);
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+
+}
+
+.modal-title {
+    padding-top: 12px;
+}
+
+.section-title {
+    text-align: center;
+}
+
+.section-title h3 {
+
+    font-size: 25px;
+    margin-top: 40px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    padding-bottom: 0;
+    color: #004ed5d0;
+
+}
+
+a {
+    cursor: pointer;
+}
+
+hr {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+ol,
+ul,
+dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+    margin-bottom: 0;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+
+th {
+    text-align: inherit;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+button {
+    border-radius: 0;
+}
+
+button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+.table-wrap {
+    overflow-x: scroll;
+}
+
+.table {
+    min-width: 1000px !important;
+    width: 100%;
+    -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+    box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+}
+
+.table thead th {
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: gray;
+}
+
+.table thead tr {
+    background: #fff;
+    border-bottom: 4px solid #eceffa;
+}
+
+.table tbody tr {
+    margin-bottom: 10px;
+    border-bottom: 4px solid #f8f9fd;
+}
+
+.table tbody tr:last-child {
+    border-bottom: 0;
+}
+
+.table tbody th,
+.table tbody td {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 17px;
+    background: #fff;
+    vertical-align: middle;
+}
+
+.cardall{
+     border-radius: 10px;
+}
+ .section-title {
+     text-align: center;
+     margin-bottom: 30px;
+ }
+.card1{
+    border: 4px solid rgba(255, 0, 0, 0.534);
+
+}
+ .hr-divider {
+     border: 2px solid rgba(139, 218, 255, 0.87);
+     width: 40%;
+     margin: 0 auto;
+     margin-top: -10px;
+ }
+
+ .table-wrap {
+     overflow-x: auto;
+ }
+
+ .table-wrap table {
+     width: 100%;
+     border-collapse: collapse;
+ }
+
+ .table-wrap table th,
+ .table-wrap table td {
+     padding: 5px;
+     text-align: center;
+ }
+
+ .badge {
+     padding: 8px 12px;
+     border-radius: 20px;
+     font-size: 14px;
+     font-weight: bold;
+ }
+
+ .badge-success {
+     background-color: #438708;
+     color: #fff;
+ }
+
+ .badge-danger {
+     background-color: #ff0000da;
+     color: #fff;
+ }
+
+ .card-header {
+     background-color: #df162a5b;
+     color: #fff;
+     padding: 10px 20px;
+     border-top-left-radius: 10px;
+     border-top-right-radius: 10px;
+ }
+
+ .list-group-item {
+     padding: 10px;
+     border: none;
+ }
+
+ .list-group-item i {
+     margin-right: 10px;
+ }
+
+ .bg-light {
+     background-color: #f8f9fa;
+ }
+
+ .btn-success {
+     background-color: #28a745;
+     color: #fff;
+     border: none;
+     border-radius: 50px;
+     padding: 8px 20px;
+     font-weight: bold;
+ }
+
+ .btn-success:hover {
+     background-color: #218838;
+ }
+
+table {
+    border-collapse: collapse;
+}
+th {
+    text-align: inherit;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+button {
+    border-radius: 0;
+}
+
+button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+
+/**/

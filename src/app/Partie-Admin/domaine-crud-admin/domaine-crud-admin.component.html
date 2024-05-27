@@ -11,21 +11,51 @@
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
   rel="stylesheet"
 />
+
+<div *ngIf="showSuccessMessage" class="success-message">
+  Domaine ajouté avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+<div *ngIf="showInfoMessage" class="info-message">
+  Domaine Modifier avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+<div *ngIf="showDangerMessage" class="danger-message">
+  Domaine supprimer avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+
 <body>
   <div class="container">
-    <div class="section-title" style="padding-top: 10%">
-      <h3><i class="fa fa-globe"></i> Domaine</h3>
-    </div>
     <div class="row">
       <div class="col-md-12">
         <div class="card card1">
+          <div class="section-title" style="padding-top: 2%">
+            <h3><i class="fa fa-globe"></i> Domaine</h3>
+          </div>
+          <hr
+            style="
+              border: 2px solid rgba(139, 218, 255, 0.87);
+              width: 40%;
+              margin-left: 30%;
+              margin-top: -2%;
+            "
+          />
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-3">
-                  <label for="nomInput" class="form-label">Nom</label>
+                  <label for="nomInput" class="form-label"
+                    >Nom <span class="text-danger">*</span></label
+                  >
                   <input
-                  [(ngModel)]="dataDomaine.nomDomaine"
+                    [(ngModel)]="dataDomaine.nomDomaine"
                     type="text"
                     class="form-control"
                     id="nomInput"
@@ -35,33 +65,41 @@
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
-                  <label for="imageInput" class="form-label">Image</label>
+                  <label for="imageInput" class="form-label">
+                    Image <span class="text-danger">*</span></label
+                  >
                   <input
-                  type="file"
-                  required
-                  (change)="onFileChange($event)"
-                  accept="image/*"
-                  class="form-control"
-                />
+                    #fileInput
+                    type="file"
+                    required
+                    (change)="onFileChange($event)"
+                    accept="image/*"
+                    class="form-control custom-file-input"
+                  />
                 </div>
               </div>
             </div>
             <div class="mb-3">
               <label for="descriptionInput" class="form-label"
-                >Description</label
+                >Description <span class="text-danger">*</span></label
               >
               <textarea
-              [(ngModel)]="dataDomaine.descriptionDomaine"
-
+                [(ngModel)]="dataDomaine.descriptionDomaine"
                 class="form-control"
                 id="descriptionInput"
                 rows="3"
-                placeholder=" Description de domaine"
+                placeholder="Description de domaine"
               ></textarea>
             </div>
             <div class="col-md-10 d-flex justify-content-end">
               <div class="text-left">
-                <button type="button" class="btn btnAjouter" (click)="ajouterDomaine()">
+                <button
+                  type="button"
+                  class="btn btnAjouter"
+                  (click)="ajouterDomaine(fileInput)"
+                  [disabled]="!isFormComplete()"
+                  [ngClass]="{ disabled: !isFormComplete() }"
+                >
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -71,46 +109,65 @@
       </div>
     </div>
   </div>
+
   <br />
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 ml-auto mr-auto">
-        <div class="card">
+        <div class="card card2">
           <div class="card-body">
+            <div class="d-flex align-items-center mb-3 position-relative">
+              <button
+                class="btn btn-primary search-button"
+                (click)="toggleSearchInput(searchInput)"
+                [class.expand-input]="showSearchInput"
+              >
+                <i class="fa fa-search"></i>
+              </button>
+              <div
+                class="input-group search-input ms-2"
+                [class.d-none]="!showSearchInput"
+              >
+                <input
+                 #searchInput
+                  type="text"
+                  class="form-control"
+                  placeholder="Rechercher..."
+                  aria-label="Rechercher"
+                />
+              </div>
+            </div>
+
             <div class="table-responsive">
               <table class="table">
                 <thead>
                   <tr>
-
-                    <th>Domaine</th>
-                    <th>Description</th>
-                    <th>Image</th>
-                    <th class="text-right">Actions</th>
+                    <th><b>Domaine</b></th>
+                    <th><b>Description</b></th>
+                    <th><b>Image</b></th>
+                    <th class="text-right"><b>Actions</b></th>
                   </tr>
                 </thead>
                 <tbody>
-
                   <tr *ngFor="let d of listDomaine">
-                    <td>{{d.nomDomaine}}</td>
-                    <td>
-                      {{d.descriptionDomaine}}
-                    </td>
                     <td>
                       <div>
                         <img
-                          [src]="'../../../assets/images/'+d.pathImage"
-                          width="200px"
+                          [src]="'../../../assets/images/' + d.pathImage"
+                          width="100px"
+                          style="border-radius: 50px"
                           alt=""
                         />
                       </div>
                     </td>
+                    <td>{{ d.nomDomaine }}</td>
+                    <td>
+                      {{ d.descriptionDomaine }}
+                    </td>
+
                     <td
                       class="td-actions text-right"
-                      style="
-                        display: flex;
-                        justify-content: flex-end;
-                        align-items: center;
-                      "
+                      style="display: flex; align-items: center"
                     >
                       <button
                         type="button"
@@ -124,23 +181,93 @@
                         <i class="fa fa-edit" style="font-size: medium"></i>
                       </button>
                       <button
-                      (click)="deleteDomaine(d.idDomaine,d.nomDomaine)"
+                        (click)="setDomainToDelete(d.idDomaine, d.nomDomaine)"
                         type="button"
                         rel="tooltip"
-                        class="btn btn-danger btn-round btn-just-icon"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteConfirmationModal"
+                        class="btn text-white btn-round btn-just-icon"
+                        style="background-color: rgb(255, 112, 112)"
                       >
                         <i
-                          class="fa fa-trash"
+                          class="fa-solid fa-trash-can"
                           style="font-size: medium; padding-bottom: 11%"
                         ></i>
                       </button>
                     </td>
                   </tr>
-
                 </tbody>
               </table>
+              <!-- Modal de confirmation de suppression -->
+              <div
+                class="modal fade"
+                id="deleteConfirmationModal"
+                tabindex="-1"
+                aria-labelledby="deleteConfirmationModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header MODAL">
+                      <h4
+                        class="modal-title"
+                        style="color: rgb(255, 255, 255); font-size: 19px"
+                        id="deleteConfirmationModalLabel"
+                      >
+                        <i class="fa-solid fa-trash"></i> Confirmation de
+                        Suppression
+                      </h4>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+
+                    <div class="modal-body text-danger">
+                      <div class="alert alert-danger" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Êtes-vous sûr de vouloir supprimer le domaine "{{
+                          domainToDeleteName
+                        }}" ?
+                      </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                      <!-- Bouton Annuler -->
+                      <button
+                        type="button"
+                        class="btn colormodalfermer"
+                        data-bs-dismiss="modal"
+                        style="border-radius: 50px"
+                      >
+                        <i class="fa-solid fa-close"></i>
+                      </button>
+                      <!-- Bouton Supprimer -->
+                      <button
+                        type="button"
+                        class="btn btn-danger colormodalsupp"
+                        style="border-radius: 50px"
+                        (click)="
+                          deleteDomaine(domainToDeleteId, domainToDeleteName)
+                        "
+                        data-bs-dismiss="modal"
+                      >
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <!-- Button trigger modal -->
-              <div *ngIf="updateDomaineData!=null" class="modal fade" id="exampleModal">
+              <div
+                [class.show]="isModalVisible"
+                *ngIf="updateDomaineData != null"
+                class="modal fade"
+                id="exampleModal"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
                 <div class="modal-dialog modal-lg">
                   <div class="modal-dialog">
                     <div class="modal-content">
@@ -155,16 +282,27 @@
                           aria-label="Close"
                         ></button>
                       </div>
+                      <div class="text-danger text-center ml-4 mt-2">
+                        (*) Tous les champs sont obligatoires.
+                      </div>
+                      <hr
+                        style="
+                          border: 2px solid rgba(255, 0, 0, 0.5);
+                          width: 40%;
+                          margin-left: 30%;
+                        "
+                      />
                       <div class="modal-body">
                         <div class="container-fluid">
                           <div class="row">
                             <div class="col-md-6">
                               <div class="mb-3">
                                 <label for="nomInput" class="form-label"
-                                  >Domaine</label
+                                  >Domaine
+                                  <strong class="text-danger">*</strong></label
                                 >
                                 <input
-                                [(ngModel)]="updateDomaineData.nomDomaine"
+                                  [(ngModel)]="updateDomaineData.nomDomaine"
                                   type="text"
                                   class="form-control"
                                   id="nomInput"
@@ -175,7 +313,8 @@
                             <div class="col-md-6">
                               <div class="mb-3">
                                 <label for="imageInput" class="form-label"
-                                  >Image</label
+                                  >Image
+                                  <strong class="text-danger">*</strong></label
                                 >
                                 <input
                                   required
@@ -192,11 +331,13 @@
                             <div class="col-md-12">
                               <div class="mb-3">
                                 <label for="descriptionInput" class="form-label"
-                                  >Description</label
+                                  >Description
+                                  <strong class="text-danger">*</strong></label
                                 >
                                 <textarea
-                                [(ngModel)]="updateDomaineData.descriptionDomaine"
-
+                                  [(ngModel)]="
+                                    updateDomaineData.descriptionDomaine
+                                  "
                                   class="form-control"
                                   id="descriptionInput"
                                   rows="3"
@@ -207,6 +348,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="modal-footer justify-content-center">
                         <button
                           type="button"
@@ -216,9 +358,10 @@
                           <i class="fa fa-close text-white"></i>
                         </button>
                         <button
-                        (click)="updateDomaine()"
+                          (click)="updateDomaine()"
                           type="button"
                           class="btn btn-round colormodalmodifier"
+                          data-bs-dismiss="modal"
                         >
                           <i class="fa fa-save text-white"></i>
                         </button>

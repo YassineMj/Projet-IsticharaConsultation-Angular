@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../Services/admin.service';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-domaine-crud-admin',
@@ -9,9 +10,22 @@ import { Router } from '@angular/router';
 })
 export class DomaineCrudAdminComponent implements OnInit{
 
-  constructor(private _serviceAdmin: AdminService , private router: Router) {}
+  showSearchInput: boolean = false;
+  
+ toggleSearchInput(inputElement: HTMLInputElement) {
+    this.showSearchInput = !this.showSearchInput;
+     if (!this.showSearchInput) {
+      inputElement.value = '';
+    }
+   
+  }
+  constructor(private _serviceAdmin: AdminService , private router: Router ,private modalService: NgbModal) {}
 
-  listDomaine:any
+    listDomaine: any
+    showSuccessMessage: boolean = false;
+    showInfoMessage: boolean = false;
+    showDangerMessage: boolean = false;
+
 
   ngOnInit(): void {
 
@@ -21,7 +35,9 @@ export class DomaineCrudAdminComponent implements OnInit{
 
     this._serviceAdmin.getAllDomaines().subscribe(
       resp=>{
-        this.listDomaine=resp;
+        this.listDomaine = resp;
+        console.log(this.listDomaine);
+        
       }
     )
   }
@@ -56,7 +72,8 @@ export class DomaineCrudAdminComponent implements OnInit{
     }
   }
 
-  ajouterDomaine(){
+  ajouterDomaine(fileInput: HTMLInputElement) {
+    
     this._serviceAdmin.createDomaine(this.dataDomaine).subscribe(
       resp=>{
         console.log(resp);
@@ -79,11 +96,29 @@ export class DomaineCrudAdminComponent implements OnInit{
           }
         );
 
+       // Show success message
+        this.showSuccessMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 3000);
+
+        this.resetForm(fileInput);
         this.ngOnInit();
       }
     )
     
   }
+  resetForm(fileInput: HTMLInputElement) {
+      
+    this.dataDomaine = {
+      nomDomaine: '',
+      pathImage: '',
+      descriptionDomaine: ''
+      };
+      fileInput.value = '';
+  }
+
 
   updateDomaineData:any=null;
 
@@ -94,6 +129,8 @@ export class DomaineCrudAdminComponent implements OnInit{
       }
     )
   }
+
+ isModalVisible: boolean = false;
 
   updateDomaine(){
     this._serviceAdmin.updateDomaine(this.updateDomaineData.idDomaine,this.updateDomaineData).subscribe(
@@ -118,14 +155,38 @@ export class DomaineCrudAdminComponent implements OnInit{
           }
         );
 
+            this.modalService.dismissAll(); // Ferme tous les modals ouverts
 
+        
+        this.isModalVisible = false;
+         // Show success message
+        this.showInfoMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showInfoMessage = false;
+        }, 3000);
+        
         this.ngOnInit()
         
       }
     )
   }
 
-  deleteDomaine(idDomaine:any , nomDomaine:any){
+  isFormComplete(): boolean {
+  return !!this.dataDomaine.nomDomaine && !!this.dataDomaine.descriptionDomaine && !!this.dataDomaine.pathImage;
+  }
+ 
+  domainToDeleteId: number;
+  domainToDeleteName: string;
+
+  // Méthode pour stocker les informations du domaine à supprimer
+  setDomainToDelete(id: number, nom: string): void {
+    this.domainToDeleteId = id;
+    this.domainToDeleteName = nom;
+  }
+
+  deleteDomaine(idDomaine: any, nomDomaine: any) {
+    
     this._serviceAdmin.deleteDomaine(idDomaine).subscribe(
       resp=>{
         console.log(resp);
@@ -148,6 +209,13 @@ export class DomaineCrudAdminComponent implements OnInit{
           }
         );
 
+        // Show success message
+        this.showDangerMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showDangerMessage = false;
+        }, 3000);
+        
         this.ngOnInit();
       }
     )

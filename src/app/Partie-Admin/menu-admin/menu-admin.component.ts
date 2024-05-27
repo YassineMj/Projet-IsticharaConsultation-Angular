@@ -11,17 +11,18 @@ export class MenuAdminComponent {
 
   constructor(public _serviceAdmin: AdminService , private router: Router) {}
 
-  
   ngOnInit(): void {
     if(this._serviceAdmin.authAdminObjet==null){
       this.router.navigate(['/admin-sidentifier'])
     }
-}
+  }
+  
 
- sidebarVisible: boolean = true;
+sidebarVisible: boolean = true;
 
   toggleSidebar() {
+  
     this.sidebarVisible = !this.sidebarVisible;
-  }
-
+    
+}
 }

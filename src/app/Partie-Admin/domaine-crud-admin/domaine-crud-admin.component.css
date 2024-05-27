@@ -16,11 +16,13 @@ input[type="text"] {
 }
 
 .btnAjouter {
+    
     font-size: 20px;
-    background-color: #ff8800ac;
-    color: #fffffffc;
+    background-color: #0048ffb0;
+    border: 3px solid #b9dcffbb;
+    color: rgb(255, 255, 255);
     font-weight: bolder;
-    border-radius: 100px;
+    border-radius: 50px;
     outline: none;
 
 
@@ -29,11 +31,119 @@ input[type="text"] {
 
 .btnAjouter:hover {
 
-    background-color: #ff8a03cc;
+    background-color: #366fffe9;
     color: #fffffffc;
     outline: none;
 
 
+}
+
+.search-button {
+    transition: margin-right 0.3s ease;
+}
+
+.expand-input {
+    margin-right: -15px;
+    /* Adjust as needed to align with input field */
+}
+
+.search-input {
+    transition: max-width 0.3s ease;
+    max-width: 0;
+    overflow: hidden;
+}
+
+.search-input input {
+    max-width: 300px;
+}
+
+.search-input:not(.d-none) {
+    max-width: 300px;
+}
+.infocolormodalfermer-message .close-btn:hover {
+    color: #f1f1f1;
+}
+.d-none {
+    display: none !important;
+}
+.info-message{
+        position: fixed;
+            bottom: 40px;
+            right: 20px;
+            background-color: #0b90a7;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+}
+.info-message .close-btn {
+    margin-left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.success-message {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.danger-message {
+    position: fixed;
+    bottom:  40px;
+    right: 20px;
+    background-color: #d12a21;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+.danger-message .close-btn {
+    margin-left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.success-message .close-btn {
+    margin-left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.success-message .close-btn:hover {
+    color: #f1f1f1;
+}
+
+.btnAjouter.disabled {
+    background-color: #305ed185;
+    border: 3px solid #b9dcffbb;
+    color: #ffffff;
+    cursor: not-allowed;
 }
 
 /* Style the input element when focused */
@@ -41,8 +151,8 @@ input[type="text"]:focus {
     border-color: #80bdff;
     /* Change border color on focus */
     outline: 0;
+    border: 1px solid #afd7ff;
     /* Remove default focus outline */
-    box-shadow: 0 0 0 0.2rem rgba(58, 100, 112, 0.534);
     /* Add box shadow on focus */
 }
 
@@ -54,34 +164,56 @@ input[type="text"]:focus {
 .section-title h3 {
     font-size: 25px;
     font-weight: bold;
+    color: #0048ff7e;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-transform: uppercase;
     margin-bottom: 20px;
     padding-bottom: 0;
 
 }
+.suup {
+    font-size: 19px;
+    font-weight: bold;
+    color: #0048ff7e;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 0;
 
+}
 .card {
     border: 1px solid rgba(0, 0, 0, 0.125);
     /* Add border */
     border-radius: 0.25rem;
     /* Add border radius */
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
-    /* Add box shadow */
-    border-top: 22px solid #ff6a00c5;
-    border-radius: 40px;
-            border-bottom: 5px solid #ff6a00c5;
+ 
     margin: 2%;
 }
+
+input[type="file"]::file-selector-button {
+    background-color: rgba(0, 42, 255, 0.76);
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: rgb(0, 42, 255);
+    
+ 
+}
+
+.card2{
+    border-top: 5px solid rgba(0, 89, 255, 0.468);
+    border-bottom: 7px solid rgba(0, 89, 255, 0.468);
+    border-radius: 21px;
+}
 .card1{
-       border: 1px solid rgba(0, 0, 0, 0.125);
-        /* Add border */
-        /* Add border radius */
-        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
-        /* Add box shadow */
-        border-top: 24px solid #ff6a00c5;
-        border-bottom: 5px solid #ff6a00c5;
-        border-radius: 41px;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+    border-top: 5px solid rgba(0, 89, 255, 0.468);
+    border-bottom: 7px solid rgba(0, 89, 255, 0.468);
+    border-radius: 21px;
 }
 .card1:hover {
     transform: translateY(-5px);
@@ -116,7 +248,7 @@ a:focus {
     font-size: 25px;
     margin-top: 20px;
     margin-bottom: 10px;
-    color: #005851;
+    color: #004ed5d0;
 }
 
 .container h4 {
@@ -193,8 +325,6 @@ small {
     width: 41px;
     padding: 0 !important;
     overflow: hidden;
-    position: relative;
-    line-height: 41px;
 }
 
 .btn.btn-just-icon.btn-round {
@@ -558,17 +688,25 @@ small {
 
 
 .colormodalmodifier {
-    background-color: #f39f0f;
+    background-color: rgba(37, 66, 254, 0.861);
     color: white;
     font-size: 20px;
     border-radius: 100px;
 
 }
 
+
 .colormodalmodifier:hover {
-    background-color: #f3be0f;
+    background-color: rgba(49, 71, 211, 0.861);
     color: white;
 
+
+}
+.colormodalsupp {
+    background-color: rgba(37, 66, 254, 0.861);
+    color: white;
+    font-size: 20px;
+    border-radius: 100px;
 
 }
 
@@ -587,12 +725,16 @@ small {
 
 /* Style for Modal Header */
 .modal-header {
-    background-color: rgb(179, 231, 253);
-    color: rgb(0, 0, 0);
+    background-color: rgba(30, 119, 244, 0.237);
+    color: rgba(37, 66, 254, 0.861);
     padding: 7px 20px;
     
 }
+.MODAL{
+        background-color: rgba(255, 0, 0, 0.553);
+        color: rgba(255, 255, 255, 0.861);
+}
 .modal-title{
-    padding-top: 12px;
+    padding-top: 3px;
 }
 
