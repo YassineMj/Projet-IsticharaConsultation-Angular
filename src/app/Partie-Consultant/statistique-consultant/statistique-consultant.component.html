@@ -1,0 +1,338 @@
+<app-menu-consultant-dashboard></app-menu-consultant-dashboard>
+
+<section class="section dashboard py-3 m-4">
+  <div class="row">
+    <!-- Left side columns -->
+    <div class="col-lg-7">
+      <div class="row">
+        <!-- Customers Card -->
+        <div class="col-xxl-4 col-xl-12">
+          <div
+            class="card info-card customers-card"
+            style="border-bottom: 5px solid rgba(255, 102, 0, 0.47)"
+          >
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong><i class="fa-solid fa-user"></i> Consultant</strong>
+              </h5>
+
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="ps-3">
+                  <h6>BENSEDDIK BOUCHRA</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Sales Card -->
+        <!-- Sales Card -->
+        <div class="col-xxl-4 col-md-6">
+          <div class="card info-card sales-card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong
+                  ><i class="fa-solid fa-arrow-up-9-1"></i> Domaine</strong
+                >
+              </h5>
+
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="fa fa-globe"></i>
+                </div>
+                <div class="ps-3">
+                  <h6>Nom de domaine</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Sales Card -->
+        <!-- Sales Card -->
+        <div class="col-xxl-4 col-md-6">
+          <div class="card info-card sales-card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong
+                  ><i class="fa-solid fa-arrow-up-9-1"></i> Catégories</strong
+                >
+              </h5>
+
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div class="ps-3">
+                  <ul>
+                    <li>categorie 1</li>
+                    <li>catégorie 2</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Customers Card -->
+        <div class="col-xxl-4 col-xl-12">
+          <div
+            class="card info-card customers-card"
+            style="border-bottom: 5px solid rgba(255, 102, 0, 0.47)"
+          >
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong
+                  ><i class="fa-solid fa-calendar-check"></i> Total des
+                  Rendez-vous</strong
+                >
+              </h5>
+
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+                <div class="ps-3">
+                  <h6>100</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Sales Card --><!-- Sales Card -->
+        <div class="col-xxl-4 col-md-6">
+          <div class="card info-card sales-card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong
+                  ><i class="fa-solid fa-calendar-check"></i> Rendez-vous
+                  Accepter</strong
+                >
+              </h5>
+
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+                <div class="ps-3">
+                  <h6>40</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Sales Card -->
+        <!-- Sales Card -->
+        <div class="col-xxl-4 col-md-6">
+          <div class="card info-card sales-card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong
+                  ><i class="fa-solid fa-calendar-check"></i> Rendez-vous
+                  Refuser</strong
+                >
+              </h5>
+
+              <div class="d-flex align-items-center">
+                <div
+                  class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                >
+                  <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+                <div class="ps-3">
+                  <h6>60</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- End Sales Card -->
+        <div class="col-xxl-4 col-xl-12">
+          <div class="card info-card customers-card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong>Nombre de plan par mois</strong>
+              </h5>
+              <app-bar-chart-consultant-dashboard></app-bar-chart-consultant-dashboard>
+            </div>
+          </div>
+        </div>
+        <!-- End Sales Card -->
+        <div class="col-xxl-4 col-xl-12">
+          <div class="card info-card customers-card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong>Liste des Plans</strong>
+              </h5>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Jour Debut</th>
+                    <th scope="col">Jour Fin</th>
+                    <th scope="col">Date Jour Debut</th>
+                    <th scope="col">Date Jour Fin</th>
+
+                    <th scope="col">Heure Debut</th>
+                    <th scope="col">Heure Fin</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of items">
+                    <td>{{ item.jourDebut }}</td>
+                    <td>{{ item.jourFin }}</td>
+
+                    <td>{{ item.dateJourDebut }}</td>
+                    <td>{{ item.dateJourFin }}</td>
+
+                    <td>{{ item.heureDebut }}</td>
+                    <td>{{ item.heureFin }}</td>
+
+
+                    <td
+                      [ngClass]="{
+                        'text-success': item.status === 'Réserver',
+                        'text-warning': item.status === 'En cours',
+                        'text-primary': item.status === 'Terminer'
+                      }"
+                    >
+                      <span class="status p-1"> {{ item.status }}</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Left side columns -->
+    <div class="col-lg-5">
+      <!-- Recent Activity -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            <strong
+              ><i class="fa-solid fa-barcode"></i> Dérnières Activités</strong
+            >
+          </h5>
+
+          <div class="activity">
+            <div
+              *ngFor="let activity of listActivity"
+              class="activity-item d-flex"
+            >
+              <div class="activite-label">
+                {{ formatDate(activity.date) }}
+              </div>
+              <i
+                class="bi bi-circle-fill activity-badge align-self-start"
+                [ngClass]="{
+        'text-success': activity.action === 'Accepter',
+        'text-danger': activity.action === 'Refuser',
+
+        'text-primary': activity.action === 'Modifier',
+
+      }"
+              ></i>
+              <div class="activity-content">
+                {{ activity.description }}
+              </div>
+            </div>
+            <!-- End activity item-->
+          </div>
+        </div>
+      </div>
+      <!-- End Recent Activity -->
+
+      <div
+        class="card"
+        style="border-bottom: 5px solid rgba(194, 131, 224, 0.473)"
+      >
+        <div class="card-body pb-0">
+          <h5 class="card-title">
+            <strong><i class="fa-regular fa-face-smile"></i> Avis </strong>
+          </h5>
+
+          <app-pie-chart-avis-consultant-dashboard
+            [data]="avisData"
+          ></app-pie-chart-avis-consultant-dashboard>
+          <br />
+        </div>
+      </div>
+
+      <!-- End Website Traffic -->
+      <!-- Customers Card -->
+      <div class="col-xxl-4 col-xl-12">
+        <div
+          class="card info-card customers-card"
+          style="border-bottom: 5px solid rgba(255, 102, 0, 0.47)"
+        >
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong
+                ><i class="fa-solid fa-calendar-check"></i> Consultation</strong
+              >
+            </h5>
+            <!-- Utilisation de la grille Bootstrap pour organiser les éléments horizontalement -->
+            <div class="row">
+              <!-- Colonne pour le prix -->
+              <div class="col">
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa-solid fa-money-bill"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>Prix</h6>
+                  </div>
+                </div>
+              </div>
+              <!-- Colonne pour la durée -->
+              <div class="col">
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa-solid fa-clock"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6>Durée</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Colonne pour la description -->
+            <div class="row py-1">
+              <div class="col">
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa-solid fa-file"></i>
+                  </div>
+                  <div class="ps-3">
+                    <p>Descirption du consultation</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Right side columns -->
+  </div>
+</section>
