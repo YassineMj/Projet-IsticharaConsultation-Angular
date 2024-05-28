@@ -144,45 +144,60 @@ textarea.form-control:focus {
      width: 95%;
      margin-left: 40px;
      margin-right: 40px;
-
-
  }
 
+a{
+    text-decoration: none;
+}
+
+.active{
+    text-decoration: none;
+}
+
+ /* Base style for nav-link */
  .nav-link {
      color: black;
      position: relative;
+ }
+
+ /* Hover effect for nav-link */
+ .nav-link:hover {
+     color: rgb(13, 41, 255);
+     opacity: 0.5;
      text-decoration: none;
  }
 
-
+ /* Before pseudo-element for nav-link */
  .nav-link::before {
      content: "";
      position: absolute;
      width: 100%;
      height: 2px;
-     background: wheat;
+     background: rgb(252, 183, 36);
      border-radius: 5px;
      transform: scaleX(0);
      transition: all 0.6s ease;
- }
-
- .nav-link::before {
      bottom: 0;
      left: 0;
  }
 
+ /* Hover effect for before pseudo-element */
  .nav-link:hover::before {
      transform: scaleX(1);
-
  }
 
- .nav-link:hover {
+ /* Active state styling for nav-link */
+ .nav-item.active .nav-link {
+     color: rgb(13, 41, 255);
+     /* Change to the active color */
      opacity: 0.5;
-
+     /* Apply the hover effect opacity */
  }
 
-
-
+ .nav-item.active .nav-link::before {
+     transform: scaleX(1);
+     /* Make the before pseudo-element visible */
+ }
 
 
  @media(max-width:991px) {
@@ -233,3 +248,79 @@ textarea.form-control:focus {
  .purple {
      color: rgb(19, 19, 19);
  }
+ .info-message {
+     position: fixed;
+     bottom: 40px;
+     right: 20px;
+     background-color: #0b90a7;
+     color: white;
+     padding: 15px 20px;
+     border-radius: 5px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+     z-index: 1000;
+     font-size: 16px;
+     display: flex;
+     align-items: center;
+ }
+
+ .info-message .close-btn {
+     margin-left: 20px;
+     background: none;
+     border: none;
+     color: white;
+     font-size: 20px;
+     cursor: pointer;
+ }
+
+
+
+ .danger-message {
+     position: fixed;
+     bottom: 40px;
+     right: 20px;
+     background-color: #d12a21;
+     color: white;
+     padding: 15px 20px;
+     border-radius: 5px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+     z-index: 1000;
+     font-size: 16px;
+     display: flex;
+     align-items: center;
+ }
+
+ .danger-message .close-btn {
+     margin-left: 20px;
+     background: none;
+     border: none;
+     color: white;
+     font-size: 20px;
+     cursor: pointer;
+ }
+
+ .success-message .close-btn {
+     margin-left: 20px;
+     background: none;
+     border: none;
+     color: white;
+     font-size: 20px;
+     cursor: pointer;
+ }
+
+ .success-message .close-btn:hover {
+     color: #f1f1f1;
+ }
+  .success-message {
+      position: fixed;
+      bottom: 40px;
+      right: 20px;
+      background-color: #28a745;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+  }

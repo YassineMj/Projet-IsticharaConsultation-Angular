@@ -14,27 +14,47 @@
         prêts à vous offrir des conseils spécialisés en ligne.
       </p>
     </div>
-   <ul role="tablist" class="nav nav-tabs nav-pills justify-content-center justify-content-sm-start flex-wrap border-0 rounded-nav ml-4 navlist" id="catég">
-  <ng-container *ngFor="let domaine of domaineList">
-    <li class="nav-item mr-2 mb-2 mb-sm-0">
-      <a id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" class="nav-link border-0 text-uppercase font-weight-bold"
-         style="cursor: pointer; border-radius: 0px; font-size: 14px; padding: 5px 30px;"
-         (click)="getCategories(domaine.idDomaine)">
-        {{ domaine.nomDomaine }}
-      </a>
-    </li>
-  </ng-container>
-</ul>
 
+    <div class="p-5 bg-white rounded shadow mb-5">
+      <div class="tab-container">
+        <button class="nav-btn left-btn" (click)="scrollLeftHandler(tabWrapper1)">
+          &#10094;
+        </button>
+        <div class="tab-wrapper" #tabWrapper1>
+          <ul
+            role="tablist"
+            class="nav nav-tabs nav-pills flex-nowrap border-0 rounded-nav navlist"
+            id="catég"
+          >
+            <ng-container *ngFor="let domaine of domaineList" class="pb-4">
+              <li class="nav-item">
+                <a
+                  id="home-tab"
+                  data-toggle="tab"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                  class="nav-link border-0 text-uppercase font-weight-bold"
+                  (click)="getCategories(domaine.idDomaine)"
+                >
+                  {{ domaine.nomDomaine }}
+                </a>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+        <button class="nav-btn right-btn" (click)="scrollRightHandler(tabWrapper1)">
+          &#10095;
+        </button>
+      </div>
 
-    <div class="p-5 bg-white rounded shadow mb-5 pt-2 pb-0">
       <div>
         <div
           role="tabpanel"
           aria-labelledby="home-tab"
-          class="tab-pane fade px-4 py-5 show active"
+          class="tab-pane fade show active"
         >
-          <!-- ======= Our Services Section ======= -->
+          <!-- =======  Section ======= -->
           <section id="services" class="services">
             <div>
               <div class="row">
@@ -42,7 +62,7 @@
                   class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0"
                   *ngFor="let c of categorieList"
                 >
-                  <div class="icon-box">
+                  <div class="icon-box mb-3">
                     <div class="icon"><i class="bx bxl-dribbble"></i></div>
                     <h4 class="title">
                       <a href="">{{ c.nomCategorie }}</a>
@@ -66,93 +86,40 @@
     />
   </div>
 
-  <!-- 
   <div class="container py-3">
-      <ul
-      class="nav nav-tabs nav-pills justify-content-center justify-content-sm-start flex-wrap border-0 rounded-nav ml-4 navlist"
-    >
-      <ng-container *ngFor="let domaine of domaineList">
-        <li class="nav-item mr-2 mb-2 mb-sm-0">
-          <a
-            id="home-tab"
-            class="nav-link border-0 text-uppercase font-weight-bold"
-            style="
-              cursor: pointer;
-              border-radius: 30px;
-              font-size: 14px;
-              padding: 5px 30px;
-            "
-            (click)="getConsultants(domaine.idDomaine)"
-          >
-            {{ domaine.nomDomaine }}
-          </a>
-        </li>
-      </ng-container>
-    </ul>
-
     <div class="p-5 bg-white rounded shadow mb-5 pt-2 pb-0">
-      
-      <div>
-        <div
-          id="home"
-          role="tabpanel"
-          aria-labelledby="home-tab"
-          class="tab-pane fade px-4 py-5 show active"
-        >
-          <div
-            style="cursor: pointer"
-            class="infocardContainer"
-            *ngFor="let consultant of consultantList"
-            (click)="goToProfil(consultant.idConsultant)"
+      <div class="tab-container">
+        <button class="nav-btn left-btn" (click)="scrollLeftHandler(tabWrapper2)">
+          &#10094;
+        </button>
+        <div class="tab-wrapper" #tabWrapper2>
+          <ul
+            role="tablist"
+            class="nav nav-tabs nav-pills flex-nowrap border-0 rounded-nav navlist"
+            id="catég"
           >
-            <div id="main">
-              <img
-                [src]="
-                  '../../../assets/images-consultants/' +
-                  consultant.photoProfile
-                "
-                alt="image du profil"
-              />
-            </div>
-            <div id="textbois">
-              <h2 class="text-uppercase font-weight-bold py-3">
-                {{ consultant.nom }} {{ consultant.prenom }}
-              </h2>
-              <h4 *ngFor="let s of consultant.specialisation">{{ s }}</h4>
-              <h6></h6>
-            </div>
-          </div>
+            <ng-container *ngFor="let domaine of domaineList"  class="pb-4">
+              <li class="nav-item">
+                <a
+                  id="home-tab"
+                  class="nav-link border-0 text-uppercase font-weight-bold"
+                  (click)="getConsultants(domaine.idDomaine)"
+                  data-toggle="tab"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                >
+                  {{ domaine.nomDomaine }}
+                </a>
+              </li>
+            </ng-container>
+          </ul>
         </div>
+        <button class="nav-btn right-btn" (click)="scrollRightHandler(tabWrapper2)">
+          &#10095;
+        </button>
       </div>
-    </div>
-  </div>
-
-  <br />-->
-  <div class="container py-3">
-    <ul
-      class="nav nav-tabs nav-pills justify-content-center justify-content-sm-start flex-wrap border-0 rounded-nav ml-4 navlist"
-    >
-      <ng-container *ngFor="let domaine of domaineList">
-        <li class="nav-item mr-2 mb-2 mb-sm-0">
-          <a
-            id="home-tab"
-            class="nav-link border-0 text-uppercase font-weight-bold"
-            style="
-              cursor: pointer;
-              border-radius: 30px;
-              font-size: 14px;
-              padding: 5px 30px;
-            "
-            (click)="getConsultants(domaine.idDomaine)"
-          >
-            {{ domaine.nomDomaine }}
-          </a>
-        </li>
-      </ng-container>
-    </ul>
-
-    <div class="p-5 bg-white rounded shadow mb-5 pt-2 pb-0">
-      <div id="pricing" class="pricing" style="margin-top: 10% ;">
+      <div id="pricing" class="pricing mb-4" style="margin-top: 5%" >
         <div class="container" data-aos="fade-up">
           <div class="row gy-4" data-aos="fade-left">
             <div
@@ -162,17 +129,17 @@
               *ngFor="let consultant of consultantList"
               (click)="goToProfil(consultant.idConsultant)"
             >
-              <div class="box" style=" margin-bottom: 10%;">
+              <div class="box" style="margin-bottom: 10%">
                 <img
                   [src]="
                     '../../../assets/images-consultants/' +
                     consultant.photoProfile
                   "
                   class="img-fluid"
-                  style="border-radius: 100px ;width: 140px; height: 140px;"
+                  style="border-radius: 100px; width: 140px; height: 140px"
                   alt=""
-                /> 
-                <h3 style="color: #017a62 ; margin-top: 10px;">
+                />
+                <h3 style="color: #017a62; margin-top: 10px">
                   {{ consultant.nom }} {{ consultant.prenom }}
                 </h3>
                 <div class="specialisation-list">
@@ -193,8 +160,6 @@
           </div>
         </div>
       </div>
-
-      <!-- End rounded tabs -->
     </div>
   </div>
 

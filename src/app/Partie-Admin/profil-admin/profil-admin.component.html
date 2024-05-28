@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <body>
+
+    <div *ngIf="showSuccessMessage" class="success-message">
+Enregistré avec succès !  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+
     <main id="main" class="main">
       <div class="pagetitle">
         <h1>Profile</h1>

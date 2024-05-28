@@ -34,3 +34,30 @@ body{
     color: white;
 
 }
+ .success-message .close-btn {
+     margin-left: 20px;
+     background: none;
+     border: none;
+     color: white;
+     font-size: 20px;
+     cursor: pointer;
+ }
+
+ .success-message .close-btn:hover {
+     color: #f1f1f1;
+ }
+
+ .success-message {
+     position: fixed;
+     bottom: 40px;
+     right: 20px;
+     background-color: #28a745;
+     color: white;
+     padding: 15px 20px;
+     border-radius: 5px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+     z-index: 1000;
+     font-size: 16px;
+     display: flex;
+     align-items: center;
+ }

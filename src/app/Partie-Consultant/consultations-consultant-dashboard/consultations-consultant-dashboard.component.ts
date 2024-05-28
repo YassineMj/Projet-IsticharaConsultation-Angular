@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./consultations-consultant-dashboard.component.css'],
 })
 export class ConsultationsConsultantDashboardComponent implements OnInit {
+
+  showSuccessMessage: boolean = false;
+  showInfoMessage: boolean = false;
+  
   consultation: consultationBean = new consultationBean();
   getConsultations: any = null;
   consultationExist = {
@@ -65,6 +69,14 @@ export class ConsultationsConsultantDashboardComponent implements OnInit {
           this.ngOnInit();
           this.ajoute = true;
         });
+      
+      
+       // Show success message
+        this.showSuccessMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 3000);
     }
   }
 
@@ -87,6 +99,14 @@ export class ConsultationsConsultantDashboardComponent implements OnInit {
           this.ngOnInit();
           this.modification = true;
         });
+      
+      
+       // Show success message
+        this.showInfoMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showInfoMessage = false;
+        }, 3000);
     }
   }
 

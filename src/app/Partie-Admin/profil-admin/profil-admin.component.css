@@ -32,7 +32,6 @@ h6 {
 # Main
 --------------------------------------------------------------*/
 #main {
-    margin-top: 60px;
     padding: 20px 30px;
     transition: all 0.3s;
 }
@@ -517,4 +516,56 @@ h6 {
 
 .header-nav .profile .dropdown-item:hover {
     background-color: #f6f9ff;
+}
+
+.success-message {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.danger-message {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    background-color: #d12a21;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.danger-message .close-btn {
+    margin-left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.success-message .close-btn {
+    margin-left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.success-message .close-btn:hover {
+    color: #f1f1f1;
 }

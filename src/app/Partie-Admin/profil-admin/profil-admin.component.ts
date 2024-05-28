@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class ProfilAdminComponent {
 
+  showSuccessMessage: boolean = false;
+  
     constructor(public _serviceAdmin: AdminService , private router: Router) {}
 
     dataProfile={
@@ -62,6 +64,13 @@ export class ProfilAdminComponent {
                   }
                 );
 
+            
+       // Show success message
+        this.showSuccessMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 3000);
                 this.ngOnInit();
             }
         )
@@ -93,7 +102,15 @@ export class ProfilAdminComponent {
                   console.error('Erreur lors de l\'ajout de l\'activité : ', error);
                   
                 }
-              );
+            );
+            
+            
+       // Show success message
+        this.showSuccessMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 3000);
               this.ngOnInit();
           }
       )

@@ -163,6 +163,7 @@
   margin-bottom: -5%;
 }
 
+
 /*######################*/
 a {
   text-decoration: none;
@@ -572,4 +573,82 @@ section {
   margin-left: 25px;
 
   /* Adjust spacing between items */
+}
+
+
+/**/
+/* Container for the tab navigation */
+.tab-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 2px;
+}
+
+/* Wrapper to allow horizontal scrolling without scrollbar */
+.tab-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  flex-grow: 1;
+}
+
+/* Styling the nav list */
+.navlist {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Styling individual nav items */
+.nav-item {
+  margin-right: 10px;
+}
+
+/* Styling nav links */
+.nav-link {
+  cursor: pointer;
+  border-radius: 0px;
+  font-size: 14px;
+  padding: 5px 15px;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  color: #007bff;
+  border: 1px solid transparent;
+  display: inline-block;
+  /* Ensure links are inline */
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: #e9ecef;
+  color: #0056b3;
+  border-color: #dee2e6;
+}
+
+.nav-link.active {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}
+
+/* Navigation buttons */
+.nav-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px;
+  color: #007bff;
+}
+
+a{
+  cursor: pointer;
+}
+
+.nav-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
 }
