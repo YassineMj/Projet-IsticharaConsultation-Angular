@@ -71,6 +71,9 @@ import { environment } from '../../environments';
 import { ChatComponent } from './Partie-Admin/chat/chat.component';
 import { ReclamationUtilisateurComponent } from './Partie-Utilisateur/reclamation-utilisateur/reclamation-utilisateur.component';
 import { ListReclamationAdminComponent } from './Partie-Admin/list-reclamation-admin/list-reclamation-admin.component';
+import { StatistiqueConsultantComponent } from './Partie-Consultant/statistique-consultant/statistique-consultant.component';
+import { PieChartAvisConsultantDashboardComponent } from './Partie-Consultant/pie-chart-avis-consultant-dashboard/pie-chart-avis-consultant-dashboard.component';
+import { BarChartConsultantDashboardComponent } from './Partie-Consultant/bar-chart-consultant-dashboard/bar-chart-consultant-dashboard.component';
 
 
 
@@ -121,6 +124,9 @@ import { ListReclamationAdminComponent } from './Partie-Admin/list-reclamation-a
     ChatComponent,
     ReclamationUtilisateurComponent,
     ListReclamationAdminComponent,
+    StatistiqueConsultantComponent,
+    PieChartAvisConsultantDashboardComponent,
+    BarChartConsultantDashboardComponent,
   ],
   imports: [
     BrowserModule,

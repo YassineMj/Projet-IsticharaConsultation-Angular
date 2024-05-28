@@ -37,6 +37,8 @@ import { ProfilAdminComponent } from './Partie-Admin/profil-admin/profil-admin.c
 import { ChatComponent } from './Partie-Admin/chat/chat.component';
 import { ReclamationUtilisateurComponent } from './Partie-Utilisateur/reclamation-utilisateur/reclamation-utilisateur.component';
 import { ListReclamationAdminComponent } from './Partie-Admin/list-reclamation-admin/list-reclamation-admin.component';
+import { Statement } from '@angular/compiler';
+import { StatistiqueConsultantComponent } from './Partie-Consultant/statistique-consultant/statistique-consultant.component';
 
 //routes partie utilisateur
 const utilisateurRoutes: Routes = [
@@ -127,7 +129,10 @@ const consultantRoutes: Routes = [
     path: 'rendezvous-refuser-consultant-dashboard',
     component: RendezvousRefuserConsultantDashboardComponent,
   },
-
+  {
+    path: 'statistique-consultant-dashboard',
+    component: StatistiqueConsultantComponent,
+  },
 ];
 
 const routes: Routes = [
