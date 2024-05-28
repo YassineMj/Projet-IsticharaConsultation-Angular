@@ -62,7 +62,10 @@ const colors: Record<string, EventColor> = {
 export class PlanConsultationConsultantDashboardComponent implements OnInit{
 
   infoConsultation!:any;
-  planConsultation:any;
+  planConsultation: any;
+  
+  showSuccessMessage: boolean = false;
+
 
   constructor(private modal: NgbModal,private route: ActivatedRoute,private _service:PlanService ,  private cdr: ChangeDetectorRef) {}
   ngOnInit(){    
@@ -205,23 +208,32 @@ export class PlanConsultationConsultantDashboardComponent implements OnInit{
     this.activeDayIsOpen = false;
   }
 
-  valide(){
+valide() {
+  for (const event of this.events) {
+    const donneesFormatees = this.extraireDonneesEvenement(event);
     
-    for (const event of this.events) {
-      const donneesFormatees = this.extraireDonneesEvenement(event);
-      
-      this._service.addPlan(donneesFormatees).subscribe(
-        resp=>{
-          console.log(resp);
-          this.ngOnInit();
-        },error=>{
-          console.error("Il y a déjà des rendez-vous existants dans la base de données pour cette période");
-          this.ngOnInit();
-        }
-      )
-    }
-
+    this._service.addPlan(donneesFormatees).subscribe(
+      resp => {
+        console.log(resp);
+        this.ngOnInit();
+        // Show success message
+        this.showSuccessMessage = true;
+        // Hide success message after 3 seconds
+        setTimeout(() => {
+          console.log('Hiding success message...');
+          this.showSuccessMessage = false;
+          console.log('Success message hidden:', this.showSuccessMessage);
+        }, 3000);
+      },
+      error => {
+        console.error("Il y a déjà des rendez-vous existants dans la base de données pour cette période");
+        this.ngOnInit();
+      }
+    )
   }
+}
+
+
 
 
   extraireDonneesEvenement(event: any): any {

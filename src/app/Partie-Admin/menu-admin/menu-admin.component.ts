@@ -24,5 +24,6 @@ sidebarVisible: boolean = true;
   
     this.sidebarVisible = !this.sidebarVisible;
     
-}
+  }
+  
 }

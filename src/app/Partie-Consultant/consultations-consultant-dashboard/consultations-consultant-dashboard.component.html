@@ -15,6 +15,20 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 
+<div *ngIf="showSuccessMessage" class="success-message">
+  Plan ajouté avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+<div *ngIf="showInfoMessage" class="info-message">
+  Plan Modifier avec succès !
+  <button class="close-btn" (click)="showSuccessMessage = false">
+    &times;
+  </button>
+</div>
+
+
 <body>
   <nav class="navbar navbar-expand-lg bg-transparent">
     <!--fixed-top-->
@@ -67,7 +81,7 @@
         <!--body -->
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2" >
               <a
                 class="nav-link"
                 aria-current="page"
@@ -76,7 +90,7 @@
                 Profile
               </a>
             </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2" routerLinkActive="active">
               <a
                 class="nav-link"
                 aria-current="page"
@@ -84,7 +98,7 @@
                 >Consultaion</a
               >
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" routerLinkActive="active">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -119,14 +133,14 @@
                 </li>
               </ul>
             </li>
-             <li class="nav-item mx-2">
+             <li class="nav-item mx-2" routerLinkActive="active">
             <a
               class="nav-link"
               routerLink="/consultant/statistique-consultant-dashboard"
               >Statistique</a
             >
           </li>
-            <li class="nav-item mx-2">
+            <li class="nav-item mx-2" routerLinkActive="active">
               <a
                 class="nav-link"
                 routerLink="/consultant/help-consultant-dashboard"
@@ -193,14 +207,7 @@
       >
         Ajouter
       </button>
-      <div
-        *ngIf="ajoute"
-        class="alert alert-success"
-        role="alert"
-        style="margin-top: 3%; width: 20%; margin-left: 40%"
-      >
-        Ajoutement reussie!
-      </div>
+   
     </div>
   </div>
 
@@ -240,14 +247,7 @@
       >
         Modifier
       </button>
-      <div
-        *ngIf="modification"
-        class="alert alert-success"
-        role="alert"
-        style="margin-top: 3%; width: 20%; margin-left: 40%"
-      >
-        Modification reussie!
-      </div>
+ 
     </div>
   </div>
 
