@@ -47,7 +47,7 @@
                 <tbody>
                   <ng-container *ngFor="let reclamation of reclamations">
                     <tr>
-                      <td>{{ reclamation.nomClient }}</td>
+                      <td>{{ reclamation.nom_client }}</td>
                       <td>
                         <span
                           class="badge"
@@ -59,9 +59,9 @@
                           {{ reclamation.avis }}
                         </span>
                       </td>
-                      <td>{{ reclamation.nomConsultant }}</td>
+                      <td>{{ reclamation.nom }} {{reclamation.prenom}}</td>
                       <td>
-                        {{ reclamation.nomdomaine }}
+                        {{ reclamation.nom_domaine }}
                       </td>
                       <td style="width: 100px">
                         <button
@@ -113,7 +113,7 @@
                             <ul class="list-group">
                               <li
                                 *ngIf="
-                                  reclamation.problemes?.consultantPasParle
+                                  reclamation.consultant_pas_parle
                                 "
                                 class="list-group-item"
                               >
@@ -126,7 +126,7 @@
                               </li>
                               <li
                                 *ngIf="
-                                  reclamation.problemes?.consultantPasParticipe
+                                  reclamation.consultant_pas_participe
                                 "
                                 class="list-group-item"
                               >
@@ -138,7 +138,7 @@
                                 >
                               </li>
                               <li
-                                *ngIf="reclamation.problemes?.problemeVoix"
+                                *ngIf="reclamation.probleme_voix"
                                 class="list-group-item"
                               >
                                 <i
@@ -150,7 +150,7 @@
                               </li>
                               <li
                                 *ngIf="
-                                  reclamation.problemes?.mauvaiseQualiteVideo
+                                  reclamation.mauvaise_qualite_video
                                 "
                                 class="list-group-item"
                               >
@@ -163,7 +163,7 @@
                               </li>
                               <li
                                 *ngIf="
-                                  reclamation.problemes?.manqueDeConnaissances
+                                  reclamation.manque_de_connaissances
                                 "
                                 class="list-group-item"
                               >
@@ -176,7 +176,7 @@
                               </li>
                               <li
                                 *ngIf="
-                                  reclamation.problemes?.mauvaiseQualiteAudio
+                                  reclamation.mauvaise_qualite_audio
                                 "
                                 class="list-group-item"
                               >
@@ -189,7 +189,7 @@
                               </li>
                               <li
                                 *ngIf="
-                                  reclamation.problemes?.connexionInterrompue
+                                  reclamation.connexion_interrompue
                                 "
                                 class="list-group-item"
                               >
@@ -200,6 +200,17 @@
                                   >Connexion interrompue</span
                                 >
                               </li>
+
+                              <li class="list-group-item"
+                              >
+                                <i
+                                  class="fas fa-exclamation-circle text-danger mr-2"
+                                ></i>
+                                <span class="font-weight-bold"
+                                  >Code reclmation : {{reclamation.code_reclamation}}</span
+                                >
+                              </li>
+
                             </ul>
                           </div>
                         </div>

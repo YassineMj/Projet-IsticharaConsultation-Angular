@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-
-
-interface Problemes {
-  consultantPasParle?: boolean;
-  consultantPasParticipe?: boolean;
-  problemeVoix?: boolean;
-  mauvaiseQualiteVideo?: boolean;
-  manqueDeConnaissances?: boolean;
-  mauvaiseQualiteAudio?: boolean;
-  connexionInterrompue?: boolean;
-}
+import { AdminService } from '../Services/admin.service';
 
 
 interface Reclamation {
-  nomClient: string;
-  avis: 'favorable' | 'defavorable';
-  nomConsultant: string;
-  nomdomaine: string;
-  problemes?: Problemes;
+  code_reclamation:string,
+  nom: string,
+	consultant_pas_parle: boolean,
+	manque_de_connaissances: boolean,
+	avis: string,
+	nom_domaine:string,
+	probleme_voix: boolean,
+	prenom: string,
+	connexion_interrompue: boolean,
+	mauvaise_qualite_video: boolean,
+	nom_client: string,
+	mauvaise_qualite_audio: boolean,
+	consultant_pas_participe: boolean
   showProblemes?: boolean; // Property to toggle problems
 }
 
@@ -29,60 +27,17 @@ interface Reclamation {
 })
 export class ListReclamationAdminComponent implements OnInit{
 
- reclamations: Reclamation[] = [
-    {
-      nomClient: 'hajji oumaima',
-      avis: 'favorable',
-      nomConsultant: 'hiba hajji ',
-      nomdomaine: 'religion'
-    },
-    {
-      nomClient: 'buchra bensedik',
-      avis: 'defavorable',
-      nomConsultant: 'oumaima hajji',
-      nomdomaine: 'economie',
-      problemes: {
-        consultantPasParle: true,
-        consultantPasParticipe: true,
-        problemeVoix: true
-      }
-   },
-        {
-      nomClient: 'Mhamed hajji',
-      avis: 'favorable',
-      nomConsultant: 'oumaima moumen ',
-      nomdomaine: ' technologie'
-   },
-         {
-      nomClient: 'buchra bensedik',
-      avis: 'defavorable',
-      nomConsultant: 'oumaima hajji',
-      nomdomaine: 'economie',
-      problemes: {
-        problemeVoix: true,
-        mauvaiseQualiteVideo: true,
-        manqueDeConnaissances: true,
-        mauvaiseQualiteAudio: true,
-        connexionInterrompue: true
-      }
-   }, {
-      nomClient: 'buchra bensedik',
-      avis: 'defavorable',
-      nomConsultant: 'oumaima hajji',
-      nomdomaine: 'economie',
-      problemes: {
-        consultantPasParle: true,
-        consultantPasParticipe: true,
-        problemeVoix: true,
-        mauvaiseQualiteAudio: true,
-        connexionInterrompue: true
-      }
-   },
-  ];
+ reclamations: Reclamation[] 
 
-  constructor() { }
+  constructor(private _serviceAdmin: AdminService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._serviceAdmin.getAllReclamation().subscribe(
+      resp=>{
+        this.reclamations=resp
+      }
+    )
+  }
 
   toggleProblemes(reclamation: Reclamation): void {
     reclamation.showProblemes = !reclamation.showProblemes;
