@@ -30,6 +30,10 @@ export class AdminService {
 
   constructor(private http: HttpClient , private db: AngularFireDatabase) {}
 
+  getAllReclamation():Observable<any[]>{
+    return this.http.get<any[]>('http://localhost:8080/IsticharaConsultation/api/reclamation/get-all-reclamation')
+  }
+
   addActivity(request: any): Observable<any> {
     return this.http.post<any>(`http://localhost:8080/IsticharaConsultation/api/admin/add-activity`, request);
   }
