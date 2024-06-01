@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class CategorieCrudAdminComponent implements  OnInit {
 
+  searchTerm: string = '';
+  filtered:any
+
     showSuccessMessage: boolean = false;
     showInfoMessage: boolean = false;
     showDangerMessage: boolean = false;
@@ -64,8 +67,21 @@ export class CategorieCrudAdminComponent implements  OnInit {
     this._serviceAdmin.getAllCategories().subscribe(
       resp=>{
         this.listCategorie=resp
+        this.filtered=this.listCategorie
       }
     )
+  }
+
+  filter(): void {
+    if (this.searchTerm) {
+      this.listCategorie = this.filtered.filter((o: any) =>
+        o.nomCategorie?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        o.descriptionCategorie?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        o.domaine.nomDomaine?.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.listCategorie = this.filtered; // Reset to all data if search term is cleared
+    }
   }
 
   ajouterCategorie(){

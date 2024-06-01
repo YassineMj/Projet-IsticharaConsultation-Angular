@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class QuestionCrudAdminComponent implements OnInit {
 
+  searchTerm: string = '';
+  filtered:any
+
   constructor(private _serviceAdmin: AdminService , private router: Router) {}
 
   showSearchInput: boolean = false;
@@ -46,9 +49,22 @@ export class QuestionCrudAdminComponent implements OnInit {
     this._serviceAdmin.getAllQuestions().subscribe(
       resp=>{
         this.listQuestions=resp;
+        this.filtered=this.listQuestions
       }
     )
   }
+
+  filter(): void {
+    if (this.searchTerm) {
+      this.listQuestions = this.filtered.filter((o: any) =>
+        o.question?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        o.reponse?.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.listQuestions = this.filtered; // Reset to all data if search term is cleared
+    }
+  }
+
 
   ajouterQuestion(){
     this._serviceAdmin.addQuestion(this.questionData).subscribe(

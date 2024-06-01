@@ -28,4 +28,20 @@ export class ConsultantService {
     return this.http.put<consultantBean>('http://localhost:8080/IsticharaConsultation/api/consultant/update-consultant',consultant);
   }
 
+  getRendezVousStatsByIdConsultant(idConsultant: string): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/IsticharaConsultation/api/consultant/stats/${idConsultant}`);
+  }
+
+  getCountPlansByMonthForCurrentYear(idConsultant: string): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/IsticharaConsultation/api/consultant/countPlanByMonth/${idConsultant}`);
+  }
+
+  getPlansWithStatus(idConsultant: string): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/IsticharaConsultation/api/consultant/get-plan-status/${idConsultant}`);
+  }
+
+  getFavAndDefavCount(idConsultant: string): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/IsticharaConsultation/api/consultant/avis/${idConsultant}`);
+  }
+
 }
