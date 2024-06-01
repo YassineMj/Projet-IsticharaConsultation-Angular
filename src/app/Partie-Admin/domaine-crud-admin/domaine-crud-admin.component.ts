@@ -10,15 +10,17 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class DomaineCrudAdminComponent implements OnInit{
 
-  showSearchInput: boolean = false;
+  //showSearchInput: boolean = false;
+  searchTerm: string = '';
+  filtered:any
   
- toggleSearchInput(inputElement: HTMLInputElement) {
-    this.showSearchInput = !this.showSearchInput;
-     if (!this.showSearchInput) {
-      inputElement.value = '';
-    }
+//  toggleSearchInput(inputElement: HTMLInputElement) {
+//     this.showSearchInput = !this.showSearchInput;
+//      if (!this.showSearchInput) {
+//       inputElement.value = '';
+//     }
    
-  }
+//   }
   constructor(private _serviceAdmin: AdminService , private router: Router ,private modalService: NgbModal) {}
 
     listDomaine: any
@@ -36,10 +38,22 @@ export class DomaineCrudAdminComponent implements OnInit{
     this._serviceAdmin.getAllDomaines().subscribe(
       resp=>{
         this.listDomaine = resp;
+        this.filtered=this.listDomaine;
         console.log(this.listDomaine);
         
       }
     )
+  }
+
+  filter(): void {
+    if (this.searchTerm) {
+      this.listDomaine = this.filtered.filter((o: any) =>
+        o.nomDomaine?.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        o.descriptionDomaine?.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.listDomaine = this.filtered; // Reset to all data if search term is cleared
+    }
   }
   
   dataDomaine={

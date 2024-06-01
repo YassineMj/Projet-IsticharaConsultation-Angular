@@ -104,19 +104,19 @@
         <div class="card card2">
           <div class="card-body">
             <div class="d-flex align-items-center mb-3 position-relative">
-              <button
+              <!-- <button
                 class="btn btn-primary search-button"
                 (click)="toggleSearchInput(searchInput)"
                 [class.expand-input]="showSearchInput"
               >
                 <i class="fa fa-search"></i>
-              </button>
+              </button> -->
               <div
                 class="input-group search-input ms-2"
-                [class.d-none]="!showSearchInput"
               >
                 <input
                   #searchInput
+                  [(ngModel)]="searchTerm" (ngModelChange)="filter()"
                   type="text"
                   class="form-control"
                   placeholder="Rechercher..."
