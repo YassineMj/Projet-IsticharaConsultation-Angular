@@ -44,4 +44,11 @@ export class ConsultantService {
     return this.http.get<any>(`http://localhost:8080/IsticharaConsultation/api/consultant/avis/${idConsultant}`);
   }
 
+  addActivity(request: any): Observable<any> {
+    return this.http.post<any>(`http://localhost:8080/IsticharaConsultation/api/consultant/add-activity`, request);
+  }
+
+  getActivitiesByConsultantId(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8080/IsticharaConsultation/api/consultant/get-activity/${id}`);
+  }
 }

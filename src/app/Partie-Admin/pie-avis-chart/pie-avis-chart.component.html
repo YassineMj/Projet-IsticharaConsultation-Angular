@@ -1,1 +1,7 @@
+<select class="form-select" aria-label="Default select example" [(ngModel)]="idConsultantAvis" (change)="getAvis()">
+    <option disabled selected value="">Choisir un consultant</option>
+    <option *ngFor="let c of allConsultants" value="{{c.idConsultant}}" >{{c.nom}} {{c.prenom}}</option>
+
+  </select>
+
 <canvas id="pieChart"></canvas>

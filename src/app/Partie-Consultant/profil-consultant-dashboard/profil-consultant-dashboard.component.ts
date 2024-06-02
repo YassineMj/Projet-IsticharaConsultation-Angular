@@ -215,6 +215,26 @@ export class ProfilConsultantDashboardComponent implements OnInit {
             console.log(resp);
             this._service.consultantAuthObjet.photoProfile=resp.photoProfile;
             this.editDone = true;
+
+            const dataActivity={
+              action:"Modifier",
+              description:"Modifié les informations",
+              date:new Date(),
+              idConsultant:this._service.consultantAuthObjet.id
+            }
+
+            this._service.addActivity(dataActivity).subscribe(
+              (response) => {
+                console.log('Activité ajoutée avec succès !', response);
+                
+              },
+              (error) => {
+                console.error('Erreur lors de l\'ajout de l\'activité : ', error);
+                
+              }
+            );
+    
+
             console.log('edit done');
             setTimeout(() => {
               this.editDone = false; // Réinitialise editDone à false après 2 secondes

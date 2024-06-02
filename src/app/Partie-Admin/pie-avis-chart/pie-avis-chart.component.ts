@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { ConsultantService } from 'src/app/Partie-Consultant/Services/consultant.service';
+import { AdminService } from '../Services/admin.service';
 
 @Component({
   selector: 'app-pie-avis-chart',
@@ -7,16 +9,39 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./pie-avis-chart.component.css']
 })
 export class PieAvisChartComponent implements OnInit {
-  @Input() data!: {
-    labels: string[];
-    values: number[];
-  };
 
-  constructor() { }
+
+  allConsultants:any;
+  getAllConsultants(){
+    this._serviceAdmin.getAllConsultants().subscribe(
+      resp=>{
+        this.allConsultants=resp;
+      }
+    )
+  }
+
+  constructor( private _serviceConsultant:ConsultantService,private _serviceAdmin:AdminService) { }
 
   ngOnInit(): void {
-    this.avisChart();
+    this.getAllConsultants();
   }
+
+  idConsultantAvis:any
+  getAvis(){
+
+    this._serviceConsultant.getFavAndDefavCount(this.idConsultantAvis).subscribe(
+      data=>{
+        this.avisData=data;
+        this.avisData = {
+          labels: ['Favorable', 'Défavorable'],
+          values: [this.avisData.favCount, this.avisData.defavCount],
+        };
+
+        this.avisChart();
+      }
+    )
+  }
+  avisData :any
 
   avisChart(): void {
     const ctx = document.getElementById('pieChart') as HTMLCanvasElement;
@@ -24,10 +49,10 @@ export class PieAvisChartComponent implements OnInit {
     new Chart(ctx, {
       type: 'pie', // pie,
       data: {
-        labels: this.data.labels,
+        labels: this.avisData.labels,
         datasets: [
           {
-            data: this.data.values,
+            data: this.avisData.values,
             backgroundColor: [
               'rgba(75, 192, 192, 0.2)',
               'rgba(128, 0, 128, 0.2)', // Purple with 20% opacity
