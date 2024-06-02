@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { AdminService } from '../Services/admin.service';
 import { Router } from '@angular/router';
+import { ConsultantService } from 'src/app/Partie-Consultant/Services/consultant.service';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class DashboardAdminComponent implements OnInit {
 
 
-  constructor(private _serviceAdmin: AdminService , private router: Router) {}
+  constructor(private _serviceAdmin: AdminService , private router: Router ) {}
 
   countAllData: any;
   listActivity:any;
@@ -72,8 +73,4 @@ export class DashboardAdminComponent implements OnInit {
   }
   
 
-  avisData = {
-    labels: ['Favorable', 'Défavorable'],
-    values: [40,5],
-  };
 }

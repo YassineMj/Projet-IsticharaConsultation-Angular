@@ -33,6 +33,23 @@ export class RendezvousConsultantDashboardComponent implements OnInit {
   refuseRendezVous(idRendezVous:any){    
     this._serviceRendezVous.refuseRendezVous(idRendezVous).subscribe(
       resp=>{
+        const dataActivity={
+          action:"Refuser",
+          description:"Refuser Rendez-vous",
+          date:new Date(),
+          idConsultant:this._serviceConsultant.consultantAuthObjet.id
+        }
+
+        this._serviceConsultant.addActivity(dataActivity).subscribe(
+          (response) => {
+            console.log('Activité ajoutée avec succès !', response);
+            
+          },
+          (error) => {
+            console.error('Erreur lors de l\'ajout de l\'activité : ', error);
+            
+          }
+        );
         this.ngOnInit();
       }
     )
@@ -51,6 +68,23 @@ export class RendezvousConsultantDashboardComponent implements OnInit {
     this._serviceRendezVous.accepteRendezVous(lienRequest).subscribe(
       resp=>{
         console.log(resp);
+        const dataActivity={
+          action:"Accepter",
+          description:"Accepter Rendez-vous",
+          date:new Date(),
+          idConsultant:this._serviceConsultant.consultantAuthObjet.id
+        }
+
+        this._serviceConsultant.addActivity(dataActivity).subscribe(
+          (response) => {
+            console.log('Activité ajoutée avec succès !', response);
+            
+          },
+          (error) => {
+            console.error('Erreur lors de l\'ajout de l\'activité : ', error);
+            
+          }
+        );
         this.ngOnInit();
       },error=>{
         this.ngOnInit();

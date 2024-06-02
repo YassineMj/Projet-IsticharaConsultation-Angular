@@ -46,27 +46,17 @@ export class StatistiqueConsultantComponent implements OnInit {
         };
       }
     )
+
+    this._service.getActivitiesByConsultantId(this._service.consultantAuthObjet.id).subscribe(
+      resp=>{
+        this.listActivity=resp;
+      }
+    )
   }
 
 
-  listActivity = [
-    {
-      date: '2023-05-01',
-      action: 'Accepter',
-      description: 'Accepter Rendez-vous',
-    },
-    {
-      date: '2023-05-02',
-      action: 'Refuser',
-      description: 'Refuser Rendez-vous',
-    },
+  listActivity :any
 
-    {
-      date: '2023-05-04',
-      action: 'Modifier',
-      description: 'Modifié les informations ',
-    },
-  ];
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
