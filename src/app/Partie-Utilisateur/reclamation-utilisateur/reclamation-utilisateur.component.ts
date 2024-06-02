@@ -45,7 +45,7 @@ export class ReclamationUtilisateurComponent {
   if (this.avis === 'favorable') {
     return !!this.reclamationCode && !!this.commentaire;
   } else if (this.avis === 'defavorable') {
-    return !!this.reclamationCode && (this.problemes.consultantPasParle || this.problemes.consultantPasParticipe || this.problemes.problemeVoix);
+    return !!this.reclamationCode && (this.problemes.consultantPasParle || this.problemes.consultantPasParticipe || this.problemes.problemeVoix || this.problemes.mauvaiseQualiteVideo ||this.problemes.mauvaiseQualiteAudio || this.problemes.connexionInterrompue || this.problemes.manqueDeConnaissances);
   } else {
     return false;
   }
