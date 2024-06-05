@@ -46,7 +46,7 @@
                 >
                   <i class="fa fa-globe"></i>
                 </div>
-                <div class="ps-3">
+                <div >
                   <h6>{{_service.consultantAuthObjet.domaine.nomDomaine}}</h6>
                 </div>
               </div>
@@ -170,56 +170,51 @@
           </div>
         </div>
         <!-- End Sales Card -->
-        <div class="col-xxl-4 col-xl-12">
-          <div class="card info-card customers-card">
-            <div class="card-body">
-              <h5 class="card-title">
-                <strong>Liste des Plans</strong>
-              </h5>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Jour Debut</th>
-                    <th scope="col">Jour Fin</th>
-                    <th scope="col">Date Jour Debut</th>
-                    <th scope="col">Date Jour Fin</th>
+       <div class="col-xxl-4 col-xl-12">
+  <div class="card info-card customers-card scrollable-container">
+    <div class="card-body">
+      <h5 class="card-title">
+        <strong>Liste des Plans</strong>
+      </h5>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Jour Debut</th>
+              <th scope="col">Jour Fin</th>
+              <th scope="col">Date Jour Debut</th>
+              <th scope="col">Date Jour Fin</th>
+              <th scope="col">Heure Debut</th>
+              <th scope="col">Heure Fin</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items">
+              <td>{{ item.jourDebut }}</td>
+              <td>{{ item.jourFin }}</td>
+              <td>{{ item.dateJourDebut }}</td>
+              <td>{{ item.dateJourFin }}</td>
+              <td>{{ item.heureDebut }}</td>
+              <td>{{ item.heureFin }}</td>
+              <td [ngClass]="{
+                    'text-success': item.status === 'reserver',           
+                    'text-warning': item.status === 'enCours',           
+                    'text-danger': item.status === 'paiement annulé',    
+                    'text-primary': item.status === 'terminerSansReservation', 
+                    'text-info': item.status === 'terminerAvecReservation',   
+                    'text-secondary': item.status === 'indetermine'   
+                  }">
+                <span class="status p-1">{{ item.status }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
-                    <th scope="col">Heure Debut</th>
-                    <th scope="col">Heure Fin</th>
-                    <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let item of items">
-                    <td>{{ item.jourDebut }}</td>
-                    <td>{{ item.jourFin }}</td>
-
-                    <td>{{ item.dateJourDebut }}</td>
-                    <td>{{ item.dateJourFin }}</td>
-
-                    <td>{{ item.heureDebut }}</td>
-                    <td>{{ item.heureFin }}</td>
-
-
-                    <td
-                    [ngClass]="{
-                      'text-success': item.status === 'reserver',           
-                      'text-warning': item.status === 'enCours',           
-                      'text-danger': item.status === 'paiement annulé',    
-                      'text-primary': item.status === 'terminerSansReservation', 
-                      'text-info': item.status === 'terminerAvecReservation',   
-                      'text-secondary': item.status === 'indetermine'   
-                    }"
-                    
-                    >
-                      <span class="status p-1"> {{ item.status }}</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <!-- End Left side columns -->

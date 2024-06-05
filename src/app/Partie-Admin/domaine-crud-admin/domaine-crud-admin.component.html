@@ -124,12 +124,17 @@
               >
                 <i class="fa fa-search"></i>
               </button> -->
-              <div
-                class="input-group search-input ms-2"
-              >
+              <img
+                src="../../../assets/images/icon-search-adminn.png"
+                width="8%"
+                alt=""
+              />
+
+              <div class="input-group search-input ms-2">
                 <input
-                 #searchInput
-                 [(ngModel)]="searchTerm" (ngModelChange)="filter()"
+                  #searchInput
+                  [(ngModel)]="searchTerm"
+                  (ngModelChange)="filter()"
                   type="text"
                   class="form-control"
                   placeholder="Rechercher..."

@@ -12,7 +12,20 @@ import { QuestionService } from '../Services/question.service';
 export class AccueilUtilisateurComponent implements OnInit {
   
 
-  constructor(private _service: DomaineService,private _serviceQuestion:QuestionService) {}
+   videoVisible: boolean = false;
+
+  showVideo(event: Event): void {
+    event.preventDefault();
+    this.videoVisible = true;
+  }
+
+  hideVideo(): void {
+    this.videoVisible = false;
+  }
+  
+  constructor(private _service: DomaineService, private _serviceQuestion: QuestionService) {
+
+  }
 
   domaines: domaineBean[] = [];
 
@@ -63,5 +76,6 @@ export class AccueilUtilisateurComponent implements OnInit {
     this.currentPage = pageNumber;
     this.DomainesParPage();
   }
+
 
 }

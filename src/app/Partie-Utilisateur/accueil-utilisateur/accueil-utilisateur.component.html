@@ -4,7 +4,8 @@
     rel="stylesheet"
   />
 </head>
-<body>
+
+<body >
   <section id="hero" class="hero d-flex align-items-center">
     <div class="container">
       <div class="row justify-content-between">
@@ -32,35 +33,7 @@
           class="col-lg-4 order-1 order-lg-2 hero-img"
           data-aos="zoom-out"
           data-aos-delay="300"
-        >
-          <!--  <img
-            src="../../../assets/images/image-religion.jpg"
-            class="img-fluid animated"
-            style="border-radius: 50%; width: 100%"
-            alt="online"
-          />
-          <img
-            src="../../../assets/images/actualites-domaine-religion.jpg"
-            class="img-fluid animated"
-            style="border-radius: 50%; width: 21%; margin-left: 10px ; margin-top: 22px; "
-            alt="online"
-          /><img
-            src="../../../assets/images/actualites-domaine-economie.jpg"
-            class="img-fluid animated"
-            style="border-radius: 50%; width: 21%; margin-left: 10px ; margin-top: 22px;"
-            alt="online"
-          /><img
-            src="../../../assets/images/actualites-domaine-technologie.jpg"
-            class="img-fluid animated"
-            style="border-radius: 50%; width: 21%; margin-left: 10px ; margin-top: 22px;"
-            alt="online"
-          /><img
-            src="../../../assets/images/actualites-domaine-droit.jpg"
-            class="img-fluid animated"
-            style="border-radius: 50%; width: 21%; margin-left: 10px ; margin-top: 22px;"
-            alt="online"
-          />-->
-        </div>
+        ></div>
       </div>
     </div>
     <!-- <svg
@@ -96,16 +69,15 @@
       </g>
     </svg>-->
   </section>
-  <!-- End Hero -->
 
-  <div class="container topof">
+  <div class="container topof" >
     <div class="card">
       <div class="card-body">
+        <!-- app.component.html -->
         <h5 class="card-title">
-          <a href=""
-            ><span class="fa fa-play"></span> Comment réserver une consultation
-            ?</a
-          >
+          <a href="#" (click)="showVideo($event)">
+            <span class="fa fa-play"></span> Comment réserver une consultation ?
+          </a>
         </h5>
         <div class="row">
           <div class="col-md-6">
@@ -574,3 +546,19 @@
     <!-- End F.A.Q Section -->
   </main>
 </body>
+
+<!-- Video container -->
+<div id="video-container" [class.hidden]="!videoVisible">
+  <div class="video-content">
+    <video controls>
+      <source
+        src="../../../assets/videos/istichara-video.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+    <button class="close-btn" (click)="hideVideo()">
+      <span class="fa fa-times"></span>
+    </button>
+  </div>
+</div>

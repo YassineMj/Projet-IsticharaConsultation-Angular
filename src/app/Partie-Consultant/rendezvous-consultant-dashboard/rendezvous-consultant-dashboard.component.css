@@ -4,7 +4,7 @@ body{
 }
 
 .header-card1 {
-  background-color: rgba(18, 18, 18, 0.799);
+  background-color: rgba(11, 121, 140, 0.833);
   color: #fff;
   padding: 9px 20px;
   border-radius: 5px 5px 0px 0px;
@@ -16,7 +16,7 @@ label {
 
 .btn-accepter{
   
-  background-color: rgba(23, 154, 137, 0.756);
+  background-color: rgba(6, 236, 206, 0.911);
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -26,12 +26,12 @@ label {
 
 .btn-accepter:hover {
 
-  background-color: rgba(23, 154, 137, 0.756);
+  background-color: rgba(0, 255, 221, 0.893);
 
 
 }
 .btn-refuser{
-background-color: rgba(255, 118, 118, 0.998);
+background-color: rgba(251, 99, 99, 0.998);
   border-radius: 50%;
   width: 50px;
   height: 50px;

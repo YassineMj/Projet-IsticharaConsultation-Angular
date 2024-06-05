@@ -1,4 +1,5 @@
 import * as moment from 'moment';
+import { interval, takeUntil } from 'rxjs';
 
 import {
   Component,
@@ -12,6 +13,9 @@ import {
 import {
   startOfDay,
   addDays,
+  startOfWeek,
+  endOfWeek,
+  isWithinInterval,
 
 } from 'date-fns';
 import { Subject } from 'rxjs';
@@ -51,17 +55,25 @@ const colors: Record<string, EventColor> = {
     overflow-y: auto; /* Activer le défilement vertical si nécessaire */
   }
   
-      h3 {
-        margin: 0 0 10px;
-      }
+    .btn-disabled {
+    pointer-events: none;  /* Prevents click events */
+    opacity: 0.5;          /* Makes the button look disabled */
+    cursor: not-allowed;   /* Changes cursor to not-allowed */
+  }
 
-      pre {
-        background-color: #f5f5f5;
-        padding: 15px;
-      }
+    h3 {
+      margin: 0 0 10px;
+   }
+
+    pre {
+      background-color: #f5f5f5;
+      padding: 15px;
+    }
     `,
   ],
+
   templateUrl: './plan-consultation-utilisateur.component.html',
+
 })
 export class PlanConsultationUtilisateurComponent implements OnInit{
 
@@ -77,7 +89,7 @@ export class PlanConsultationUtilisateurComponent implements OnInit{
         title: '',
         start: new Date(`${donnee.dateJourDebut}T${donnee.heureDebut}`),
         end: new Date(`${donnee.dateJourFin}T${donnee.heureFin}`),
-        color: { primary: '#ad2121', secondary: '#ff0505' },
+        color: { primary: '#ff71716a', secondary: '#ff71716a' },
         draggable: false,
         resizable: { beforeStart: true, afterEnd: true }
       };
@@ -110,23 +122,61 @@ export class PlanConsultationUtilisateurComponent implements OnInit{
   activeDayIsOpen: boolean = true;
 
 
-  handleEvent(event: CalendarEvent): void {
+  showAlertwarning: boolean = false;
+  showAlertdanger: boolean = false;
+  alertTitle: string = '';
+  alertMessage: string = '';
 
-    this._servicePlan.checkRendezVous(event.id).subscribe(
-      resp=>{
-        if(resp.accepteTrueFound==true){
-          this.router.navigate(['/utilisateur/infos-utilisateur', event.id]);
-        }else{
-          alert("Le rendez-vous a déjà été réservé pour quelqu'un d'autre")
-        }        
-      }
-    )
-    
 
-    //si true faire alerte
+  showAlertMessagew(title: string): void {
+  this.alertTitle = title;
+  this.showAlertwarning = true;
+  // Create an observable that emits every 3 seconds
+  const hideAlert$ = interval(1000);
+  // Create a subject to signal completion
+  const unsubscribe$ = new Subject<void>();
+  // Combine hideAlert$ and unsubscribe$ to hide after 3 seconds
+  hideAlert$.pipe(
+    takeUntil(unsubscribe$)
+  ).subscribe(() => {
+    this.showAlertwarning = false;
+    unsubscribe$.next(); // Complete the subject
+    unsubscribe$.complete();
+  });
+}
 
+  closeAlertw(): void {
+    this.showAlertwarning = false;
   }
 
+  showAlertMessaged(title: string): void {
+    this.alertTitle = title;
+    this.showAlertdanger = true;
+
+    setTimeout(() => {
+    this.showAlertdanger = false;
+    }, 3000);
+    
+  }
+
+  closeAlertd(): void {
+    this.showAlertdanger = false;
+  }
+
+  handleEvent(event: CalendarEvent): void {
+    if (event.start.getTime() < Date.now()) {
+      this.showAlertMessagew('Le temps est terminé');
+      return;
+    }
+
+    this._servicePlan.checkRendezVous(event.id).subscribe(resp => {
+      if (resp.accepteTrueFound) {
+        this.router.navigate(['/utilisateur/infos-utilisateur', event.id]);
+      } else {
+        this.showAlertMessaged('Le rendez-vous a déjà été réservé pour quelqu\'un d\'autre');
+      }
+    });
+  }
 
   setView(view: CalendarView) {
     this.view = view;
@@ -136,6 +186,13 @@ export class PlanConsultationUtilisateurComponent implements OnInit{
     this.activeDayIsOpen = false;
   }
 
+
+    isCurrentWeek(date: Date): boolean {
+    const start = startOfWeek(new Date());
+    const end = endOfWeek(new Date());
+    return isWithinInterval(date, { start, end });
+  }
+  
 }
 
 

@@ -87,6 +87,38 @@ textarea:focus{
     transition: background-color 0.3s;
 }
 
+/* example.component.css */
+.custom-alert {
+    max-width: 450px;
+    /* Medium width */
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-alert .fa {
+    margin-right: 10px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 .reclamation-card button:hover {
     background-color: #0056b3;
 }

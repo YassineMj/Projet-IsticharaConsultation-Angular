@@ -176,3 +176,13 @@
 
        }
    }
+   /* Custom CSS */
+   .container {
+       position: relative;
+   }
+
+   .alert {
+       max-width: 500px;
+       /* Adjust as needed */
+       margin-top: 7%;
+   }

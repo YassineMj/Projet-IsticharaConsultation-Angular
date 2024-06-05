@@ -41,13 +41,18 @@ export class PieAvisChartComponent implements OnInit {
       }
     )
   }
-  avisData :any
+
+  avisData: any
+  avisChartInstance: any; // Propriété pour stocker l'instance du graphique
 
   avisChart(): void {
     const ctx = document.getElementById('pieChart') as HTMLCanvasElement;
-
-    new Chart(ctx, {
-      type: 'pie', // pie,
+    // Vérifier et détruire l'instance existante
+    if (this.avisChartInstance) {
+      this.avisChartInstance.destroy();
+    }
+    this.avisChartInstance = new Chart(ctx, {
+      type: 'pie',
       data: {
         labels: this.avisData.labels,
         datasets: [
@@ -57,8 +62,6 @@ export class PieAvisChartComponent implements OnInit {
               'rgba(75, 192, 192, 0.2)',
               'rgba(128, 0, 128, 0.2)', // Purple with 20% opacity
             ],
-           
-
           },
         ],
       },
@@ -72,4 +75,6 @@ export class PieAvisChartComponent implements OnInit {
       },
     });
   }
+
+
 }

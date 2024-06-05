@@ -3,6 +3,52 @@ body {
   color: #444444;
 }
 
+/* styles.css */
+.hidden {
+  display: none;
+}
+
+#video-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(88, 169, 167, 0.612);
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 8px;
+}
+
+.blur {
+  filter: blur(5px);
+  transition: filter 0.3s;
+}
+
+
+#video-container .video-content {
+  position: relative;
+}
+
+#video-container video {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+
+.close-btn .fa-times {
+  color: rgb(0, 0, 0);
+}
+
 a {
   color: rgb(27, 140, 168);
   text-decoration: none;

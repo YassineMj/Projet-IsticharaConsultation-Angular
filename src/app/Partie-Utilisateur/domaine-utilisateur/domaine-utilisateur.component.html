@@ -17,7 +17,10 @@
 
     <div class="p-5 bg-white rounded shadow mb-5">
       <div class="tab-container">
-        <button class="nav-btn left-btn" (click)="scrollLeftHandler(tabWrapper1)">
+        <button
+          class="nav-btn left-btn"
+          (click)="scrollLeftHandler(tabWrapper1)"
+        >
           &#10094;
         </button>
         <div class="tab-wrapper" #tabWrapper1>
@@ -43,7 +46,10 @@
             </ng-container>
           </ul>
         </div>
-        <button class="nav-btn right-btn" (click)="scrollRightHandler(tabWrapper1)">
+        <button
+          class="nav-btn right-btn"
+          (click)="scrollRightHandler(tabWrapper1)"
+        >
           &#10095;
         </button>
       </div>
@@ -89,7 +95,10 @@
   <div class="container py-3">
     <div class="p-5 bg-white rounded shadow mb-5 pt-2 pb-0">
       <div class="tab-container">
-        <button class="nav-btn left-btn" (click)="scrollLeftHandler(tabWrapper2)">
+        <button
+          class="nav-btn left-btn"
+          (click)="scrollLeftHandler(tabWrapper2)"
+        >
           &#10094;
         </button>
         <div class="tab-wrapper" #tabWrapper2>
@@ -98,7 +107,7 @@
             class="nav nav-tabs nav-pills flex-nowrap border-0 rounded-nav navlist"
             id="catég"
           >
-            <ng-container *ngFor="let domaine of domaineList"  class="pb-4">
+            <ng-container *ngFor="let domaine of domaineList" class="pb-4">
               <li class="nav-item">
                 <a
                   id="home-tab"
@@ -115,15 +124,19 @@
             </ng-container>
           </ul>
         </div>
-        <button class="nav-btn right-btn" (click)="scrollRightHandler(tabWrapper2)">
+        <button
+          class="nav-btn right-btn"
+          (click)="scrollRightHandler(tabWrapper2)"
+        >
           &#10095;
         </button>
       </div>
-      <div id="pricing" class="pricing mb-4" style="margin-top: 5%" >
+
+      <div id="pricing" class="pricing mb-4" style="margin-top: 5%">
         <div class="container" data-aos="fade-up">
           <div class="row gy-4" data-aos="fade-left">
             <div
-              class="col-lg-3 col-md-6"
+              class="col-lg-3 col-md-6 d-flex"
               data-aos="zoom-in"
               data-aos-delay="100"
               *ngFor="let consultant of consultantList"
@@ -147,19 +160,19 @@
                     <i
                       class="fa-solid fa-circle-check"
                       style="margin-right: 2px; color: #3f7209"
-                    >
-                    </i>
+                    ></i>
                     {{ s }}
                   </h5>
                 </div>
-                <a class="btn-buy"
-                  ><i class="fa-solid fa-arrow-right"></i> Voir plus...</a
-                >
+                <a class="btn-buy">
+                  <i class="fa-solid fa-arrow-right"></i> Voir plus...
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 
