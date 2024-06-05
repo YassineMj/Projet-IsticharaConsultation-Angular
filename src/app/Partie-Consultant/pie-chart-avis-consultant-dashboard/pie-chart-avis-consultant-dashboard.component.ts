@@ -7,6 +7,7 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./pie-chart-avis-consultant-dashboard.component.css'],
 })
 export class PieChartAvisConsultantDashboardComponent {
+
   @Input() data!: {
     labels: string[];
     values: number[];
@@ -18,11 +19,18 @@ export class PieChartAvisConsultantDashboardComponent {
     this.avisChart();
   }
 
-  avisChart(): void {
+  avisChartInstance: any | undefined; // Propriété pour stocker l'instance du graphique
+
+   avisChart(): void {
     const ctx = document.getElementById('pieChartConsultant') as HTMLCanvasElement;
 
-    new Chart(ctx, {
-      type: 'pie', // pie,
+    // Vérifier et détruire l'instance existante
+    if (this.avisChartInstance) {
+      this.avisChartInstance.destroy();
+    }
+
+    this.avisChartInstance = new Chart(ctx, {
+      type: 'pie',
       data: {
         labels: this.data.labels,
         datasets: [
@@ -45,4 +53,5 @@ export class PieChartAvisConsultantDashboardComponent {
       },
     });
   }
+
 }

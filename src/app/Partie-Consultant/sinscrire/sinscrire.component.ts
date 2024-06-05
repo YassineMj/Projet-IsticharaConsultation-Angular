@@ -256,6 +256,15 @@ export class SinscrireComponent {
       reader.readAsDataURL(file);
     }
   }
+  alertMessage: string = '';
+  alertType: 'success' | 'danger' = 'danger';
+  showAlert(message: string, type: 'success' | 'danger') {
+    this.alertMessage = message;
+    this.alertType = type;
+    setTimeout(() => {
+      this.alertMessage = '';
+    }, 3000); // 3 seconds delay
+  }
 
   conditionsAccepted = false;
   sinscrire(): void {    
@@ -265,7 +274,7 @@ export class SinscrireComponent {
       this.thirdFormGroup.invalid || 
       this.fourthFormGroup.invalid) {
         
-      alert('Veuillez remplir tous les champs');
+      this.showAlert('Veuillez remplir tous les champs', 'danger');
       return;
     } else {
       if (this.conditionsAccepted) {
@@ -276,11 +285,11 @@ export class SinscrireComponent {
 
             console.log('Consultant uploadé avec succès. ID du consultant :',resp);
 
-            alert('Inscription réussie !');
+            this.showAlert('Inscription réussie !', 'success');
             this.router.navigate(['/consultant/sidentifier-consultant'])
           },
           (error) => {
-            alert('e-mail existe déjà.');
+            this.showAlert('e-mail existe déjà.', 'danger');
             console.error("Erreur lors de l'upload du consultant", error);
           }
         );

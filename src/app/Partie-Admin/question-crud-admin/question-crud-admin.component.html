@@ -111,12 +111,17 @@
               >
                 <i class="fa fa-search"></i>
               </button> -->
-              <div
-                class="input-group search-input ms-2"
-              >
+              <img
+                src="../../../assets/images/icon-search-adminn.png"
+                width="8%"
+                alt=""
+              />
+
+              <div class="input-group search-input ms-2">
                 <input
                   #searchInput
-                  [(ngModel)]="searchTerm" (ngModelChange)="filter()"
+                  [(ngModel)]="searchTerm"
+                  (ngModelChange)="filter()"
                   type="text"
                   class="form-control"
                   placeholder="Rechercher..."
@@ -155,7 +160,7 @@
                       <button
                         type="button"
                         rel="tooltip"
-                        class="btn btn-warning text-white btn-round btn-just-icon"
+                        class="btn btn-info text-white btn-round btn-just-icon"
                         style="margin-right: 4px"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"

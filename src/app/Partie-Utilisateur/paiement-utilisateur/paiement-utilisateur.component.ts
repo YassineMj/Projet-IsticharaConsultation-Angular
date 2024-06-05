@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { PaiementService } from '../Services/paiement.service';
 import Stripe from 'stripe';
@@ -13,8 +13,9 @@ export class PaiementUtilisateurComponent {
   constructor(
     private router: Router,
     public _serviceClientPaiement: PaiementService
-  ) {}
-
+  ) { }
+  
+  buttonDisabled: boolean = false;
   numeroVide: boolean = false;
   moisVide: boolean = false;
   anneeVide: boolean = false;
@@ -73,87 +74,164 @@ export class PaiementUtilisateurComponent {
   );
   token: string = '';
 
-  async paiement() {
+
+
+  annuler() {
+  
+    this._serviceClientPaiement.infoClientPaiement={
+    idClient:'',
+    idPlan:0,
+    nomClient:'',
+    emailClient:'',
+    paysClient:'',
+    villeClient:'',
+    codePostaleClient:'',
+    provinceClient:'',
+    telephoneClient:'',
+    adresseClient:'',
+    nomConsultant:'',
+    prenomConsultant:'',
+    prixConsultation:0,
+    jourDebut:'',
+    dateJourDebut:'',
+    heureDebut:'',
+    heureFin:'',
+    anglais:"false",
+    arabe:"false",
+    espagnol:"false",
+    francais:"false",
+    duree:0,
+    fraisService:0,
+    total:0,
+    descriptionClient:'',
+    numCard:'',
+    dateExpMois:'',
+    dateExpAnne:'',
+    cvc:'',
+    idCard:'',
+    idConsultant:0
+    }
+    this.router.navigate(['/utilisateur/recherche-utilisateur']);
+  } 
+  
+showSuccessMessage = false;
+
+  showSuccess() {
+    this.showSuccessMessage = true;
+    setTimeout(() => {
+      this.showSuccessMessage = false;
+    }, 5000); // Hide the message after 5 seconds
+  }
+
+  hideSuccessMessage() {
+    this.showSuccessMessage = false;
+  }
+  
+
+    async paiement() {
+    // Disable the button
+    this.buttonDisabled = true;
+
+    // Perform validations
     this.invalid();
     this.invalidC();
-    this.numeroVide =
-      this._serviceClientPaiement.infoClientPaiement.numCard === '';
+    this.numeroVide = this._serviceClientPaiement.infoClientPaiement.numCard === '';
     this.cvcVide = this._serviceClientPaiement.infoClientPaiement.cvc === '';
-    this.moisVide =
-      this._serviceClientPaiement.infoClientPaiement.dateExpMois === '';
-    this.anneeVide =
-      this._serviceClientPaiement.infoClientPaiement.dateExpAnne === '';
+    this.moisVide = this._serviceClientPaiement.infoClientPaiement.dateExpMois === '';
+    this.anneeVide = this._serviceClientPaiement.infoClientPaiement.dateExpAnne === '';
 
-    if (
-      this.numeroVide ||
-      this.cvcVide ||
-      this.moisVide ||
-      this.anneeVide ||
-      this.invalidNumero ||
-      this.invalidCvc
-    ) {
+    if (this.numeroVide || this.cvcVide || this.moisVide || this.anneeVide || this.invalidNumero || this.invalidCvc) {
+      // Enable the button
+      this.buttonDisabled = false;
       return;
-    } else {
-      if (this.conditionsAccepted) {
-        try {
-          const customer = await this.createCustomer();
-          this._serviceClientPaiement.infoClientPaiement.idClient = customer.id;
-
-          const card = await this.addCardToCustomer(customer.id);
-          this._serviceClientPaiement.infoClientPaiement.idCard = card.id;
-
-          console.log(
-            'id client : ' +
-              this._serviceClientPaiement.infoClientPaiement.idClient
-          );
-          console.log(
-            'id card : ' + this._serviceClientPaiement.infoClientPaiement.idCard
-          );
-
-          const demandeRequest = {
-            idClientStripe:
-              this._serviceClientPaiement.infoClientPaiement.idClient,
-            idCardStripe: this._serviceClientPaiement.infoClientPaiement.idCard,
-            numCard:this._serviceClientPaiement.infoClientPaiement.numCard,
-            nomClient: this._serviceClientPaiement.infoClientPaiement.nomClient,
-            emailClient:
-              this._serviceClientPaiement.infoClientPaiement.emailClient,
-            villeClient:
-              this._serviceClientPaiement.infoClientPaiement.villeClient,
-            paysClient:
-              this._serviceClientPaiement.infoClientPaiement.paysClient,
-            adresseClient:
-              this._serviceClientPaiement.infoClientPaiement.adresseClient,
-            idConsultant:
-              this._serviceClientPaiement.infoClientPaiement.idConsultant,
-            idPlan: this._serviceClientPaiement.infoClientPaiement.idPlan,
-            prixTotal: this._serviceClientPaiement.infoClientPaiement.total,
-            message:this._serviceClientPaiement.infoClientPaiement.descriptionClient,
-            telephone:this._serviceClientPaiement.infoClientPaiement.telephoneClient
-          };
-
-          this._serviceClientPaiement
-            .prendreRendezVous(demandeRequest)
-            .subscribe(
-              (resp) => {
-                alert('Le rendez-vous a été créé avec succès!');
-                this.router.navigate(['/utilisateur/accueil-utilisateur']);
-              },
-              (error) => {
-                console.error(
-                  "Une erreur s'est produite lors de la prise de rendez-vous:",
-                  error
-                );
-                
-              }
-            );
-        } catch (error) {
-          console.error("Une erreur s'est produite lors du paiement:", error);
-        }
-      } else {
-        alert('veuillez accpeter les conditions');
-      }
     }
+
+    if (this.conditionsAccepted) {
+      try {
+        const customer = await this.createCustomer();
+        this._serviceClientPaiement.infoClientPaiement.idClient = customer.id;
+
+        const card = await this.addCardToCustomer(customer.id);
+        this._serviceClientPaiement.infoClientPaiement.idCard = card.id;
+
+        const demandeRequest = {
+          idClientStripe: this._serviceClientPaiement.infoClientPaiement.idClient,
+          idCardStripe: this._serviceClientPaiement.infoClientPaiement.idCard,
+          numCard: this._serviceClientPaiement.infoClientPaiement.numCard,
+          nomClient: this._serviceClientPaiement.infoClientPaiement.nomClient,
+          emailClient: this._serviceClientPaiement.infoClientPaiement.emailClient,
+          villeClient: this._serviceClientPaiement.infoClientPaiement.villeClient,
+          paysClient: this._serviceClientPaiement.infoClientPaiement.paysClient,
+          adresseClient: this._serviceClientPaiement.infoClientPaiement.adresseClient,
+          idConsultant: this._serviceClientPaiement.infoClientPaiement.idConsultant,
+          idPlan: this._serviceClientPaiement.infoClientPaiement.idPlan,
+          prixTotal: this._serviceClientPaiement.infoClientPaiement.total,
+          message: this._serviceClientPaiement.infoClientPaiement.descriptionClient,
+          telephone: this._serviceClientPaiement.infoClientPaiement.telephoneClient,
+        };
+
+        this._serviceClientPaiement.prendreRendezVous(demandeRequest).subscribe(
+          (resp) => {
+            this.showSuccess();
+            setTimeout(() => {
+              this.resetForm();
+              this.router.navigate(['/utilisateur/accueil-utilisateur']);
+              this.buttonDisabled = false;
+            }, 3000); // Navigate after 3 seconds
+          },
+          (error) => {
+            console.error("Une erreur s'est produite lors de la prise de rendez-vous:", error);
+            // Enable the button
+            this.buttonDisabled = false;
+          }
+        );
+      } catch (error) {
+        console.error("Une erreur s'est produite lors du paiement:", error);
+        // Enable the button
+        this.buttonDisabled = false;
+      }
+    } else {
+      alert('veuillez accepter les conditions');
+      // Enable the button
+      this.buttonDisabled = false;
+    }
+  }
+
+
+  resetForm() {
+    this._serviceClientPaiement.infoClientPaiement = {
+      idClient: '',
+      idPlan: 0,
+      nomClient: '',
+      emailClient: '',
+      paysClient: '',
+      villeClient: '',
+      codePostaleClient: '',
+      provinceClient: '',
+      telephoneClient: '',
+      adresseClient: '',
+      nomConsultant: '',
+      prenomConsultant: '',
+      prixConsultation: 0,
+      jourDebut: '',
+      dateJourDebut: '',
+      heureDebut: '',
+      heureFin: '',
+      anglais: "false",
+      arabe: "false",
+      espagnol: "false",
+      francais: "false",
+      duree: 0,
+      fraisService: 0,
+      total: 0,
+      descriptionClient: '',
+      numCard: '',
+      dateExpMois: '',
+      dateExpAnne: '',
+      cvc: '',
+      idCard: '',
+      idConsultant: 0
+    };
   }
 
   async createCustomer() {
@@ -238,4 +316,5 @@ export class PaiementUtilisateurComponent {
   //       return 'tok_visa';
   //   }
   // }
+
 }

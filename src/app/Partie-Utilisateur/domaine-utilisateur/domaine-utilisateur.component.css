@@ -431,7 +431,7 @@ section {
 .services .icon-box::before {
   content: "";
   position: absolute;
-  background: #ff9b3ec6;
+  background: #ffb3017d;
   right: -60px;
   top: -40px;
   width: 100px;
@@ -442,7 +442,7 @@ section {
 }
 
 .services .icon-box:hover::before {
-  background: #ff9b3e;
+  background: #ffb301b6;
   right: 0;
   top: 0;
   width: 100%;
@@ -652,3 +652,14 @@ a{
   color: #ccc;
   cursor: not-allowed;
 }
+
+/* Set all box elements to flex and align them vertically */
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* Center items horizontally */
+}
+

@@ -71,6 +71,8 @@ export class InfosUtilisateurComponent implements OnInit {
     } else {
       if (this.conditionsAccepted) {
         this.router.navigate(['/utilisateur/infos-consultation-utilisateur']);
+             // Reset form values
+    
       } else {
         alert('veuillez accpeter les conditions');
       }

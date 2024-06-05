@@ -66,7 +66,6 @@ import { PieAvisChartComponent } from './Partie-Admin/pie-avis-chart/pie-avis-ch
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-
 import { environment } from '../../environments';
 import { ChatComponent } from './Partie-Admin/chat/chat.component';
 import { ReclamationUtilisateurComponent } from './Partie-Utilisateur/reclamation-utilisateur/reclamation-utilisateur.component';
@@ -133,7 +132,6 @@ import { BarChartConsultantDashboardComponent } from './Partie-Consultant/bar-ch
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
     NgbModule,
     NgbModalModule,
     FlatpickrModule.forRoot(),
@@ -153,7 +151,6 @@ import { BarChartConsultantDashboardComponent } from './Partie-Consultant/bar-ch
     MatIconModule,
     MatCheckboxModule,
     MatTabsModule,
-
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

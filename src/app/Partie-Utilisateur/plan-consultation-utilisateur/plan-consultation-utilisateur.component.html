@@ -1,46 +1,92 @@
-<div class="row text-center" >
-    <div class="col-md-4">
-      <div class="btn-group">
-        <div
-          class="btn btn-primary"
-          mwlCalendarPreviousView
-          [view]="view"
-          [(viewDate)]="viewDate"
-          (viewDateChange)="closeOpenMonthViewDay()"
-        >
-          Previous
-        </div>
-        <div
-          class="btn btn-outline-secondary"
-          mwlCalendarToday
-          [(viewDate)]="viewDate"
-        >
-          Today
-        </div>
-        <div
-          class="btn btn-primary"
-          mwlCalendarNextView
-          [view]="view"
-          [(viewDate)]="viewDate"
-          (viewDateChange)="closeOpenMonthViewDay()"
-        >
-          Next
-        </div>
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<div
+  *ngIf="showAlertwarning"
+  class="alert alert-warning alert-dismissible d-flex align-items-center"
+  role="alert"
+>
+  <strong
+    ><i class="fa-solid fa-triangle-exclamation"></i> {{ alertTitle }}</strong
+  >
+  <button
+    type="button"
+    class="btn-close"
+    (click)="closeAlertw()"
+    aria-label="Close"
+  ></button>
+</div>
+
+<div
+  *ngIf="showAlertdanger"
+  class="alert alert-danger alert-dismissible d-flex align-items-center"
+  role="alert"
+>
+  <strong>
+    <i class="fa-solid fa-circle-exclamation"></i> {{ alertTitle }}</strong
+  >
+  <button
+    type="button"
+    class="btn-close"
+    (click)="closeAlertd()"
+    aria-label="Close"
+  ></button>
+</div>
+
+<div class="row text-center">
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div
+        class="btn btn-primary"
+        [class.btn-disabled]="isCurrentWeek(viewDate)"
+        mwlCalendarPreviousView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (click)="
+          isCurrentWeek(viewDate)
+            ? $event.stopImmediatePropagation()
+            : closeOpenMonthViewDay()
+        "
+      >
+        Previous
+      </div>
+      <div
+        class="btn btn-outline-secondary"
+        mwlCalendarToday
+        [(viewDate)]="viewDate"
+      >
+        Today
+      </div>
+      <div
+        class="btn btn-primary"
+        mwlCalendarNextView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+        Next
       </div>
     </div>
-    <div class="col-md-6">
-      <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
-    </div>
-
   </div>
-  <br />
-
-  <div *ngIf="view === CalendarView.Week" class="scrollable-container">
-    <mwl-calendar-week-view
-      [viewDate]="viewDate"
-      [events]="events"
-      [refresh]="refresh"
-      (eventClicked)="handleEvent($event.event)"
-    >
-    </mwl-calendar-week-view>
+  <div class="col-md-6">
+    <h3>{{ viewDate | calendarDate : view + "ViewTitle" : "en" }}</h3>
   </div>
+</div>
+<br />
+
+<div *ngIf="view === CalendarView.Week" class="scrollable-container">
+  <mwl-calendar-week-view
+    [viewDate]="viewDate"
+    [events]="events"
+    [refresh]="refresh"
+    (eventClicked)="handleEvent($event.event)"
+  >
+  </mwl-calendar-week-view>
+</div>
+<br />

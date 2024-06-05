@@ -1,4 +1,21 @@
 <body>
+ 
+  <!-- Success message container -->
+<div
+  *ngIf="showSuccessMessage"
+  class="alert alert-success alert-dismissible fade show position-absolute top-0 start-50 translate-middle-x"
+  role="alert"
+>
+  Le rendez-vous a été créé avec succès!
+  <button
+    type="button"
+    class="btn-close"
+    (click)="hideSuccessMessage()"
+    aria-label="Close"
+  ></button>
+</div>
+
+
   <div class="container">
     <h2 class="title">
       DEMANDE DE PAIEMENT
@@ -69,10 +86,10 @@
                   ><i class="fa fa-exclamation-circle"></i>Le champs est
                   obligatoire</span
                 >
-                 <span *ngIf="invalidNumero" class="text-danger">
-             <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un numero valide
-            </span>
-
+                <span *ngIf="invalidNumero" class="text-danger">
+                  <i class="fa fa-exclamation-circle"></i> Veuillez saisir un
+                  numero valide
+                </span>
               </div>
 
               <br />
@@ -85,7 +102,7 @@
                       [(ngModel)]="
                         _serviceClientPaiement.infoClientPaiement.dateExpMois
                       "
-                      (input)="moisVide= false"
+                      (input)="moisVide = false"
                     >
                       <option selected>01</option>
                       <option value="2">02</option>
@@ -101,9 +118,9 @@
                       <option value="12">12</option>
                     </select>
                     <span *ngIf="moisVide" class="text-danger"
-                  ><i class="fa fa-exclamation-circle"></i>Le champs est
-                  obligatoire</span
-                >
+                      ><i class="fa fa-exclamation-circle"></i>Le champs est
+                      obligatoire</span
+                    >
                   </div>
 
                   <div class="form-group" style="width: 50%; margin-left: 10px">
@@ -112,7 +129,7 @@
                       [(ngModel)]="
                         _serviceClientPaiement.infoClientPaiement.dateExpAnne
                       "
-                      (input)="anneeVide=false"
+                      (input)="anneeVide = false"
                     >
                       <option selected>2024</option>
                       <option value="2025">2025</option>
@@ -133,9 +150,9 @@
                       <option value="2040">2040</option>
                     </select>
                     <span *ngIf="anneeVide" class="text-danger"
-                  ><i class="fa fa-exclamation-circle"></i>Le champs est
-                  obligatoire</span
-                >
+                      ><i class="fa fa-exclamation-circle"></i>Le champs est
+                      obligatoire</span
+                    >
                   </div>
                 </div>
               </div>
@@ -149,19 +166,17 @@
                   class="form-control"
                   placeholder="xxxx "
                   [(ngModel)]="_serviceClientPaiement.infoClientPaiement.cvc"
-                                                      (input)="invalidC()"
-                                                                        (input)="cvcVide =false"
-
-
+                  (input)="invalidC()"
+                  (input)="cvcVide = false"
                 />
                 <span *ngIf="cvcVide" class="text-danger"
                   ><i class="fa fa-exclamation-circle"></i>Le champs est
                   obligatoire</span
                 >
-                 <span *ngIf="invalidCvc" class="text-danger">
-             <i class="fa fa-exclamation-circle"></i> Veuillez  saisir un numero valide
-            </span>
-
+                <span *ngIf="invalidCvc" class="text-danger">
+                  <i class="fa fa-exclamation-circle"></i> Veuillez saisir un
+                  numero valide
+                </span>
               </div>
 
               <div
@@ -272,14 +287,15 @@
         </div>
         <div class="row mt-3">
           <div class="col-md-12 col-sm-12">
-            <button type="button" class="btn validerbtn" (click)="paiement()">
-              Valider
-            </button>
             <button
               type="button"
-              class="btn annulerbtn"
-              routerLink="/utilisateur/recherche-utilisateur"
+              class="btn validerbtn"
+              (click)="paiement()"
+              [disabled]="buttonDisabled"
             >
+              Valider
+            </button>
+            <button type="button" class="btn annulerbtn" (click)="annuler()">
               Annuler
             </button>
           </div>

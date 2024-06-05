@@ -1,8 +1,7 @@
 
   .chat-container {
-    margin-top: 4%;
     border-radius: 10px;
-    padding: 4%;
+    padding: 2%;
   }
 .card{
   border-radius: 10px;
@@ -40,6 +39,7 @@
    border-radius: 10px;
    border-top: 5px solid rgba(0, 60, 255, 0.258);
  }
+
 .card-header1 {
   background-color: #77edff3a;
 }
@@ -73,7 +73,7 @@
           /* Remove default margin */
       }
       .member-list {
-          max-height: 500px;
+          max-height: 400px;
           overflow-y: auto;
       }
    

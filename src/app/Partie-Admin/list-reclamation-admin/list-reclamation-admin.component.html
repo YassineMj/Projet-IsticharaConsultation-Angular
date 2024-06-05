@@ -59,7 +59,7 @@
                           {{ reclamation.avis }}
                         </span>
                       </td>
-                      <td>{{ reclamation.nom }} {{reclamation.prenom}}</td>
+                      <td>{{ reclamation.nom }} {{ reclamation.prenom }}</td>
                       <td>
                         {{ reclamation.nom_domaine }}
                       </td>
@@ -111,10 +111,33 @@
 
                           <div class="card-body">
                             <ul class="list-group">
-                              <li
-                                *ngIf="
-                                  reclamation.consultant_pas_parle
+                              <li class="list-group-item">
+                                <span class="font-weight-bold mr-4">
+                                  <i class="fa-regular fa-file-lines"></i>
+                                  <b>Code Reclamation : </b>
+                                  <span id="codeReclamation">
+                                    {{ reclamation.code_reclamation }}</span
+                                  >
+                                </span>
+                                <!-- Add an icon for copying -->
+                                <i
+                                  class="fas fa-copy text-danger"
+                                  style="cursor: pointer; margin-left: 10px"
+                                  (click)="copyCode()"
+                                  [ngClass]="{
+                                    'fa-check': isCopied,
+                                    'fa-copy': !isCopied
+                                  }"
+                                ></i>
+                              </li>
+                              <hr
+                                style="
+                                  border: 3px solid rgba(255, 69, 69, 0.489);
+                                  border-radius: 20px;
                                 "
+                              />
+                              <li
+                                *ngIf="reclamation.consultant_pas_parle"
                                 class="list-group-item"
                               >
                                 <i
@@ -125,9 +148,7 @@
                                 >
                               </li>
                               <li
-                                *ngIf="
-                                  reclamation.consultant_pas_participe
-                                "
+                                *ngIf="reclamation.consultant_pas_participe"
                                 class="list-group-item"
                               >
                                 <i
@@ -149,9 +170,7 @@
                                 >
                               </li>
                               <li
-                                *ngIf="
-                                  reclamation.mauvaise_qualite_video
-                                "
+                                *ngIf="reclamation.mauvaise_qualite_video"
                                 class="list-group-item"
                               >
                                 <i
@@ -162,9 +181,7 @@
                                 >
                               </li>
                               <li
-                                *ngIf="
-                                  reclamation.manque_de_connaissances
-                                "
+                                *ngIf="reclamation.manque_de_connaissances"
                                 class="list-group-item"
                               >
                                 <i
@@ -175,9 +192,7 @@
                                 >
                               </li>
                               <li
-                                *ngIf="
-                                  reclamation.mauvaise_qualite_audio
-                                "
+                                *ngIf="reclamation.mauvaise_qualite_audio"
                                 class="list-group-item"
                               >
                                 <i
@@ -188,9 +203,7 @@
                                 >
                               </li>
                               <li
-                                *ngIf="
-                                  reclamation.connexion_interrompue
-                                "
+                                *ngIf="reclamation.connexion_interrompue"
                                 class="list-group-item"
                               >
                                 <i
@@ -200,17 +213,6 @@
                                   >Connexion interrompue</span
                                 >
                               </li>
-
-                              <li class="list-group-item"
-                              >
-                                <i
-                                  class="fas fa-exclamation-circle text-danger mr-2"
-                                ></i>
-                                <span class="font-weight-bold"
-                                  >Code reclmation : {{reclamation.code_reclamation}}</span
-                                >
-                              </li>
-
                             </ul>
                           </div>
                         </div>

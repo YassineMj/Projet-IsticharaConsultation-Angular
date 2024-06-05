@@ -8,6 +8,11 @@ import { PaiementService } from '../Services/paiement.service';
 })
 export class ReclamationUtilisateurComponent {
 
+    // example.component.ts
+  alertMessage: string = '';
+  alertType: 'success' | 'danger' = 'success';
+
+
   constructor(private _service:PaiementService){}
 
   allFieldsFilled: boolean = false;
@@ -122,18 +127,31 @@ onCheckboxChange() {
       connexionInterrompue: this.problemes.connexionInterrompue
     };
 
+
+
     this._service.reclamation(reclamationData).subscribe(
       resp => {
-        if (resp.message === "Reclamation ajoutée avec succès") {
-          alert('Votre réclamation a été soumise avec succès.');
-        } else {
-          alert('Votre réclamation a déjà été effectuée ou le code de réclamation n\'existe pas !');
-        }
-      },
-      error => {
-        alert('Une erreur s\'est produite lors de la soumission de votre réclamation.');
+      if (resp.message === "Reclamation ajoutée avec succès") {
+        this.showAlert('Votre réclamation a été soumise avec succès ', 'success');
+      } else {
+        this.showAlert('  Votre avis a été déjà pris en compte !', 'danger');
       }
-    );
+    },
+      error => {
+        this.showAlert(' Votre avis a été déjà pris en compte !', 'danger');
+
+    }
+  );
   }
 
+  showAlert(message: string, type: 'success' | 'danger') {
+  this.alertMessage = message;
+  this.alertType = type;
+  setTimeout(() => {
+    this.alertMessage = '';
+  }, 3000); // 2 seconds delay
 }
+
+}
+
+

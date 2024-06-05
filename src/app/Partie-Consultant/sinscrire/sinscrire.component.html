@@ -1,5 +1,25 @@
 
   <app-menu-utilisateur></app-menu-utilisateur>
+  <!-- Alert message -->
+<div *ngIf="alertMessage" class="d-flex justify-content-center">
+  <div
+    class="custom-alert alert"
+    [ngClass]="{
+      'alert-success': alertType === 'success',
+      'alert-danger': alertType === 'danger'
+    }"
+    role="alert"
+  >
+    <i
+      class="fa"
+      [ngClass]="{
+        'fa-check-circle': alertType === 'success',
+        'fa-exclamation-circle': alertType === 'danger'
+      }"
+    ></i>
+    {{ alertMessage }}
+  </div>
+</div>
 <body>
   <mat-card>
     <mat-card-content>
