@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { DomaineService } from '../Services/DomaineCategorie.service';
 import { domaineBean } from '../Beans/domaineBean';
 import { categorieBean } from '../Beans/categorieBean';
@@ -23,7 +23,7 @@ export class AccueilUtilisateurComponent implements OnInit {
     this.videoVisible = false;
   }
   
-  constructor(private _service: DomaineService, private _serviceQuestion: QuestionService) {
+  constructor(private _service: DomaineService, private _serviceQuestion: QuestionService,private elRef: ElementRef) {
 
   }
 
@@ -77,5 +77,19 @@ export class AccueilUtilisateurComponent implements OnInit {
     this.DomainesParPage();
   }
 
+ @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const scrollButton = this.elRef.nativeElement.querySelector('.scroll-to-top-button');
 
+    if (scrollPosition > 300) {
+      scrollButton.style.display = 'block';
+    } else {
+      scrollButton.style.display = 'none';
+    }
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
