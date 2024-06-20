@@ -1,76 +1,75 @@
+
 <head>
   <link
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     rel="stylesheet"
   />
 </head>
+
 <body id="bd">
-  <div class="firstDiv">
-    <div class="container">
-      <div class="row justify-content-center dropdown-margin-left">
-        <div class="col-md-4">
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="dropdown1"
-              ><i class="fa fa-globe"></i
-            ></label>
-            <select
-              [(ngModel)]="idDomaine"
-              (change)="onIdDomaineChange()"
-              class="form-select"
-              id="dropdown1"
-              name="Category-2"
-              style="height: 55px"
-            >
-              <option disabled selected>Choisi Domaine</option>
-              -
-              <option
-                *ngFor="let domaine of domaines"
-                value="{{ domaine.idDomaine }}"
-              >
-                {{ domaine.nomDomaine }}
-              </option>
-            </select>
-          </div>
+ <div class="firstDiv">
+  <div class="container">
+    <div class="row justify-content-center dropdown-margin-left">
+      <div class="col-md-4">
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="dropdown1"
+            ><i class="fa fa-globe"></i
+          ></label>
+          <select
+            [(ngModel)]="idDomaine"
+            (change)="onIdDomaineChange()"
+            class="form-select"
+            id="dropdown1"
+            name="Category-2"
+            style="height: 55px"
+          >
+            <option disabled selected>Choisi Domaine</option>
+            <option *ngFor="let domaine of domaines" value="{{ domaine.idDomaine }}">
+              {{ domaine.nomDomaine }}
+            </option>
+          </select>
         </div>
-        <div class="col-md-4">
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="dropdown2"
-              ><i class="fa fa-list-ul"></i
-            ></label>
-            <select
-              [(ngModel)]="nomCategorie"
-              class="form-select"
-              id="dropdown2"
-              name="Category-2"
-              style="height: 55px"
-            >
-              <option value="">Choisissez une catégorie</option>
-              <!-- Option vide -->
-              <option
-                *ngFor="let categorie of categories"
-                value="{{ categorie.nomCategorie }}"
-              >
-                {{ categorie.nomCategorie }}
-              </option>
-            </select>
-          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="dropdown2"
+            ><i class="fa fa-list-ul"></i
+          ></label>
+          <select
+            [(ngModel)]="nomCategorie"
+            class="form-select"
+            id="dropdown2"
+            name="Category-2"
+            style="height: 55px"
+          >
+            <option value="">Choisissez une catégorie</option>
+            <option *ngFor="let categorie of categories" value="{{ categorie.nomCategorie }}">
+              {{ categorie.nomCategorie }}
+            </option>
+          </select>
         </div>
-        <div class="col-md-4">
-          <div class="input-group mb-3">
-            <button (click)="getConsultations()" class="btn" type="button">
-              <i class="fa fa-search"></i> Rechercher
-            </button>
-          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group mb-3">
+          <button (click)="getConsultations()" class="btn" type="button">
+            <i class="fa fa-search"></i> Rechercher
+          </button>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
   <hr
     style="
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       border: 1px solid rgb(12, 116, 123);
     "
   />
+
+
+
   <h3 style="margin-left: 33px">
     <i
       class="fa fa-check-circle"
@@ -80,6 +79,7 @@
     avec le consultant de votre choix et dans le domaine qui vous intéresse sur
     ISTICHARA.
   </h3>
+
   <hr
     style="
       margin-left: 24%;
@@ -89,7 +89,27 @@
     "
   />
 
-  <div class="div2" *ngFor="let c of dataConsultations" style="width: 98%">
+ <!-- Display consultations -->
+  <div *ngIf="noConsultations" class="alert alert-warning d-flex " role="alert" style=" margin-left: 10%;margin-right: 10%; border-radius: 10px; background-color: #fff3cd; border: 1px solid #ffeeba;">
+  <i class="fa-solid fa-circle-info fa-2x text-warning me-3"></i>
+  <div>
+    <strong>Pas de consultations disponibles !</strong><br>
+    Nous n'avons trouvé aucune consultation correspondant à votre recherche. Veuillez essayer une autre catégorie ou un autre domaine.
+  </div>
+ <div>
+    <hr
+    style="
+      margin-left: 24%;
+      width: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgb(12, 116, 123);
+    "
+  />
+ </div>
+</div>
+
+<div *ngIf="dataConsultations?.length">
+  <div *ngFor="let c of dataConsultations" class="div2" style="width: 98%">
     <div class="text-center">
       <div class="row">
         <div class="col col-md-5 col1 border1">
@@ -130,34 +150,36 @@
                   <h5 class="card-text" style="font-size: medium">
                     Durée: <span class="duration-value">{{ c.duree }}min</span>
                   </h5>
-                  <span class="mr-3" *ngIf="c.consultant.arabe == true"
-                    ><img
+                  <span class="mr-3" *ngIf="c.consultant.arabe">
+                    <img
                       src="../../../assets/images/arabe.png"
                       style="width: 15%"
                       alt=""
                     />
                   </span>
-                  <span class="mr-3" *ngIf="c.consultant.anglais == true"
-                    ><img
+                  <span class="mr-3" *ngIf="c.consultant.anglais">
+                    <img
                       src="../../../assets/images/anglais.png"
                       style="width: 13%"
                       alt=""
-                  /></span>
-                  <span class="mr-3" *ngIf="c.consultant.francais == true"
-                    ><img
-                      src="../../../assets/images/francais.png "
+                    />
+                  </span>
+                  <span class="mr-3" *ngIf="c.consultant.francais">
+                    <img
+                      src="../../../assets/images/francais.png"
                       style="width: 14%"
                       alt=""
-                  /></span>
-                  <span class="mr-3" *ngIf="c.consultant.espagnol == true"
-                    ><img
+                    />
+                  </span>
+                  <span class="mr-3" *ngIf="c.consultant.espagnol">
+                    <img
                       src="../../../assets/images/espagnol.png"
                       style="width: 14%"
                       alt=""
-                  /></span>
+                    />
+                  </span>
                 </div>
               </div>
-
               <div class="col-md-6 desc">
                 <h4 class="mb-3">
                   {{ c.consultant.nom }} {{ c.consultant.prenom }}
@@ -176,7 +198,7 @@
                 <br />
               </div>
               <div class="profile-description mt-2">
-                <p class="mb-1">{{ c.description }} .</p>
+                <p class="mb-1">{{ c.description }}.</p>
               </div>
             </div>
           </div>
@@ -197,6 +219,7 @@
       </div>
     </div>
   </div>
+</div>
   <div>
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
@@ -211,4 +234,6 @@
       </ul>
     </nav>
   </div>
+
+
 </body>
