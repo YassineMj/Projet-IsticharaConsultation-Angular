@@ -18,10 +18,11 @@ export class RechercheUtilisateurComponent {
   ) {}
 
   domaines: domaineBean[] = [];
-
+  noConsultations: boolean = false;
   categories: categorieBean[] = [];
-
   nomCategorie: any;
+  dataConsultations: any;
+
 
   ngOnInit(): void {
     this._serviceDomaineCategorie.getAllDomaine().subscribe((resp) => {
@@ -39,7 +40,6 @@ export class RechercheUtilisateurComponent {
       });
   }
 
-  dataConsultations: any;
   page: number = 0;
   size: number = 3;
   totalPages!: number;
@@ -58,9 +58,11 @@ export class RechercheUtilisateurComponent {
           this.dataConsultations = resp.content;
           this.totalPages = resp.totalPages;
           this.generatePageNumbers();
+          this.noConsultations = this.dataConsultations.length === 0;
         },
         (error) => {
           console.error(error);
+          this.noConsultations = true;
         }
       );
     this.page = 0;

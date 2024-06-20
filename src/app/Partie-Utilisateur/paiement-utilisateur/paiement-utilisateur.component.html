@@ -1,20 +1,18 @@
 <body>
- 
   <!-- Success message container -->
-<div
-  *ngIf="showSuccessMessage"
-  class="alert alert-success alert-dismissible fade show position-absolute top-0 start-50 translate-middle-x"
-  role="alert"
->
-  Le rendez-vous a été créé avec succès!
-  <button
-    type="button"
-    class="btn-close"
-    (click)="hideSuccessMessage()"
-    aria-label="Close"
-  ></button>
-</div>
-
+  <div
+    *ngIf="showSuccessMessage"
+    class="alert alert-success alert-dismissible fade show position-absolute top-0 start-50 translate-middle-x"
+    role="alert"
+  >
+    Le rendez-vous a été créé avec succès!
+    <button
+      type="button"
+      class="btn-close"
+      (click)="hideSuccessMessage()"
+      aria-label="Close"
+    ></button>
+  </div>
 
   <div class="container">
     <h2 class="title">
@@ -285,6 +283,7 @@
             </div>
           </div>
         </div>
+
         <div class="row mt-3">
           <div class="col-md-12 col-sm-12">
             <button

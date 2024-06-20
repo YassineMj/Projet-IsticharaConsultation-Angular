@@ -163,3 +163,29 @@ p {
     /* Set back to original width */
   }
 }
+.alert {
+  padding: 15px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ffeeba;
+  background-color: #fff3cd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Aligné en haut et à gauche */
+}
+
+.alert i {
+  margin-right: 15px;
+}
+
+.alert strong {
+  font-size: 1.1rem;
+  color: #856404;
+}
+
+.alert div {
+  color: #856404;
+}
+
+.fa-circle-info {
+  color: #ffc107;
+}
