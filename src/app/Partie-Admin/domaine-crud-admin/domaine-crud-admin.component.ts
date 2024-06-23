@@ -13,13 +13,13 @@ export class DomaineCrudAdminComponent implements OnInit{
   //showSearchInput: boolean = false;
   searchTerm: string = '';
   filtered:any
-  
+
 //  toggleSearchInput(inputElement: HTMLInputElement) {
 //     this.showSearchInput = !this.showSearchInput;
 //      if (!this.showSearchInput) {
 //       inputElement.value = '';
 //     }
-   
+
 //   }
   constructor(private _serviceAdmin: AdminService , private router: Router ,private modalService: NgbModal) {}
 
@@ -40,7 +40,7 @@ export class DomaineCrudAdminComponent implements OnInit{
         this.listDomaine = resp;
         this.filtered=this.listDomaine;
         console.log(this.listDomaine);
-        
+
       }
     )
   }
@@ -55,13 +55,13 @@ export class DomaineCrudAdminComponent implements OnInit{
       this.listDomaine = this.filtered; // Reset to all data if search term is cleared
     }
   }
-  
+
   dataDomaine={
     nomDomaine:"",
     pathImage:"",
     descriptionDomaine:""
   }
-  
+
   onFileChange(event: any): void {
     const file = event.target.files[0];
     if (file) {
@@ -87,7 +87,7 @@ export class DomaineCrudAdminComponent implements OnInit{
   }
 
   ajouterDomaine(fileInput: HTMLInputElement) {
-    
+
     this._serviceAdmin.createDomaine(this.dataDomaine).subscribe(
       resp=>{
         console.log(resp);
@@ -102,11 +102,11 @@ export class DomaineCrudAdminComponent implements OnInit{
         this._serviceAdmin.addActivity(dataActivity).subscribe(
           (response) => {
             console.log('Activité ajoutée avec succès !', response);
-            
+
           },
           (error) => {
             console.error('Erreur lors de l\'ajout de l\'activité : ', error);
-            
+
           }
         );
 
@@ -121,10 +121,10 @@ export class DomaineCrudAdminComponent implements OnInit{
         this.ngOnInit();
       }
     )
-    
+
   }
   resetForm(fileInput: HTMLInputElement) {
-      
+
     this.dataDomaine = {
       nomDomaine: '',
       pathImage: '',
@@ -161,17 +161,17 @@ export class DomaineCrudAdminComponent implements OnInit{
         this._serviceAdmin.addActivity(dataActivity).subscribe(
           (response) => {
             console.log('Activité ajoutée avec succès !', response);
-            
+
           },
           (error) => {
             console.error('Erreur lors de l\'ajout de l\'activité : ', error);
-            
+
           }
         );
 
             this.modalService.dismissAll(); // Ferme tous les modals ouverts
 
-        
+
         this.isModalVisible = false;
          // Show success message
         this.showInfoMessage = true;
@@ -179,9 +179,9 @@ export class DomaineCrudAdminComponent implements OnInit{
         setTimeout(() => {
           this.showInfoMessage = false;
         }, 3000);
-        
+
         this.ngOnInit()
-        
+
       }
     )
   }
@@ -189,7 +189,7 @@ export class DomaineCrudAdminComponent implements OnInit{
   isFormComplete(): boolean {
   return !!this.dataDomaine.nomDomaine && !!this.dataDomaine.descriptionDomaine && !!this.dataDomaine.pathImage;
   }
- 
+
   domainToDeleteId: number;
   domainToDeleteName: string;
 
@@ -200,7 +200,7 @@ export class DomaineCrudAdminComponent implements OnInit{
   }
 
   deleteDomaine(idDomaine: any, nomDomaine: any) {
-    
+
     this._serviceAdmin.deleteDomaine(idDomaine).subscribe(
       resp=>{
         console.log(resp);
@@ -215,11 +215,11 @@ export class DomaineCrudAdminComponent implements OnInit{
         this._serviceAdmin.addActivity(dataActivity).subscribe(
           (response) => {
             console.log('Activité ajoutée avec succès !', response);
-            
+
           },
           (error) => {
             console.error('Erreur lors de l\'ajout de l\'activité : ', error);
-            
+
           }
         );
 
@@ -229,7 +229,7 @@ export class DomaineCrudAdminComponent implements OnInit{
         setTimeout(() => {
           this.showDangerMessage = false;
         }, 3000);
-        
+
         this.ngOnInit();
       }
     )

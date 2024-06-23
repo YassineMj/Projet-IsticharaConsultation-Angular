@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PaiementService } from '../Services/paiement.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-infos-consultation-utilisateur',
@@ -8,14 +9,17 @@ import { PaiementService } from '../Services/paiement.service';
 })
 export class InfosConsultationUtilisateurComponent implements OnInit {
 
-  constructor(public _serviceClientPaiement:PaiementService){}
+  constructor(public _serviceClientPaiement:PaiementService, private router : Router){}
 
   ngOnInit(): void {
+     if (this._serviceClientPaiement.infoClientPaiement.nomClient == '') {
+       this.router.navigate(['/utilisateur/recherche-utilisateur']);
+     }
     console.log(this._serviceClientPaiement.infoClientPaiement);
     this._serviceClientPaiement.getDetailsConsultation(this._serviceClientPaiement.infoClientPaiement.idPlan).subscribe(
       resp=>{
         console.log(resp);
-        
+
         this._serviceClientPaiement.infoClientPaiement.nomConsultant=resp.nom;
         this._serviceClientPaiement.infoClientPaiement.prenomConsultant=resp.prenom;
         this._serviceClientPaiement.infoClientPaiement.prixConsultation=parseFloat(resp.prixConsultation);
@@ -50,10 +54,10 @@ export class InfosConsultationUtilisateurComponent implements OnInit {
       },
       error=>{
         console.error(error);
-        
+
       }
     )
   }
 
-  
+
 }

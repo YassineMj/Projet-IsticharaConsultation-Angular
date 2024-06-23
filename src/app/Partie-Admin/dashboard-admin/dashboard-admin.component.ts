@@ -20,7 +20,7 @@ export class DashboardAdminComponent implements OnInit {
     if(this._serviceAdmin.authAdminObjet==null){
       this.router.navigate(['/admin-sidentifier'])
     }
-    
+
     this.getAllActivity();
     this.getCountAll();
     this.getAllConsultants();
@@ -71,6 +71,6 @@ export class DashboardAdminComponent implements OnInit {
       }
     )
   }
-  
+
 
 }
