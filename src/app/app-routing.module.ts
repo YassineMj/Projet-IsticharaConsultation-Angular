@@ -13,7 +13,6 @@ import { SidentifierComponent } from './Partie-Consultant/sidentifier/sidentifie
 import { RendezvousConsultantDashboardComponent } from './Partie-Consultant/rendezvous-consultant-dashboard/rendezvous-consultant-dashboard.component';
 import { ProfilConsultantDashboardComponent } from './Partie-Consultant/profil-consultant-dashboard/profil-consultant-dashboard.component';
 import { MenuConsultantDashboardComponent } from './Partie-Consultant/menu-consultant-dashboard/menu-consultant-dashboard.component';
-import { HelpConsultantDashboardComponent } from './Partie-Consultant/help-consultant-dashboard/help-consultant-dashboard.component';
 import { ContactConsultantDashboardComponent } from './Partie-Consultant/contact-consultant-dashboard/contact-consultant-dashboard.component';
 import { ConsultationsConsultantDashboardComponent } from './Partie-Consultant/consultations-consultant-dashboard/consultations-consultant-dashboard.component';
 import { PlanConsultationConsultantDashboardComponent } from './Partie-Consultant/plan-consultation-consultant-dashboard/plan-consultation-consultant-dashboard.component';
@@ -39,6 +38,7 @@ import { ReclamationUtilisateurComponent } from './Partie-Utilisateur/reclamatio
 import { ListReclamationAdminComponent } from './Partie-Admin/list-reclamation-admin/list-reclamation-admin.component';
 import { Statement } from '@angular/compiler';
 import { StatistiqueConsultantComponent } from './Partie-Consultant/statistique-consultant/statistique-consultant.component';
+import { RecuUtilisateurComponent } from './Partie-Utilisateur/recu-utilisateur/recu-utilisateur.component';
 
 //routes partie utilisateur
 const utilisateurRoutes: Routes = [
@@ -105,10 +105,7 @@ const consultantRoutes: Routes = [
     path: 'menu-consultant-dashboard',
     component: MenuConsultantDashboardComponent,
   },
-  {
-    path: 'help-consultant-dashboard',
-    component: HelpConsultantDashboardComponent,
-  },
+  
   {
     path: 'contact-consultant-dashboard',
     component: ContactConsultantDashboardComponent,
@@ -147,6 +144,7 @@ const routes: Routes = [
   { path: 'paiement-conditions', component: ConditionPaiementComponent },
   { path: 'termes-conditions', component: ConditionComponent },
   { path: 'admin-sidentifier', component: SidentifierAdminComponent },
+  { path: 'recu-utilisateur', component: RecuUtilisateurComponent },
 ];
 
 @NgModule({

@@ -18,7 +18,6 @@ import { ProfilConsultantUtilisateurComponent } from './Partie-Utilisateur/profi
 import { SidentifierComponent } from './Partie-Consultant/sidentifier/sidentifier.component';
 import { ProfilConsultantDashboardComponent } from './Partie-Consultant/profil-consultant-dashboard/profil-consultant-dashboard.component';
 import { RendezvousConsultantDashboardComponent } from './Partie-Consultant/rendezvous-consultant-dashboard/rendezvous-consultant-dashboard.component';
-import { HelpConsultantDashboardComponent } from './Partie-Consultant/help-consultant-dashboard/help-consultant-dashboard.component';
 import { MenuConsultantDashboardComponent } from './Partie-Consultant/menu-consultant-dashboard/menu-consultant-dashboard.component';
 import { ContactConsultantDashboardComponent } from './Partie-Consultant/contact-consultant-dashboard/contact-consultant-dashboard.component';
 import { ConsultationsConsultantDashboardComponent } from './Partie-Consultant/consultations-consultant-dashboard/consultations-consultant-dashboard.component';
@@ -73,6 +72,7 @@ import { ListReclamationAdminComponent } from './Partie-Admin/list-reclamation-a
 import { StatistiqueConsultantComponent } from './Partie-Consultant/statistique-consultant/statistique-consultant.component';
 import { PieChartAvisConsultantDashboardComponent } from './Partie-Consultant/pie-chart-avis-consultant-dashboard/pie-chart-avis-consultant-dashboard.component';
 import { BarChartConsultantDashboardComponent } from './Partie-Consultant/bar-chart-consultant-dashboard/bar-chart-consultant-dashboard.component';
+import { RecuUtilisateurComponent } from './Partie-Utilisateur/recu-utilisateur/recu-utilisateur.component';
 
 
 
@@ -92,7 +92,6 @@ import { BarChartConsultantDashboardComponent } from './Partie-Consultant/bar-ch
     SidentifierComponent,
     ProfilConsultantDashboardComponent,
     RendezvousConsultantDashboardComponent,
-    HelpConsultantDashboardComponent,
     MenuConsultantDashboardComponent,
     ContactConsultantDashboardComponent,
     ConsultationsConsultantDashboardComponent,
@@ -126,6 +125,7 @@ import { BarChartConsultantDashboardComponent } from './Partie-Consultant/bar-ch
     StatistiqueConsultantComponent,
     PieChartAvisConsultantDashboardComponent,
     BarChartConsultantDashboardComponent,
+    RecuUtilisateurComponent,
   ],
   imports: [
     BrowserModule,

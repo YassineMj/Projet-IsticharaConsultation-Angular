@@ -16,14 +16,14 @@ export class MenuAdminComponent {
       this.router.navigate(['/admin-sidentifier'])
     }
   }
-  
+
 
 sidebarVisible: boolean = true;
 
   toggleSidebar() {
-  
+
     this.sidebarVisible = !this.sidebarVisible;
-    
+
   }
-  
+
 }

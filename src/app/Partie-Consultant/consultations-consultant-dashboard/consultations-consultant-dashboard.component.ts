@@ -13,7 +13,7 @@ export class ConsultationsConsultantDashboardComponent implements OnInit {
 
   showSuccessMessage: boolean = false;
   showInfoMessage: boolean = false;
-  
+
   consultation: consultationBean = new consultationBean();
   getConsultations: any = null;
   consultationExist = {
@@ -34,6 +34,9 @@ export class ConsultationsConsultantDashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+     if (this._serviceConsultant.consultantAuthObjet == null) {
+       this.router.navigate(['/consultant/sidentifier-consultant']);
+     }
     this._serviceConsultation
       .getConsultation(this._serviceConsultant.consultantAuthObjet.idConsultant)
       .subscribe(
@@ -69,8 +72,8 @@ export class ConsultationsConsultantDashboardComponent implements OnInit {
           this.ngOnInit();
           this.ajoute = true;
         });
-      
-      
+
+
        // Show success message
         this.showSuccessMessage = true;
         // Hide success message after 3 seconds
@@ -99,8 +102,8 @@ export class ConsultationsConsultantDashboardComponent implements OnInit {
           this.ngOnInit();
           this.modification = true;
         });
-      
-      
+
+
        // Show success message
         this.showInfoMessage = true;
         // Hide success message after 3 seconds

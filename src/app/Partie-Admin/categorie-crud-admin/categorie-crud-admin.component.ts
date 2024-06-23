@@ -18,7 +18,7 @@ export class CategorieCrudAdminComponent implements  OnInit {
     showSearchInput: boolean = false;
 
   constructor(private _serviceAdmin: AdminService, private router: Router) { }
-  
+
   listCategorie: any
   listDomaine:any
   idDomaine:any;
@@ -30,10 +30,10 @@ export class CategorieCrudAdminComponent implements  OnInit {
 
   isFormComplete(): boolean {
 
-  return !!this.categorieData.nomCategorie && 
+  return !!this.categorieData.nomCategorie &&
          !!this.categorieData.descriptionCategorie &&
          !!this.idDomaine;
-    
+
 }
 
   categorieToDeleteId: number;
@@ -50,14 +50,14 @@ export class CategorieCrudAdminComponent implements  OnInit {
      if (!this.showSearchInput) {
       inputElement.value = '';
     }
-   
+
   }
 
   ngOnInit(): void {
     if(this._serviceAdmin.authAdminObjet==null){
       this.router.navigate(['/admin-sidentifier'])
     }
-    
+
     this._serviceAdmin.getAllDomaines().subscribe(
       resp=>{
         this.listDomaine=resp
@@ -85,9 +85,9 @@ export class CategorieCrudAdminComponent implements  OnInit {
   }
 
   ajouterCategorie(){
-    
+
     console.log(this.idDomaine);
-    
+
     this._serviceAdmin.addCategorie(this.idDomaine,this.categorieData).subscribe(
       resp=>{
         console.log(resp);
@@ -102,11 +102,11 @@ export class CategorieCrudAdminComponent implements  OnInit {
         this._serviceAdmin.addActivity(dataActivity).subscribe(
           (response) => {
             console.log('Activité ajoutée avec succès !', response);
-            
+
           },
           (error) => {
             console.error('Erreur lors de l\'ajout de l\'activité : ', error);
-            
+
           }
         );
 
@@ -116,7 +116,7 @@ export class CategorieCrudAdminComponent implements  OnInit {
         setTimeout(() => {
           this.showSuccessMessage = false;
         }, 3000);
-        
+
         this.categorieData.descriptionCategorie="";
         this.categorieData.nomCategorie="";
         this.ngOnInit();
@@ -138,7 +138,7 @@ export class CategorieCrudAdminComponent implements  OnInit {
     this._serviceAdmin.updateCategorie(idCategorie,this.categorieUpdateData.domaine.idDomaine,this.categorieUpdateData).subscribe(
       resp=>{
         console.log(resp);
-        
+
         const dataActivity={
           action:"modifier",
           description:"Modifier categorie "+this.categorieUpdateData.nomCategorie,
@@ -149,15 +149,15 @@ export class CategorieCrudAdminComponent implements  OnInit {
         this._serviceAdmin.addActivity(dataActivity).subscribe(
           (response) => {
             console.log('Activité ajoutée avec succès !', response);
-            
+
           },
           (error) => {
             console.error('Erreur lors de l\'ajout de l\'activité : ', error);
-            
+
           }
         );
 
-           
+
          // Show success message
         this.showInfoMessage = true;
         // Hide success message after 3 seconds
@@ -189,14 +189,14 @@ export class CategorieCrudAdminComponent implements  OnInit {
         this._serviceAdmin.addActivity(dataActivity).subscribe(
           (response) => {
             console.log('Activité ajoutée avec succès !', response);
-            
+
           },
           (error) => {
             console.error('Erreur lors de l\'ajout de l\'activité : ', error);
-            
+
           }
         );
-        
+
            // Show success message
         this.showDangerMessage = true;
         // Hide success message after 3 seconds
