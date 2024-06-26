@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { PaiementService } from '../Services/paiement.service';
 import Stripe from 'stripe';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 
 @Component({
@@ -10,10 +12,14 @@ import Stripe from 'stripe';
   styleUrls: ['./paiement-utilisateur.component.css'],
 })
 export class PaiementUtilisateurComponent implements OnInit {
+
   constructor(
     private router: Router,
-    public _serviceClientPaiement: PaiementService
-  ) {}
+    public _serviceClientPaiement: PaiementService,
+  ) { }
+  
+    @ViewChild('receiptSection') receiptSection!: ElementRef;
+
   ngOnInit(): void {
     if (this._serviceClientPaiement.infoClientPaiement.nomClient == '') {
       this.router.navigate(['/utilisateur/recherche-utilisateur']);
@@ -29,18 +35,44 @@ export class PaiementUtilisateurComponent implements OnInit {
   invalidCvc: boolean = false;
   conditionsAccepted = false;
 
+ downloadReceiptAsPDF() {
+    const doc = new jsPDF();
+
+    // Use html2canvas to capture the content of the receiptSection element
+    html2canvas(this.receiptSection.nativeElement).then((canvas) => {
+      // Convert the captured content to a base64 image data URL
+      const imgData = canvas.toDataURL('image/png');
+
+      // Add image to the PDF document
+      const imgProps = doc.getImageProperties(imgData);
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+      doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+
+      // Save the PDF with name 'receipt.pdf'
+      doc.save('Reçu-paiement.pdf');
+      this.resetForm();
+      this.router.navigate(['/utilisateur/accueil-utilisateur']);
+
+
+    });
+  }
+
   invalid() {
     const numeroRegex = /^\d{16,17}$/;
     this.invalidNumero = !numeroRegex.test(
       this._serviceClientPaiement.infoClientPaiement.numCard
     );
   }
+
   invalidC() {
     const cvcRegex = /^\d{3,4}$/;
     this.invalidCvc = !cvcRegex.test(
       this._serviceClientPaiement.infoClientPaiement.cvc
     );
   }
+
   /*
   validateinfos() {
 
@@ -117,6 +149,7 @@ export class PaiementUtilisateurComponent implements OnInit {
   }
 
   showSuccessMessage = false;
+  showReceipt: boolean = false; // Control the visibility of the receipt summary
 
   showSuccess() {
     this.showSuccessMessage = true;
@@ -128,95 +161,82 @@ export class PaiementUtilisateurComponent implements OnInit {
   hideSuccessMessage() {
     this.showSuccessMessage = false;
   }
+loading = false; // Initialize as false
 
   async paiement() {
-    // Disable the button
     this.buttonDisabled = true;
+    this.loading = true; // Show loading spinner
 
     // Perform validations
     this.invalid();
     this.invalidC();
-    this.numeroVide =
-      this._serviceClientPaiement.infoClientPaiement.numCard === '';
+    this.numeroVide = this._serviceClientPaiement.infoClientPaiement.numCard === '';
     this.cvcVide = this._serviceClientPaiement.infoClientPaiement.cvc === '';
-    this.moisVide =
-      this._serviceClientPaiement.infoClientPaiement.dateExpMois === '';
-    this.anneeVide =
-      this._serviceClientPaiement.infoClientPaiement.dateExpAnne === '';
+    this.moisVide = this._serviceClientPaiement.infoClientPaiement.dateExpMois === '';
+    this.anneeVide = this._serviceClientPaiement.infoClientPaiement.dateExpAnne === '';
 
-    if (
-      this.numeroVide ||
-      this.cvcVide ||
-      this.moisVide ||
-      this.anneeVide ||
-      this.invalidNumero ||
-      this.invalidCvc
-    ) {
-      // Enable the button
+    if (this.numeroVide || this.cvcVide || this.moisVide || this.anneeVide || this.invalidNumero || this.invalidCvc) {
+      this.loading = false;
       this.buttonDisabled = false;
       return;
     }
 
-    if (this.conditionsAccepted) {
-      try {
-        const customer = await this.createCustomer();
-        this._serviceClientPaiement.infoClientPaiement.idClient = customer.id;
+    if (!this.conditionsAccepted) {
+      alert('Veuillez accepter les conditions');
+      this.loading = false;
+      this.buttonDisabled = false;
+      return;
+    }
 
-        const card = await this.addCardToCustomer(customer.id);
-        this._serviceClientPaiement.infoClientPaiement.idCard = card.id;
+    try {
+      const customer = await this.createCustomer();
+      this._serviceClientPaiement.infoClientPaiement.idClient = customer.id;
 
-        const demandeRequest = {
-          idClientStripe:
-            this._serviceClientPaiement.infoClientPaiement.idClient,
-          idCardStripe: this._serviceClientPaiement.infoClientPaiement.idCard,
-          numCard: this._serviceClientPaiement.infoClientPaiement.numCard,
-          nomClient: this._serviceClientPaiement.infoClientPaiement.nomClient,
-          emailClient:
-            this._serviceClientPaiement.infoClientPaiement.emailClient,
-          villeClient:
-            this._serviceClientPaiement.infoClientPaiement.villeClient,
-          paysClient: this._serviceClientPaiement.infoClientPaiement.paysClient,
-          adresseClient:
-            this._serviceClientPaiement.infoClientPaiement.adresseClient,
-          idConsultant:
-            this._serviceClientPaiement.infoClientPaiement.idConsultant,
-          idPlan: this._serviceClientPaiement.infoClientPaiement.idPlan,
-          prixTotal: this._serviceClientPaiement.infoClientPaiement.total,
-          message:
-            this._serviceClientPaiement.infoClientPaiement.descriptionClient,
-          telephone:
-            this._serviceClientPaiement.infoClientPaiement.telephoneClient,
-        };
+      const card = await this.addCardToCustomer(customer.id);
+      this._serviceClientPaiement.infoClientPaiement.idCard = card.id;
 
-        this._serviceClientPaiement.prendreRendezVous(demandeRequest).subscribe(
-          (resp) => {
-            this.showSuccess();
-            setTimeout(() => {
-              this.resetForm();
-              this.router.navigate(['/utilisateur/accueil-utilisateur']);
-              this.buttonDisabled = false;
-            }, 3000); // Navigate after 3 seconds
-          },
-          (error) => {
-            console.error(
-              "Une erreur s'est produite lors de la prise de rendez-vous:",
-              error
-            );
-            // Enable the button
+      const demandeRequest = {
+        idClientStripe: this._serviceClientPaiement.infoClientPaiement.idClient,
+        idCardStripe: this._serviceClientPaiement.infoClientPaiement.idCard,
+        numCard: this._serviceClientPaiement.infoClientPaiement.numCard,
+        nomClient: this._serviceClientPaiement.infoClientPaiement.nomClient,
+        emailClient: this._serviceClientPaiement.infoClientPaiement.emailClient,
+        villeClient: this._serviceClientPaiement.infoClientPaiement.villeClient,
+        paysClient: this._serviceClientPaiement.infoClientPaiement.paysClient,
+        adresseClient: this._serviceClientPaiement.infoClientPaiement.adresseClient,
+        idConsultant: this._serviceClientPaiement.infoClientPaiement.idConsultant,
+        idPlan: this._serviceClientPaiement.infoClientPaiement.idPlan,
+        prixTotal: this._serviceClientPaiement.infoClientPaiement.total,
+        message: this._serviceClientPaiement.infoClientPaiement.descriptionClient,
+        telephone: this._serviceClientPaiement.infoClientPaiement.telephoneClient,
+      };
+
+      this._serviceClientPaiement.prendreRendezVous(demandeRequest).subscribe(
+        (resp) => {
+          console.log('Paiement réussi. Affichage du reçu...');
+          this.showReceipt = true; // Show receipt summary
+          console.log('showReceipt:', this.showReceipt); // Log the state
+          this.loading = false; // Hide loading spinner
+          setTimeout(() => {
             this.buttonDisabled = false;
-          }
-        );
-      } catch (error) {
-        console.error("Une erreur s'est produite lors du paiement:", error);
-        // Enable the button
-        this.buttonDisabled = false;
-      }
-    } else {
-      alert('veuillez accepter les conditions');
-      // Enable the button
+          }, 3000);
+        },
+        (error) => {
+          console.error("Erreur lors de la prise de rendez-vous:", error);
+          this.loading = false; // Hide loading spinner on error
+          this.buttonDisabled = false;
+        }
+      );
+    } catch (error) {
+      console.error("Erreur lors du paiement:", error);
+      this.loading = false; // Hide loading spinner on error
       this.buttonDisabled = false;
     }
   }
+
+
+
+
 
   resetForm() {
     this._serviceClientPaiement.infoClientPaiement = {
@@ -253,6 +273,7 @@ export class PaiementUtilisateurComponent implements OnInit {
       idConsultant: 0,
     };
   }
+
 
   async createCustomer() {
     try {
@@ -336,4 +357,5 @@ export class PaiementUtilisateurComponent implements OnInit {
   //       return 'tok_visa';
   //   }
   // }
+  
 }
