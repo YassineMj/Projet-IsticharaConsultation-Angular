@@ -1,19 +1,28 @@
-<body>
-  <!-- Success message container -->
-  <div
-    *ngIf="showSuccessMessage"
-    class="alert alert-success alert-dismissible fade show position-absolute top-0 start-50 translate-middle-x"
-    role="alert"
-  >
-    Le rendez-vous a été créé avec succès!
-    <button
-      type="button"
-      class="btn-close"
-      (click)="hideSuccessMessage()"
-      aria-label="Close"
-    ></button>
-  </div>
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
 
+<!-- Success message container -->
+<div
+  *ngIf="showSuccessMessage"
+  class="alert body alert-success alert-dismissible fade show position-absolute top-0 start-50 translate-middle-x"
+  role="alert"
+>
+  Le rendez-vous a été créé avec succès!
+  <button
+    type="button"
+    class="btn-close"
+    (click)="hideSuccessMessage()"
+    aria-label="Close"
+  ></button>
+</div>
+
+<div *ngIf="!showReceipt" class="body">
   <div class="container">
     <h2 class="title">
       DEMANDE DE PAIEMENT
@@ -197,6 +206,7 @@
             </div>
             <!--dyl form-->
           </div>
+
           <div class="header-bottom">
             <p>
               Les informations sur le paiement vous concernant resteront
@@ -257,6 +267,8 @@
             </div>
           </div>
         </div>
+
+        <!--detail de paiement -->
         <div class="row mt-3">
           <div class="col-md-12">
             <div class="card">
@@ -269,7 +281,7 @@
                     Identifiant
                     <span class="label-1card2">&nbsp;</span> :</label
                   >
-                  <span style="margin-left: 10px">CU8****************EJ</span>
+                  <span style="margin-left: 10px">CU8********EJ</span>
                 </div>
                 <div class="form-group first-form-group">
                   <label>
@@ -284,6 +296,7 @@
           </div>
         </div>
 
+        <!--button-->
         <div class="row mt-3">
           <div class="col-md-12 col-sm-12">
             <button
@@ -299,7 +312,140 @@
             </button>
           </div>
         </div>
+        <div *ngIf="loading" class="spinner-container">
+          <!-- Customize your loading spinner here -->
+          <div class="spinner"></div>
+        </div>
       </div>
     </div>
   </div>
-</body>
+</div>
+
+<!-- Receipt Summary -->
+<div *ngIf="showReceipt">
+  <div #receiptSection class="container body">
+    <h2 class="title">
+      <span class="title-left" style="color: rgb(186, 39, 39)"
+        >Reçu de Paiement</span
+      >
+      <span class="title-right text-dark" style="font-weight: bold">
+        I<span class="istichara">S</span>TICHARA
+      </span>
+    </h2>
+
+    <hr class="hr-red" />
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card shadow">
+          <div class="header-recap">
+            <h4 class="text-primary">
+              <i class="fa-solid fa-receipt"></i> Détails Du Paiement
+            </h4>
+          </div>
+          <div class="card-body">
+            <h2 style="color: #1170ff83; text-decoration: dashed">
+              <i
+                class="fa-solid fa-user"
+                style="text-decoration: underline"
+              ></i>
+              INFORMATIONS DU CLIENT
+            </h2>
+
+            <p>
+              <strong>Nom Complet :</strong>
+              {{ _serviceClientPaiement.infoClientPaiement.nomClient }}
+            </p>
+            <p>
+              <strong>Email :</strong>
+              {{ _serviceClientPaiement.infoClientPaiement.emailClient }}
+            </p>
+            <p>
+              <strong>Telephone :</strong>
+              {{ _serviceClientPaiement.infoClientPaiement.telephoneClient }}
+            </p>
+            <p>
+              <strong>Pays :</strong>
+              {{ _serviceClientPaiement.infoClientPaiement.paysClient }}
+            </p>
+            <p>
+              <strong>ville :</strong>
+              {{ _serviceClientPaiement.infoClientPaiement.villeClient }}
+            </p>
+
+            <!-- Add other receipt details as necessary -->
+            <hr class="hr-blue" />
+            <h2 style="color: #1170ff83; text-decoration: dashed">
+              <i class="fa-solid fa-calendar"></i> INFORMATIONS DU CONSULTATION
+            </h2>
+
+            <p>
+              <strong>Nom de consultant :</strong>
+              {{ _serviceClientPaiement.infoClientPaiement.nomConsultant }}
+              {{ _serviceClientPaiement.infoClientPaiement.prenomConsultant }}
+            </p>
+            <p>
+              <strong>Date :</strong>
+              {{ _serviceClientPaiement.infoClientPaiement.jourDebut }}
+              {{ _serviceClientPaiement.infoClientPaiement.dateJourDebut }}
+            </p>
+            <p>
+              <strong>Heure debut :</strong>
+              {{ _serviceClientPaiement.infoClientPaiement.heureDebut }}
+            </p>
+            <p>
+              <strong>Heure Fin :</strong>
+              {{ _serviceClientPaiement.infoClientPaiement.heureFin }}
+            </p>
+            <hr class="hr-blue" />
+            <h2 style="color: #1170ff83; text-decoration: dashed">
+              <i class="fa-solid fa-credit-card"></i> INFORMATIONS DU PAIEMENT
+            </h2>
+
+            <p>
+              <b>{{ _serviceClientPaiement.infoClientPaiement.idClient }}</b>
+            </p>
+            <p>
+              <b>{{ _serviceClientPaiement.infoClientPaiement.idCard }}</b>
+            </p>
+
+            <hr class="hr-blue" />
+
+            <p class="centered-text">
+              <strong
+                ><i
+                  class="fa-solid fa-clipboard-check"
+                  style="color: rgb(17, 175, 64)"
+                ></i>
+                Montant à payer :</strong
+              >
+              {{ _serviceClientPaiement.infoClientPaiement.total }} MAD
+            </p>
+
+            <hr class="hr-blue" />
+
+            <div class="centered-text">
+              <span class="animated-arrows centered-text">
+                <i class="fa-solid fa-down-long"></i>
+                <i class="fa-solid fa-down-long"></i>
+                <i class="fa-solid fa-down-long"></i>
+              </span>
+            </div>
+
+            <br />
+
+            <div class="button-container">
+              <button
+                class="btn download-button col-md-5"
+                (click)="downloadReceiptAsPDF()"
+              >
+                <i class="fa-solid fa-download text-primary"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="hr-red" />
+    </div>
+  </div>
+</div>

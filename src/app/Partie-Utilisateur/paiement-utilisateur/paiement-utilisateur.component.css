@@ -1,5 +1,5 @@
-   body {
-       margin: 10%;
+   .body {
+       margin: 5%;
    }
 
    .navbar-brand {
@@ -186,3 +186,185 @@
        /* Adjust as needed */
        margin-top: 7%;
    }
+   /* Styles for Receipt Summary */
+
+   .container.body {
+       margin: 20px auto;
+       max-width: 800px;
+       background-color: #f6feff65;
+       padding: 20px;
+       border-radius: 8px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+
+   .title a:hover {
+       color: #00000072;
+   }
+
+   .hr-red {
+       border-top: 2px solid #ff7676;
+       margin: 20px 0;
+   }
+
+  .hr-blue {
+      border-top: 5px solid rgba(132, 218, 255, 0.484);
+      margin: 20px auto;
+      width: 50%;
+  }
+  
+   .card {
+       background-color: #fff;
+       border-radius: 8px;
+       padding: 20px;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   }
+
+   .header-recap h4 {
+       font-size: 20px;
+       margin-bottom: 15px;
+   }
+
+   .card-body {
+       font-size: 16px;
+       line-height: 1.6;
+   }
+
+   .card-body p {
+       margin-bottom: 10px;
+   }
+
+   .card-body strong {
+       font-weight: bold;
+       margin-right: 5px;
+   }
+
+   .logo {
+       font-weight: bold;
+       font-size: 20px;
+   }
+   .fs-4 {
+       font-size: 1.5rem;
+   }
+
+   .title {
+       display: flex;
+       justify-content: space-between;
+       /* Aligns items with space between them */
+       align-items: center;
+       /* Centers items vertically */
+   }
+
+   .title-left {
+       flex: 1;
+       /* Takes up remaining space */
+       /* Optional: Adds space between title and istichara */
+   }
+
+   .title-right {
+       display: flex;
+       /* Nested flexbox to align istichara */
+       align-items: center;
+       /* Centers items vertically */
+   }
+
+   .logo {
+       font-weight: bold;
+       font-size: 2rem;
+       /* Adjust font size as needed */
+   }
+   .centered-text {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       text-align: center;
+       /* Fallback for older browsers */
+   }
+
+   .centered-text strong {
+       margin-right: 10px;
+       /* Adjust as needed for spacing between icon and text */
+   }
+
+.animated-arrows {
+    display: inline-flex;
+    /* Use inline-flex to keep items inline */
+    align-items: center;
+    /* Align items vertically */
+    color: rgba(0, 153, 255, 0.779);
+}
+
+@keyframes moveDown {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+        /* Adjust distance as needed */
+    }
+}
+
+.animated-arrows i {
+    display: inline-block;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Optional: Adjust spacing between arrows */
+    animation: moveDown 1.5s infinite;
+    /* Adjust animation duration as needed */
+}
+
+.download-button {
+    
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border :3px solid  #0f81f482;
+    color: rgba(0, 64, 255, 0.872);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: rgba(236, 246, 254, 0.505);
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #0055ff6d;
+    color: rgba(0, 64, 255, 0.872);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Optional: Centers vertically on the viewport */
+}
+.fa-download {
+    font-size: 24px;
+    /* Adjust font size as needed */
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust height as needed */
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid rgba(213, 231, 255, 0.523);
+  border-left-color: #0095ff;
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
