@@ -8,6 +8,7 @@ import { saveAs } from 'file-saver';
 import { ConsultantService } from '../Services/consultant.service';
 import { MatStepper, MatStepperNext } from '@angular/material/stepper'; // Importez MatStepper
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import emailjs from '@emailjs/browser'
 
 import {
   FormBuilder,
@@ -286,6 +287,17 @@ export class SinscrireComponent {
             console.log('Consultant uploadé avec succès. ID du consultant :',resp);
 
             this.showAlert('Inscription réussie !', 'success');
+
+
+            emailjs.init('SImaQ8yDhw9OISC5K');
+            emailjs.send('service_sdr8i2y', 'template_gf3tqoe', {
+              nom_consultant: this.formData.nom +' '+this.formData.prenom,
+              nom_domaine: this.formData.specialisation,
+              cin: this.formData.cin,
+              
+            });
+
+
             this.router.navigate(['/consultant/sidentifier-consultant'])
           },
           (error) => {
