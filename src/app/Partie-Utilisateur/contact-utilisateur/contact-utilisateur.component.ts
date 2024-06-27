@@ -33,7 +33,7 @@ this.nomInvalid=!nomRegex.test(this.Infomessage.nom.trim()) ;
   }
 
 
-  send() {
+  sendMessage() {
     // Valider chaque champ
   this.validateNom();
   this.validateEmail();
@@ -52,12 +52,12 @@ this.nomInvalid=!nomRegex.test(this.Infomessage.nom.trim()) ;
         this.nomInvalid ||
         this.emailInvalid 
       ) {
-        return; // Arrêtez l'envoi du formulaire si l'un des champs est vide
+        alert('invalid input');
+
       }
 
-    emailjs.init('MZrSjOhYn3BJR5ee5');
-    emailjs.send('service_6ws5cmm', 'template_ztdbdyg', {
-      from_name: this.Infomessage.nom,
+    emailjs.init('SImaQ8yDhw9OISC5K');
+    emailjs.send('service_sdr8i2y', 'template_4lchlpc', {
       phone: this.Infomessage.numero,
       from_email: this.Infomessage.email,
       message: this.Infomessage.message,
