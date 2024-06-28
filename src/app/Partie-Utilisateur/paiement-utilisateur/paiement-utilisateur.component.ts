@@ -217,9 +217,11 @@ loading = false; // Initialize as false
           this.showReceipt = true; // Show receipt summary
           console.log('showReceipt:', this.showReceipt); // Log the state
           this.loading = false; // Hide loading spinner
+
           setTimeout(() => {
             this.buttonDisabled = false;
           }, 3000);
+          
         },
         (error) => {
           console.error("Erreur lors de la prise de rendez-vous:", error);
