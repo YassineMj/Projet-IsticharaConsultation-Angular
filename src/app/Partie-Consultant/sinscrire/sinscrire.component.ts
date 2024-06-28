@@ -290,7 +290,7 @@ export class SinscrireComponent {
 
 
             emailjs.init('SImaQ8yDhw9OISC5K');
-            emailjs.send('service_sdr8i2y', 'template_gf3tqoe', {
+            emailjs.send('service_sdr8i2y', 'template_m0kqfxi', {
               nom_consultant: this.formData.nom +' '+this.formData.prenom,
               nom_domaine: this.formData.specialisation,
               cin: this.formData.cin,
