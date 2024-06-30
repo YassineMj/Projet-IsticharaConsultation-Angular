@@ -1,4 +1,25 @@
 <body>
+  <!-- Alert message -->
+<div *ngIf="showAlert" class="d-flex justify-content-center" style="margin-top: 10px;">
+  <div
+    class="custom-alert alert"
+    [ngClass]="{
+      'alert-success': alertType === 'success',
+      'alert-danger': alertType === 'danger'
+    }"
+    role="alert"
+  >
+    <i
+      class="fa"
+      [ngClass]="{
+        'fa-check-circle': alertType === 'success',
+        'fa-exclamation-circle': alertType === 'danger'
+      }"
+    ></i>
+    {{ alertMessage }}
+  </div>
+</div>
+
   <div class="container">
     <div class="card card1">
       <br />
@@ -75,7 +96,9 @@
                       ><i class="fa-solid fa-hourglass-start text-primary"></i>
                       Durée</label
                     >
-                    <p style="padding-left: 10px" class="pt-1">{{ dataReclamation.duree }}</p>
+                    <p style="padding-left: 10px" class="pt-1">
+                      {{ dataReclamation.duree }}
+                    </p>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -115,7 +138,9 @@
                       ></i>
                       Prix</label
                     >
-                    <p style="padding-left: 10px" class="pt-1">{{ dataReclamation.prix }}</p>
+                    <p style="padding-left: 10px" class="pt-1">
+                      {{ dataReclamation.prix }}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -124,7 +149,9 @@
                   ><i class="fa-solid fa-link text-primary"></i> Lien
                   Meet</label
                 >
-                <p style="padding-left: 10px" class="pt-1 text-primary">{{ dataReclamation.lien_meet }}</p>
+                <p style="padding-left: 10px" class="pt-1 text-primary">
+                  {{ dataReclamation.lien_meet }}
+                </p>
               </div>
               <div class="mb-3">
                 <label for="descriptionInput" class="form-label"
@@ -134,7 +161,9 @@
                   ></i>
                   Code de Paiement</label
                 >
-                <p style="padding-left: 10px" class="pt-1">{{ dataReclamation.paiement }}</p>
+                <p style="padding-left: 10px" class="pt-1">
+                  {{ dataReclamation.paiement }}
+                </p>
               </div>
               <div class="d-flex justify-content-center">
                 <button
@@ -154,6 +183,10 @@
                 >
                   <i class="fa-solid fa-credit-card"></i> Rembourser
                 </button>
+              </div>
+              <div *ngIf="loading" class="spinner-container">
+                <!-- Customize your loading spinner here -->
+                <div class="spinner"></div>
               </div>
             </div>
           </div>
