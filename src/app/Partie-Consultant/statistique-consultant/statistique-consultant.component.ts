@@ -15,37 +15,28 @@ export class StatistiqueConsultantComponent implements OnInit {
 
   items :any
 
-  avis:any
+  idConsultant:any
 
-  avisData :any
 
   ngOnInit(): void {
     if (this._service.consultantAuthObjet == null) {
       this.router.navigate(['/consultant/sidentifier-consultant']);
     }
     
-    const idConsultant=this._service.consultantAuthObjet.idConsultant
-    this._service.getRendezVousStatsByIdConsultant(idConsultant).subscribe(
+    this.idConsultant=this._service.consultantAuthObjet.idConsultant
+    this._service.getRendezVousStatsByIdConsultant(this.idConsultant).subscribe(
       data=>{
         this.rendezVous=data;
       }
     )
     
-    this._service.getPlansWithStatus(idConsultant).subscribe(
+    this._service.getPlansWithStatus(this.idConsultant).subscribe(
       data=>{
         this.items=data;
       }
     )
 
-    this._service.getFavAndDefavCount(idConsultant).subscribe(
-      data=>{
-        this.avis=data;
-        this.avisData = {
-          labels: ['Favorable', 'Défavorable'],
-          values: [this.avis.favCount, this.avis.defavCount],
-        };
-      }
-    )
+
 
     this._service.getActivitiesByConsultantId(this._service.consultantAuthObjet.id).subscribe(
       resp=>{

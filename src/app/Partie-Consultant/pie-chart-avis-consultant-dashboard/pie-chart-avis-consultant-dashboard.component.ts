@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { ConsultantService } from '../Services/consultant.service';
 
 @Component({
   selector: 'app-pie-chart-avis-consultant-dashboard',
@@ -7,24 +8,32 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./pie-chart-avis-consultant-dashboard.component.css'],
 })
 export class PieChartAvisConsultantDashboardComponent {
+  @Input() idConsultant: any;
+  avis: any;
+  avisData: any;
+  avisChartInstance: any | undefined;
 
-  @Input() data!: {
-    labels: string[];
-    values: number[];
-  };
-
-  constructor() {}
+  constructor(public _service: ConsultantService) {}
 
   ngOnInit(): void {
-    this.avisChart();
+    this._service.getFavAndDefavCount(this.idConsultant).subscribe((data) => {
+      this.avis = data;
+      console.log(this.avis);
+
+      this.avisData = {
+        labels: ['Favorable', 'Défavorable'],
+        values: [this.avis.favCount, this.avis.defavCount],
+      };
+
+      
+      this.avisChart();
+    });
   }
 
-  avisChartInstance: any | undefined; // Propriété pour stocker l'instance du graphique
-
-   avisChart(): void {
+  avisChart(): void {
     const ctx = document.getElementById('pieChartConsultant') as HTMLCanvasElement;
 
-    // Vérifier et détruire l'instance existante
+    
     if (this.avisChartInstance) {
       this.avisChartInstance.destroy();
     }
@@ -32,13 +41,13 @@ export class PieChartAvisConsultantDashboardComponent {
     this.avisChartInstance = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: this.data.labels,
+        labels: this.avisData.labels,
         datasets: [
           {
-            data: this.data.values,
+            data: this.avisData.values,
             backgroundColor: [
               'rgba(75, 192, 192, 0.2)',
-              'rgba(128, 0, 128, 0.2)', // Purple with 20% opacity
+              'rgba(128, 0, 128, 0.2)',
             ],
           },
         ],
@@ -53,5 +62,4 @@ export class PieChartAvisConsultantDashboardComponent {
       },
     });
   }
-
 }
